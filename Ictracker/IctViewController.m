@@ -14,10 +14,13 @@
 
 @implementation IctViewController
 
+@synthesize menuSelectorView;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	self.menuSelectorView = [[MenuSelectorView alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
+    [self.view addSubview:self.menuSelectorView];
 }
 
 - (void)didReceiveMemoryWarning

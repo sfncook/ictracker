@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MenuSelectorView.h"
 
 @interface IctViewController : UIViewController
+
+@property (nonatomic, retain) MenuSelectorView* menuSelectorView;
 
 @end

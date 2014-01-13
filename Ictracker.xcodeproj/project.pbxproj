@@ -21,6 +21,9 @@
 		2907854B1883B032008B1B7D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2907852D1883B032008B1B7D /* UIKit.framework */; };
 		290785531883B032008B1B7D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 290785511883B032008B1B7D /* InfoPlist.strings */; };
 		290785551883B032008B1B7D /* IctrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 290785541883B032008B1B7D /* IctrackerTests.m */; };
+		290785611883B0A9008B1B7D /* MenuSelectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 290785601883B0A9008B1B7D /* MenuSelectorView.m */; };
+		290785641883B12C008B1B7D /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 290785631883B12C008B1B7D /* Utils.m */; };
+		290785681883B1CE008B1B7D /* ButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 290785671883B1CE008B1B7D /* ButtonView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,13 @@
 		290785501883B032008B1B7D /* IctrackerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IctrackerTests-Info.plist"; sourceTree = "<group>"; };
 		290785521883B032008B1B7D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		290785541883B032008B1B7D /* IctrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IctrackerTests.m; sourceTree = "<group>"; };
+		2907855F1883B0A9008B1B7D /* MenuSelectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuSelectorView.h; sourceTree = "<group>"; };
+		290785601883B0A9008B1B7D /* MenuSelectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuSelectorView.m; sourceTree = "<group>"; };
+		290785621883B12C008B1B7D /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		290785631883B12C008B1B7D /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		290785661883B1CE008B1B7D /* ButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonView.h; sourceTree = "<group>"; };
+		290785671883B1CE008B1B7D /* ButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonView.m; sourceTree = "<group>"; };
+		290785691883B2EE008B1B7D /* ButtonClickDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButtonClickDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +122,8 @@
 		2907852F1883B032008B1B7D /* Ictracker */ = {
 			isa = PBXGroup;
 			children = (
+				290785651883B1B3008B1B7D /* Button View Files */,
+				2907855E1883B078008B1B7D /* Menu Selector Files */,
 				290785381883B032008B1B7D /* IctAppDelegate.h */,
 				290785391883B032008B1B7D /* IctAppDelegate.m */,
 				2907853B1883B032008B1B7D /* Main.storyboard */,
@@ -119,6 +131,8 @@
 				2907853F1883B032008B1B7D /* IctViewController.m */,
 				290785411883B032008B1B7D /* Images.xcassets */,
 				290785301883B032008B1B7D /* Supporting Files */,
+				290785621883B12C008B1B7D /* Utils.h */,
+				290785631883B12C008B1B7D /* Utils.m */,
 			);
 			path = Ictracker;
 			sourceTree = "<group>";
@@ -150,6 +164,25 @@
 				290785511883B032008B1B7D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2907855E1883B078008B1B7D /* Menu Selector Files */ = {
+			isa = PBXGroup;
+			children = (
+				2907855F1883B0A9008B1B7D /* MenuSelectorView.h */,
+				290785601883B0A9008B1B7D /* MenuSelectorView.m */,
+			);
+			name = "Menu Selector Files";
+			sourceTree = "<group>";
+		};
+		290785651883B1B3008B1B7D /* Button View Files */ = {
+			isa = PBXGroup;
+			children = (
+				290785661883B1CE008B1B7D /* ButtonView.h */,
+				290785671883B1CE008B1B7D /* ButtonView.m */,
+				290785691883B2EE008B1B7D /* ButtonClickDelegate.h */,
+			);
+			name = "Button View Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +285,9 @@
 			files = (
 				290785401883B032008B1B7D /* IctViewController.m in Sources */,
 				290785361883B032008B1B7D /* main.m in Sources */,
+				290785611883B0A9008B1B7D /* MenuSelectorView.m in Sources */,
+				290785641883B12C008B1B7D /* Utils.m in Sources */,
+				290785681883B1CE008B1B7D /* ButtonView.m in Sources */,
 				2907853A1883B032008B1B7D /* IctAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
