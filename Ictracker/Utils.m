@@ -16,10 +16,9 @@ double PIX_PER_INCH_IPADMINI_RETINA = 326.0;
 double PIX_PER_INCH_IPADMINI        = 163.0;
 
 //Convert millimeters to pixels based on apple.com iPad specs.
-+ (double) millimetersToPixels:(int)mm
++ (double) millimetersToPixels:(double)mm
 {
-    double d_mm = (double)mm;
-    double d_inches = d_mm*0.0393701;
+    double d_inches = mm*0.0393701;
     double d_pixels = d_inches*PIX_PER_INCH_IPAD2;
     //http://www.apple.com/ipad-mini/specs/
 //    NSLog(@"mm:%f pix:%f", d_mm, d_pixels);

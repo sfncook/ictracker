@@ -10,7 +10,7 @@
 
 @interface Utils : NSObject
 
-+ (double) millimetersToPixels:(int)mm;
++ (double) millimetersToPixels:(double)mm;
 + (double) windowWidth;
 + (double) windowHeight;
 

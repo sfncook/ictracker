@@ -20,7 +20,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"win Height: %f", [Utils windowHeight]);
+//    NSLog(@"win Height: %f", [Utils windowHeight]);
 	self.menuSelectorView = [[MenuSelectorView alloc] initWithFrame:CGRectMake(0, [Utils millimetersToPixels:5], [Utils millimetersToPixels:13], [Utils windowWidth]-[Utils millimetersToPixels:5])];
     [self.view addSubview:self.menuSelectorView];
 }
