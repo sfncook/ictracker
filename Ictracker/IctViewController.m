@@ -7,6 +7,7 @@
 //
 
 #import "IctViewController.h"
+#import "Utils.h"
 
 @interface IctViewController ()
 
@@ -19,7 +20,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	self.menuSelectorView = [[MenuSelectorView alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
+    NSLog(@"win Height: %f", [Utils windowHeight]);
+	self.menuSelectorView = [[MenuSelectorView alloc] initWithFrame:CGRectMake(0, [Utils millimetersToPixels:5], [Utils millimetersToPixels:13], [Utils windowWidth]-[Utils millimetersToPixels:5])];
     [self.view addSubview:self.menuSelectorView];
 }
 

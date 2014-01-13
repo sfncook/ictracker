@@ -19,7 +19,7 @@
 {
     CGRect frame;
     if(size_==BUTTON_LARGE) {
-        frame = CGRectMake(0.0, 0.0, [Utils millimetersToPixels:10], [Utils millimetersToPixels:7]);
+        frame = CGRectMake(0.0, 0.0, [Utils millimetersToPixels:12], [Utils millimetersToPixels:9]);
     } else if(size_==BUTTON_MEDIUM) {
         frame = CGRectMake(0.0, 0.0, [Utils millimetersToPixels:7], [Utils millimetersToPixels:5]);
     }
@@ -39,20 +39,36 @@
 }
 
 - (void) drawName {
-    UIFont* font = [UIFont fontWithName:@"Georgia" size:30];
-    CGFloat fontHeight = font.pointSize;
-    CGFloat yOffset = (self.frame.size.height - fontHeight) / 2.0;
-    CGRect textRect = CGRectMake(0, yOffset, self.frame.size.width, fontHeight);
-    
-    /// Make a copy of the default paragraph style
-    NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-    paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
-    paragraphStyle.alignment = NSTextAlignmentCenter;
-    
-    NSDictionary *attributes = @{ NSFontAttributeName: font,
-                                  NSParagraphStyleAttributeName: paragraphStyle };
-    
-    [self.name drawInRect:textRect withAttributes:attributes];
+    if(self.size==BUTTON_LARGE) {
+        UIFont* font = [UIFont fontWithName:@"Georgia" size:14];
+        CGRect textRect = CGRectMake(0.0, 20.0, self.frame.size.width, self.frame.size.height);
+        
+        /// Make a copy of the default paragraph style
+        NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+        paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
+        paragraphStyle.alignment = NSTextAlignmentCenter;
+        
+        NSDictionary *attributes = @{ NSFontAttributeName: font,
+                                      NSParagraphStyleAttributeName: paragraphStyle };
+        
+        [self.name drawInRect:textRect withAttributes:attributes];
+    } else if(self.size==BUTTON_MEDIUM) {
+        UIFont* font = [UIFont fontWithName:@"Georgia" size:14];
+        CGFloat fontHeight = font.pointSize;
+        CGFloat yOffset = (self.frame.size.height - fontHeight) / 2.0;
+        NSLog(@"self.frame.size.height:%f  fontHeight:%f  yOffset:%f", self.frame.size.height, fontHeight, yOffset);
+        CGRect textRect = CGRectMake(0, yOffset, self.frame.size.width, fontHeight);
+        
+        /// Make a copy of the default paragraph style
+        NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+        paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
+        paragraphStyle.alignment = NSTextAlignmentCenter;
+        
+        NSDictionary *attributes = @{ NSFontAttributeName: font,
+                                      NSParagraphStyleAttributeName: paragraphStyle };
+        
+        [self.name drawInRect:textRect withAttributes:attributes];
+    }
 }
 
 @end
