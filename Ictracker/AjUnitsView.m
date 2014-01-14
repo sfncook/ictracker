@@ -14,10 +14,10 @@
 - (id)init
 {
     CGRect frame = CGRectMake(
-                              [Utils millimetersToPixels:10],
-                              [Utils millimetersToPixels:10],
-                              [Utils millimetersToPixels:45],
-                              [Utils windowWidth]-[Utils millimetersToPixels:15]);
+                              [Utils millimetersToPixels:9.5],
+                              [Utils millimetersToPixels:7],
+                              [Utils millimetersToPixels:47],
+                              [Utils windowWidth]-[Utils millimetersToPixels:10]);
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor redColor];
