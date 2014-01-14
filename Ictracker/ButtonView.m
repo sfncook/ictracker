@@ -72,4 +72,25 @@
     self.frame = CGRectMake(position.x, position.y, self.frame.size.width, self.frame.size.height);
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    self.backgroundColor = [UIColor darkGrayColor];
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    self.backgroundColor = [UIColor lightGrayColor];
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    self.backgroundColor = [UIColor lightGrayColor];
+    [_clickDelegate click:self];
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    
+}
+
 @end

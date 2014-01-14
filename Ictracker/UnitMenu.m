@@ -38,13 +38,31 @@
         _ajUnitsView = [[AjUnitsView alloc] init];
         [self addSubview:_mesaUnitsView];
         [self addSubview:_ajUnitsView];
+        
+        [self showMesa];
     }
     return self;
 }
 
+- (void) showMesa
+{
+    _mesaUnitsView.hidden = NO;
+    _ajUnitsView.hidden = YES;
+}
+
+- (void) showAj
+{
+    _mesaUnitsView.hidden = YES;
+    _ajUnitsView.hidden = NO;
+}
+
 - (void) click:(id)selector
 {
-    
+    if(selector==_mesaCityButton) {
+        [self showMesa];
+    } else if(selector==_ajCityButton) {
+        [self showAj];
+    }
 }
 
 @end
