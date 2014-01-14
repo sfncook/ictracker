@@ -11,16 +11,14 @@
 
 @implementation MenuSelectorView
 
-@synthesize unitsButton;
-
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor redColor];
         
-        self.unitsButton = [[ButtonView alloc] initWithName:@"Units" delegate:self size:BUTTON_LARGE];
-        [self.unitsButton setPosition:CGPointMake(
+        _unitsButton = [[ButtonView alloc] initWithName:@"Units" delegate:self size:BUTTON_LARGE];
+        [_unitsButton setPosition:CGPointMake(
             [Utils millimetersToPixels:0.5]-1,
             [Utils millimetersToPixels:0.5])];
         [self addSubview:self.unitsButton];

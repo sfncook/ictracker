@@ -11,6 +11,6 @@
 
 @interface MenuContainerView : UIView
 
-@property (nonatomic, retain) UnitMenu* unitMenu;
+@property (readonly, nonatomic) UnitMenu* unitMenu;
 
 @end

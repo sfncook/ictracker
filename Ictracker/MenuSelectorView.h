@@ -12,6 +12,6 @@
 
 @interface MenuSelectorView : UIView<ButtonClickDelegate>
 
-@property (nonatomic, retain) ButtonView* unitsButton;
+@property (readonly, nonatomic) ButtonView* unitsButton;
 
 @end

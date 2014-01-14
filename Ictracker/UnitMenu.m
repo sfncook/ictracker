@@ -11,11 +11,6 @@
 
 @implementation UnitMenu
 
-@synthesize mesaCityButton;
-@synthesize ajCityButton;
-@synthesize mesaUnitsView;
-@synthesize ajUnitsView;
-
 - (id)init
 {
     CGRect frame = CGRectMake(
@@ -27,22 +22,22 @@
     if (self) {
         self.backgroundColor = [UIColor blueColor];
         
-        self.mesaCityButton = [[ButtonView alloc] initWithName:@"Mesa" delegate:self size:BUTTON_MEDIUM];
+        _mesaCityButton = [[ButtonView alloc] initWithName:@"Mesa" delegate:self size:BUTTON_MEDIUM];
         [self addSubview:self.mesaCityButton];
         [self.mesaCityButton setPosition:CGPointMake(
             [Utils millimetersToPixels:0.5],
             [Utils millimetersToPixels:0.5])];
         
-        self.ajCityButton = [[ButtonView alloc] initWithName:@"AJ" delegate:self size:BUTTON_MEDIUM];
+        _ajCityButton = [[ButtonView alloc] initWithName:@"AJ" delegate:self size:BUTTON_MEDIUM];
         [self addSubview:self.ajCityButton];
         [self.ajCityButton setPosition:CGPointMake(
              self.mesaCityButton.frame.size.width + [Utils millimetersToPixels:1],
              [Utils millimetersToPixels:0.5])];
         
-        self.mesaUnitsView = [[MesaUnitsView alloc] init];
-        self.ajUnitsView = [[AjUnitsView alloc] init];
-        [self addSubview:self.mesaUnitsView];
-        [self addSubview:self.ajUnitsView];
+        _mesaUnitsView = [[MesaUnitsView alloc] init];
+        _ajUnitsView = [[AjUnitsView alloc] init];
+        [self addSubview:_mesaUnitsView];
+        [self addSubview:_ajUnitsView];
     }
     return self;
 }

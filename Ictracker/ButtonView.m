@@ -11,10 +11,6 @@
 
 @implementation ButtonView
 
-@synthesize name;
-@synthesize size;
-@synthesize clickDelegate;
-
 - (id)initWithName:(NSString*)name_ delegate:(id<ButtonClickDelegate>)clickDelegate_ size:(ButtonSize)size_
 {
     CGRect frame;
@@ -26,9 +22,9 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor lightGrayColor];
-        self.name = name_;
-        self.clickDelegate = clickDelegate_;
-        self.size = size_;
+        _name = name_;
+        _clickDelegate = clickDelegate_;
+        _size = size_;
     }
     return self;
 }

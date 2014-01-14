@@ -12,7 +12,7 @@
 
 @interface IctViewController : UIViewController
 
-@property (nonatomic, retain) MenuSelectorView* menuSelectorView;
-@property (nonatomic, retain) MenuContainerView* menuContainerView;
+@property (readonly, nonatomic) MenuSelectorView* menuSelectorView;
+@property (readonly, nonatomic) MenuContainerView* menuContainerView;
 
 @end

@@ -14,9 +14,9 @@
 
 @interface UnitMenu : UIView<ButtonClickDelegate>
 
-@property (nonatomic, retain) ButtonView* mesaCityButton;
-@property (nonatomic, retain) ButtonView* ajCityButton;
-@property (nonatomic, retain) MesaUnitsView* mesaUnitsView;
-@property (nonatomic, retain) AjUnitsView* ajUnitsView;
+@property (readonly, nonatomic) ButtonView* mesaCityButton;
+@property (readonly, nonatomic) ButtonView* ajCityButton;
+@property (readonly, nonatomic) MesaUnitsView* mesaUnitsView;
+@property (readonly, nonatomic) AjUnitsView* ajUnitsView;
 
 @end

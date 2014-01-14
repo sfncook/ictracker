@@ -13,9 +13,9 @@ typedef enum buttonsize {BUTTON_LARGE, BUTTON_MEDIUM} ButtonSize;
 
 @interface ButtonView : UIView
 
-@property (nonatomic, assign)   ButtonSize size;
-@property (nonatomic, retain)      NSString * name;
-@property (nonatomic, retain)      id<ButtonClickDelegate> clickDelegate;
+@property (readonly, assign)        ButtonSize size;
+@property (readonly, nonatomic)     NSString * name;
+@property (readonly, nonatomic)     id<ButtonClickDelegate> clickDelegate;
 
 - (id)initWithName:(NSString*)name_ delegate:(id<ButtonClickDelegate>)clickDelegate_ size:(ButtonSize)size_;
 - (void) setPosition:(CGPoint)position;

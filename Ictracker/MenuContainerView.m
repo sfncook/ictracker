@@ -11,8 +11,6 @@
 
 @implementation MenuContainerView
 
-@synthesize unitMenu;
-
 - (id)init
 {
     CGRect frame = CGRectMake(
@@ -24,19 +22,10 @@
     if (self) {
         self.backgroundColor = [UIColor yellowColor];
         
-        self.unitMenu = [[UnitMenu alloc] init];
+        _unitMenu = [[UnitMenu alloc] init];
         [self addSubview:self.unitMenu];
     }
     return self;
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end
