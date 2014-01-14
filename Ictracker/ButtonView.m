@@ -20,6 +20,8 @@
         frame = CGRectMake(0.0, 0.0, [Utils millimetersToPixels:7], [Utils millimetersToPixels:5]);
     } else if(size_==BUTTON_WIDE) {
         frame = CGRectMake(0.0, 0.0, [Utils millimetersToPixels:27], [Utils millimetersToPixels:5]);
+    } else if(size_==CHECK_WIDE) {
+        frame = CGRectMake(0.0, 0.0, [Utils millimetersToPixels:55], [Utils millimetersToPixels:6]);
     }
     self = [super initWithFrame:frame];
     if (self) {
@@ -65,6 +67,28 @@
                                       NSParagraphStyleAttributeName: paragraphStyle };
         
         [self.name drawInRect:textRect withAttributes:attributes];
+    }else if(_size==CHECK_WIDE) {
+        UIFont* font = [UIFont fontWithName:@"Georgia" size:14];
+        CGFloat fontHeight = font.pointSize;
+        CGFloat yOffset = (self.frame.size.height - fontHeight) / 2.0;
+        CGRect textRect = CGRectMake(0, yOffset, self.frame.size.width, fontHeight);
+        
+        /// Make a copy of the default paragraph style
+        NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+        paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
+        paragraphStyle.alignment = NSTextAlignmentLeft;
+        
+        NSDictionary *attributes = @{ NSFontAttributeName: font,
+                                      NSParagraphStyleAttributeName: paragraphStyle };
+        
+        NSMutableString* text;
+        if(_isChecked) {
+            text = [NSMutableString stringWithString:@"[X] "];
+        } else {
+            text = [NSMutableString stringWithString:@"[ ] "];
+        }
+        [text appendString:_name];
+        [text drawInRect:textRect withAttributes:attributes];
     }
 }
 
@@ -85,6 +109,9 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    if(_size==CHECK_WIDE) {
+        _isChecked = !_isChecked;
+    }
     self.backgroundColor = [UIColor lightGrayColor];
     [_clickDelegate click:self];
 }

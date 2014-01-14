@@ -13,22 +13,25 @@
 
 - (id)init
 {
-    CGRect frame = CGRectMake(
-                              0.0,
-                              0.0,
-                              [Utils millimetersToPixels:57],
-                              [Utils windowWidth]-[Utils millimetersToPixels:5]);
-    self = [super initWithFrame:frame];
+    NSArray *itemNames = @[
+                           @"Unit ID",
+                           @"Address",
+                           @"Occupancy",
+                           @"Construction",
+                           @"Conditions",
+                           @"Assume Command",
+                           @"Location(mobile/cab)",
+                           @"Strategy (off./def.)",
+                           @"Attack line",
+                           @"Water supply",
+                           @"IRIC",
+                           @"Accountability"];
+    
+    self = [super initWithItems:itemNames];
     if (self) {
         self.backgroundColor = [UIColor greenColor];
-        
     }
     return self;
-}
-
-- (void) click:(id)selector
-{
-    
 }
 
 @end

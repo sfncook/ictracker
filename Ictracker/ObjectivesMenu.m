@@ -13,22 +13,27 @@
 
 - (id)init
 {
-    CGRect frame = CGRectMake(
-                              0.0,
-                              0.0,
-                              [Utils millimetersToPixels:57],
-                              [Utils windowWidth]-[Utils millimetersToPixels:5]);
-    self = [super initWithFrame:frame];
+    NSArray *itemNames = @[
+                                @"All Clear",
+                                @"Under Control",
+                                @"Loss Stopped",
+                                @"Upgrade to full rescue",
+                                @"Assing safety",
+                                @"Establish supply line",
+                                @"Secure utilities",
+                                @"Ventilation",
+                                @"Create \"On deck\"",
+                                @"Pressurize exposures",
+                                @"Monitor channel 16",
+                                @"Salvage",
+                                @"Establish rehab",
+                                @"Occupant services"];
+    
+    self = [super initWithItems:itemNames];
     if (self) {
-        self.backgroundColor = [UIColor cyanColor] ;
-        
+        self.backgroundColor = [UIColor brownColor];
     }
     return self;
-}
-
-- (void) click:(id)selector
-{
-    
 }
 
 @end

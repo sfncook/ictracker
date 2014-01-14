@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ButtonClickDelegate.h"
+#import "ChecklistView.h"
 
-@interface OsrMenu : UIView<ButtonClickDelegate>
+@interface OsrMenu : ChecklistView
 
 @end

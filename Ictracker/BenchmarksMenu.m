@@ -13,22 +13,17 @@
 
 - (id)init
 {
-    CGRect frame = CGRectMake(
-                              0.0,
-                              0.0,
-                              [Utils millimetersToPixels:57],
-                              [Utils windowWidth]-[Utils millimetersToPixels:5]);
-    self = [super initWithFrame:frame];
+    NSArray *benchmarkNames = @[
+                             @"Primary Search",
+                             @"Secondary Search",
+                             @"Fire Control",
+                             @"Loss Stop"];
+    
+    self = [super initWithItems:benchmarkNames];
     if (self) {
         self.backgroundColor = [UIColor brownColor];
-        
     }
     return self;
-}
-
-- (void) click:(id)selector
-{
-    
 }
 
 @end

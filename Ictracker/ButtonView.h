@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "ButtonClickDelegate.h"
 
-typedef enum buttonsize {BUTTON_LARGE, BUTTON_MEDIUM, BUTTON_WIDE} ButtonSize;
+typedef enum buttonsize {BUTTON_LARGE, BUTTON_MEDIUM, BUTTON_WIDE, CHECK_WIDE} ButtonSize;
 
 @interface ButtonView : UIView
 
+@property (nonatomic, assign)       BOOL isChecked;
 @property (readonly, assign)        ButtonSize size;
 @property (readonly, nonatomic)     NSString * name;
 @property (readonly, nonatomic)     id<ButtonClickDelegate> clickDelegate;

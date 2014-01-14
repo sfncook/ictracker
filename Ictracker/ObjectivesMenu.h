@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ButtonClickDelegate.h"
+#import "ChecklistView.h"
 
-@interface ObjectivesMenu : UIView<ButtonClickDelegate>
+@interface ObjectivesMenu : ChecklistView
 
 @end

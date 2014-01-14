@@ -37,6 +37,7 @@
 		295183E71884E2550033B02F /* GilbertUnitsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 295183E61884E2550033B02F /* GilbertUnitsView.m */; };
 		295183EA1884F23B0033B02F /* CityUnitsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 295183E91884F23B0033B02F /* CityUnitsView.m */; };
 		295183ED1884F83B0033B02F /* WideItemsMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 295183EC1884F83B0033B02F /* WideItemsMenuView.m */; };
+		295183F21885006C0033B02F /* ChecklistView.m in Sources */ = {isa = PBXBuildFile; fileRef = 295183F11885006B0033B02F /* ChecklistView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,8 @@
 		295183E91884F23B0033B02F /* CityUnitsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityUnitsView.m; sourceTree = "<group>"; };
 		295183EB1884F83B0033B02F /* WideItemsMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WideItemsMenuView.h; sourceTree = "<group>"; };
 		295183EC1884F83B0033B02F /* WideItemsMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WideItemsMenuView.m; sourceTree = "<group>"; };
+		295183F01885006B0033B02F /* ChecklistView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChecklistView.h; sourceTree = "<group>"; };
+		295183F11885006B0033B02F /* ChecklistView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChecklistView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +165,7 @@
 		2907852F1883B032008B1B7D /* Ictracker */ = {
 			isa = PBXGroup;
 			children = (
+				295183EF1885001B0033B02F /* Checklist Menu Views */,
 				295183EE1884F84D0033B02F /* Wide Items Menu Views */,
 				290785651883B1B3008B1B7D /* Button View Files */,
 				2907855E1883B078008B1B7D /* Menu Views */,
@@ -243,12 +247,6 @@
 				290785781883C960008B1B7D /* AjUnitsView.m */,
 				295183E51884E2550033B02F /* GilbertUnitsView.h */,
 				295183E61884E2550033B02F /* GilbertUnitsView.m */,
-				295183D91884DB5C0033B02F /* BenchmarksMenu.h */,
-				295183DA1884DB5C0033B02F /* BenchmarksMenu.m */,
-				295183DC1884DBA60033B02F /* ObjectivesMenu.h */,
-				295183DD1884DBA60033B02F /* ObjectivesMenu.m */,
-				295183DF1884DBFA0033B02F /* OsrMenu.h */,
-				295183E01884DBFA0033B02F /* OsrMenu.m */,
 				295183E21884DC250033B02F /* NotesMenu.h */,
 				295183E31884DC250033B02F /* NotesMenu.m */,
 			);
@@ -266,6 +264,21 @@
 				295183D71884DAD60033B02F /* ActionsMenu.m */,
 			);
 			name = "Wide Items Menu Views";
+			sourceTree = "<group>";
+		};
+		295183EF1885001B0033B02F /* Checklist Menu Views */ = {
+			isa = PBXGroup;
+			children = (
+				295183F01885006B0033B02F /* ChecklistView.h */,
+				295183F11885006B0033B02F /* ChecklistView.m */,
+				295183D91884DB5C0033B02F /* BenchmarksMenu.h */,
+				295183DA1884DB5C0033B02F /* BenchmarksMenu.m */,
+				295183DC1884DBA60033B02F /* ObjectivesMenu.h */,
+				295183DD1884DBA60033B02F /* ObjectivesMenu.m */,
+				295183DF1884DBFA0033B02F /* OsrMenu.h */,
+				295183E01884DBFA0033B02F /* OsrMenu.m */,
+			);
+			name = "Checklist Menu Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,6 +386,7 @@
 				295183E41884DC250033B02F /* NotesMenu.m in Sources */,
 				290785791883C960008B1B7D /* AjUnitsView.m in Sources */,
 				295183E71884E2550033B02F /* GilbertUnitsView.m in Sources */,
+				295183F21885006C0033B02F /* ChecklistView.m in Sources */,
 				290785731883C6FF008B1B7D /* MenuContainerView.m in Sources */,
 				290785361883B032008B1B7D /* main.m in Sources */,
 				290785611883B0A9008B1B7D /* MenuSelectorView.m in Sources */,

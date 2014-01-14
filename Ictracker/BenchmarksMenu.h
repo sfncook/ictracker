@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ButtonClickDelegate.h"
+#import "ChecklistView.h"
 
-@interface BenchmarksMenu : UIView<ButtonClickDelegate>
+@interface BenchmarksMenu : ChecklistView
 
 @end
