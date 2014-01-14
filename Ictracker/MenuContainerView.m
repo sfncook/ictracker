@@ -15,7 +15,7 @@
 {
     CGRect frame = CGRectMake(
                               [Utils millimetersToPixels:13],
-                              [Utils millimetersToPixels:5],
+                              [Utils millimetersToPixels:13],
                               [Utils millimetersToPixels:57],
                               [Utils windowWidth]-[Utils millimetersToPixels:5]);
     self = [super initWithFrame:frame];

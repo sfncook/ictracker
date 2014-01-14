@@ -25,7 +25,7 @@
     
 	_menuSelectorView = [[MenuSelectorView alloc] initWithFrame:
                          CGRectMake(0,
-                                    [Utils millimetersToPixels:5],
+                                    [Utils millimetersToPixels:13],
                                     [Utils millimetersToPixels:13],
                                     [Utils windowWidth]-[Utils millimetersToPixels:5])
                                                        delegate:_menuContainerView];
