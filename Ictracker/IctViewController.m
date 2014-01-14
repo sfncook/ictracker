@@ -16,6 +16,7 @@
 @implementation IctViewController
 
 @synthesize menuSelectorView;
+@synthesize menuContainerView;
 
 - (void)viewDidLoad
 {
@@ -23,6 +24,9 @@
 //    NSLog(@"win Height: %f", [Utils windowHeight]);
 	self.menuSelectorView = [[MenuSelectorView alloc] initWithFrame:CGRectMake(0, [Utils millimetersToPixels:5], [Utils millimetersToPixels:13], [Utils windowWidth]-[Utils millimetersToPixels:5])];
     [self.view addSubview:self.menuSelectorView];
+    
+    self.menuContainerView = [[MenuContainerView alloc] init];
+    [self.view addSubview:self.menuContainerView];
 }
 
 - (void)didReceiveMemoryWarning

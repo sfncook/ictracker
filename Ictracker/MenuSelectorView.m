@@ -20,7 +20,9 @@
         self.backgroundColor = [UIColor redColor];
         
         self.unitsButton = [[ButtonView alloc] initWithName:@"Units" delegate:self size:BUTTON_LARGE];
-        [self.unitsButton setPosition:CGPointMake([Utils millimetersToPixels:0.5], [Utils millimetersToPixels:0.5])];
+        [self.unitsButton setPosition:CGPointMake(
+            [Utils millimetersToPixels:0.5]-1,
+            [Utils millimetersToPixels:0.5])];
         [self addSubview:self.unitsButton];
     }
     return self;
