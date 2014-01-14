@@ -19,11 +19,17 @@
 {
     [super viewDidLoad];
 //    NSLog(@"win Height: %f", [Utils windowHeight]);
-	_menuSelectorView = [[MenuSelectorView alloc] initWithFrame:CGRectMake(0, [Utils millimetersToPixels:5], [Utils millimetersToPixels:13], [Utils windowWidth]-[Utils millimetersToPixels:5])];
-    [self.view addSubview:self.menuSelectorView];
     
     _menuContainerView = [[MenuContainerView alloc] init];
     [self.view addSubview:_menuContainerView];
+    
+	_menuSelectorView = [[MenuSelectorView alloc] initWithFrame:
+                         CGRectMake(0,
+                                    [Utils millimetersToPixels:5],
+                                    [Utils millimetersToPixels:13],
+                                    [Utils windowWidth]-[Utils millimetersToPixels:5])
+                                                       delegate:_menuContainerView];
+    [self.view addSubview:self.menuSelectorView];
 }
 
 - (void)didReceiveMemoryWarning

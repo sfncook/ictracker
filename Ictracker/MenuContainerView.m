@@ -23,9 +23,26 @@
         self.backgroundColor = [UIColor yellowColor];
         
         _unitMenu = [[UnitMenu alloc] init];
-        [self addSubview:self.unitMenu];
+        [self addSubview:_unitMenu];
+        
+        _sectorMenu = [[SectorMenu alloc] init];
+        [self addSubview:_sectorMenu];
+        
+        [self showUnits];
     }
     return self;
+}
+
+- (void) showUnits
+{
+    _unitMenu.hidden = NO;
+    _sectorMenu.hidden = YES;
+}
+
+- (void) showSectors
+{
+    _unitMenu.hidden = YES;
+    _sectorMenu.hidden = NO;
 }
 
 @end

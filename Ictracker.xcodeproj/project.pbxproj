@@ -78,6 +78,7 @@
 		290785781883C960008B1B7D /* AjUnitsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AjUnitsView.m; sourceTree = "<group>"; };
 		295183D21884D6230033B02F /* SectorMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectorMenu.h; sourceTree = "<group>"; };
 		295183D31884D6230033B02F /* SectorMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectorMenu.m; sourceTree = "<group>"; };
+		295183D51884D73F0033B02F /* MenuSelectorDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuSelectorDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +188,7 @@
 			children = (
 				2907855F1883B0A9008B1B7D /* MenuSelectorView.h */,
 				290785601883B0A9008B1B7D /* MenuSelectorView.m */,
+				295183D51884D73F0033B02F /* MenuSelectorDelegate.h */,
 			);
 			name = "Menu Selector Files";
 			sourceTree = "<group>";

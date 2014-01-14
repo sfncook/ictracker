@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "UnitMenu.h"
 #import "SectorMenu.h"
+#import "MenuSelectorDelegate.h"
 
-@interface MenuContainerView : UIView
+@interface MenuContainerView : UIView<MenuSelectorDelegate>
 
 @property (readonly, nonatomic) UnitMenu* unitMenu;
 @property (readonly, nonatomic) SectorMenu* sectorMenu;

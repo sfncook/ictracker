@@ -9,9 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "ButtonView.h"
 #import "ButtonClickDelegate.h"
+#import "MenuSelectorDelegate.h"
 
 @interface MenuSelectorView : UIView<ButtonClickDelegate>
 
 @property (readonly, nonatomic) ButtonView* unitsButton;
+@property (readonly, nonatomic) ButtonView* sectorsButton;
+@property (readonly, nonatomic) id<MenuSelectorDelegate> selectorDelegate;
+
+- (id)initWithFrame:(CGRect)frame delegate:(id<MenuSelectorDelegate>)selectorDelegate_;
 
 @end
