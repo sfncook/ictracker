@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "UnitMenu.h"
+#import "SectorMenu.h"
 
 @interface MenuContainerView : UIView
 
 @property (readonly, nonatomic) UnitMenu* unitMenu;
+@property (readonly, nonatomic) SectorMenu* sectorMenu;
 
 @end
