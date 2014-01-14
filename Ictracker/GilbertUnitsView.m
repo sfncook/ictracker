@@ -13,12 +13,25 @@
 
 - (id)init
 {
-    CGRect frame = CGRectMake(
-                              [Utils millimetersToPixels:9.5],
-                              [Utils millimetersToPixels:7],
-                              [Utils millimetersToPixels:47],
-                              [Utils windowWidth]-[Utils millimetersToPixels:10]);
-    self = [super initWithFrame:frame];
+    NSArray *engNames = @[@"E281",
+                          @"E282",
+                          @"E283",
+                          @"E284",
+                          @"E285",
+                          @"E286",
+                          @"E287",
+                          @"E288",
+                          @"E289",
+                          @"E290"];
+    
+    NSArray *ladNames = @[@"L291",
+                          @"L292",
+                          @"L293",
+                          @"L294"];
+    
+    NSArray *bcNames = @[@"B291"];
+    
+    self = [super initWithEngNames:engNames ladNames:ladNames bcNames:bcNames];
     if (self) {
         self.backgroundColor = [UIColor yellowColor];
     }

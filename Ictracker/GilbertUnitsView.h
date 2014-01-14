@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CityUnitsView.h"
 
-@interface GilbertUnitsView : UIView
+@interface GilbertUnitsView : CityUnitsView
 
 @end

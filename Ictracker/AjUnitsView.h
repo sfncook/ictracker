@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CityUnitsView.h"
 
-@interface AjUnitsView : UIView
+@interface AjUnitsView : CityUnitsView
 
 @end

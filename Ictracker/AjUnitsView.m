@@ -13,25 +13,28 @@
 
 - (id)init
 {
-    CGRect frame = CGRectMake(
-                              [Utils millimetersToPixels:9.5],
-                              [Utils millimetersToPixels:7],
-                              [Utils millimetersToPixels:47],
-                              [Utils windowWidth]-[Utils millimetersToPixels:10]);
-    self = [super initWithFrame:frame];
+    NSArray *engNames = @[@"E241",
+                          @"E242",
+                          @"E243",
+                          @"E244",
+                          @"E245",
+                          @"E246",
+                          @"E247",
+                          @"E248",
+                          @"E249"];
+    
+    NSArray *ladNames = @[@"L261",
+                          @"L262"];
+    
+    NSArray *bcNames = @[@"B261"];
+    
+    self = [super initWithEngNames:engNames ladNames:ladNames bcNames:bcNames];
     if (self) {
         self.backgroundColor = [UIColor redColor];
     }
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
+
 
 @end

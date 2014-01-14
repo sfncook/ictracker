@@ -42,23 +42,21 @@
                           @"E228",
                           @"E229"];
     
-    CGRect frame = CGRectMake(
-                              [Utils millimetersToPixels:9.5],
-                              [Utils millimetersToPixels:7],
-                              [Utils millimetersToPixels:47],
-                              [Utils windowWidth]-[Utils millimetersToPixels:10]);
-    self = [super initWithFrame:frame];
+    NSArray *ladNames = @[@"L201",
+                          @"L202",
+                          @"L203",
+                          @"L204",
+                          @"L205"];
+    
+    NSArray *bcNames = @[@"B201",
+                          @"B202",
+                          @"B203"];
+    
+    self = [super initWithEngNames:engNames ladNames:ladNames bcNames:bcNames];
     if (self) {
         self.backgroundColor = [UIColor purpleColor];
     }
     return self;
 }
-
-
-- (void) click:(id)selector
-{
-    NSLog(@"click unit button");
-}
-
 
 @end
