@@ -13,18 +13,12 @@
 
 - (id)init
 {
-    NSArray *engNames = @[@"E241",
-                          @"E242",
-                          @"E243",
-                          @"E244",
-                          @"E245",
-                          @"E246",
-                          @"E247",
-                          @"E248",
-                          @"E249"];
+    NSArray *engNames = @[@"E261",
+                          @"E262",
+                          @"E265"];
     
-    NSArray *ladNames = @[@"L261",
-                          @"L262"];
+    NSArray *ladNames = @[@"L263",
+                          @"L264"];
     
     NSArray *bcNames = @[@"B261"];
     
