@@ -18,6 +18,8 @@
         frame = CGRectMake(0.0, 0.0, [Utils millimetersToPixels:12], [Utils millimetersToPixels:9]);
     } else if(size_==BUTTON_MEDIUM) {
         frame = CGRectMake(0.0, 0.0, [Utils millimetersToPixels:7], [Utils millimetersToPixels:5]);
+    } else if(size_==BUTTON_WIDE) {
+        frame = CGRectMake(0.0, 0.0, [Utils millimetersToPixels:27], [Utils millimetersToPixels:5]);
     }
     self = [super initWithFrame:frame];
     if (self) {
@@ -35,7 +37,7 @@
 }
 
 - (void) drawName {
-    if(self.size==BUTTON_LARGE) {
+    if(_size==BUTTON_LARGE) {
         UIFont* font = [UIFont fontWithName:@"Georgia" size:18];
         CGRect textRect = CGRectMake(0.0, 11.0, self.frame.size.width, self.frame.size.height);
         
@@ -48,11 +50,10 @@
                                       NSParagraphStyleAttributeName: paragraphStyle };
         
         [self.name drawInRect:textRect withAttributes:attributes];
-    } else if(self.size==BUTTON_MEDIUM) {
+    } else if(_size==BUTTON_MEDIUM || _size==BUTTON_WIDE) {
         UIFont* font = [UIFont fontWithName:@"Georgia" size:14];
         CGFloat fontHeight = font.pointSize;
         CGFloat yOffset = (self.frame.size.height - fontHeight) / 2.0;
-//        NSLog(@"self.frame.size.height:%f  fontHeight:%f  yOffset:%f", self.frame.size.height, fontHeight, yOffset);
         CGRect textRect = CGRectMake(0, yOffset, self.frame.size.width, fontHeight);
         
         /// Make a copy of the default paragraph style

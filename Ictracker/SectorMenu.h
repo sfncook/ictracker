@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ButtonClickDelegate.h"
+#import "WideItemsMenuView.h"
 
-@interface SectorMenu : UIView<ButtonClickDelegate>
+@interface SectorMenu : WideItemsMenuView
 
 @end

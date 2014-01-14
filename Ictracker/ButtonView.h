@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ButtonClickDelegate.h"
 
-typedef enum buttonsize {BUTTON_LARGE, BUTTON_MEDIUM} ButtonSize;
+typedef enum buttonsize {BUTTON_LARGE, BUTTON_MEDIUM, BUTTON_WIDE} ButtonSize;
 
 @interface ButtonView : UIView
 
