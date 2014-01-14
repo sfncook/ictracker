@@ -31,6 +31,19 @@
         _actionsMenu = [[ActionsMenu alloc] init];
         [self addSubview:_actionsMenu];
         
+        
+        
+        _benchmarksMenu = [[BenchmarksMenu alloc] init];
+        [self addSubview:_benchmarksMenu];
+        
+        _objectivesMenu = [[ObjectivesMenu alloc] init];
+        [self addSubview:_objectivesMenu];
+        
+        
+        
+        _osrMenu = [[OsrMenu alloc] init];
+        [self addSubview:_osrMenu];
+        
         [self showUnits];
     }
     return self;
@@ -40,14 +53,77 @@
 {
     _unitMenu.hidden = NO;
     _sectorMenu.hidden = YES;
-    _actionsMenu.hidden = NO;
+    _actionsMenu.hidden = YES;
+    _benchmarksMenu.hidden = YES;
+    _objectivesMenu.hidden = YES;
+    _osrMenu.hidden = YES;
+    _notesMenu.hidden = YES;
 }
 
 - (void) showSectors
 {
     _unitMenu.hidden = YES;
     _sectorMenu.hidden = NO;
+    _actionsMenu.hidden = YES;
+    _benchmarksMenu.hidden = YES;
+    _objectivesMenu.hidden = YES;
+    _osrMenu.hidden = YES;
+    _notesMenu.hidden = YES;
+}
+
+- (void) showActions
+{
+    _unitMenu.hidden = YES;
+    _sectorMenu.hidden = YES;
     _actionsMenu.hidden = NO;
+    _benchmarksMenu.hidden = YES;
+    _objectivesMenu.hidden = YES;
+    _osrMenu.hidden = YES;
+    _notesMenu.hidden = YES;
+}
+
+- (void) showBenchmarks
+{
+    _unitMenu.hidden = YES;
+    _sectorMenu.hidden = YES;
+    _actionsMenu.hidden = YES;
+    _benchmarksMenu.hidden = NO;
+    _objectivesMenu.hidden = YES;
+    _osrMenu.hidden = YES;
+    _notesMenu.hidden = YES;
+}
+
+- (void) showObjectives
+{
+    _unitMenu.hidden = YES;
+    _sectorMenu.hidden = YES;
+    _actionsMenu.hidden = YES;
+    _benchmarksMenu.hidden = YES;
+    _objectivesMenu.hidden = NO;
+    _osrMenu.hidden = YES;
+    _notesMenu.hidden = YES;
+}
+
+- (void) showOsr
+{
+    _unitMenu.hidden = YES;
+    _sectorMenu.hidden = YES;
+    _actionsMenu.hidden = YES;
+    _benchmarksMenu.hidden = YES;
+    _objectivesMenu.hidden = YES;
+    _osrMenu.hidden = NO;
+    _notesMenu.hidden = YES;
+}
+
+- (void) showNotes
+{
+    _unitMenu.hidden = YES;
+    _sectorMenu.hidden = YES;
+    _actionsMenu.hidden = YES;
+    _benchmarksMenu.hidden = YES;
+    _objectivesMenu.hidden = YES;
+    _osrMenu.hidden = YES;
+    _notesMenu.hidden = NO;
 }
 
 @end

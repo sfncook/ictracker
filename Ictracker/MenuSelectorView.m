@@ -76,6 +76,16 @@
         [_selectorDelegate showUnits];
     } else if(selector==_sectorsButton) {
         [_selectorDelegate showSectors];
+    } else if(selector==_actionsButton) {
+        [_selectorDelegate showActions];
+    } else if(selector==_benchmarksButton) {
+        [_selectorDelegate showBenchmarks];
+    } else if(selector==_objectivesButton) {
+        [_selectorDelegate showObjectives];
+    } else if(selector==_osrButton) {
+        [_selectorDelegate showOsr];
+    } else if(selector==_notesButton) {
+        [_selectorDelegate showNotes];
     }
 }
 

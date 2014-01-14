@@ -20,7 +20,7 @@
                               [Utils windowWidth]-[Utils millimetersToPixels:5]);
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor cyanColor] ;
+        self.backgroundColor = [UIColor greenColor];
         
     }
     return self;

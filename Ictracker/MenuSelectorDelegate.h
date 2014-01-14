@@ -12,5 +12,10 @@
 
 - (void) showUnits;
 - (void) showSectors;
+- (void) showActions;
+- (void) showBenchmarks;
+- (void) showObjectives;
+- (void) showOsr;
+- (void) showNotes;
 
 @end

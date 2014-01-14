@@ -11,11 +11,19 @@
 #import "SectorMenu.h"
 #import "MenuSelectorDelegate.h"
 #import "ActionsMenu.h"
+#import "BenchmarksMenu.h"
+#import "ObjectivesMenu.h"
+#import "OsrMenu.h"
+#import "NotesMenu.h"
 
 @interface MenuContainerView : UIView<MenuSelectorDelegate>
 
 @property (readonly, nonatomic) UnitMenu* unitMenu;
 @property (readonly, nonatomic) SectorMenu* sectorMenu;
 @property (readonly, nonatomic) ActionsMenu* actionsMenu;
+@property (readonly, nonatomic) BenchmarksMenu* benchmarksMenu;
+@property (readonly, nonatomic) ObjectivesMenu* objectivesMenu;
+@property (readonly, nonatomic) OsrMenu* osrMenu;
+@property (readonly, nonatomic) NotesMenu* notesMenu;
 
 @end
