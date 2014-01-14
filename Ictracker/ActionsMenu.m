@@ -13,22 +13,18 @@
 
 - (id)init
 {
-    CGRect frame = CGRectMake(
-                              0.0,
-                              0.0,
-                              [Utils millimetersToPixels:57],
-                              [Utils windowWidth]-[Utils millimetersToPixels:5]);
-    self = [super initWithFrame:frame];
+    NSArray *actionNames = @[@"E201",
+                             @"E202",
+                             @"E203",
+                             @"E204",
+                             @"E205",
+                             @"E206"];
+    
+    self = [super initWithItems:actionNames];
     if (self) {
-        self.backgroundColor = [UIColor orangeColor];
-        
+        self.backgroundColor = [UIColor yellowColor];
     }
     return self;
-}
-
-- (void) click:(id)selector
-{
-    
 }
 
 @end

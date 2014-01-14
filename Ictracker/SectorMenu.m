@@ -13,12 +13,39 @@
 
 - (id)init
 {
-    NSArray *sectorNames = @[@"E201",
-                          @"E202",
-                          @"E203",
-                          @"E204",
-                          @"E205",
-                          @"E206"];
+    NSArray *sectorNames = @[
+                             @"Sector 1",
+                             @"Sector 2",
+                             @"Sector 3",
+                             @"Sector 4",
+                             @"A Sector",
+                             @"B Sector",
+                             @"C Sector",
+                             @"D Sector",
+                             @"North Sector",
+                             @"East Sector",
+                             @"South Sector",
+                             @"West Sector",
+                             @"Interior",
+                             @"Roof",
+                             @"Ventilation",
+                             @"Salvage",
+                             @"Cust Service",
+                             @"Sprinkler",
+                             @"Stand-pipe",
+                             @"On Deck",
+                             @"IRIC",
+                             @"RIC",
+                             @"Medical",
+                             @"Safety",
+                             @"Staging",
+                             @"Lobby",
+                             @"Treatment",
+                             @"Evacuation",
+                             @"Resource",
+                             @"Transportation",
+                             @"Accountability",
+                             @"Triage"];
     
     self = [super initWithItems:sectorNames];
     if (self) {
