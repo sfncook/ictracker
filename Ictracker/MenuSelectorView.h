@@ -15,6 +15,12 @@
 
 @property (readonly, nonatomic) ButtonView* unitsButton;
 @property (readonly, nonatomic) ButtonView* sectorsButton;
+@property (readonly, nonatomic) ButtonView* actionsButton;
+@property (readonly, nonatomic) ButtonView* benchmarksButton;
+@property (readonly, nonatomic) ButtonView* objectivesButton;
+@property (readonly, nonatomic) ButtonView* osrButton;
+@property (readonly, nonatomic) ButtonView* notesButton;
+
 @property (readonly, nonatomic) id<MenuSelectorDelegate> selectorDelegate;
 
 - (id)initWithFrame:(CGRect)frame delegate:(id<MenuSelectorDelegate>)selectorDelegate_;
