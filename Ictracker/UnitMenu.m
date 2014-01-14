@@ -25,20 +25,40 @@
         _mesaCityButton = [[ButtonView alloc] initWithName:@"Mesa" delegate:self size:BUTTON_MEDIUM];
         [self addSubview:_mesaCityButton];
         [_mesaCityButton setPosition:CGPointMake(
-            [Utils millimetersToPixels:0.5],
+            [Utils millimetersToPixels:1],
             [Utils millimetersToPixels:0.5])];
         
         _ajCityButton = [[ButtonView alloc] initWithName:@"AJ" delegate:self size:BUTTON_MEDIUM];
         [self addSubview:_ajCityButton];
         [_ajCityButton setPosition:CGPointMake(
-             _mesaCityButton.frame.origin.x + _mesaCityButton.frame.size.width + [Utils millimetersToPixels:1],
+             _mesaCityButton.frame.origin.x + _mesaCityButton.frame.size.width + [Utils millimetersToPixels:2],
              [Utils millimetersToPixels:0.5])];
         
         _gilbertCityButton = [[ButtonView alloc] initWithName:@"Glbt" delegate:self size:BUTTON_MEDIUM];
         [self addSubview:_gilbertCityButton];
         [_gilbertCityButton setPosition:CGPointMake(
-                                                   _ajCityButton.frame.origin.x + _ajCityButton.frame.size.width + [Utils millimetersToPixels:1],
+                                                   _ajCityButton.frame.origin.x + _ajCityButton.frame.size.width + [Utils millimetersToPixels:2],
                                                    [Utils millimetersToPixels:0.5])];
+        
+        
+        
+        _engUnitTypeButton = [[ButtonView alloc] initWithName:@"Eng" delegate:self size:BUTTON_MEDIUM];
+        [self addSubview:_engUnitTypeButton];
+        [_engUnitTypeButton setPosition:CGPointMake(
+                                                    [Utils millimetersToPixels:1],
+                                                    [Utils millimetersToPixels:10])];
+        
+        _ladUnitTypeButton = [[ButtonView alloc] initWithName:@"Lad" delegate:self size:BUTTON_MEDIUM];
+        [self addSubview:_ladUnitTypeButton];
+        [_ladUnitTypeButton setPosition:CGPointMake(
+                                                    [Utils millimetersToPixels:1],
+                                                    _engUnitTypeButton.frame.origin.y + _engUnitTypeButton.frame.size.height + [Utils millimetersToPixels:2])];
+        
+        _bcUnitTypeButton = [[ButtonView alloc] initWithName:@"BC" delegate:self size:BUTTON_MEDIUM];
+        [self addSubview:_bcUnitTypeButton];
+        [_bcUnitTypeButton setPosition:CGPointMake(
+                                                    [Utils millimetersToPixels:1],
+                                                    _ladUnitTypeButton.frame.origin.y + _ladUnitTypeButton.frame.size.height + [Utils millimetersToPixels:2])];
         
         
         
