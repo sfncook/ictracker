@@ -34,6 +34,7 @@
 		295183DE1884DBA60033B02F /* ObjectivesMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 295183DD1884DBA60033B02F /* ObjectivesMenu.m */; };
 		295183E11884DBFA0033B02F /* OsrMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 295183E01884DBFA0033B02F /* OsrMenu.m */; };
 		295183E41884DC250033B02F /* NotesMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 295183E31884DC250033B02F /* NotesMenu.m */; };
+		295183E71884E2550033B02F /* GilbertUnitsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 295183E61884E2550033B02F /* GilbertUnitsView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,8 @@
 		295183E01884DBFA0033B02F /* OsrMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OsrMenu.m; sourceTree = "<group>"; };
 		295183E21884DC250033B02F /* NotesMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotesMenu.h; sourceTree = "<group>"; };
 		295183E31884DC250033B02F /* NotesMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotesMenu.m; sourceTree = "<group>"; };
+		295183E51884E2550033B02F /* GilbertUnitsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GilbertUnitsView.h; sourceTree = "<group>"; };
+		295183E61884E2550033B02F /* GilbertUnitsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GilbertUnitsView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +232,8 @@
 				290785751883C86B008B1B7D /* MesaUnitsView.m */,
 				290785771883C960008B1B7D /* AjUnitsView.h */,
 				290785781883C960008B1B7D /* AjUnitsView.m */,
+				295183E51884E2550033B02F /* GilbertUnitsView.h */,
+				295183E61884E2550033B02F /* GilbertUnitsView.m */,
 				295183D21884D6230033B02F /* SectorMenu.h */,
 				295183D31884D6230033B02F /* SectorMenu.m */,
 				295183D61884DAD60033B02F /* ActionsMenu.h */,
@@ -349,6 +354,7 @@
 				295183D41884D6230033B02F /* SectorMenu.m in Sources */,
 				295183E41884DC250033B02F /* NotesMenu.m in Sources */,
 				290785791883C960008B1B7D /* AjUnitsView.m in Sources */,
+				295183E71884E2550033B02F /* GilbertUnitsView.m in Sources */,
 				290785731883C6FF008B1B7D /* MenuContainerView.m in Sources */,
 				290785361883B032008B1B7D /* main.m in Sources */,
 				290785611883B0A9008B1B7D /* MenuSelectorView.m in Sources */,

@@ -23,21 +23,32 @@
         self.backgroundColor = [UIColor blueColor];
         
         _mesaCityButton = [[ButtonView alloc] initWithName:@"Mesa" delegate:self size:BUTTON_MEDIUM];
-        [self addSubview:self.mesaCityButton];
-        [self.mesaCityButton setPosition:CGPointMake(
+        [self addSubview:_mesaCityButton];
+        [_mesaCityButton setPosition:CGPointMake(
             [Utils millimetersToPixels:0.5],
             [Utils millimetersToPixels:0.5])];
         
         _ajCityButton = [[ButtonView alloc] initWithName:@"AJ" delegate:self size:BUTTON_MEDIUM];
-        [self addSubview:self.ajCityButton];
-        [self.ajCityButton setPosition:CGPointMake(
-             self.mesaCityButton.frame.size.width + [Utils millimetersToPixels:1],
+        [self addSubview:_ajCityButton];
+        [_ajCityButton setPosition:CGPointMake(
+             _mesaCityButton.frame.origin.x + _mesaCityButton.frame.size.width + [Utils millimetersToPixels:1],
              [Utils millimetersToPixels:0.5])];
+        
+        _gilbertCityButton = [[ButtonView alloc] initWithName:@"Glbt" delegate:self size:BUTTON_MEDIUM];
+        [self addSubview:_gilbertCityButton];
+        [_gilbertCityButton setPosition:CGPointMake(
+                                                   _ajCityButton.frame.origin.x + _ajCityButton.frame.size.width + [Utils millimetersToPixels:1],
+                                                   [Utils millimetersToPixels:0.5])];
+        
+        
         
         _mesaUnitsView = [[MesaUnitsView alloc] init];
         _ajUnitsView = [[AjUnitsView alloc] init];
+        _gilbertUnitsView = [[GilbertUnitsView alloc] init];
+        
         [self addSubview:_mesaUnitsView];
         [self addSubview:_ajUnitsView];
+        [self addSubview:_gilbertUnitsView];
         
         [self showMesa];
     }
@@ -48,12 +59,21 @@
 {
     _mesaUnitsView.hidden = NO;
     _ajUnitsView.hidden = YES;
+    _gilbertUnitsView.hidden = YES;
 }
 
 - (void) showAj
 {
     _mesaUnitsView.hidden = YES;
     _ajUnitsView.hidden = NO;
+    _gilbertUnitsView.hidden = YES;
+}
+
+- (void) showGilbert
+{
+    _mesaUnitsView.hidden = YES;
+    _ajUnitsView.hidden = YES;
+    _gilbertUnitsView.hidden = NO;
 }
 
 - (void) click:(id)selector
@@ -62,6 +82,8 @@
         [self showMesa];
     } else if(selector==_ajCityButton) {
         [self showAj];
+    } else if(selector==_gilbertCityButton) {
+        [self showGilbert];
     }
 }
 

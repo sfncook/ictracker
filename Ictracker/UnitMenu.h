@@ -10,13 +10,17 @@
 #import "ButtonView.h"
 #import "MesaUnitsView.h"
 #import "AjUnitsView.h"
+#import "GilbertUnitsView.h"
 #import "ButtonClickDelegate.h"
 
 @interface UnitMenu : UIView<ButtonClickDelegate>
 
 @property (readonly, nonatomic) ButtonView* mesaCityButton;
 @property (readonly, nonatomic) ButtonView* ajCityButton;
+@property (readonly, nonatomic) ButtonView* gilbertCityButton;
+
 @property (readonly, nonatomic) MesaUnitsView* mesaUnitsView;
 @property (readonly, nonatomic) AjUnitsView* ajUnitsView;
+@property (readonly, nonatomic) GilbertUnitsView* gilbertUnitsView;
 
 @end
