@@ -28,6 +28,9 @@
         _sectorMenu = [[SectorMenu alloc] init];
         [self addSubview:_sectorMenu];
         
+        _actionsMenu = [[ActionsMenu alloc] init];
+        [self addSubview:_actionsMenu];
+        
         [self showUnits];
     }
     return self;
@@ -37,12 +40,14 @@
 {
     _unitMenu.hidden = NO;
     _sectorMenu.hidden = YES;
+    _actionsMenu.hidden = NO;
 }
 
 - (void) showSectors
 {
     _unitMenu.hidden = YES;
     _sectorMenu.hidden = NO;
+    _actionsMenu.hidden = NO;
 }
 
 @end

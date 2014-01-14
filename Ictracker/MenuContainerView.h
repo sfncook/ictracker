@@ -10,10 +10,12 @@
 #import "UnitMenu.h"
 #import "SectorMenu.h"
 #import "MenuSelectorDelegate.h"
+#import "ActionsMenu.h"
 
 @interface MenuContainerView : UIView<MenuSelectorDelegate>
 
 @property (readonly, nonatomic) UnitMenu* unitMenu;
 @property (readonly, nonatomic) SectorMenu* sectorMenu;
+@property (readonly, nonatomic) ActionsMenu* actionsMenu;
 
 @end
