@@ -54,9 +54,7 @@
         [self.name drawInRect:textRect withAttributes:attributes];
     } else if(_size==BUTTON_MEDIUM || _size==BUTTON_WIDE) {
         UIFont* font = [UIFont fontWithName:@"Georgia" size:14];
-        CGFloat fontHeight = font.pointSize;
-        CGFloat yOffset = (self.frame.size.height - fontHeight) / 2.0;
-        CGRect textRect = CGRectMake(0, yOffset, self.frame.size.width, fontHeight);
+        CGRect textRect = CGRectMake(0, 5.0, self.frame.size.width, self.frame.size.height);
         
         /// Make a copy of the default paragraph style
         NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
@@ -69,9 +67,7 @@
         [self.name drawInRect:textRect withAttributes:attributes];
     }else if(_size==CHECK_WIDE) {
         UIFont* font = [UIFont fontWithName:@"Georgia" size:14];
-        CGFloat fontHeight = font.pointSize;
-        CGFloat yOffset = (self.frame.size.height - fontHeight) / 2.0;
-        CGRect textRect = CGRectMake(0, yOffset, self.frame.size.width, fontHeight);
+        CGRect textRect = CGRectMake(0, 9.0, self.frame.size.width, self.frame.size.height);
         
         /// Make a copy of the default paragraph style
         NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
