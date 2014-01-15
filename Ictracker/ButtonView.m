@@ -15,12 +15,14 @@
 {
     self = [super initWithFrame:CGRectMake(0, 0, 10, 10)];
     if (self) {
-        self.backgroundColor = [UIColor lightGrayColor];
         _name = name_;
         _clickDelegate = clickDelegate_;
         [self setSize:size_];
         self.layer.borderColor = [[UIColor darkGrayColor] CGColor];
         self.layer.borderWidth = 1.0;
+        _normalColor = [UIColor lightGrayColor];
+        _downColor = [UIColor darkGrayColor];
+        self.backgroundColor = _normalColor;
     }
     return self;
 }
@@ -112,12 +114,12 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    self.backgroundColor = [UIColor darkGrayColor];
+    self.backgroundColor = _downColor;
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    self.backgroundColor = [UIColor lightGrayColor];
+    self.backgroundColor = _normalColor;
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
@@ -125,18 +127,14 @@
     if(_size==CHECK_WIDE) {
         _isChecked = !_isChecked;
     }
-    self.backgroundColor = [UIColor lightGrayColor];
+    self.backgroundColor = _normalColor;
     [_clickDelegate click:self];
 }
 
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+- (void) setNormalColor:(UIColor *)normalColor
 {
-    
-}
-
-- (void) setBgColor:(UIColor*)color
-{
-    
+    _normalColor = normalColor;
+    self.backgroundColor = _normalColor;
 }
 
 - (void) setName:(NSString *)name

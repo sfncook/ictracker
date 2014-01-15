@@ -14,6 +14,8 @@
 @interface SectorTBarView : UIView<ButtonClickDelegate>
 
 @property (nonatomic, assign)   BOOL isSelected;
+@property (nonatomic, assign)   BOOL isRehab;
+@property (nonatomic, assign)   BOOL isRescue;
 @property (readonly, nonatomic) ButtonView* mayDayButton;
 @property (readonly, nonatomic) id<SectorTBarDelegate> sectorTbarDelegate;
 @property (readonly, nonatomic) ButtonView* titleButton;

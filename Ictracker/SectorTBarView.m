@@ -23,6 +23,7 @@
         [_mayDayButton setPosition:CGPointMake(
                                      [Utils millimetersToPixels:1],
                                      [Utils millimetersToPixels:1])];
+        [_mayDayButton setNormalColor:[UIColor colorWithRed:1.0 green:0.54 blue:0.54 alpha:1.0]];
         
         _titleButton = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_WIDE];
         [self addSubview:_titleButton];
@@ -153,11 +154,12 @@
     CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
     
     //Draw the "T-Bar"
-    CGContextSetLineWidth(context, 2.0);
+    CGContextSetLineWidth(context, 1.0);
     CGContextMoveToPoint(context, 0, [Utils millimetersToPixels:7]); //start at this point
     CGContextAddLineToPoint(context, self.frame.size.width, [Utils millimetersToPixels:7]); //draw to this point
     CGContextMoveToPoint(context, [Utils millimetersToPixels:20], [Utils millimetersToPixels:7]); //start at this point
     CGContextAddLineToPoint(context, [Utils millimetersToPixels:20], self.frame.size.height); //draw to this point
+    CGContextStrokePath(context);
     
     //Accountability box
     CGContextSetLineWidth(context, 1.0);
@@ -284,11 +286,17 @@
 - (void) setIsRescue
 {
     [self setTitle:@"RESCUE"];
+    _isRescue = YES;
+    _isRehab = NO;
+    [_titleButton setNormalColor:[UIColor orangeColor]];
 }
 
 - (void) setIsRehab
 {
     [self setTitle:@"REHAB"];
+    _isRescue = NO;
+    _isRehab = YES;
+    [_titleButton setNormalColor:[UIColor blueColor]];
 }
 
 //Button delegate response

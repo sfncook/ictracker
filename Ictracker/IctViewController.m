@@ -76,6 +76,8 @@
     
     //Default Sector select
     [sect1a setIsSelected:YES];
+    [sect3a setIsRescue];
+    [sect3c setIsRehab];
     
     _sectorTBars = [NSArray arrayWithObjects:
                    sect1a,
