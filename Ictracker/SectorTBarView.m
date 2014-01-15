@@ -21,7 +21,7 @@
         _mayDayButton = [[ButtonView alloc] initWithName:@"M" delegate:self size:SMALL_SQUARE];
         [self addSubview:_mayDayButton];
         [_mayDayButton setPosition:CGPointMake(
-                                     [Utils millimetersToPixels:0],
+                                     [Utils millimetersToPixels:1],
                                      [Utils millimetersToPixels:1])];
         
         _titleButton = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_WIDE];
@@ -33,8 +33,14 @@
         _psiButton = [[ButtonView alloc] initWithName:@"PSI" delegate:self size:SMALL_SQUARE];
         [self addSubview:_psiButton];
         [_psiButton setPosition:CGPointMake(
-                                              [Utils millimetersToPixels:35],
+                                              [Utils millimetersToPixels:34],
                                               [Utils millimetersToPixels:1])];
+        
+        _acctButton = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_MEDIUM];
+        [self addSubview:_acctButton];
+        [_acctButton setPosition:CGPointMake(
+                                            [Utils millimetersToPixels:30],
+                                            [Utils millimetersToPixels:9])];
         
         _sectorTbarDelegate = sectorTbarDelegate_;
     }
@@ -54,6 +60,29 @@
     CGContextAddLineToPoint(context, self.frame.size.width, [Utils millimetersToPixels:7]); //draw to this point
     CGContextMoveToPoint(context, [Utils millimetersToPixels:20], [Utils millimetersToPixels:7]); //start at this point
     CGContextAddLineToPoint(context, [Utils millimetersToPixels:20], self.frame.size.height); //draw to this point
+    
+    //Accountability box
+    CGContextSetLineWidth(context, 1.0);
+    CGContextAddRect(context, CGRectMake(
+                                         [Utils millimetersToPixels:25],
+                                         [Utils millimetersToPixels:8],
+                                         [Utils millimetersToPixels:12.5],
+                                         [Utils millimetersToPixels:7]));
+    //Draw the '@' symbol
+    UIFont* font = [UIFont fontWithName:@"Georgia" size:20];
+    CGRect textRect = CGRectMake(
+                                 [Utils millimetersToPixels:25.5],
+                                 [Utils millimetersToPixels:8.5],
+                                 [Utils millimetersToPixels:4],
+                                 [Utils millimetersToPixels:7.5]);
+    NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
+    paragraphStyle.alignment = NSTextAlignmentCenter;
+    
+    NSDictionary *attributes = @{ NSFontAttributeName: font,
+                                  NSParagraphStyleAttributeName: paragraphStyle };
+    
+    [@"@" drawInRect:textRect withAttributes:attributes];
     
     // and now draw the Path!
     CGContextStrokePath(context);

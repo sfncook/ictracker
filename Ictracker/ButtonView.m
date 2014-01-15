@@ -123,4 +123,10 @@
     
 }
 
+- (void) setName:(NSString *)name
+{
+    _name = name;
+    [self setNeedsDisplay];
+}
+
 @end
