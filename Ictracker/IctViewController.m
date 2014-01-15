@@ -8,6 +8,7 @@
 
 #import "IctViewController.h"
 #import "Utils.h"
+#import "SectorTBarView.h"
 
 @interface IctViewController ()
 
@@ -30,6 +31,27 @@
                                     [Utils windowWidth]-[Utils millimetersToPixels:5])
                                                        delegate:_menuContainerView];
     [self.view addSubview:self.menuSelectorView];
+    
+    SectorTBarView* sect1a = [[SectorTBarView alloc] initWithPosition:CGPointMake([Utils millimetersToPixels:71], [Utils millimetersToPixels:14])];
+    [self.view addSubview:sect1a];
+    SectorTBarView* sect2a = [[SectorTBarView alloc] initWithPosition:CGPointMake([Utils millimetersToPixels:113], [Utils millimetersToPixels:14])];
+    [self.view addSubview:sect2a];
+    SectorTBarView* sect3a = [[SectorTBarView alloc] initWithPosition:CGPointMake([Utils millimetersToPixels:155], [Utils millimetersToPixels:14])];
+    [self.view addSubview:sect3a];
+    
+    SectorTBarView* sect1b = [[SectorTBarView alloc] initWithPosition:CGPointMake([Utils millimetersToPixels:71], [Utils millimetersToPixels:56])];
+    [self.view addSubview:sect1b];
+    SectorTBarView* sect2b = [[SectorTBarView alloc] initWithPosition:CGPointMake([Utils millimetersToPixels:113], [Utils millimetersToPixels:56])];
+    [self.view addSubview:sect2b];
+    SectorTBarView* sect3b = [[SectorTBarView alloc] initWithPosition:CGPointMake([Utils millimetersToPixels:155], [Utils millimetersToPixels:56])];
+    [self.view addSubview:sect3b];
+    
+    SectorTBarView* sect1c = [[SectorTBarView alloc] initWithPosition:CGPointMake([Utils millimetersToPixels:71], [Utils millimetersToPixels:98])];
+    [self.view addSubview:sect1c];
+    SectorTBarView* sect2c = [[SectorTBarView alloc] initWithPosition:CGPointMake([Utils millimetersToPixels:113], [Utils millimetersToPixels:98])];
+    [self.view addSubview:sect2c];
+    SectorTBarView* sect3c = [[SectorTBarView alloc] initWithPosition:CGPointMake([Utils millimetersToPixels:155], [Utils millimetersToPixels:98])];
+    [self.view addSubview:sect3c];
 }
 
 - (void)didReceiveMemoryWarning

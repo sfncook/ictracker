@@ -38,6 +38,7 @@
 		295183EA1884F23B0033B02F /* CityUnitsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 295183E91884F23B0033B02F /* CityUnitsView.m */; };
 		295183ED1884F83B0033B02F /* WideItemsMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 295183EC1884F83B0033B02F /* WideItemsMenuView.m */; };
 		295183F21885006C0033B02F /* ChecklistView.m in Sources */ = {isa = PBXBuildFile; fileRef = 295183F11885006B0033B02F /* ChecklistView.m */; };
+		295183F918861C290033B02F /* SectorTBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 295183F818861C290033B02F /* SectorTBarView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,8 @@
 		295183EC1884F83B0033B02F /* WideItemsMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WideItemsMenuView.m; sourceTree = "<group>"; };
 		295183F01885006B0033B02F /* ChecklistView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChecklistView.h; sourceTree = "<group>"; };
 		295183F11885006B0033B02F /* ChecklistView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChecklistView.m; sourceTree = "<group>"; };
+		295183F718861C290033B02F /* SectorTBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectorTBarView.h; sourceTree = "<group>"; };
+		295183F818861C290033B02F /* SectorTBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectorTBarView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +168,7 @@
 		2907852F1883B032008B1B7D /* Ictracker */ = {
 			isa = PBXGroup;
 			children = (
+				295183F618861BE00033B02F /* Sector TBar Files */,
 				295183EF1885001B0033B02F /* Checklist Menu Views */,
 				295183EE1884F84D0033B02F /* Wide Items Menu Views */,
 				290785651883B1B3008B1B7D /* Button View Files */,
@@ -281,6 +285,15 @@
 			name = "Checklist Menu Views";
 			sourceTree = "<group>";
 		};
+		295183F618861BE00033B02F /* Sector TBar Files */ = {
+			isa = PBXGroup;
+			children = (
+				295183F718861C290033B02F /* SectorTBarView.h */,
+				295183F818861C290033B02F /* SectorTBarView.m */,
+			);
+			name = "Sector TBar Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -380,6 +393,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				295183DE1884DBA60033B02F /* ObjectivesMenu.m in Sources */,
+				295183F918861C290033B02F /* SectorTBarView.m in Sources */,
 				290785401883B032008B1B7D /* IctViewController.m in Sources */,
 				295183E11884DBFA0033B02F /* OsrMenu.m in Sources */,
 				295183D41884D6230033B02F /* SectorMenu.m in Sources */,

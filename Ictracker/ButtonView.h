@@ -13,6 +13,7 @@ typedef enum buttonsize {BUTTON_LARGE, BUTTON_MEDIUM, BUTTON_WIDE, CHECK_WIDE} B
 
 @interface ButtonView : UIView
 
+@property (nonatomic, assign)       BOOL isHighlighted;
 @property (nonatomic, assign)       BOOL isChecked;
 @property (readonly, assign)        ButtonSize size;
 @property (readonly, nonatomic)     NSString * name;

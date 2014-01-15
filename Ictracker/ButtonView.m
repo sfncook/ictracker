@@ -29,6 +29,10 @@
         _name = name_;
         _clickDelegate = clickDelegate_;
         _size = size_;
+        self.layer.cornerRadius = 5.0;
+        self.layer.masksToBounds = YES;
+        self.layer.borderColor = [[UIColor darkGrayColor] CGColor];
+        self.layer.borderWidth = 1.0;
     }
     return self;
 }
