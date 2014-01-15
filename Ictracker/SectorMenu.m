@@ -8,10 +8,11 @@
 
 #import "SectorMenu.h"
 #import "Utils.h"
+#import "ButtonView.h"
 
 @implementation SectorMenu
 
-- (id)init
+- (id)initWithDelegate:(id<SectorMenuDelegate>)menuDelegate
 {
     NSArray *sectorNames = @[
                              @"Sector 1",
@@ -50,8 +51,15 @@
     self = [super initWithItems:sectorNames];
     if (self) {
         self.backgroundColor = [UIColor purpleColor];
+        _menuDelegate = menuDelegate;
     }
     return self;
+}
+
+- (void) click:(id)selector
+{
+    ButtonView* sectorButton = selector;
+    [_menuDelegate onClickSector:[sectorButton name]];
 }
 
 @end

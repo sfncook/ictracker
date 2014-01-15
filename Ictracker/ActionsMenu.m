@@ -44,4 +44,9 @@
     return self;
 }
 
+- (void) click:(id)selector
+{
+    NSLog(@"click action button");
+}
+
 @end

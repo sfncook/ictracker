@@ -85,9 +85,9 @@
         
         NSMutableString* text;
         if(_isChecked) {
-            text = [NSMutableString stringWithString:@"[X] "];
+            text = [NSMutableString stringWithString:@" [X] "];
         } else {
-            text = [NSMutableString stringWithString:@"[ ] "];
+            text = [NSMutableString stringWithString:@" [ ] "];
         }
         [text appendString:_name];
         [text drawInRect:textRect withAttributes:attributes];

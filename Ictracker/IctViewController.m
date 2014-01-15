@@ -21,7 +21,7 @@
     [super viewDidLoad];
 //    NSLog(@"win Height: %f", [Utils windowHeight]);
     
-    _menuContainerView = [[MenuContainerView alloc] init];
+    _menuContainerView = [[MenuContainerView alloc] initWithSectorMenuDelegate:self];
     [self.view addSubview:_menuContainerView];
     
 	_menuSelectorView = [[MenuSelectorView alloc] initWithFrame:
@@ -96,6 +96,17 @@
 - (void) onTitleClick:(id)selected
 {
     [_menuContainerView showSectors];
+}
+
+//*** SectorMEnuDelegate
+- (void) onClickSector:(NSString*)sectorTitle
+{
+    NSLog(@"sectorTitle:%@", sectorTitle);
+    for(SectorTBarView* sector in _sectorTBars) {
+        if([sector isSelected]) {
+            [sector setTitle:sectorTitle];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning

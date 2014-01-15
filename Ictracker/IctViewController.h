@@ -10,8 +10,9 @@
 #import "MenuSelectorView.h"
 #import "MenuContainerView.h"
 #import "SectorTBarDelegate.h"
+#import "SectorMenuDelegate.h"
 
-@interface IctViewController : UIViewController<SectorTBarDelegate>
+@interface IctViewController : UIViewController<SectorTBarDelegate, SectorMenuDelegate>
 
 @property (readonly, nonatomic) MenuSelectorView* menuSelectorView;
 @property (readonly, nonatomic) MenuContainerView* menuContainerView;

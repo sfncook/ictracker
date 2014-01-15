@@ -11,7 +11,7 @@
 
 @implementation MenuContainerView
 
-- (id)init
+- (id)initWithSectorMenuDelegate:(id<SectorMenuDelegate>)sectorMenuDelegate
 {
     CGRect frame = CGRectMake(
                               [Utils millimetersToPixels:13],
@@ -25,7 +25,7 @@
         _unitMenu = [[UnitMenu alloc] init];
         [self addSubview:_unitMenu];
         
-        _sectorMenu = [[SectorMenu alloc] init];
+        _sectorMenu = [[SectorMenu alloc] initWithDelegate:sectorMenuDelegate];
         [self addSubview:_sectorMenu];
         
         _actionsMenu = [[ActionsMenu alloc] init];

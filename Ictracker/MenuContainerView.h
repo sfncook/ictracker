@@ -26,4 +26,6 @@
 @property (readonly, nonatomic) OsrMenu* osrMenu;
 @property (readonly, nonatomic) NotesMenu* notesMenu;
 
+- (id)initWithSectorMenuDelegate:(id<SectorMenuDelegate>)sectorMenuDelegate;
+
 @end

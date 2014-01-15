@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "WideItemsMenuView.h"
+#import "SectorMenuDelegate.h"
 
 @interface SectorMenu : WideItemsMenuView
+
+@property (readonly, nonatomic) id<SectorMenuDelegate>menuDelegate;
+
+- (id)initWithDelegate:(id<SectorMenuDelegate>)menuDelegate;
 
 @end
