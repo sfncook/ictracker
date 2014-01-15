@@ -15,6 +15,8 @@
 - (id)initWithDelegate:(id<SectorMenuDelegate>)menuDelegate
 {
     NSArray *sectorNames = @[
+                             @"REHAB",
+                             @"RESCUE",
                              @"Sector 1",
                              @"Sector 2",
                              @"Sector 3",

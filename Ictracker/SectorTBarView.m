@@ -30,6 +30,7 @@
         [_titleButton setPosition:CGPointMake(
                                                [Utils millimetersToPixels:6.5],
                                                [Utils millimetersToPixels:1])];
+        [_titleButton setNormalColor:[UIColor whiteColor]];
         
         _psiButton = [[ButtonView alloc] initWithName:@"PSI" delegate:self size:SMALL_SQUARE];
         [self addSubview:_psiButton];
@@ -169,11 +170,11 @@
                                               [Utils millimetersToPixels:8],
                                               [Utils millimetersToPixels:12.5],
                                               [Utils millimetersToPixels:7]));
-        CGContextAddRect(context, CGRectMake(
-                                             [Utils millimetersToPixels:25],
-                                             [Utils millimetersToPixels:8],
-                                             [Utils millimetersToPixels:12.5],
-                                             [Utils millimetersToPixels:7]));
+//        CGContextAddRect(context, CGRectMake(
+//                                             [Utils millimetersToPixels:25],
+//                                             [Utils millimetersToPixels:8],
+//                                             [Utils millimetersToPixels:12.5],
+//                                             [Utils millimetersToPixels:7]));
         
 
         //Draw the '@' symbol
@@ -202,7 +203,7 @@
     _isSelected = isSelected;
     if(_isSelected) {
         self.layer.borderColor = [[UIColor blueColor] CGColor];
-        self.layer.borderWidth = 4.0;
+        self.layer.borderWidth = 2.5;
         [_sectorTbarDelegate onSelected:self];
     } else {
         self.layer.borderWidth = 0.0;
@@ -226,8 +227,14 @@
 
 - (void) setTitle:(NSString*)title
 {
-//    NSLog(@"title:%@", title);
     [_titleButton setName:title];
+    if([title isEqualToString:@"REHAB"]) {
+        [_titleButton setNormalColor:[UIColor blueColor]];
+    } else if([title isEqualToString:@"RESCUE"]) {
+        [_titleButton setNormalColor:[UIColor orangeColor]];
+    } else {
+        [_titleButton setNormalColor:[UIColor colorWithRed:0.95 green:0.98 blue:1.0 alpha:1.0]];
+    }
 }
 
 - (void) addUnit:(NSString*)unitName

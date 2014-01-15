@@ -15,7 +15,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-//        self.backgroundColor = [UIColor redColor];
+        self.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0];
         _selectorDelegate = selectorDelegate_;
         
         _unitsButton = [[ButtonView alloc] initWithName:@"Units" delegate:self size:BUTTON_LARGE];

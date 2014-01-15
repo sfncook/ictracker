@@ -24,12 +24,12 @@
                               [Utils windowWidth]-[Utils millimetersToPixels:10]);
     self = [super initWithFrame:frame];
     if (self) {
-//        self.backgroundColor = [UIColor redColor];
+//        self.backgroundColor = [UIColor colorWithRed:0.9 green:0.95 blue:1.0 alpha:1.0];
         
         _cityUnitMenuDelegate = cityUnitMenuDelegate;
         
-        double orig_x = 1.0;//mm
-        double orig_y = 1.0;//mm
+        double orig_x = 2.5;//mm
+        double orig_y = 1.5;//mm
         double x = orig_x;
         double y = orig_y;
         int many_cols = 5;

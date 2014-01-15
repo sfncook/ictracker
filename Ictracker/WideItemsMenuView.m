@@ -43,6 +43,13 @@
                 col++;
                 x += 28;
             }
+            
+            if([itemName isEqualToString:@"REHAB"]) {
+                [btn setNormalColor:[UIColor blueColor]];
+            }
+            if([itemName isEqualToString:@"RESCUE"]) {
+                [btn setNormalColor:[UIColor orangeColor]];
+            }
         }
     }
     return self;
