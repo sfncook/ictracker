@@ -30,8 +30,10 @@
     
     // Draw them with a 2.0 stroke width so they are a bit more visible.
     CGContextSetLineWidth(context, 2.0);
-    CGContextMoveToPoint(context, 0,0); //start at this point
-    CGContextAddLineToPoint(context, 100, 50); //draw to this point
+    CGContextMoveToPoint(context, 0, [Utils millimetersToPixels:7]); //start at this point
+    CGContextAddLineToPoint(context, self.frame.size.width, [Utils millimetersToPixels:7]); //draw to this point
+    CGContextMoveToPoint(context, [Utils millimetersToPixels:20], [Utils millimetersToPixels:7]); //start at this point
+    CGContextAddLineToPoint(context, [Utils millimetersToPixels:20], self.frame.size.height); //draw to this point
     
     // and now draw the Path!
     CGContextStrokePath(context);
