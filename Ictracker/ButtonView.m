@@ -134,6 +134,11 @@
     
 }
 
+- (void) setBgColor:(UIColor*)color
+{
+    
+}
+
 - (void) setName:(NSString *)name
 {
     _name = name;

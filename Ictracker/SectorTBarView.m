@@ -281,6 +281,16 @@
     }
 }
 
+- (void) setIsRescue
+{
+    [self setTitle:@"RESCUE"];
+}
+
+- (void) setIsRehab
+{
+    [self setTitle:@"REHAB"];
+}
+
 //Button delegate response
 - (void) click:(id)selector
 {

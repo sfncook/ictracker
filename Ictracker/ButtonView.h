@@ -29,4 +29,6 @@ typedef enum buttonsize {
 - (id)initWithName:(NSString*)name_ delegate:(id<ButtonClickDelegate>)clickDelegate_ size:(ButtonSize)size_;
 - (void) setPosition:(CGPoint)position;
 
+- (void) setBgColor:(UIColor*)color;
+
 @end

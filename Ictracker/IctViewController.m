@@ -72,6 +72,7 @@
                               initWithPosition:CGPointMake([Utils millimetersToPixels:155], [Utils millimetersToPixels:98])
                               delegate:self];
     [self.view addSubview:sect3c];
+
     
     //Default Sector select
     [sect1a setIsSelected:YES];
