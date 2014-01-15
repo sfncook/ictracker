@@ -18,11 +18,12 @@
         _name = name_;
         _clickDelegate = clickDelegate_;
         [self setSize:size_];
-        self.layer.borderColor = [[UIColor darkGrayColor] CGColor];
-        self.layer.borderWidth = 1.0;
-        _normalColor = [UIColor lightGrayColor];
+        _normalColor = [UIColor colorWithRed:0.95 green:0.98 blue:1.0 alpha:1.0];
         _downColor = [UIColor darkGrayColor];
+        _borderColor = [UIColor colorWithRed:0.75 green:0.78 blue:1.0 alpha:1.0];
         self.backgroundColor = _normalColor;
+        self.layer.borderColor = [_borderColor CGColor];
+        self.layer.borderWidth = 1.0;
     }
     return self;
 }

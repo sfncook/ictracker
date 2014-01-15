@@ -161,36 +161,37 @@
     CGContextAddLineToPoint(context, [Utils millimetersToPixels:20], self.frame.size.height); //draw to this point
     CGContextStrokePath(context);
     
-    //Accountability box
-    CGContextSetLineWidth(context, 1.0);
-    CGContextSetFillColorWithColor(context, [UIColor yellowColor].CGColor);
-    CGContextFillRect(context, CGRectMake(
-                                          [Utils millimetersToPixels:25],
-                                          [Utils millimetersToPixels:8],
-                                          [Utils millimetersToPixels:12.5],
-                                          [Utils millimetersToPixels:7]));
-    CGContextAddRect(context, CGRectMake(
-                                         [Utils millimetersToPixels:25],
-                                         [Utils millimetersToPixels:8],
-                                         [Utils millimetersToPixels:12.5],
-                                         [Utils millimetersToPixels:7]));
-    
+    if(!_isRehab && !_isRescue){//Accountability box
+        CGContextSetLineWidth(context, 1.0);
+        CGContextSetFillColorWithColor(context, [UIColor yellowColor].CGColor);
+        CGContextFillRect(context, CGRectMake(
+                                              [Utils millimetersToPixels:25],
+                                              [Utils millimetersToPixels:8],
+                                              [Utils millimetersToPixels:12.5],
+                                              [Utils millimetersToPixels:7]));
+        CGContextAddRect(context, CGRectMake(
+                                             [Utils millimetersToPixels:25],
+                                             [Utils millimetersToPixels:8],
+                                             [Utils millimetersToPixels:12.5],
+                                             [Utils millimetersToPixels:7]));
+        
 
-    //Draw the '@' symbol
-    UIFont* font = [UIFont fontWithName:@"Georgia" size:20];
-    CGRect textRect = CGRectMake(
-                                 [Utils millimetersToPixels:25.5],
-                                 [Utils millimetersToPixels:8.5],
-                                 [Utils millimetersToPixels:4],
-                                 [Utils millimetersToPixels:7.5]);
-    NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-    paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
-    paragraphStyle.alignment = NSTextAlignmentCenter;
-    
-    NSDictionary *attributes = @{ NSFontAttributeName: font,
-                                  NSParagraphStyleAttributeName: paragraphStyle };
-    
-    [@"@" drawInRect:textRect withAttributes:attributes];
+        //Draw the '@' symbol
+        UIFont* font = [UIFont fontWithName:@"Georgia" size:20];
+        CGRect textRect = CGRectMake(
+                                     [Utils millimetersToPixels:25.5],
+                                     [Utils millimetersToPixels:8.5],
+                                     [Utils millimetersToPixels:4],
+                                     [Utils millimetersToPixels:7.5]);
+        NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+        paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
+        paragraphStyle.alignment = NSTextAlignmentCenter;
+        
+        NSDictionary *attributes = @{ NSFontAttributeName: font,
+                                      NSParagraphStyleAttributeName: paragraphStyle };
+        
+        [@"@" drawInRect:textRect withAttributes:attributes];
+    }
     
     // and now draw the Path!
     CGContextStrokePath(context);
@@ -289,6 +290,7 @@
     _isRescue = YES;
     _isRehab = NO;
     [_titleButton setNormalColor:[UIColor orangeColor]];
+    _acctButton.hidden = YES;
 }
 
 - (void) setIsRehab
@@ -297,6 +299,7 @@
     _isRescue = NO;
     _isRehab = YES;
     [_titleButton setNormalColor:[UIColor blueColor]];
+    _acctButton.hidden = YES;
 }
 
 //Button delegate response
