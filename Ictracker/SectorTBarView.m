@@ -65,60 +65,77 @@
         
         
         
-        _par1 = [[ButtonView alloc] initWithName:@"1" delegate:self size:SMALL_CIRCLE];
+        _par1 = [[ButtonView alloc] initWithName:@"P" delegate:self size:SMALL_CIRCLE];
         [self addSubview:_par1];
         [_par1 setPosition:CGPointMake(
                                         [Utils millimetersToPixels:1],
                                         [Utils millimetersToPixels:8])];
-        _unit1 = [[ButtonView alloc] initWithName:@"E201" delegate:self size:BUTTON_SMALL];
+        _unit1 = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_SMALL];
         [self addSubview:_unit1];
         [_unit1 setPosition:CGPointMake(
                                         [Utils millimetersToPixels:7],
                                         [Utils millimetersToPixels:8])];
         
-        _par2 = [[ButtonView alloc] initWithName:@"2" delegate:self size:SMALL_CIRCLE];
+        _par2 = [[ButtonView alloc] initWithName:@"P" delegate:self size:SMALL_CIRCLE];
         [self addSubview:_par2];
         [_par2 setPosition:CGPointMake(
                                        [Utils millimetersToPixels:1],
                                        [Utils millimetersToPixels:14.5])];
-        _unit2 = [[ButtonView alloc] initWithName:@"E202" delegate:self size:BUTTON_SMALL];
+        _unit2 = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_SMALL];
         [self addSubview:_unit2];
         [_unit2 setPosition:CGPointMake(
                                         [Utils millimetersToPixels:7],
                                         [Utils millimetersToPixels:14.5])];
         
-        _par3 = [[ButtonView alloc] initWithName:@"3" delegate:self size:SMALL_CIRCLE];
+        _par3 = [[ButtonView alloc] initWithName:@"P" delegate:self size:SMALL_CIRCLE];
         [self addSubview:_par3];
         [_par3 setPosition:CGPointMake(
                                        [Utils millimetersToPixels:1],
                                        [Utils millimetersToPixels:21])];
-        _unit3 = [[ButtonView alloc] initWithName:@"E203" delegate:self size:BUTTON_SMALL];
+        _unit3 = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_SMALL];
         [self addSubview:_unit3];
         [_unit3 setPosition:CGPointMake(
                                         [Utils millimetersToPixels:7],
                                         [Utils millimetersToPixels:21])];
         
-        _par4 = [[ButtonView alloc] initWithName:@"4" delegate:self size:SMALL_CIRCLE];
+        _par4 = [[ButtonView alloc] initWithName:@"P" delegate:self size:SMALL_CIRCLE];
         [self addSubview:_par4];
         [_par4 setPosition:CGPointMake(
                                        [Utils millimetersToPixels:1],
                                        [Utils millimetersToPixels:27.5])];
-        _unit4 = [[ButtonView alloc] initWithName:@"E204" delegate:self size:BUTTON_SMALL];
+        _unit4 = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_SMALL];
         [self addSubview:_unit4];
         [_unit4 setPosition:CGPointMake(
                                         [Utils millimetersToPixels:7],
                                         [Utils millimetersToPixels:27.5])];
         
-        _par5 = [[ButtonView alloc] initWithName:@"5" delegate:self size:SMALL_CIRCLE];
+        _par5 = [[ButtonView alloc] initWithName:@"P" delegate:self size:SMALL_CIRCLE];
         [self addSubview:_par5];
         [_par5 setPosition:CGPointMake(
                                        [Utils millimetersToPixels:1],
                                        [Utils millimetersToPixels:34])];
-        _unit5 = [[ButtonView alloc] initWithName:@"E205" delegate:self size:BUTTON_SMALL];
+        _unit5 = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_SMALL];
         [self addSubview:_unit5];
         [_unit5 setPosition:CGPointMake(
                                         [Utils millimetersToPixels:7],
                                         [Utils millimetersToPixels:34])];
+        
+        _action1.hidden = YES;
+        _action2.hidden = YES;
+        _action3.hidden = YES;
+        _action4.hidden = YES;
+        
+        _par1.hidden = YES;
+        _par2.hidden = YES;
+        _par3.hidden = YES;
+        _par4.hidden = YES;
+        _par5.hidden = YES;
+        
+        _unit1.hidden = YES;
+        _unit2.hidden = YES;
+        _unit3.hidden = YES;
+        _unit4.hidden = YES;
+        _unit5.hidden = YES;
         
         _sectorTbarDelegate = sectorTbarDelegate_;
     }
