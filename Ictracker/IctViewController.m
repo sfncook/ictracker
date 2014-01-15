@@ -22,7 +22,8 @@
 //    NSLog(@"win Height: %f", [Utils windowHeight]);
     
     _menuContainerView = [[MenuContainerView alloc] initWithSectorMenuDelegate:self
-                                                          cityUnitMenuDelegate:self];
+                                                          cityUnitMenuDelegate:self
+                                                            actionMenuDelegate:self];
     [self.view addSubview:_menuContainerView];
     
 	_menuSelectorView = [[MenuSelectorView alloc] initWithFrame:
@@ -120,6 +121,16 @@
     for(SectorTBarView* sector in _sectorTBars) {
         if([sector isSelected]) {
             [sector addUnit:unitName];
+        }
+    }
+}
+
+//*** ActionMenuDelegate
+- (void) onClickAction:(NSString*)actionTitle
+{
+    for(SectorTBarView* sector in _sectorTBars) {
+        if([sector isSelected]) {
+            [sector addAction:actionTitle];
         }
     }
 }

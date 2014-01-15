@@ -44,7 +44,7 @@
                                       NSParagraphStyleAttributeName: paragraphStyle };
         
         [self.name drawInRect:textRect withAttributes:attributes];
-    } else if(_size==BUTTON_SMALL || _size==BUTTON_WIDE || _size==SMALL_SQUARE || _size==SMALL_CIRCLE) {
+    } else if(_size==BUTTON_SMALL || _size==BUTTON_MEDIUM || _size==BUTTON_WIDE || _size==SMALL_SQUARE || _size==SMALL_CIRCLE) {
         UIFont* font = [UIFont fontWithName:@"Georgia" size:14];
         CGRect textRect = CGRectMake(0, 5.0, self.frame.size.width, self.frame.size.height);
         

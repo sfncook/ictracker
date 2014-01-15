@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "WideItemsMenuView.h"
+#import "ActionMenuDelegate.h"
 
 @interface ActionsMenu : WideItemsMenuView
+
+@property (readonly, nonatomic) id<ActionMenuDelegate>delegate;
+
+- (id)initWithDelegate:(id<ActionMenuDelegate>)delegate;
 
 @end

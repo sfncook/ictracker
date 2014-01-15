@@ -24,6 +24,7 @@
 @property (readonly, nonatomic) ButtonView* action2;
 @property (readonly, nonatomic) ButtonView* action3;
 @property (readonly, nonatomic) ButtonView* action4;
+@property (nonatomic, assign) int manyActions;
 
 @property (readonly, nonatomic) ButtonView* par1;
 @property (readonly, nonatomic) ButtonView* par2;
@@ -36,9 +37,11 @@
 @property (readonly, nonatomic) ButtonView* unit3;
 @property (readonly, nonatomic) ButtonView* unit4;
 @property (readonly, nonatomic) ButtonView* unit5;
+@property (nonatomic, assign) int manyUnits;
 
 - (id)initWithPosition:(CGPoint)position delegate:(id<SectorTBarDelegate>)sectorTbarDelegate_;
 - (void) setTitle:(NSString*)title;
 - (void) addUnit:(NSString*)unitName;
+- (void) addAction:(NSString*)actionName;
 
 @end

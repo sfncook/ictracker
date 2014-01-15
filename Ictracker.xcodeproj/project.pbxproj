@@ -112,6 +112,7 @@
 		295183FB188623B50033B02F /* SectorTBarDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SectorTBarDelegate.h; sourceTree = "<group>"; };
 		295183FC188629700033B02F /* SectorMenuDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SectorMenuDelegate.h; sourceTree = "<group>"; };
 		295183FD18862E640033B02F /* CityUnitMenuDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityUnitMenuDelegate.h; sourceTree = "<group>"; };
+		295183FE188653770033B02F /* ActionMenuDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActionMenuDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +272,7 @@
 				295183D61884DAD60033B02F /* ActionsMenu.h */,
 				295183D71884DAD60033B02F /* ActionsMenu.m */,
 				295183FC188629700033B02F /* SectorMenuDelegate.h */,
+				295183FE188653770033B02F /* ActionMenuDelegate.h */,
 			);
 			name = "Wide Items Menu Views";
 			sourceTree = "<group>";

@@ -8,10 +8,11 @@
 
 #import "ActionsMenu.h"
 #import "Utils.h"
+#import "ButtonView.h"
 
 @implementation ActionsMenu
 
-- (id)init
+- (id)initWithDelegate:(id<ActionMenuDelegate>)delegate
 {
     NSArray *actionNames = @[
                              @"Search & Rescue",
@@ -39,14 +40,15 @@
     
     self = [super initWithItems:actionNames];
     if (self) {
-//        self.backgroundColor = [UIColor yellowColor];
+        _delegate = delegate;
     }
     return self;
 }
 
 - (void) click:(id)selector
 {
-    NSLog(@"click action button");
+    ButtonView* actionButton = selector;
+    [_delegate onClickAction:[actionButton name]];
 }
 
 @end

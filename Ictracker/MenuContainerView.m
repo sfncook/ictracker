@@ -13,6 +13,7 @@
 
 - (id)initWithSectorMenuDelegate:(id<SectorMenuDelegate>)sectorMenuDelegate
             cityUnitMenuDelegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate
+              actionMenuDelegate:(id<ActionMenuDelegate>)actionMenuDelegate
 {
     CGRect frame = CGRectMake(
                               [Utils millimetersToPixels:13],
@@ -29,7 +30,7 @@
         _sectorMenu = [[SectorMenu alloc] initWithDelegate:sectorMenuDelegate];
         [self addSubview:_sectorMenu];
         
-        _actionsMenu = [[ActionsMenu alloc] init];
+        _actionsMenu = [[ActionsMenu alloc] initWithDelegate:actionMenuDelegate];
         [self addSubview:_actionsMenu];
         
         

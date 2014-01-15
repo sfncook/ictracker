@@ -137,6 +137,9 @@
         _unit4.hidden = YES;
         _unit5.hidden = YES;
         
+        _manyActions = 0;
+        _manyUnits = 0;
+        
         _sectorTbarDelegate = sectorTbarDelegate_;
     }
     return self;
@@ -218,7 +221,56 @@
 
 - (void) addUnit:(NSString*)unitName
 {
-//    NSLog(@"Sector - unitName:%@", unitName);
+    if(_manyUnits<5) {
+        _manyUnits++;
+        ButtonView* parBtn;
+        ButtonView* unitBtn;
+        if(_manyUnits==1) {
+            parBtn = _par1;
+            unitBtn = _unit1;
+        }
+        if(_manyUnits==2) {
+            parBtn = _par2;
+            unitBtn = _unit2;
+        }
+        if(_manyUnits==3) {
+            parBtn = _par3;
+            unitBtn = _unit3;
+        }
+        if(_manyUnits==4) {
+            parBtn = _par4;
+            unitBtn = _unit4;
+        }
+        if(_manyUnits==5) {
+            parBtn = _par5;
+            unitBtn = _unit5;
+        }
+        parBtn.hidden = NO;
+        unitBtn.hidden = NO;
+        [unitBtn setName:unitName];
+    }
+}
+
+- (void) addAction:(NSString*)actionName
+{
+    if(_manyActions<4) {
+        _manyActions++;
+        ButtonView* actionBtn;
+        if(_manyActions==1) {
+            actionBtn = _action1;
+        }
+        if(_manyActions==2) {
+            actionBtn = _action2;
+        }
+        if(_manyActions==3) {
+            actionBtn = _action3;
+        }
+        if(_manyActions==4) {
+            actionBtn = _action4;
+        }
+        actionBtn.hidden = NO;
+        [actionBtn setName:actionName];
+    }
 }
 
 //Button delegate response
