@@ -71,6 +71,9 @@
                               delegate:self];
     [self.view addSubview:sect3c];
     
+    //Default Sector select
+    [sect1a setIsSelected:YES];
+    
     _sectorTBars = [NSArray arrayWithObjects:
                    sect1a,
                    sect1b,

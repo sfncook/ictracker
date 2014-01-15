@@ -81,7 +81,9 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [self setIsSelected:!_isSelected];
+    if(!_isSelected) {
+        [self setIsSelected:YES];
+    }
 }
 
 - (void) setTitle:(NSString*)title
