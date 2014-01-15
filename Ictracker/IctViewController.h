@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "MenuSelectorView.h"
 #import "MenuContainerView.h"
+#import "SectorTBarDelegate.h"
 
-@interface IctViewController : UIViewController
+@interface IctViewController : UIViewController<SectorTBarDelegate>
 
 @property (readonly, nonatomic) MenuSelectorView* menuSelectorView;
 @property (readonly, nonatomic) MenuContainerView* menuContainerView;
+@property (readonly, nonatomic) NSArray* sectorTBars;
 
 @end

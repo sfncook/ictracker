@@ -10,6 +10,6 @@
 
 @protocol SectorTBarDelegate <NSObject>
 
-- (void) onSelected:(SectorTBarDelegate*)selected;
+- (void) onSelected:(id)selected;
 
 @end

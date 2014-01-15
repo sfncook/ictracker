@@ -11,7 +11,7 @@
 
 @implementation SectorTBarView
 
-- (id)initWithPosition:(CGPoint)position
+- (id)initWithPosition:(CGPoint)position delegate:(id<SectorTBarDelegate>)sectorTbarDelegate_
 {
     CGRect frame = CGRectMake(position.x, position.y, [Utils millimetersToPixels:40], [Utils millimetersToPixels:40]);
     self = [super initWithFrame:frame];
@@ -22,6 +22,7 @@
         [_mayDayButton setPosition:CGPointMake(
                                      [Utils millimetersToPixels:1],
                                      [Utils millimetersToPixels:1])];
+        _sectorTbarDelegate = sectorTbarDelegate_;
     }
     return self;
 }
@@ -44,12 +45,13 @@
     CGContextStrokePath(context);
 }
 
-- (void)setIsHighlighted:(BOOL)newIsHighlighted
+- (void)setIsSelected:(BOOL)isSelected
 {
-    _isHighlighted = newIsHighlighted;
-    if(_isHighlighted) {
+    _isSelected = isSelected;
+    if(_isSelected) {
         self.layer.borderColor = [[UIColor blueColor] CGColor];
         self.layer.borderWidth = 4.0;
+        [_sectorTbarDelegate onSelected:self];
     } else {
         self.layer.borderWidth = 0.0;
     }
@@ -65,7 +67,7 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [self setIsHighlighted:!_isHighlighted];
+    [self setIsSelected:!_isSelected];
 }
 
 //Button delegate response

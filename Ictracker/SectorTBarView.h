@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "ButtonClickDelegate.h"
 #import "ButtonView.h"
+#import "SectorTBarDelegate.h"
 
 @interface SectorTBarView : UIView<ButtonClickDelegate>
 
-@property (nonatomic, assign)   BOOL isHighlighted;
+@property (nonatomic, assign)   BOOL isSelected;
 @property (readonly, nonatomic) ButtonView* mayDayButton;
+@property (readonly, nonatomic) id<SectorTBarDelegate> sectorTbarDelegate;
 
-- (id)initWithPosition:(CGPoint)position;
+- (id)initWithPosition:(CGPoint)position delegate:(id<SectorTBarDelegate>)sectorTbarDelegate_;
 
 @end
