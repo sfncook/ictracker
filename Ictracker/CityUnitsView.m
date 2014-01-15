@@ -101,7 +101,8 @@
 - (void) click:(id)selector
 {
     if(_cityUnitMenuDelegate!=nil) {
-        [_cityUnitMenuDelegate onSelectedUnit:selector];
+        ButtonView* unitButton = selector;
+        [_cityUnitMenuDelegate onSelectedUnit:[unitButton name]];
     }
 }
 

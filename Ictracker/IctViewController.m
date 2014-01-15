@@ -114,9 +114,14 @@
 }
 
 //*** CityUnitMenuDelegate
-- (void) onSelectedUnit:(id)selected
+- (void) onSelectedUnit:(NSString*)unitName
 {
-    NSLog(@"unit:%@", selected);
+    NSLog(@"unit:%@", unitName);
+    for(SectorTBarView* sector in _sectorTBars) {
+        if([sector isSelected]) {
+            [sector addUnit:unitName];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning

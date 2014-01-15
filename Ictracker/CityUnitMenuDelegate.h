@@ -10,6 +10,6 @@
 
 @protocol CityUnitMenuDelegate <NSObject>
 
-- (void) onSelectedUnit:(id)selected;
+- (void) onSelectedUnit:(NSString*)unitName;
 
 @end

@@ -92,6 +92,11 @@
     [_titleButton setName:title];
 }
 
+- (void) addUnit:(NSString*)unitName
+{
+    NSLog(@"Sector - unitName:%@", unitName);
+}
+
 //Button delegate response
 - (void) click:(id)selector
 {
