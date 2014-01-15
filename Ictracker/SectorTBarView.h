@@ -17,6 +17,7 @@
 @property (readonly, nonatomic) ButtonView* mayDayButton;
 @property (readonly, nonatomic) id<SectorTBarDelegate> sectorTbarDelegate;
 @property (readonly, nonatomic) ButtonView* titleButton;
+@property (readonly, nonatomic) ButtonView* psiButton;
 
 - (id)initWithPosition:(CGPoint)position delegate:(id<SectorTBarDelegate>)sectorTbarDelegate_;
 - (void) setTitle:(NSString*)title;

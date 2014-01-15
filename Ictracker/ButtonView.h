@@ -21,7 +21,7 @@ typedef enum buttonsize {
 @property (nonatomic, assign)       BOOL isHighlighted;
 @property (nonatomic, assign)       BOOL isChecked;
 @property (readonly, assign)        ButtonSize size;
-@property (retain, nonatomic)     NSString * name;
+@property (retain, nonatomic)       NSString * name;
 @property (readonly, nonatomic)     id<ButtonClickDelegate> clickDelegate;
 
 - (id)initWithName:(NSString*)name_ delegate:(id<ButtonClickDelegate>)clickDelegate_ size:(ButtonSize)size_;

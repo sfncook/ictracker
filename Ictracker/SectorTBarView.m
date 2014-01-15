@@ -21,14 +21,20 @@
         _mayDayButton = [[ButtonView alloc] initWithName:@"M" delegate:self size:SMALL_SQUARE];
         [self addSubview:_mayDayButton];
         [_mayDayButton setPosition:CGPointMake(
-                                     [Utils millimetersToPixels:1],
+                                     [Utils millimetersToPixels:0],
                                      [Utils millimetersToPixels:1])];
         
         _titleButton = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_WIDE];
         [self addSubview:_titleButton];
         [_titleButton setPosition:CGPointMake(
-                                               [Utils millimetersToPixels:8],
+                                               [Utils millimetersToPixels:6.5],
                                                [Utils millimetersToPixels:1])];
+        
+        _psiButton = [[ButtonView alloc] initWithName:@"PSI" delegate:self size:SMALL_SQUARE];
+        [self addSubview:_psiButton];
+        [_psiButton setPosition:CGPointMake(
+                                              [Utils millimetersToPixels:35],
+                                              [Utils millimetersToPixels:1])];
         
         _sectorTbarDelegate = sectorTbarDelegate_;
     }
@@ -42,7 +48,7 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
     
-    // Draw them with a 2.0 stroke width so they are a bit more visible.
+    //Draw the "T-Bar"
     CGContextSetLineWidth(context, 2.0);
     CGContextMoveToPoint(context, 0, [Utils millimetersToPixels:7]); //start at this point
     CGContextAddLineToPoint(context, self.frame.size.width, [Utils millimetersToPixels:7]); //draw to this point
@@ -80,6 +86,7 @@
 
 - (void) setTitle:(NSString*)title
 {
+    NSLog(@"title:%@", title);
     [_titleButton setName:title];
 }
 
