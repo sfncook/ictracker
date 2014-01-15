@@ -42,6 +42,12 @@
                                             [Utils millimetersToPixels:30],
                                             [Utils millimetersToPixels:9])];
         
+        _action1 = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_LARGE];
+        [self addSubview:_action1];
+        [_action1 setPosition:CGPointMake(
+                                             [Utils millimetersToPixels:21],
+                                             [Utils millimetersToPixels:9])];
+        
         _sectorTbarDelegate = sectorTbarDelegate_;
     }
     return self;

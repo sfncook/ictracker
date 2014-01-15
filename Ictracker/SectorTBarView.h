@@ -19,6 +19,10 @@
 @property (readonly, nonatomic) ButtonView* titleButton;
 @property (readonly, nonatomic) ButtonView* psiButton;
 @property (readonly, nonatomic) ButtonView* acctButton;
+@property (readonly, nonatomic) ButtonView* action1;
+@property (readonly, nonatomic) ButtonView* action2;
+@property (readonly, nonatomic) ButtonView* action3;
+@property (readonly, nonatomic) ButtonView* action4;
 
 - (id)initWithPosition:(CGPoint)position delegate:(id<SectorTBarDelegate>)sectorTbarDelegate_;
 - (void) setTitle:(NSString*)title;
