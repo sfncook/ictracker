@@ -35,7 +35,7 @@
         int many_cols = 5;
         int col = 1;
         for (NSString *unitName in engNames) {
-            ButtonView* btn = [[ButtonView alloc] initWithName:unitName delegate:self size:BUTTON_MEDIUM];
+            ButtonView* btn = [[ButtonView alloc] initWithName:unitName delegate:self size:BUTTON_SMALL];
             [self addSubview:btn];
             [btn setPosition:CGPointMake(
                                          [Utils millimetersToPixels:x],
@@ -58,7 +58,7 @@
         col = 1;
         x = orig_x;
         for (NSString *unitName in ladNames) {
-            ButtonView* btn = [[ButtonView alloc] initWithName:unitName delegate:self size:BUTTON_MEDIUM];
+            ButtonView* btn = [[ButtonView alloc] initWithName:unitName delegate:self size:BUTTON_SMALL];
             [self addSubview:btn];
             [btn setPosition:CGPointMake(
                                          [Utils millimetersToPixels:x],
@@ -80,7 +80,7 @@
         col = 1;
         x = orig_x;
         for (NSString *unitName in bcNames) {
-            ButtonView* btn = [[ButtonView alloc] initWithName:unitName delegate:self size:BUTTON_MEDIUM];
+            ButtonView* btn = [[ButtonView alloc] initWithName:unitName delegate:self size:BUTTON_SMALL];
             [self addSubview:btn];
             [btn setPosition:CGPointMake(
                                          [Utils millimetersToPixels:x],

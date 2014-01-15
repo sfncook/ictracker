@@ -19,10 +19,23 @@
 @property (readonly, nonatomic) ButtonView* titleButton;
 @property (readonly, nonatomic) ButtonView* psiButton;
 @property (readonly, nonatomic) ButtonView* acctButton;
+
 @property (readonly, nonatomic) ButtonView* action1;
 @property (readonly, nonatomic) ButtonView* action2;
 @property (readonly, nonatomic) ButtonView* action3;
 @property (readonly, nonatomic) ButtonView* action4;
+
+@property (readonly, nonatomic) ButtonView* par1;
+@property (readonly, nonatomic) ButtonView* par2;
+@property (readonly, nonatomic) ButtonView* par3;
+@property (readonly, nonatomic) ButtonView* par4;
+@property (readonly, nonatomic) ButtonView* par5;
+
+@property (readonly, nonatomic) ButtonView* unit1;
+@property (readonly, nonatomic) ButtonView* unit2;
+@property (readonly, nonatomic) ButtonView* unit3;
+@property (readonly, nonatomic) ButtonView* unit4;
+@property (readonly, nonatomic) ButtonView* unit5;
 
 - (id)initWithPosition:(CGPoint)position delegate:(id<SectorTBarDelegate>)sectorTbarDelegate_;
 - (void) setTitle:(NSString*)title;

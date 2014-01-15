@@ -13,26 +13,12 @@
 
 - (id)initWithName:(NSString*)name_ delegate:(id<ButtonClickDelegate>)clickDelegate_ size:(ButtonSize)size_
 {
-    CGRect frame;
-    if(size_==BUTTON_LARGE) {
-        frame = CGRectMake(0.0, 0.0, [Utils millimetersToPixels:12], [Utils millimetersToPixels:9]);
-    } else if(size_==BUTTON_MEDIUM) {
-        frame = CGRectMake(0.0, 0.0, [Utils millimetersToPixels:7], [Utils millimetersToPixels:5]);
-    } else if(size_==BUTTON_WIDE) {
-        frame = CGRectMake(0.0, 0.0, [Utils millimetersToPixels:27], [Utils millimetersToPixels:5]);
-    } else if(size_==CHECK_WIDE) {
-        frame = CGRectMake(0.0, 0.0, [Utils millimetersToPixels:55], [Utils millimetersToPixels:6]);
-    } else if(size_==SMALL_SQUARE) {
-        frame = CGRectMake(0.0, 0.0, [Utils millimetersToPixels:5], [Utils millimetersToPixels:5]);
-    }
-    self = [super initWithFrame:frame];
+    self = [super initWithFrame:CGRectMake(0, 0, 10, 10)];
     if (self) {
         self.backgroundColor = [UIColor lightGrayColor];
         _name = name_;
         _clickDelegate = clickDelegate_;
-        _size = size_;
-        self.layer.cornerRadius = 5.0;
-        self.layer.masksToBounds = YES;
+        [self setSize:size_];
         self.layer.borderColor = [[UIColor darkGrayColor] CGColor];
         self.layer.borderWidth = 1.0;
     }
@@ -58,7 +44,7 @@
                                       NSParagraphStyleAttributeName: paragraphStyle };
         
         [self.name drawInRect:textRect withAttributes:attributes];
-    } else if(_size==BUTTON_MEDIUM || _size==BUTTON_WIDE || _size==SMALL_SQUARE) {
+    } else if(_size==BUTTON_SMALL || _size==BUTTON_WIDE || _size==SMALL_SQUARE || _size==SMALL_CIRCLE) {
         UIFont* font = [UIFont fontWithName:@"Georgia" size:14];
         CGRect textRect = CGRectMake(0, 5.0, self.frame.size.width, self.frame.size.height);
         
@@ -91,6 +77,31 @@
         }
         [text appendString:_name];
         [text drawInRect:textRect withAttributes:attributes];
+    }
+}
+
+- (void) setSize:(ButtonSize)size {
+    _size = size;
+    float x = self.frame.origin.x;
+    float y = self.frame.origin.y;
+    self.layer.cornerRadius = 5.0;
+    self.layer.masksToBounds = YES;
+    if(size==BUTTON_LARGE) {
+        self.frame = CGRectMake(x, y, [Utils millimetersToPixels:12], [Utils millimetersToPixels:9]);
+    } else if(size==BUTTON_MEDIUM) {
+        self.frame = CGRectMake(x, y, [Utils millimetersToPixels:18], [Utils millimetersToPixels:5]);
+    } else if(size==BUTTON_SMALL) {
+        self.frame = CGRectMake(x, y, [Utils millimetersToPixels:7], [Utils millimetersToPixels:5]);
+    } else if(size==BUTTON_WIDE) {
+        self.frame = CGRectMake(x, y, [Utils millimetersToPixels:27], [Utils millimetersToPixels:5]);
+    } else if(size==CHECK_WIDE) {
+        self.frame = CGRectMake(x, y, [Utils millimetersToPixels:55], [Utils millimetersToPixels:6]);
+    } else if(size==SMALL_SQUARE) {
+        self.frame = CGRectMake(x, y, [Utils millimetersToPixels:5], [Utils millimetersToPixels:5]);
+    } else if(size==SMALL_CIRCLE) {
+        self.frame = CGRectMake(x, y, [Utils millimetersToPixels:5], [Utils millimetersToPixels:5]);
+        self.layer.cornerRadius = [Utils millimetersToPixels:2.5];
+        self.layer.masksToBounds = YES;
     }
 }
 

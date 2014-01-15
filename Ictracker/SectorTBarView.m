@@ -36,17 +36,89 @@
                                               [Utils millimetersToPixels:34],
                                               [Utils millimetersToPixels:1])];
         
-        _acctButton = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_MEDIUM];
+        _acctButton = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_SMALL];
         [self addSubview:_acctButton];
         [_acctButton setPosition:CGPointMake(
                                             [Utils millimetersToPixels:30],
                                             [Utils millimetersToPixels:9])];
         
-        _action1 = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_LARGE];
+        _action1 = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_MEDIUM];
         [self addSubview:_action1];
         [_action1 setPosition:CGPointMake(
                                              [Utils millimetersToPixels:21],
-                                             [Utils millimetersToPixels:9])];
+                                             [Utils millimetersToPixels:16])];
+        _action2 = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_MEDIUM];
+        [self addSubview:_action2];
+        [_action2 setPosition:CGPointMake(
+                                          [Utils millimetersToPixels:21],
+                                          [Utils millimetersToPixels:22])];
+        _action3 = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_MEDIUM];
+        [self addSubview:_action3];
+        [_action3 setPosition:CGPointMake(
+                                          [Utils millimetersToPixels:21],
+                                          [Utils millimetersToPixels:28])];
+        _action4 = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_MEDIUM];
+        [self addSubview:_action4];
+        [_action4 setPosition:CGPointMake(
+                                          [Utils millimetersToPixels:21],
+                                          [Utils millimetersToPixels:34])];
+        
+        
+        
+        _par1 = [[ButtonView alloc] initWithName:@"1" delegate:self size:SMALL_CIRCLE];
+        [self addSubview:_par1];
+        [_par1 setPosition:CGPointMake(
+                                        [Utils millimetersToPixels:1],
+                                        [Utils millimetersToPixels:8])];
+        _unit1 = [[ButtonView alloc] initWithName:@"E201" delegate:self size:BUTTON_SMALL];
+        [self addSubview:_unit1];
+        [_unit1 setPosition:CGPointMake(
+                                        [Utils millimetersToPixels:7],
+                                        [Utils millimetersToPixels:8])];
+        
+        _par2 = [[ButtonView alloc] initWithName:@"2" delegate:self size:SMALL_CIRCLE];
+        [self addSubview:_par2];
+        [_par2 setPosition:CGPointMake(
+                                       [Utils millimetersToPixels:1],
+                                       [Utils millimetersToPixels:14.5])];
+        _unit2 = [[ButtonView alloc] initWithName:@"E202" delegate:self size:BUTTON_SMALL];
+        [self addSubview:_unit2];
+        [_unit2 setPosition:CGPointMake(
+                                        [Utils millimetersToPixels:7],
+                                        [Utils millimetersToPixels:14.5])];
+        
+        _par3 = [[ButtonView alloc] initWithName:@"3" delegate:self size:SMALL_CIRCLE];
+        [self addSubview:_par3];
+        [_par3 setPosition:CGPointMake(
+                                       [Utils millimetersToPixels:1],
+                                       [Utils millimetersToPixels:21])];
+        _unit3 = [[ButtonView alloc] initWithName:@"E203" delegate:self size:BUTTON_SMALL];
+        [self addSubview:_unit3];
+        [_unit3 setPosition:CGPointMake(
+                                        [Utils millimetersToPixels:7],
+                                        [Utils millimetersToPixels:21])];
+        
+        _par4 = [[ButtonView alloc] initWithName:@"4" delegate:self size:SMALL_CIRCLE];
+        [self addSubview:_par4];
+        [_par4 setPosition:CGPointMake(
+                                       [Utils millimetersToPixels:1],
+                                       [Utils millimetersToPixels:27.5])];
+        _unit4 = [[ButtonView alloc] initWithName:@"E204" delegate:self size:BUTTON_SMALL];
+        [self addSubview:_unit4];
+        [_unit4 setPosition:CGPointMake(
+                                        [Utils millimetersToPixels:7],
+                                        [Utils millimetersToPixels:27.5])];
+        
+        _par5 = [[ButtonView alloc] initWithName:@"5" delegate:self size:SMALL_CIRCLE];
+        [self addSubview:_par5];
+        [_par5 setPosition:CGPointMake(
+                                       [Utils millimetersToPixels:1],
+                                       [Utils millimetersToPixels:34])];
+        _unit5 = [[ButtonView alloc] initWithName:@"E205" delegate:self size:BUTTON_SMALL];
+        [self addSubview:_unit5];
+        [_unit5 setPosition:CGPointMake(
+                                        [Utils millimetersToPixels:7],
+                                        [Utils millimetersToPixels:34])];
         
         _sectorTbarDelegate = sectorTbarDelegate_;
     }
@@ -135,6 +207,7 @@
 //Button delegate response
 - (void) click:(id)selector
 {
+    [self setIsSelected:YES];
     if(selector==_titleButton) {
         [_sectorTbarDelegate onTitleClick:self];
     }
