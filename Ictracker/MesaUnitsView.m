@@ -11,7 +11,7 @@
 
 @implementation MesaUnitsView
 
-- (id)init
+- (id)initWithDelegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate
 {
     NSArray *engNames = @[@"E201",
                           @"E202",
@@ -53,7 +53,7 @@
                           @"B202",
                           @"B203"];
     
-    self = [super initWithEngNames:engNames ladNames:ladNames bcNames:bcNames];
+    self = [super initWithEngNames:engNames ladNames:ladNames bcNames:bcNames delegate:cityUnitMenuDelegate];
     if (self) {
         self.backgroundColor = [UIColor purpleColor];
     }

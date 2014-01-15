@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "ButtonClickDelegate.h"
+#import "CityUnitMenuDelegate.h"
 
 @interface CityUnitsView : UIView<ButtonClickDelegate>
 
-- (id)initWithEngNames:(NSArray*)engNames ladNames:(NSArray*)ladNames bcNames:(NSArray*)bcNames;
+@property (readonly, nonatomic) id<CityUnitMenuDelegate> cityUnitMenuDelegate;
+
+- (id)initWithEngNames:(NSArray*)engNames
+              ladNames:(NSArray*)ladNames
+               bcNames:(NSArray*)bcNames
+              delegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate;
 
 @end

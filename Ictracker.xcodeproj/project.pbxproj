@@ -111,6 +111,7 @@
 		295183F818861C290033B02F /* SectorTBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectorTBarView.m; sourceTree = "<group>"; };
 		295183FB188623B50033B02F /* SectorTBarDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SectorTBarDelegate.h; sourceTree = "<group>"; };
 		295183FC188629700033B02F /* SectorMenuDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SectorMenuDelegate.h; sourceTree = "<group>"; };
+		295183FD18862E640033B02F /* CityUnitMenuDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityUnitMenuDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +244,7 @@
 		2907856A1883C59B008B1B7D /* Unit Menu View Files */ = {
 			isa = PBXGroup;
 			children = (
+				295183FD18862E640033B02F /* CityUnitMenuDelegate.h */,
 				2907856E1883C62B008B1B7D /* UnitMenu.h */,
 				2907856F1883C62B008B1B7D /* UnitMenu.m */,
 				295183E81884F23A0033B02F /* CityUnitsView.h */,

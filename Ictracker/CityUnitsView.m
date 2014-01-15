@@ -12,7 +12,10 @@
 
 @implementation CityUnitsView
 
-- (id)initWithEngNames:(NSArray*)engNames ladNames:(NSArray*)ladNames bcNames:(NSArray*)bcNames
+- (id)initWithEngNames:(NSArray*)engNames
+              ladNames:(NSArray*)ladNames
+               bcNames:(NSArray*)bcNames
+              delegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate
 {
     CGRect frame = CGRectMake(
                               [Utils millimetersToPixels:9.5],
@@ -22,6 +25,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor redColor];
+        
+        _cityUnitMenuDelegate = cityUnitMenuDelegate;
         
         double orig_x = 1.0;//mm
         double orig_y = 1.0;//mm
@@ -95,7 +100,9 @@
 
 - (void) click:(id)selector
 {
-    NSLog(@"click unit button");
+    if(_cityUnitMenuDelegate!=nil) {
+        [_cityUnitMenuDelegate onSelectedUnit:selector];
+    }
 }
 
 @end

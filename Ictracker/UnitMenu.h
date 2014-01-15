@@ -27,4 +27,6 @@
 @property (readonly, nonatomic) AjUnitsView* ajUnitsView;
 @property (readonly, nonatomic) GilbertUnitsView* gilbertUnitsView;
 
+- (id)initWithCityUnitMenuDelegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate;
+
 @end

@@ -8,10 +8,11 @@
 
 #import "UnitMenu.h"
 #import "Utils.h"
+#import "CityUnitMenuDelegate.h"
 
 @implementation UnitMenu
 
-- (id)init
+- (id)initWithCityUnitMenuDelegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate
 {
     CGRect frame = CGRectMake(
                               0.0,
@@ -62,9 +63,9 @@
         
         
         
-        _mesaUnitsView = [[MesaUnitsView alloc] init];
-        _ajUnitsView = [[AjUnitsView alloc] init];
-        _gilbertUnitsView = [[GilbertUnitsView alloc] init];
+        _mesaUnitsView = [[MesaUnitsView alloc] initWithDelegate:cityUnitMenuDelegate];
+        _ajUnitsView = [[AjUnitsView alloc] initWithDelegate:cityUnitMenuDelegate];
+        _gilbertUnitsView = [[GilbertUnitsView alloc] initWithDelegate:cityUnitMenuDelegate];
         
         [self addSubview:_mesaUnitsView];
         [self addSubview:_ajUnitsView];

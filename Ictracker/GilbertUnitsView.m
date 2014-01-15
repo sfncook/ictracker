@@ -11,7 +11,7 @@
 
 @implementation GilbertUnitsView
 
-- (id)init
+- (id)initWithDelegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate
 {
     NSArray *engNames = @[@"E251",
                           @"E252",
@@ -22,7 +22,10 @@
     
     NSArray *bcNames = @[@"B291"];
     
-    self = [super initWithEngNames:engNames ladNames:ladNames bcNames:bcNames];
+    self = [super initWithEngNames:engNames
+                          ladNames:ladNames
+                           bcNames:bcNames
+                          delegate:cityUnitMenuDelegate];
     if (self) {
         self.backgroundColor = [UIColor yellowColor];
     }

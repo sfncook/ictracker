@@ -21,7 +21,8 @@
     [super viewDidLoad];
 //    NSLog(@"win Height: %f", [Utils windowHeight]);
     
-    _menuContainerView = [[MenuContainerView alloc] initWithSectorMenuDelegate:self];
+    _menuContainerView = [[MenuContainerView alloc] initWithSectorMenuDelegate:self
+                                                          cityUnitMenuDelegate:self];
     [self.view addSubview:_menuContainerView];
     
 	_menuSelectorView = [[MenuSelectorView alloc] initWithFrame:
@@ -110,6 +111,12 @@
             [sector setTitle:sectorTitle];
         }
     }
+}
+
+//*** CityUnitMenuDelegate
+- (void) onSelectedUnit:(id)selected
+{
+    NSLog(@"unit:%@", selected);
 }
 
 - (void)didReceiveMemoryWarning

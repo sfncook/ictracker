@@ -11,7 +11,7 @@
 
 @implementation AjUnitsView
 
-- (id)init
+- (id)initWithDelegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate
 {
     NSArray *engNames = @[@"E261",
                           @"E262",
@@ -22,7 +22,10 @@
     
     NSArray *bcNames = @[@"B261"];
     
-    self = [super initWithEngNames:engNames ladNames:ladNames bcNames:bcNames];
+    self = [super initWithEngNames:engNames
+                          ladNames:ladNames
+                           bcNames:bcNames
+                          delegate:cityUnitMenuDelegate];
     if (self) {
         self.backgroundColor = [UIColor redColor];
     }

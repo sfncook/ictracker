@@ -12,6 +12,7 @@
 @implementation MenuContainerView
 
 - (id)initWithSectorMenuDelegate:(id<SectorMenuDelegate>)sectorMenuDelegate
+            cityUnitMenuDelegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate
 {
     CGRect frame = CGRectMake(
                               [Utils millimetersToPixels:13],
@@ -22,7 +23,7 @@
     if (self) {
         self.backgroundColor = [UIColor yellowColor];
         
-        _unitMenu = [[UnitMenu alloc] init];
+        _unitMenu = [[UnitMenu alloc] initWithCityUnitMenuDelegate:cityUnitMenuDelegate];
         [self addSubview:_unitMenu];
         
         _sectorMenu = [[SectorMenu alloc] initWithDelegate:sectorMenuDelegate];
