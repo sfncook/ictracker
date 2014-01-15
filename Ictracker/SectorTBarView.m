@@ -17,11 +17,19 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor yellowColor];
+        
         _mayDayButton = [[ButtonView alloc] initWithName:@"M" delegate:self size:SMALL_SQUARE];
         [self addSubview:_mayDayButton];
         [_mayDayButton setPosition:CGPointMake(
                                      [Utils millimetersToPixels:1],
                                      [Utils millimetersToPixels:1])];
+        
+        _titleButton = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_WIDE];
+        [self addSubview:_titleButton];
+        [_titleButton setPosition:CGPointMake(
+                                               [Utils millimetersToPixels:8],
+                                               [Utils millimetersToPixels:1])];
+        
         _sectorTbarDelegate = sectorTbarDelegate_;
     }
     return self;
@@ -70,10 +78,17 @@
     [self setIsSelected:!_isSelected];
 }
 
+- (void) setTitle:(NSString*)title
+{
+    [_titleButton setName:title];
+}
+
 //Button delegate response
 - (void) click:(id)selector
 {
-    NSLog(@"click unit button");
+    if(selector==_titleButton) {
+        [_sectorTbarDelegate onTitleClick:self];
+    }
 }
 
 @end

@@ -11,5 +11,6 @@
 @protocol SectorTBarDelegate <NSObject>
 
 - (void) onSelected:(id)selected;
+- (void) onTitleClick:(id)selected;
 
 @end

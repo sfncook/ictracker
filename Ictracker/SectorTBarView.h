@@ -16,7 +16,9 @@
 @property (nonatomic, assign)   BOOL isSelected;
 @property (readonly, nonatomic) ButtonView* mayDayButton;
 @property (readonly, nonatomic) id<SectorTBarDelegate> sectorTbarDelegate;
+@property (readonly, nonatomic) ButtonView* titleButton;
 
 - (id)initWithPosition:(CGPoint)position delegate:(id<SectorTBarDelegate>)sectorTbarDelegate_;
+- (void) setTitle:(NSString*)title;
 
 @end

@@ -83,6 +83,7 @@
                    sect3c, nil];
 }
 
+//*** SectorTBarDelegate
 - (void) onSelected:(id)selected
 {
     for(SectorTBarView* sector in _sectorTBars) {
@@ -90,6 +91,11 @@
             [sector setIsSelected:NO];
         }
     }
+}
+
+- (void) onTitleClick:(id)selected
+{
+    [_menuContainerView showSectors];
 }
 
 - (void)didReceiveMemoryWarning
