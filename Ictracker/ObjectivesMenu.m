@@ -31,7 +31,7 @@
     
     self = [super initWithItems:itemNames];
     if (self) {
-        self.backgroundColor = [UIColor brownColor];
+//        self.backgroundColor = [UIColor brownColor];
     }
     return self;
 }

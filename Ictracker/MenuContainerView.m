@@ -21,7 +21,7 @@
                               [Utils windowWidth]-[Utils millimetersToPixels:5]);
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor yellowColor];
+        self.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.90 alpha:1.0];
         
         _unitMenu = [[UnitMenu alloc] initWithCityUnitMenuDelegate:cityUnitMenuDelegate];
         [self addSubview:_unitMenu];

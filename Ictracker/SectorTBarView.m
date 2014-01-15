@@ -88,13 +88,13 @@
 
 - (void) setTitle:(NSString*)title
 {
-    NSLog(@"title:%@", title);
+//    NSLog(@"title:%@", title);
     [_titleButton setName:title];
 }
 
 - (void) addUnit:(NSString*)unitName
 {
-    NSLog(@"Sector - unitName:%@", unitName);
+//    NSLog(@"Sector - unitName:%@", unitName);
 }
 
 //Button delegate response

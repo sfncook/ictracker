@@ -21,7 +21,7 @@
                               [Utils windowWidth]-[Utils millimetersToPixels:5]);
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor redColor];
+//        self.backgroundColor = [UIColor redColor];
         
         double orig_x = 1.0;//mm
         double orig_y = 1.0;//mm

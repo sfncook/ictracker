@@ -105,7 +105,7 @@
 //*** SectorMEnuDelegate
 - (void) onClickSector:(NSString*)sectorTitle
 {
-    NSLog(@"sectorTitle:%@", sectorTitle);
+//    NSLog(@"sectorTitle:%@", sectorTitle);
     for(SectorTBarView* sector in _sectorTBars) {
         if([sector isSelected]) {
             [sector setTitle:sectorTitle];
@@ -116,7 +116,7 @@
 //*** CityUnitMenuDelegate
 - (void) onSelectedUnit:(NSString*)unitName
 {
-    NSLog(@"unit:%@", unitName);
+//    NSLog(@"unit:%@", unitName);
     for(SectorTBarView* sector in _sectorTBars) {
         if([sector isSelected]) {
             [sector addUnit:unitName];

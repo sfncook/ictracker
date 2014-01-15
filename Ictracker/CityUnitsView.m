@@ -24,7 +24,7 @@
                               [Utils windowWidth]-[Utils millimetersToPixels:10]);
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor redColor];
+//        self.backgroundColor = [UIColor redColor];
         
         _cityUnitMenuDelegate = cityUnitMenuDelegate;
         

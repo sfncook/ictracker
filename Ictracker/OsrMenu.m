@@ -29,7 +29,7 @@
     
     self = [super initWithItems:itemNames];
     if (self) {
-        self.backgroundColor = [UIColor greenColor];
+//        self.backgroundColor = [UIColor greenColor];
     }
     return self;
 }

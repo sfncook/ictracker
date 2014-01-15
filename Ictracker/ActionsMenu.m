@@ -39,7 +39,7 @@
     
     self = [super initWithItems:actionNames];
     if (self) {
-        self.backgroundColor = [UIColor yellowColor];
+//        self.backgroundColor = [UIColor yellowColor];
     }
     return self;
 }

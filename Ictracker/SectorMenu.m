@@ -50,7 +50,7 @@
     
     self = [super initWithItems:sectorNames];
     if (self) {
-        self.backgroundColor = [UIColor purpleColor];
+//        self.backgroundColor = [UIColor purpleColor];
         _menuDelegate = menuDelegate;
     }
     return self;

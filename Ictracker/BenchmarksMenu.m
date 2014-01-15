@@ -21,7 +21,7 @@
     
     self = [super initWithItems:benchmarkNames];
     if (self) {
-        self.backgroundColor = [UIColor brownColor];
+//        self.backgroundColor = [UIColor brownColor];
     }
     return self;
 }

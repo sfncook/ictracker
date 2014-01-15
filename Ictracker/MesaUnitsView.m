@@ -55,7 +55,7 @@
     
     self = [super initWithEngNames:engNames ladNames:ladNames bcNames:bcNames delegate:cityUnitMenuDelegate];
     if (self) {
-        self.backgroundColor = [UIColor purpleColor];
+//        self.backgroundColor = [UIColor purpleColor];
     }
     return self;
 }

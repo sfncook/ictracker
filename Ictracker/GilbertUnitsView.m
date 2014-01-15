@@ -27,7 +27,7 @@
                            bcNames:bcNames
                           delegate:cityUnitMenuDelegate];
     if (self) {
-        self.backgroundColor = [UIColor yellowColor];
+//        self.backgroundColor = [UIColor yellowColor];
     }
     return self;
 }

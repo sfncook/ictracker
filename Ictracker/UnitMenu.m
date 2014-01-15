@@ -21,25 +21,25 @@
                               [Utils windowWidth]-[Utils millimetersToPixels:5]);
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor blueColor];
+//        self.backgroundColor = [UIColor blueColor];
         
         _mesaCityButton = [[ButtonView alloc] initWithName:@"Mesa" delegate:self size:BUTTON_MEDIUM];
         [self addSubview:_mesaCityButton];
         [_mesaCityButton setPosition:CGPointMake(
             [Utils millimetersToPixels:1],
-            [Utils millimetersToPixels:0.5])];
+            [Utils millimetersToPixels:1])];
         
         _ajCityButton = [[ButtonView alloc] initWithName:@"AJ" delegate:self size:BUTTON_MEDIUM];
         [self addSubview:_ajCityButton];
         [_ajCityButton setPosition:CGPointMake(
              _mesaCityButton.frame.origin.x + _mesaCityButton.frame.size.width + [Utils millimetersToPixels:2],
-             [Utils millimetersToPixels:0.5])];
+             [Utils millimetersToPixels:1])];
         
         _gilbertCityButton = [[ButtonView alloc] initWithName:@"Glbt" delegate:self size:BUTTON_MEDIUM];
         [self addSubview:_gilbertCityButton];
         [_gilbertCityButton setPosition:CGPointMake(
                                                    _ajCityButton.frame.origin.x + _ajCityButton.frame.size.width + [Utils millimetersToPixels:2],
-                                                   [Utils millimetersToPixels:0.5])];
+                                                   [Utils millimetersToPixels:1])];
         
         
         
