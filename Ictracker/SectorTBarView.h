@@ -41,7 +41,8 @@
 
 - (id)initWithPosition:(CGPoint)position delegate:(id<SectorTBarDelegate>)sectorTbarDelegate_;
 - (void) setTitle:(NSString*)title;
+- (void) setAcctUnit:(NSString*)title;
 - (void) addUnit:(NSString*)unitName;
-- (void) addAction:(NSString*)actionName;
+- (void) addAction:(NSString*)acctUnitName;
 
 @end

@@ -16,7 +16,7 @@
     CGRect frame = CGRectMake(position.x, position.y, [Utils millimetersToPixels:40], [Utils millimetersToPixels:40]);
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor yellowColor];
+        self.backgroundColor = [UIColor whiteColor];
         
         _mayDayButton = [[ButtonView alloc] initWithName:@"M" delegate:self size:SMALL_SQUARE];
         [self addSubview:_mayDayButton];
@@ -161,11 +161,19 @@
     
     //Accountability box
     CGContextSetLineWidth(context, 1.0);
+    CGContextSetFillColorWithColor(context, [UIColor yellowColor].CGColor);
+    CGContextFillRect(context, CGRectMake(
+                                          [Utils millimetersToPixels:25],
+                                          [Utils millimetersToPixels:8],
+                                          [Utils millimetersToPixels:12.5],
+                                          [Utils millimetersToPixels:7]));
     CGContextAddRect(context, CGRectMake(
                                          [Utils millimetersToPixels:25],
                                          [Utils millimetersToPixels:8],
                                          [Utils millimetersToPixels:12.5],
                                          [Utils millimetersToPixels:7]));
+    
+
     //Draw the '@' symbol
     UIFont* font = [UIFont fontWithName:@"Georgia" size:20];
     CGRect textRect = CGRectMake(
