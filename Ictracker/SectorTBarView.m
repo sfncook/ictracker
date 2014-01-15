@@ -17,6 +17,11 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor yellowColor];
+        _mayDayButton = [[ButtonView alloc] initWithName:@"M" delegate:self size:SMALL_SQUARE];
+        [self addSubview:_mayDayButton];
+        [_mayDayButton setPosition:CGPointMake(
+                                     [Utils millimetersToPixels:1],
+                                     [Utils millimetersToPixels:1])];
     }
     return self;
 }
@@ -39,5 +44,34 @@
     CGContextStrokePath(context);
 }
 
+- (void)setIsHighlighted:(BOOL)newIsHighlighted
+{
+    _isHighlighted = newIsHighlighted;
+    if(_isHighlighted) {
+        self.layer.borderColor = [[UIColor blueColor] CGColor];
+        self.layer.borderWidth = 4.0;
+    } else {
+        self.layer.borderWidth = 0.0;
+    }
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self setIsHighlighted:!_isHighlighted];
+}
+
+//Button delegate response
+- (void) click:(id)selector
+{
+    NSLog(@"click unit button");
+}
 
 @end

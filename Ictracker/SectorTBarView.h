@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ButtonClickDelegate.h"
+#import "ButtonView.h"
 
-@interface SectorTBarView : UIView
+@interface SectorTBarView : UIView<ButtonClickDelegate>
+
+@property (nonatomic, assign)   BOOL isHighlighted;
+@property (readonly, nonatomic) ButtonView* mayDayButton;
 
 - (id)initWithPosition:(CGPoint)position;
 

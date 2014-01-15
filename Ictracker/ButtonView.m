@@ -22,6 +22,8 @@
         frame = CGRectMake(0.0, 0.0, [Utils millimetersToPixels:27], [Utils millimetersToPixels:5]);
     } else if(size_==CHECK_WIDE) {
         frame = CGRectMake(0.0, 0.0, [Utils millimetersToPixels:55], [Utils millimetersToPixels:6]);
+    } else if(size_==SMALL_SQUARE) {
+        frame = CGRectMake(0.0, 0.0, [Utils millimetersToPixels:5], [Utils millimetersToPixels:5]);
     }
     self = [super initWithFrame:frame];
     if (self) {
@@ -56,7 +58,7 @@
                                       NSParagraphStyleAttributeName: paragraphStyle };
         
         [self.name drawInRect:textRect withAttributes:attributes];
-    } else if(_size==BUTTON_MEDIUM || _size==BUTTON_WIDE) {
+    } else if(_size==BUTTON_MEDIUM || _size==BUTTON_WIDE || _size==SMALL_SQUARE) {
         UIFont* font = [UIFont fontWithName:@"Georgia" size:14];
         CGRect textRect = CGRectMake(0, 5.0, self.frame.size.width, self.frame.size.height);
         
@@ -69,7 +71,7 @@
                                       NSParagraphStyleAttributeName: paragraphStyle };
         
         [self.name drawInRect:textRect withAttributes:attributes];
-    }else if(_size==CHECK_WIDE) {
+    } else if(_size==CHECK_WIDE) {
         UIFont* font = [UIFont fontWithName:@"Georgia" size:14];
         CGRect textRect = CGRectMake(0, 9.0, self.frame.size.width, self.frame.size.height);
         

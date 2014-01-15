@@ -109,6 +109,7 @@
 		295183F11885006B0033B02F /* ChecklistView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChecklistView.m; sourceTree = "<group>"; };
 		295183F718861C290033B02F /* SectorTBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectorTBarView.h; sourceTree = "<group>"; };
 		295183F818861C290033B02F /* SectorTBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectorTBarView.m; sourceTree = "<group>"; };
+		295183FB188623B50033B02F /* SectorTBarDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SectorTBarDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +291,7 @@
 			children = (
 				295183F718861C290033B02F /* SectorTBarView.h */,
 				295183F818861C290033B02F /* SectorTBarView.m */,
+				295183FB188623B50033B02F /* SectorTBarDelegate.h */,
 			);
 			name = "Sector TBar Files";
 			sourceTree = "<group>";
