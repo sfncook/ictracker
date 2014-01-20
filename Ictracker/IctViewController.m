@@ -33,6 +33,7 @@
                                                             actionMenuDelegate:self
                                                               showMenuDelegate:_menuSelectorView];
     [self.view addSubview:_menuContainerView];
+    [_menuContainerView showUnits];
     
     SectorTBarView* sect1a = [[SectorTBarView alloc]
                               initWithPosition:CGPointMake([Utils millimetersToPixels:71], [Utils millimetersToPixels:14])
