@@ -242,7 +242,7 @@
     [self setTitle:@"REHAB"];
     _isRescue = NO;
     _isRehab = YES;
-    [_titleButton setNormalColor:[UIColor blueColor]];
+    [_titleButton setNormalColor:[UIColor colorWithRed:0.5 green:0.85 blue:1.0 alpha:1.0]];
     _acctButton.hidden = YES;
 }
 
