@@ -20,10 +20,11 @@
 {
     [super viewDidLoad];
     
-    _menuContainerView = [[MenuContainerView alloc] initWithSectorMenuDelegate:self
-                                                          cityUnitMenuDelegate:self
-                                                            actionMenuDelegate:self];
-    [self.view addSubview:_menuContainerView];
+    _sectorTbarContainerView = [[SectorTbarContainerView alloc] initWithDelegate:self];
+    
+    _menuContainerView = [[MenuContainerView alloc] initWithSectorMenuDelegate:_sectorTbarContainerView
+                                                          cityUnitMenuDelegate:_sectorTbarContainerView
+                                                            actionMenuDelegate:_sectorTbarContainerView];
     
 	_menuSelectorView = [[MenuSelectorView alloc] initWithFrame:
                          CGRectMake(0,
@@ -31,72 +32,37 @@
                                     [Utils millimetersToPixels:13],
                                     [Utils windowWidth]-[Utils millimetersToPixels:5])
                                                        delegate:_menuContainerView];
+    
+    
+    [_menuContainerView showUnits];//Must do this after setting delegates for proper functionality
     [self.view addSubview:self.menuSelectorView];
-    
-    [_menuContainerView setShowMenuDelegate:_menuSelectorView];
-    [_menuContainerView showUnits];
-    
-    
-    _sectorTbarContainerView = [[SectorTbarContainerView alloc] initWithDelegate:self];
     [self.view addSubview:_sectorTbarContainerView];
+    [self.view addSubview:_menuContainerView];
     
 }
 
 //*** SectorTBarDelegate
 - (void) onSelected:(id)selected
 {
-//    for(SectorTBarView* sector in _sectorTBars) {
-//        if(sector!=selected) {
-//            [sector setIsSelected:NO];
-//        }
-//    }
+    //Do nothing
 }
 - (void) onTitleClick:(id)selected
 {
-    [_menuContainerView showSectors];
+//    [_menuContainerView showSectors];
 }
 - (void) onActionClick:(id)selected
 {
-    [_menuContainerView showActions];
+//    [_menuContainerView showActions];
 }
 - (void) onUnitClick:(id)selected
 {
-    [_menuContainerView showUnits];
+//    [_menuContainerView showUnits];
 }
 - (void) onActionableUnitClick:(id)selected
 {
-    [_menuContainerView showUnits];
+//    [_menuContainerView showUnits];
 }
 
-//*** SectorMEnuDelegate
-- (void) onClickSector:(NSString*)sectorTitle
-{
-//    for(SectorTBarView* sector in _sectorTBars) {
-//        if([sector isSelected]) {
-//            [sector setTitle:sectorTitle];
-//        }
-//    }
-}
-
-//*** CityUnitMenuDelegate
-- (void) onSelectedUnit:(NSString*)unitName
-{
-//    for(SectorTBarView* sector in _sectorTBars) {
-//        if([sector isSelected]) {
-//            [sector addUnit:unitName];
-//        }
-//    }
-}
-
-//*** ActionMenuDelegate
-- (void) onClickAction:(NSString*)actionTitle
-{
-//    for(SectorTBarView* sector in _sectorTBars) {
-//        if([sector isSelected]) {
-//            [sector addAction:actionTitle];
-//        }
-//    }
-}
 
 - (void)didReceiveMemoryWarning
 {

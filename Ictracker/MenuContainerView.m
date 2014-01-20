@@ -52,10 +52,6 @@
     return self;
 }
 
-- (void) setShowMenuDelegate:(id<ShowMenuDelegate>)showMenuDelegate {
-    _showMenuDelegate = showMenuDelegate;
-}
-
 - (void) showUnits
 {
     _unitMenu.hidden = NO;
@@ -65,7 +61,6 @@
     _objectivesMenu.hidden = YES;
     _osrMenu.hidden = YES;
     _notesMenu.hidden = YES;
-    [_showMenuDelegate showUnits];
 }
 
 - (void) showSectors
@@ -77,7 +72,6 @@
     _objectivesMenu.hidden = YES;
     _osrMenu.hidden = YES;
     _notesMenu.hidden = YES;
-    [_showMenuDelegate showSectors];
 }
 
 - (void) showActions
@@ -89,7 +83,6 @@
     _objectivesMenu.hidden = YES;
     _osrMenu.hidden = YES;
     _notesMenu.hidden = YES;
-    [_showMenuDelegate showActions];
 }
 
 - (void) showBenchmarks
@@ -101,7 +94,6 @@
     _objectivesMenu.hidden = YES;
     _osrMenu.hidden = YES;
     _notesMenu.hidden = YES;
-    [_showMenuDelegate showBenchmarks];
 }
 
 - (void) showObjectives
@@ -113,7 +105,6 @@
     _objectivesMenu.hidden = NO;
     _osrMenu.hidden = YES;
     _notesMenu.hidden = YES;
-    [_showMenuDelegate showObjectives];
 }
 
 - (void) showOsr
@@ -125,7 +116,6 @@
     _objectivesMenu.hidden = YES;
     _osrMenu.hidden = NO;
     _notesMenu.hidden = YES;
-    [_showMenuDelegate showOsr];
 }
 
 - (void) showNotes
@@ -137,7 +127,6 @@
     _objectivesMenu.hidden = YES;
     _osrMenu.hidden = YES;
     _notesMenu.hidden = NO;
-    [_showMenuDelegate showNotes];
 }
 
 @end

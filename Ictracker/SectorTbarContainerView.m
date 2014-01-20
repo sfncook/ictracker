@@ -34,7 +34,7 @@
             for (int col=0; col<3; col++) {
                 SectorTBarView* tBar = [[SectorTBarView alloc]
                                           initWithPosition:CGPointMake([Utils millimetersToPixels:x], [Utils millimetersToPixels:y])
-                                          delegate:sectorTbarDelegate];
+                                          delegate:self];
                 [self addSubview:tBar];
                 [tmpRowArray addObject:tBar];
                 x += 42;
@@ -44,34 +44,83 @@
             y += 42;
         }
         
+        _sectorTbarDelegate = sectorTbarDelegate;
+        
         _sectorTBars = [NSArray arrayWithArray:tmpColArray];
+        
+        SectorTBarView* defaultTBar = [self getTbarAtCol:0 row:0];
+        [defaultTBar setIsSelected:YES];
         
         SectorTBarView* rescueTBar = [self getTbarAtCol:2 row:0];
         [rescueTBar setIsRescue];
         
         SectorTBarView* rehabTBar = [self getTbarAtCol:2 row:2];
         [rehabTBar setIsRehab];
-        
-//
-//        
-//        //Default Sector select
-//        [sect1a setIsSelected:YES];
-//        [sect3a setIsRescue];
-//        [sect3c setIsRehab];
-//        
-//        _sectorTBars = [NSArray arrayWithObjects:
-//                        sect1a,
-//                        sect1b,
-//                        sect1c,
-//                        sect2a,
-//                        sect2b,
-//                        sect2c,
-//                        sect3a,
-//                        sect3b,
-//                        sect3c, nil];
-
     }
     return self;
+}
+
+//*** SectorTBarDelegate
+- (void) onSelected:(id)selected
+{
+    [self resetTBarSelection];
+    SectorTBarView* tBar = selected;
+    [tBar setIsSelected:YES];
+}
+- (void) onTitleClick:(id)selected
+{
+//    [_sectorTbarDelegate onTitleClick:selected];
+}
+- (void) onActionClick:(id)selected
+{
+//    [_sectorTbarDelegate onActionClick:selected];
+}
+- (void) onUnitClick:(id)selected
+{
+//    [_sectorTbarDelegate onUnitClick:selected];
+}
+- (void) onActionableUnitClick:(id)selected
+{
+//    [_sectorTbarDelegate onActionableUnitClick:selected];
+}
+
+
+//*** SectorMenuDelegate
+- (void) onClickSector:(NSString*)sectorTitle
+{
+    //    for(SectorTBarView* sector in _sectorTBars) {
+    //        if([sector isSelected]) {
+    //            [sector setTitle:sectorTitle];
+    //        }
+    //    }
+}
+
+//*** CityUnitMenuDelegate
+- (void) onSelectedUnit:(NSString*)unitName
+{
+    //    for(SectorTBarView* sector in _sectorTBars) {
+    //        if([sector isSelected]) {
+    //            [sector addUnit:unitName];
+    //        }
+    //    }
+}
+
+//*** ActionMenuDelegate
+- (void) onClickAction:(NSString*)actionTitle
+{
+    //    for(SectorTBarView* sector in _sectorTBars) {
+    //        if([sector isSelected]) {
+    //            [sector addAction:actionTitle];
+    //        }
+    //    }
+}
+
+- (void) resetTBarSelection {
+    for(NSArray* rows in _sectorTBars) {
+        for(SectorTBarView* tBar in rows) {
+            [tBar setIsSelected:NO];
+        }
+    }
 }
 
 // col and row are zero-based index.  Upper-left is 0,0 and

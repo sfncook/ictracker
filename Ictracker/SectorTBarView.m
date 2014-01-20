@@ -156,7 +156,6 @@
     if(_isSelected) {
         self.layer.borderColor = [[UIColor blueColor] CGColor];
         self.layer.borderWidth = 2.5;
-        [_sectorTbarDelegate onSelected:self];
     } else {
         self.layer.borderWidth = 0.0;
     }
@@ -174,6 +173,7 @@
 {
     if(!_isSelected) {
         [self setIsSelected:YES];
+        [_sectorTbarDelegate onSelected:self];
     }
 }
 
@@ -249,6 +249,7 @@
 - (void) click:(id)selector
 {
     [self setIsSelected:YES];
+    [_sectorTbarDelegate onSelected:self];
     if(selector==_titleButton) {
         [_sectorTbarDelegate onTitleClick:self];
     }
