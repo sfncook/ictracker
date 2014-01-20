@@ -48,19 +48,19 @@
 }
 - (void) onTitleClick:(id)selected
 {
-//    [_menuContainerView showSectors];
+    [_menuContainerView showSectors];
 }
 - (void) onActionClick:(id)selected
 {
-//    [_menuContainerView showActions];
+    [_menuContainerView showActions];
 }
 - (void) onUnitClick:(id)selected
 {
-//    [_menuContainerView showUnits];
+    [_menuContainerView showUnits];
 }
 - (void) onActionableUnitClick:(id)selected
 {
-//    [_menuContainerView showUnits];
+    [_menuContainerView showUnits];
 }
 
 

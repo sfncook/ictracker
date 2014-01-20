@@ -69,19 +69,19 @@
 }
 - (void) onTitleClick:(id)selected
 {
-//    [_sectorTbarDelegate onTitleClick:selected];
+    [_sectorTbarDelegate onTitleClick:selected];
 }
 - (void) onActionClick:(id)selected
 {
-//    [_sectorTbarDelegate onActionClick:selected];
+    [_sectorTbarDelegate onActionClick:selected];
 }
 - (void) onUnitClick:(id)selected
 {
-//    [_sectorTbarDelegate onUnitClick:selected];
+    [_sectorTbarDelegate onUnitClick:selected];
 }
 - (void) onActionableUnitClick:(id)selected
 {
-//    [_sectorTbarDelegate onActionableUnitClick:selected];
+    [_sectorTbarDelegate onActionableUnitClick:selected];
 }
 
 
