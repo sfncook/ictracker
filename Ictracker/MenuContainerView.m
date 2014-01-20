@@ -14,7 +14,6 @@
 - (id)initWithSectorMenuDelegate:(id<SectorMenuDelegate>)sectorMenuDelegate
             cityUnitMenuDelegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate
               actionMenuDelegate:(id<ActionMenuDelegate>)actionMenuDelegate
-                showMenuDelegate:(id<ShowMenuDelegate>)showMenuDelegate
 {
     CGRect frame = CGRectMake(
                               [Utils millimetersToPixels:13],
@@ -25,7 +24,6 @@
     if (self) {
         self.layer.borderWidth = 1.0;
         self.layer.borderColor = [UIColor colorWithRed:0.4 green:0.8 blue:0.8 alpha:1.0].CGColor;
-        _showMenuDelegate = showMenuDelegate;
         
         _unitMenu = [[UnitMenu alloc] initWithCityUnitMenuDelegate:cityUnitMenuDelegate];
         [self addSubview:_unitMenu];
@@ -52,6 +50,10 @@
         [self showUnits];
     }
     return self;
+}
+
+- (void) setShowMenuDelegate:(id<ShowMenuDelegate>)showMenuDelegate {
+    _showMenuDelegate = showMenuDelegate;
 }
 
 - (void) showUnits

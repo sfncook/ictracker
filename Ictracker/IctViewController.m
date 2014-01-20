@@ -20,6 +20,11 @@
 {
     [super viewDidLoad];
     
+    _menuContainerView = [[MenuContainerView alloc] initWithSectorMenuDelegate:self
+                                                          cityUnitMenuDelegate:self
+                                                            actionMenuDelegate:self];
+    [self.view addSubview:_menuContainerView];
+    
 	_menuSelectorView = [[MenuSelectorView alloc] initWithFrame:
                          CGRectMake(0,
                                     [Utils millimetersToPixels:13],
@@ -28,11 +33,7 @@
                                                        delegate:_menuContainerView];
     [self.view addSubview:self.menuSelectorView];
     
-    _menuContainerView = [[MenuContainerView alloc] initWithSectorMenuDelegate:self
-                                                          cityUnitMenuDelegate:self
-                                                            actionMenuDelegate:self
-                                                              showMenuDelegate:_menuSelectorView];
-    [self.view addSubview:_menuContainerView];
+    [_menuContainerView setShowMenuDelegate:_menuSelectorView];
     [_menuContainerView showUnits];
     
     SectorTBarView* sect1a = [[SectorTBarView alloc]

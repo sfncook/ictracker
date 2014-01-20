@@ -32,7 +32,7 @@
 
 - (id)initWithSectorMenuDelegate:(id<SectorMenuDelegate>)sectorMenuDelegate
             cityUnitMenuDelegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate
-              actionMenuDelegate:(id<ActionMenuDelegate>)actionMenuDelegate
-                showMenuDelegate:(id<ShowMenuDelegate>)showMenuDelegate;
+              actionMenuDelegate:(id<ActionMenuDelegate>)actionMenuDelegate;
+- (void) setShowMenuDelegate:(id<ShowMenuDelegate>)showMenuDelegate;
 
 @end
