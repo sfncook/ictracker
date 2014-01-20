@@ -30,6 +30,9 @@ typedef enum buttonsize {
 @property (retain, nonatomic)       UIColor * downColor;
 @property (retain, nonatomic)       UIColor * borderColor;
 @property (retain, nonatomic)       UIColor * fontColor;
+@property (readonly, nonatomic, retain)        UIColor* defaultNormalColor;
+@property (readonly, nonatomic, retain)        UIColor* defaultDownColor;
+@property (readonly, nonatomic, retain)        UIColor* defaultBorderColor;
 
 - (id)initWithName:(NSString*)name_ delegate:(id<ButtonClickDelegate>)clickDelegate_ size:(ButtonSize)size_;
 - (void) setPosition:(CGPoint)position;

@@ -24,6 +24,6 @@
 
 @property (readonly, nonatomic) id<MenuSelectorDelegate> selectorDelegate;
 
-- (id)initWithFrame:(CGRect)frame delegate:(id<MenuSelectorDelegate>)selectorDelegate_;
+- (id)initWithDelegate:(id<MenuSelectorDelegate>)selectorDelegate_;
 
 @end

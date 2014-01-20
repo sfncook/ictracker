@@ -18,12 +18,15 @@
         _name = name_;
         _clickDelegate = clickDelegate_;
         [self setSize:size_];
-        _normalColor = [UIColor colorWithRed:0.95 green:0.98 blue:1.0 alpha:1.0];
-        _downColor = [UIColor darkGrayColor];
-        _borderColor = [UIColor colorWithRed:0.75 green:0.78 blue:1.0 alpha:1.0];
+        _defaultNormalColor  = [UIColor colorWithRed:0.95 green:0.98 blue:1.0 alpha:1.0];
+        _defaultDownColor  = [UIColor darkGrayColor];
+        _defaultBorderColor  = [UIColor colorWithRed:0.75 green:0.78 blue:1.0 alpha:1.0];
+        _normalColor = _defaultNormalColor;
+        _downColor = _defaultDownColor;
+        _borderColor = _defaultBorderColor;
         self.backgroundColor = _normalColor;
         self.layer.borderColor = [_borderColor CGColor];
-        self.layer.borderWidth = 2.0;
+        self.layer.borderWidth = 1.5;
     }
     return self;
 }
@@ -161,9 +164,11 @@
 {
     _isHighlighted = isHighlighted;
     if(isHighlighted) {
-        [self setBorderColor:[UIColor blueColor]];
+        [self setBorderColor:[UIColor colorWithRed:0.35 green:0.5 blue:1.0 alpha:1.0]];
+        [self setNormalColor:[UIColor colorWithRed:0.8 green:0.9 blue:1.0 alpha:1.0]];
     } else {
-        [self setBorderColor:[UIColor colorWithRed:0.75 green:0.78 blue:1.0 alpha:1.0]];
+        [self setBorderColor:_defaultBorderColor];
+        [self setNormalColor:_defaultNormalColor];
     }
 }
 

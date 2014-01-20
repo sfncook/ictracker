@@ -26,12 +26,7 @@
                                                           cityUnitMenuDelegate:_sectorTbarContainerView
                                                             actionMenuDelegate:_sectorTbarContainerView];
     
-	_menuSelectorView = [[MenuSelectorView alloc] initWithFrame:
-                         CGRectMake(0,
-                                    [Utils millimetersToPixels:13],
-                                    [Utils millimetersToPixels:13],
-                                    [Utils windowWidth]-[Utils millimetersToPixels:5])
-                                                       delegate:_menuContainerView];
+	_menuSelectorView = [[MenuSelectorView alloc] initWithDelegate:_menuContainerView];
     
     
     [_menuContainerView showUnits];//Must do this after setting delegates for proper functionality

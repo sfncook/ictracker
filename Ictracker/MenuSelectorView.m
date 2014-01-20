@@ -11,8 +11,12 @@
 
 @implementation MenuSelectorView
 
-- (id)initWithFrame:(CGRect)frame delegate:(id<MenuSelectorDelegate>)selectorDelegate_
+- (id)initWithDelegate:(id<MenuSelectorDelegate>)selectorDelegate_
 {
+    CGRect frame = CGRectMake(0,
+               [Utils millimetersToPixels:13],
+               [Utils millimetersToPixels:13],
+               [Utils windowWidth]-[Utils millimetersToPixels:5]);
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0];
