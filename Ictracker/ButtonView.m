@@ -23,7 +23,7 @@
         _borderColor = [UIColor colorWithRed:0.75 green:0.78 blue:1.0 alpha:1.0];
         self.backgroundColor = _normalColor;
         self.layer.borderColor = [_borderColor CGColor];
-        self.layer.borderWidth = 1.0;
+        self.layer.borderWidth = 2.0;
     }
     return self;
 }

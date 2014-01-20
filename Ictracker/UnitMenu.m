@@ -78,6 +78,8 @@
 
 - (void) showMesa
 {
+    [self resetCityButtons];
+    [_mesaCityButton setIsHighlighted:YES];
     _mesaUnitsView.hidden = NO;
     _ajUnitsView.hidden = YES;
     _gilbertUnitsView.hidden = YES;
@@ -85,6 +87,8 @@
 
 - (void) showAj
 {
+    [self resetCityButtons];
+    [_ajCityButton setIsHighlighted:YES];
     _mesaUnitsView.hidden = YES;
     _ajUnitsView.hidden = NO;
     _gilbertUnitsView.hidden = YES;
@@ -92,9 +96,17 @@
 
 - (void) showGilbert
 {
+    [self resetCityButtons];
+    [_gilbertCityButton setIsHighlighted:YES];
     _mesaUnitsView.hidden = YES;
     _ajUnitsView.hidden = YES;
     _gilbertUnitsView.hidden = NO;
+}
+
+- (void) resetCityButtons {
+    [_mesaCityButton setIsHighlighted:NO];
+    [_ajCityButton setIsHighlighted:NO];
+    [_gilbertCityButton setIsHighlighted:NO];
 }
 
 - (void) click:(id)selector
