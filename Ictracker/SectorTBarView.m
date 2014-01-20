@@ -146,6 +146,15 @@
         [@"@" drawInRect:textRect withAttributes:attributes];
     }
     
+    if (_isSelected) {
+        CGContextSetFillColorWithColor(context, [UIColor colorWithRed:0.75 green:0.85 blue:1.0 alpha:1.0].CGColor);
+        CGContextFillRect(context, CGRectMake(
+                                              0,
+                                              0,
+                                              [Utils millimetersToPixels:40],
+                                              [Utils millimetersToPixels:7]));
+    }
+    
     // and now draw the Path!
     CGContextStrokePath(context);
 }
@@ -154,12 +163,13 @@
 {
     _isSelected = isSelected;
     if(_isSelected) {
-        self.layer.borderColor = [[UIColor blueColor] CGColor];
-        self.layer.borderWidth = 2.5;
+        self.layer.borderColor =  [UIColor colorWithRed:0.35 green:0.5 blue:1.0 alpha:1.0].CGColor;
+        self.layer.borderWidth = 1.0;
     } else {
         self.layer.borderWidth = 0.0;
         [_acctButton setIsHighlighted:NO];
     }
+    [self setNeedsDisplay];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
