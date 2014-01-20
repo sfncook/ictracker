@@ -88,31 +88,37 @@
 //*** SectorMenuDelegate
 - (void) onClickSector:(NSString*)sectorTitle
 {
-    //    for(SectorTBarView* sector in _sectorTBars) {
-    //        if([sector isSelected]) {
-    //            [sector setTitle:sectorTitle];
-    //        }
-    //    }
+    for(NSArray* rows in _sectorTBars) {
+        for(SectorTBarView* tBar in rows) {
+            if([tBar isSelected]) {
+                [tBar setTitle:sectorTitle];
+            }
+        }
+    }
 }
 
 //*** CityUnitMenuDelegate
 - (void) onSelectedUnit:(NSString*)unitName
 {
-    //    for(SectorTBarView* sector in _sectorTBars) {
-    //        if([sector isSelected]) {
-    //            [sector addUnit:unitName];
-    //        }
-    //    }
+    for(NSArray* rows in _sectorTBars) {
+        for(SectorTBarView* tBar in rows) {
+            if([tBar isSelected]) {
+                [tBar addUnit:unitName];
+            }
+        }
+    }
 }
 
 //*** ActionMenuDelegate
 - (void) onClickAction:(NSString*)actionTitle
 {
-    //    for(SectorTBarView* sector in _sectorTBars) {
-    //        if([sector isSelected]) {
-    //            [sector addAction:actionTitle];
-    //        }
-    //    }
+    for(NSArray* rows in _sectorTBars) {
+        for(SectorTBarView* tBar in rows) {
+            if([tBar isSelected]) {
+                [tBar addAction:actionTitle];
+            }
+        }
+    }
 }
 
 - (void) resetTBarSelection {
