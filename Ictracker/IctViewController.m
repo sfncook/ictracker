@@ -28,8 +28,9 @@
     
 	_menuSelectorView = [[MenuSelectorView alloc] initWithDelegate:_menuContainerView];
     
+    [_menuContainerView setMenuSelectorDelegate:_menuSelectorView];
+    [_menuContainerView showUnits];//Must do this after setMenuSelectorDelegate: for proper functionality
     
-    [_menuContainerView showUnits];//Must do this after setting delegates for proper functionality
     [self.view addSubview:self.menuSelectorView];
     [self.view addSubview:_sectorTbarContainerView];
     [self.view addSubview:_menuContainerView];

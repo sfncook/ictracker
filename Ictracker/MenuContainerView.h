@@ -17,6 +17,7 @@
 #import "NotesMenu.h"
 #import "CityUnitMenuDelegate.h"
 #import "ActionMenuDelegate.h"
+#import "ShowMenuDelegate.h"
 
 @interface MenuContainerView : UIView<MenuSelectorDelegate>
 
@@ -27,6 +28,7 @@
 @property (readonly, nonatomic) ObjectivesMenu* objectivesMenu;
 @property (readonly, nonatomic) OsrMenu* osrMenu;
 @property (readonly, nonatomic) NotesMenu* notesMenu;
+@property (retain, nonatomic)   id<ShowMenuDelegate> menuSelectorDelegate;
 
 - (id)initWithSectorMenuDelegate:(id<SectorMenuDelegate>)sectorMenuDelegate
             cityUnitMenuDelegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate

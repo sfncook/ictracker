@@ -61,6 +61,7 @@
     _objectivesMenu.hidden = YES;
     _osrMenu.hidden = YES;
     _notesMenu.hidden = YES;
+    [_menuSelectorDelegate showUnits];
 }
 
 - (void) showSectors
@@ -72,6 +73,7 @@
     _objectivesMenu.hidden = YES;
     _osrMenu.hidden = YES;
     _notesMenu.hidden = YES;
+    [_menuSelectorDelegate showSectors];
 }
 
 - (void) showActions
@@ -83,6 +85,7 @@
     _objectivesMenu.hidden = YES;
     _osrMenu.hidden = YES;
     _notesMenu.hidden = YES;
+    [_menuSelectorDelegate showActions];
 }
 
 - (void) showBenchmarks
@@ -94,6 +97,7 @@
     _objectivesMenu.hidden = YES;
     _osrMenu.hidden = YES;
     _notesMenu.hidden = YES;
+    [_menuSelectorDelegate showBenchmarks];
 }
 
 - (void) showObjectives
@@ -105,6 +109,7 @@
     _objectivesMenu.hidden = NO;
     _osrMenu.hidden = YES;
     _notesMenu.hidden = YES;
+    [_menuSelectorDelegate showObjectives];
 }
 
 - (void) showOsr
@@ -116,6 +121,7 @@
     _objectivesMenu.hidden = YES;
     _osrMenu.hidden = NO;
     _notesMenu.hidden = YES;
+    [_menuSelectorDelegate showOsr];
 }
 
 - (void) showNotes
@@ -127,6 +133,7 @@
     _objectivesMenu.hidden = YES;
     _osrMenu.hidden = YES;
     _notesMenu.hidden = NO;
+    [_menuSelectorDelegate showNotes];
 }
 
 @end
