@@ -158,6 +158,7 @@
         self.layer.borderWidth = 2.5;
     } else {
         self.layer.borderWidth = 0.0;
+        [_acctButton setIsHighlighted:NO];
     }
 }
 
@@ -248,6 +249,7 @@
 //Button delegate response
 - (void) click:(id)selector
 {
+    [_acctButton setIsHighlighted:NO];
     [self setIsSelected:YES];
     [_sectorTbarDelegate onSelected:self];
     if(selector==_titleButton) {
