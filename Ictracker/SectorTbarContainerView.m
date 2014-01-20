@@ -9,6 +9,7 @@
 #import "SectorTbarContainerView.h"
 #import "Utils.h"
 #import "SectorTBarView.h"
+#import "ButtonView.h"
 
 @implementation SectorTbarContainerView
 
@@ -23,63 +24,35 @@
     if (self) {
         
         //Construct Sector T-Bars
-        NSMutableArray* tmpArray = [[NSMutableArray alloc] initWithCapacity:9];
         double orig_x = 1;
         double orig_y = 1;
         double x = orig_x;
         double y = orig_y;
+        NSMutableArray* tmpColArray = [[NSMutableArray alloc] initWithCapacity:3];
         for (int row=0; row<3; row++) {
+            NSMutableArray* tmpRowArray = [[NSMutableArray alloc] initWithCapacity:3];
             for (int col=0; col<3; col++) {
                 SectorTBarView* tBar = [[SectorTBarView alloc]
                                           initWithPosition:CGPointMake([Utils millimetersToPixels:x], [Utils millimetersToPixels:y])
                                           delegate:sectorTbarDelegate];
                 [self addSubview:tBar];
-                [tmpArray addObject:tBar];
+                [tmpRowArray addObject:tBar];
                 x += 42;
             }
+            [tmpColArray addObject:tmpRowArray];
             x = orig_x;
             y += 42;
         }
         
-//        SectorTBarView* sect1a = [[SectorTBarView alloc]
-//                                  initWithPosition:CGPointMake([Utils millimetersToPixels:71], [Utils millimetersToPixels:14])
-//                                  delegate:self];
-//        [self.view addSubview:sect1a];
-//        SectorTBarView* sect2a = [[SectorTBarView alloc]
-//                                  initWithPosition:CGPointMake([Utils millimetersToPixels:113], [Utils millimetersToPixels:14])
-//                                  delegate:self];
-//        [self.view addSubview:sect2a];
-//        SectorTBarView* sect3a = [[SectorTBarView alloc]
-//                                  initWithPosition:CGPointMake([Utils millimetersToPixels:155], [Utils millimetersToPixels:14])
-//                                  delegate:self];
-//        [self.view addSubview:sect3a];
-//        
-//        SectorTBarView* sect1b = [[SectorTBarView alloc]
-//                                  initWithPosition:CGPointMake([Utils millimetersToPixels:71], [Utils millimetersToPixels:56])
-//                                  delegate:self];
-//        [self.view addSubview:sect1b];
-//        SectorTBarView* sect2b = [[SectorTBarView alloc]
-//                                  initWithPosition:CGPointMake([Utils millimetersToPixels:113], [Utils millimetersToPixels:56])
-//                                  delegate:self];
-//        [self.view addSubview:sect2b];
-//        SectorTBarView* sect3b = [[SectorTBarView alloc]
-//                                  initWithPosition:CGPointMake([Utils millimetersToPixels:155], [Utils millimetersToPixels:56])
-//                                  delegate:self];
-//        [self.view addSubview:sect3b];
-//        
-//        SectorTBarView* sect1c = [[SectorTBarView alloc]
-//                                  initWithPosition:CGPointMake([Utils millimetersToPixels:71], [Utils millimetersToPixels:98])
-//                                  delegate:self];
-//        [self.view addSubview:sect1c];
-//        SectorTBarView* sect2c = [[SectorTBarView alloc]
-//                                  initWithPosition:CGPointMake([Utils millimetersToPixels:113], [Utils millimetersToPixels:98])
-//                                  delegate:self];
-//        [self.view addSubview:sect2c];
-//        SectorTBarView* sect3c = [[SectorTBarView alloc]
-//                                  initWithPosition:CGPointMake([Utils millimetersToPixels:155], [Utils millimetersToPixels:98])
-//                                  delegate:self];
-//        [self.view addSubview:sect3c];
-//        
+        _sectorTBars = [NSArray arrayWithArray:tmpColArray];
+        
+        SectorTBarView* rescueTBar = [self getTbarAtCol:2 row:0];
+        [rescueTBar setIsRescue];
+        
+        SectorTBarView* rehabTBar = [self getTbarAtCol:2 row:2];
+        [rehabTBar setIsRehab];
+        
+//
 //        
 //        //Default Sector select
 //        [sect1a setIsSelected:YES];
@@ -101,5 +74,12 @@
     return self;
 }
 
+// col and row are zero-based index.  Upper-left is 0,0 and
+//  lower-right is 3,3.  Upper-right is 2,0
+- (SectorTBarView*) getTbarAtCol:(int)col row:(int)row {
+    NSArray* rows = [_sectorTBars objectAtIndex:row];
+    SectorTBarView* tBar = [rows objectAtIndex:col];
+    return tBar;
+}
 
 @end
