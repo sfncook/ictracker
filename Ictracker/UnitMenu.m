@@ -21,7 +21,6 @@
                               [Utils windowWidth]-[Utils millimetersToPixels:5]);
     self = [super initWithFrame:frame];
     if (self) {
-//        self.backgroundColor = [UIColor blueColor];
         
         _mesaCityButton = [[ButtonView alloc] initWithName:@"Mesa" delegate:self size:BUTTON_SMALL];
         [self addSubview:_mesaCityButton];
@@ -40,27 +39,6 @@
         [_gilbertCityButton setPosition:CGPointMake(
                                                    _ajCityButton.frame.origin.x + _ajCityButton.frame.size.width + [Utils millimetersToPixels:2],
                                                    [Utils millimetersToPixels:1])];
-        
-        
-        
-        _engUnitTypeButton = [[ButtonView alloc] initWithName:@"Eng" delegate:self size:BUTTON_SMALL];
-        [self addSubview:_engUnitTypeButton];
-        [_engUnitTypeButton setPosition:CGPointMake(
-                                                    [Utils millimetersToPixels:1],
-                                                    [Utils millimetersToPixels:10])];
-        
-        _ladUnitTypeButton = [[ButtonView alloc] initWithName:@"Lad" delegate:self size:BUTTON_SMALL];
-        [self addSubview:_ladUnitTypeButton];
-        [_ladUnitTypeButton setPosition:CGPointMake(
-                                                    [Utils millimetersToPixels:1],
-                                                    _engUnitTypeButton.frame.origin.y + _engUnitTypeButton.frame.size.height + [Utils millimetersToPixels:2])];
-        
-        _bcUnitTypeButton = [[ButtonView alloc] initWithName:@"BC" delegate:self size:BUTTON_SMALL];
-        [self addSubview:_bcUnitTypeButton];
-        [_bcUnitTypeButton setPosition:CGPointMake(
-                                                    [Utils millimetersToPixels:1],
-                                                    _ladUnitTypeButton.frame.origin.y + _ladUnitTypeButton.frame.size.height + [Utils millimetersToPixels:2])];
-        
         
         
         _mesaUnitsView = [[MesaUnitsView alloc] initWithDelegate:cityUnitMenuDelegate];

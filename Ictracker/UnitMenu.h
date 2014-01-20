@@ -19,9 +19,9 @@
 @property (readonly, nonatomic) ButtonView* ajCityButton;
 @property (readonly, nonatomic) ButtonView* gilbertCityButton;
 
-@property (readonly, nonatomic) ButtonView* engUnitTypeButton;
-@property (readonly, nonatomic) ButtonView* ladUnitTypeButton;
-@property (readonly, nonatomic) ButtonView* bcUnitTypeButton;
+//@property (readonly, nonatomic) ButtonView* engUnitTypeButton;
+//@property (readonly, nonatomic) ButtonView* ladUnitTypeButton;
+//@property (readonly, nonatomic) ButtonView* bcUnitTypeButton;
 
 @property (readonly, nonatomic) MesaUnitsView* mesaUnitsView;
 @property (readonly, nonatomic) AjUnitsView* ajUnitsView;

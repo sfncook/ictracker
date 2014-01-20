@@ -38,10 +38,10 @@
                                               [Utils millimetersToPixels:34],
                                               [Utils millimetersToPixels:1])];
         
-        _acctButton = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_SMALL];
+        _acctButton = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_UNIT];
         [self addSubview:_acctButton];
         [_acctButton setPosition:CGPointMake(
-                                            [Utils millimetersToPixels:30],
+                                            [Utils millimetersToPixels:28],
                                             [Utils millimetersToPixels:9])];
         
         _actionButtons = [NSArray arrayWithObjects:
@@ -80,11 +80,11 @@
         }
         
         _unitButtons = [NSArray arrayWithObjects:
-                       [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_SMALL],
-                       [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_SMALL],
-                       [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_SMALL],
-                       [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_SMALL],
-                       [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_SMALL],
+                       [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_UNIT],
+                       [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_UNIT],
+                       [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_UNIT],
+                       [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_UNIT],
+                       [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_UNIT],
                        nil];
         y = 8;
         for (ButtonView* btn in _unitButtons) {
@@ -123,16 +123,16 @@
         CGContextSetLineWidth(context, 1.0);
         CGContextSetFillColorWithColor(context, [UIColor yellowColor].CGColor);
         CGContextFillRect(context, CGRectMake(
-                                              [Utils millimetersToPixels:25],
+                                              [Utils millimetersToPixels:23],
                                               [Utils millimetersToPixels:8],
-                                              [Utils millimetersToPixels:12.5],
+                                              [Utils millimetersToPixels:14.5],
                                               [Utils millimetersToPixels:7]));
         
 
         //Draw the '@' symbol
         UIFont* font = [UIFont fontWithName:@"Georgia" size:20];
         CGRect textRect = CGRectMake(
-                                     [Utils millimetersToPixels:25.5],
+                                     [Utils millimetersToPixels:23.5],
                                      [Utils millimetersToPixels:8.5],
                                      [Utils millimetersToPixels:4],
                                      [Utils millimetersToPixels:7.5]);

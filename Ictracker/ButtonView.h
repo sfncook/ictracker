@@ -16,7 +16,8 @@ typedef enum buttonsize {
     BUTTON_WIDE,
     CHECK_WIDE,
     SMALL_SQUARE,
-    SMALL_CIRCLE} ButtonSize;
+    SMALL_CIRCLE,
+    BUTTON_UNIT} ButtonSize;
 
 @interface ButtonView : UIView
 

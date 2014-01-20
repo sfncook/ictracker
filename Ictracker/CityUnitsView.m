@@ -18,24 +18,23 @@
               delegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate
 {
     CGRect frame = CGRectMake(
-                              [Utils millimetersToPixels:9.5],
+                              [Utils millimetersToPixels:3.0],
                               [Utils millimetersToPixels:7],
                               [Utils millimetersToPixels:47],
                               [Utils windowWidth]-[Utils millimetersToPixels:10]);
     self = [super initWithFrame:frame];
     if (self) {
-//        self.backgroundColor = [UIColor colorWithRed:0.9 green:0.95 blue:1.0 alpha:1.0];
         
         _cityUnitMenuDelegate = cityUnitMenuDelegate;
         
-        double orig_x = 2.5;//mm
+        double orig_x = 1.0;//mm
         double orig_y = 1.5;//mm
         double x = orig_x;
         double y = orig_y;
         int many_cols = 5;
         int col = 1;
         for (NSString *unitName in engNames) {
-            ButtonView* btn = [[ButtonView alloc] initWithName:unitName delegate:self size:BUTTON_SMALL];
+            ButtonView* btn = [[ButtonView alloc] initWithName:unitName delegate:self size:BUTTON_UNIT];
             [self addSubview:btn];
             [btn setPosition:CGPointMake(
                                          [Utils millimetersToPixels:x],
@@ -46,7 +45,7 @@
                 y += 7;
             } else {
                 col++;
-                x += 9;
+                x += 10.5;
             }
         }
         
@@ -58,7 +57,7 @@
         col = 1;
         x = orig_x;
         for (NSString *unitName in ladNames) {
-            ButtonView* btn = [[ButtonView alloc] initWithName:unitName delegate:self size:BUTTON_SMALL];
+            ButtonView* btn = [[ButtonView alloc] initWithName:unitName delegate:self size:BUTTON_UNIT];
             [self addSubview:btn];
             [btn setPosition:CGPointMake(
                                          [Utils millimetersToPixels:x],
@@ -69,7 +68,7 @@
                 y += 7;
             } else {
                 col++;
-                x += 9;
+                x += 10.5;
             }
         }
         
@@ -80,7 +79,7 @@
         col = 1;
         x = orig_x;
         for (NSString *unitName in bcNames) {
-            ButtonView* btn = [[ButtonView alloc] initWithName:unitName delegate:self size:BUTTON_SMALL];
+            ButtonView* btn = [[ButtonView alloc] initWithName:unitName delegate:self size:BUTTON_UNIT];
             [self addSubview:btn];
             [btn setPosition:CGPointMake(
                                          [Utils millimetersToPixels:x],
@@ -91,7 +90,7 @@
                 y += 7;
             } else {
                 col++;
-                x += 9;
+                x += 10.5;
             }
         }
     }

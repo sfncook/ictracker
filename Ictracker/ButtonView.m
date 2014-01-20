@@ -47,7 +47,12 @@
                                       NSParagraphStyleAttributeName: paragraphStyle };
         
         [self.name drawInRect:textRect withAttributes:attributes];
-    } else if(_size==BUTTON_SMALL || _size==BUTTON_MEDIUM || _size==BUTTON_WIDE || _size==SMALL_SQUARE || _size==SMALL_CIRCLE) {
+    } else if(_size==BUTTON_SMALL ||
+              _size==BUTTON_MEDIUM ||
+              _size==BUTTON_WIDE ||
+              _size==SMALL_SQUARE ||
+              _size==SMALL_CIRCLE ||
+              _size==BUTTON_UNIT) {
         UIFont* font = [UIFont fontWithName:@"Georgia" size:14];
         CGRect textRect = CGRectMake(0, 5.0, self.frame.size.width, self.frame.size.height);
         
@@ -105,6 +110,8 @@
         self.frame = CGRectMake(x, y, [Utils millimetersToPixels:5], [Utils millimetersToPixels:5]);
         self.layer.cornerRadius = [Utils millimetersToPixels:2.5];
         self.layer.masksToBounds = YES;
+    } else if(size==BUTTON_UNIT) {
+        self.frame = CGRectMake(x, y, [Utils millimetersToPixels:9], [Utils millimetersToPixels:5]);
     }
 }
 
