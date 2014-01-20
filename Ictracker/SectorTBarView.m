@@ -44,26 +44,47 @@
                                             [Utils millimetersToPixels:30],
                                             [Utils millimetersToPixels:9])];
         
-        _action1 = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_MEDIUM];
-        [self addSubview:_action1];
-        [_action1 setPosition:CGPointMake(
-                                             [Utils millimetersToPixels:21],
-                                             [Utils millimetersToPixels:16])];
-        _action2 = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_MEDIUM];
-        [self addSubview:_action2];
-        [_action2 setPosition:CGPointMake(
-                                          [Utils millimetersToPixels:21],
-                                          [Utils millimetersToPixels:22])];
-        _action3 = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_MEDIUM];
-        [self addSubview:_action3];
-        [_action3 setPosition:CGPointMake(
-                                          [Utils millimetersToPixels:21],
-                                          [Utils millimetersToPixels:28])];
-        _action4 = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_MEDIUM];
-        [self addSubview:_action4];
-        [_action4 setPosition:CGPointMake(
-                                          [Utils millimetersToPixels:21],
-                                          [Utils millimetersToPixels:34])];
+        _actionButtons = [NSArray arrayWithObjects:
+                          [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_MEDIUM],
+                          [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_MEDIUM],
+                          [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_MEDIUM],
+                          [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_MEDIUM],
+                          nil];
+        double y = 16;
+        for (ButtonView* btn in _actionButtons) {
+            [self addSubview:btn];
+            [btn setPosition:CGPointMake(
+                                        [Utils millimetersToPixels:21],
+                                        [Utils millimetersToPixels:y])];
+            y+=6.0;
+            btn.hidden = YES;
+        }
+//        _action1 = ;
+//        [self addSubview:_action1];
+//        [_action1 setPosition:CGPointMake(
+//                                             [Utils millimetersToPixels:21],
+//                                             [Utils millimetersToPixels:16])];
+//        _action2 = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_MEDIUM];
+//        [self addSubview:_action2];
+//        [_action2 setPosition:CGPointMake(
+//                                          [Utils millimetersToPixels:21],
+//                                          [Utils millimetersToPixels:22])];
+//        _action3 = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_MEDIUM];
+//        [self addSubview:_action3];
+//        [_action3 setPosition:CGPointMake(
+//                                          [Utils millimetersToPixels:21],
+//                                          [Utils millimetersToPixels:28])];
+//        _action4 = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_MEDIUM];
+//        [self addSubview:_action4];
+//        [_action4 setPosition:CGPointMake(
+//                                          [Utils millimetersToPixels:21],
+//                                          [Utils millimetersToPixels:34])];
+//        
+//        [_action1 setBorderColor:[UIColor colorWithRed:0.95 green:0.95 blue:1.0 alpha:1.0]];
+//        [_action1 setNormalColor:[UIColor colorWithRed:0.97 green:0.97 blue:0.99 alpha:1.0]];
+//        _action2.hidden = YES;
+//        _action3.hidden = YES;
+//        _action4.hidden = YES;
         
         
         
@@ -121,11 +142,7 @@
         [_unit5 setPosition:CGPointMake(
                                         [Utils millimetersToPixels:7],
                                         [Utils millimetersToPixels:34])];
-        
-        _action1.hidden = YES;
-        _action2.hidden = YES;
-        _action3.hidden = YES;
-        _action4.hidden = YES;
+
         
         _par1.hidden = YES;
         _par2.hidden = YES;
@@ -139,7 +156,6 @@
         _unit4.hidden = YES;
         _unit5.hidden = YES;
         
-        _manyActions = 0;
         _manyUnits = 0;
         
         _sectorTbarDelegate = sectorTbarDelegate_;
@@ -272,23 +288,16 @@
 - (void) addAction:(NSString*)actionName
 {
     if(_manyActions<4) {
+        ButtonView* actionBtn = [_actionButtons objectAtIndex:_manyActions];
         _manyActions++;
-        ButtonView* actionBtn;
-        if(_manyActions==1) {
-            actionBtn = _action1;
-        }
-        if(_manyActions==2) {
-            actionBtn = _action2;
-        }
-        if(_manyActions==3) {
-            actionBtn = _action3;
-        }
-        if(_manyActions==4) {
-            actionBtn = _action4;
-        }
         actionBtn.hidden = NO;
         [actionBtn setName:actionName];
     }
+}
+
+- (void) setCurActionItemIndex:(int)curActionItemIndex
+{
+    _curActionItemIndex = curActionItemIndex;
 }
 
 - (void) setIsRescue
@@ -315,6 +324,15 @@
     [self setIsSelected:YES];
     if(selector==_titleButton) {
         [_sectorTbarDelegate onTitleClick:self];
+    }
+    if([_actionButtons containsObject:selector]) {
+        [_sectorTbarDelegate onActionClick:self];
+    }
+    if(selector==_acctButton) {
+        [_sectorTbarDelegate onActionableUnitClick:self];
+    }
+    if(selector==_unit1 || selector==_unit2 || selector==_unit3 || selector==_unit4 || selector==_unit5) {
+        [_sectorTbarDelegate onUnitClick:self];
     }
 }
 

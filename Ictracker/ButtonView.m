@@ -138,6 +138,12 @@
     self.backgroundColor = _normalColor;
 }
 
+- (void) setBorderColor:(UIColor *)borderColor
+{
+    self.layer.borderColor = borderColor.CGColor;
+    _borderColor = borderColor;
+}
+
 - (void) setName:(NSString *)name
 {
     _name = name;

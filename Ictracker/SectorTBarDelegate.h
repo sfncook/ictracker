@@ -12,5 +12,8 @@
 
 - (void) onSelected:(id)selected;
 - (void) onTitleClick:(id)selected;
+- (void) onActionClick:(id)selected;
+- (void) onUnitClick:(id)selected;
+- (void) onActionableUnitClick:(id)selected;
 
 @end
