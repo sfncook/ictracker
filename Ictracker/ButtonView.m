@@ -159,6 +159,7 @@
 
 - (void) setIsHighlighted:(BOOL)isHighlighted
 {
+    _isHighlighted = isHighlighted;
     if(isHighlighted) {
         [self setBorderColor:[UIColor blueColor]];
     } else {

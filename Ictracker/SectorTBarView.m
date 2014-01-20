@@ -191,7 +191,10 @@
 
 - (void) addUnit:(NSString*)unitName
 {
-    if(_manyUnits<5) {
+    if([_acctButton isHighlighted]) {
+        [_acctButton setIsHighlighted:NO];
+        [_acctButton setName:unitName];
+    } else if(_manyUnits<5) {
         ButtonView* unitBtn = [_unitButtons objectAtIndex:_manyUnits];
         ButtonView* parBtn = [_parButtons objectAtIndex:_manyUnits];
         unitBtn.hidden = NO;
@@ -253,6 +256,7 @@
         [_sectorTbarDelegate onActionClick:self];
     }
     if(selector==_acctButton) {
+        [_acctButton setIsHighlighted:YES];
         [_sectorTbarDelegate onActionableUnitClick:self];
     }
     if([_unitButtons containsObject:selector]) {
