@@ -113,6 +113,7 @@
 		295183FC188629700033B02F /* SectorMenuDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SectorMenuDelegate.h; sourceTree = "<group>"; };
 		295183FD18862E640033B02F /* CityUnitMenuDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityUnitMenuDelegate.h; sourceTree = "<group>"; };
 		295183FE188653770033B02F /* ActionMenuDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActionMenuDelegate.h; sourceTree = "<group>"; };
+		2954671B188CEA7300F4D12E /* ShowMenuDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowMenuDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +229,7 @@
 				2907855F1883B0A9008B1B7D /* MenuSelectorView.h */,
 				290785601883B0A9008B1B7D /* MenuSelectorView.m */,
 				295183D51884D73F0033B02F /* MenuSelectorDelegate.h */,
+				2954671B188CEA7300F4D12E /* ShowMenuDelegate.h */,
 			);
 			name = "Menu Views";
 			sourceTree = "<group>";

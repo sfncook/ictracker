@@ -150,4 +150,13 @@
     [self setNeedsDisplay];
 }
 
+- (void) setIsHighlighted:(BOOL)isHighlighted
+{
+    if(isHighlighted) {
+        [self setBorderColor:[UIColor blueColor]];
+    } else {
+        [self setBorderColor:[UIColor colorWithRed:0.75 green:0.78 blue:1.0 alpha:1.0]];
+    }
+}
+
 @end

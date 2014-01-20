@@ -59,103 +59,40 @@
             y+=6.0;
             btn.hidden = YES;
         }
-//        _action1 = ;
-//        [self addSubview:_action1];
-//        [_action1 setPosition:CGPointMake(
-//                                             [Utils millimetersToPixels:21],
-//                                             [Utils millimetersToPixels:16])];
-//        _action2 = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_MEDIUM];
-//        [self addSubview:_action2];
-//        [_action2 setPosition:CGPointMake(
-//                                          [Utils millimetersToPixels:21],
-//                                          [Utils millimetersToPixels:22])];
-//        _action3 = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_MEDIUM];
-//        [self addSubview:_action3];
-//        [_action3 setPosition:CGPointMake(
-//                                          [Utils millimetersToPixels:21],
-//                                          [Utils millimetersToPixels:28])];
-//        _action4 = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_MEDIUM];
-//        [self addSubview:_action4];
-//        [_action4 setPosition:CGPointMake(
-//                                          [Utils millimetersToPixels:21],
-//                                          [Utils millimetersToPixels:34])];
-//        
-//        [_action1 setBorderColor:[UIColor colorWithRed:0.95 green:0.95 blue:1.0 alpha:1.0]];
-//        [_action1 setNormalColor:[UIColor colorWithRed:0.97 green:0.97 blue:0.99 alpha:1.0]];
-//        _action2.hidden = YES;
-//        _action3.hidden = YES;
-//        _action4.hidden = YES;
         
+        _parButtons = [NSArray arrayWithObjects:
+                        [[ButtonView alloc] initWithName:@"P" delegate:self size:SMALL_CIRCLE],
+                        [[ButtonView alloc] initWithName:@"P" delegate:self size:SMALL_CIRCLE],
+                        [[ButtonView alloc] initWithName:@"P" delegate:self size:SMALL_CIRCLE],
+                        [[ButtonView alloc] initWithName:@"P" delegate:self size:SMALL_CIRCLE],
+                        [[ButtonView alloc] initWithName:@"P" delegate:self size:SMALL_CIRCLE],
+                          nil];
+        y = 8;
+        for (ButtonView* btn in _parButtons) {
+            [self addSubview:btn];
+            [btn setPosition:CGPointMake(
+                                         [Utils millimetersToPixels:1],
+                                         [Utils millimetersToPixels:y])];
+            y+=6.5;
+            btn.hidden = YES;
+        }
         
-        
-        _par1 = [[ButtonView alloc] initWithName:@"P" delegate:self size:SMALL_CIRCLE];
-        [self addSubview:_par1];
-        [_par1 setPosition:CGPointMake(
-                                        [Utils millimetersToPixels:1],
-                                        [Utils millimetersToPixels:8])];
-        _unit1 = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_SMALL];
-        [self addSubview:_unit1];
-        [_unit1 setPosition:CGPointMake(
-                                        [Utils millimetersToPixels:7],
-                                        [Utils millimetersToPixels:8])];
-        
-        _par2 = [[ButtonView alloc] initWithName:@"P" delegate:self size:SMALL_CIRCLE];
-        [self addSubview:_par2];
-        [_par2 setPosition:CGPointMake(
-                                       [Utils millimetersToPixels:1],
-                                       [Utils millimetersToPixels:14.5])];
-        _unit2 = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_SMALL];
-        [self addSubview:_unit2];
-        [_unit2 setPosition:CGPointMake(
-                                        [Utils millimetersToPixels:7],
-                                        [Utils millimetersToPixels:14.5])];
-        
-        _par3 = [[ButtonView alloc] initWithName:@"P" delegate:self size:SMALL_CIRCLE];
-        [self addSubview:_par3];
-        [_par3 setPosition:CGPointMake(
-                                       [Utils millimetersToPixels:1],
-                                       [Utils millimetersToPixels:21])];
-        _unit3 = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_SMALL];
-        [self addSubview:_unit3];
-        [_unit3 setPosition:CGPointMake(
-                                        [Utils millimetersToPixels:7],
-                                        [Utils millimetersToPixels:21])];
-        
-        _par4 = [[ButtonView alloc] initWithName:@"P" delegate:self size:SMALL_CIRCLE];
-        [self addSubview:_par4];
-        [_par4 setPosition:CGPointMake(
-                                       [Utils millimetersToPixels:1],
-                                       [Utils millimetersToPixels:27.5])];
-        _unit4 = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_SMALL];
-        [self addSubview:_unit4];
-        [_unit4 setPosition:CGPointMake(
-                                        [Utils millimetersToPixels:7],
-                                        [Utils millimetersToPixels:27.5])];
-        
-        _par5 = [[ButtonView alloc] initWithName:@"P" delegate:self size:SMALL_CIRCLE];
-        [self addSubview:_par5];
-        [_par5 setPosition:CGPointMake(
-                                       [Utils millimetersToPixels:1],
-                                       [Utils millimetersToPixels:34])];
-        _unit5 = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_SMALL];
-        [self addSubview:_unit5];
-        [_unit5 setPosition:CGPointMake(
-                                        [Utils millimetersToPixels:7],
-                                        [Utils millimetersToPixels:34])];
-
-        
-        _par1.hidden = YES;
-        _par2.hidden = YES;
-        _par3.hidden = YES;
-        _par4.hidden = YES;
-        _par5.hidden = YES;
-        
-        _unit1.hidden = YES;
-        _unit2.hidden = YES;
-        _unit3.hidden = YES;
-        _unit4.hidden = YES;
-        _unit5.hidden = YES;
-        
+        _unitButtons = [NSArray arrayWithObjects:
+                       [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_SMALL],
+                       [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_SMALL],
+                       [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_SMALL],
+                       [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_SMALL],
+                       [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_SMALL],
+                       nil];
+        y = 8;
+        for (ButtonView* btn in _unitButtons) {
+            [self addSubview:btn];
+            [btn setPosition:CGPointMake(
+                                         [Utils millimetersToPixels:7],
+                                         [Utils millimetersToPixels:y])];
+            y+=6.5;
+            btn.hidden = YES;
+        }
         _manyUnits = 0;
         
         _sectorTbarDelegate = sectorTbarDelegate_;
@@ -186,11 +123,6 @@
                                               [Utils millimetersToPixels:8],
                                               [Utils millimetersToPixels:12.5],
                                               [Utils millimetersToPixels:7]));
-//        CGContextAddRect(context, CGRectMake(
-//                                             [Utils millimetersToPixels:25],
-//                                             [Utils millimetersToPixels:8],
-//                                             [Utils millimetersToPixels:12.5],
-//                                             [Utils millimetersToPixels:7]));
         
 
         //Draw the '@' symbol
@@ -256,31 +188,11 @@
 - (void) addUnit:(NSString*)unitName
 {
     if(_manyUnits<5) {
+        ButtonView* unitBtn = [_unitButtons objectAtIndex:_manyUnits];
+        ButtonView* parBtn = [_parButtons objectAtIndex:_manyUnits];
         _manyUnits++;
-        ButtonView* parBtn;
-        ButtonView* unitBtn;
-        if(_manyUnits==1) {
-            parBtn = _par1;
-            unitBtn = _unit1;
-        }
-        if(_manyUnits==2) {
-            parBtn = _par2;
-            unitBtn = _unit2;
-        }
-        if(_manyUnits==3) {
-            parBtn = _par3;
-            unitBtn = _unit3;
-        }
-        if(_manyUnits==4) {
-            parBtn = _par4;
-            unitBtn = _unit4;
-        }
-        if(_manyUnits==5) {
-            parBtn = _par5;
-            unitBtn = _unit5;
-        }
-        parBtn.hidden = NO;
         unitBtn.hidden = NO;
+        parBtn.hidden = NO;
         [unitBtn setName:unitName];
     }
 }
@@ -331,7 +243,7 @@
     if(selector==_acctButton) {
         [_sectorTbarDelegate onActionableUnitClick:self];
     }
-    if(selector==_unit1 || selector==_unit2 || selector==_unit3 || selector==_unit4 || selector==_unit5) {
+    if([_unitButtons containsObject:selector]) {
         [_sectorTbarDelegate onUnitClick:self];
     }
 }

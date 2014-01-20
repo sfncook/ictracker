@@ -25,17 +25,8 @@
 @property (readonly, nonatomic) NSArray* actionButtons;
 @property (nonatomic, assign) int manyActions;
 
-@property (readonly, nonatomic) ButtonView* par1;
-@property (readonly, nonatomic) ButtonView* par2;
-@property (readonly, nonatomic) ButtonView* par3;
-@property (readonly, nonatomic) ButtonView* par4;
-@property (readonly, nonatomic) ButtonView* par5;
-
-@property (readonly, nonatomic) ButtonView* unit1;
-@property (readonly, nonatomic) ButtonView* unit2;
-@property (readonly, nonatomic) ButtonView* unit3;
-@property (readonly, nonatomic) ButtonView* unit4;
-@property (readonly, nonatomic) ButtonView* unit5;
+@property (readonly, nonatomic) NSArray* parButtons;
+@property (readonly, nonatomic) NSArray* unitButtons;
 @property (nonatomic, assign) int manyUnits;
 
 @property (nonatomic, assign)   int curActionItemIndex;

@@ -14,6 +14,7 @@
 - (id)initWithSectorMenuDelegate:(id<SectorMenuDelegate>)sectorMenuDelegate
             cityUnitMenuDelegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate
               actionMenuDelegate:(id<ActionMenuDelegate>)actionMenuDelegate
+                showMenuDelegate:(id<ShowMenuDelegate>)showMenuDelegate
 {
     CGRect frame = CGRectMake(
                               [Utils millimetersToPixels:13],
@@ -22,9 +23,9 @@
                               [Utils windowWidth]-[Utils millimetersToPixels:5]);
     self = [super initWithFrame:frame];
     if (self) {
-//        self.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.90 alpha:1.0];
         self.layer.borderWidth = 1.0;
         self.layer.borderColor = [UIColor colorWithRed:0.4 green:0.8 blue:0.8 alpha:1.0].CGColor;
+        _showMenuDelegate = showMenuDelegate;
         
         _unitMenu = [[UnitMenu alloc] initWithCityUnitMenuDelegate:cityUnitMenuDelegate];
         [self addSubview:_unitMenu];
@@ -62,6 +63,7 @@
     _objectivesMenu.hidden = YES;
     _osrMenu.hidden = YES;
     _notesMenu.hidden = YES;
+    [_showMenuDelegate showUnits];
 }
 
 - (void) showSectors
@@ -73,6 +75,7 @@
     _objectivesMenu.hidden = YES;
     _osrMenu.hidden = YES;
     _notesMenu.hidden = YES;
+    [_showMenuDelegate showSectors];
 }
 
 - (void) showActions
@@ -84,6 +87,7 @@
     _objectivesMenu.hidden = YES;
     _osrMenu.hidden = YES;
     _notesMenu.hidden = YES;
+    [_showMenuDelegate showActions];
 }
 
 - (void) showBenchmarks
@@ -95,6 +99,7 @@
     _objectivesMenu.hidden = YES;
     _osrMenu.hidden = YES;
     _notesMenu.hidden = YES;
+    [_showMenuDelegate showBenchmarks];
 }
 
 - (void) showObjectives
@@ -106,6 +111,7 @@
     _objectivesMenu.hidden = NO;
     _osrMenu.hidden = YES;
     _notesMenu.hidden = YES;
+    [_showMenuDelegate showObjectives];
 }
 
 - (void) showOsr
@@ -117,6 +123,7 @@
     _objectivesMenu.hidden = YES;
     _osrMenu.hidden = NO;
     _notesMenu.hidden = YES;
+    [_showMenuDelegate showOsr];
 }
 
 - (void) showNotes
@@ -128,6 +135,7 @@
     _objectivesMenu.hidden = YES;
     _osrMenu.hidden = YES;
     _notesMenu.hidden = NO;
+    [_showMenuDelegate showNotes];
 }
 
 @end

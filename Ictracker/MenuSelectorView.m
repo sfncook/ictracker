@@ -87,6 +87,61 @@
     } else if(selector==_notesButton) {
         [_selectorDelegate showNotes];
     }
+    
+    [self resetButtonHighlights];
+    [selector setIsHighlighted:YES];
+}
+
+- (void) resetButtonHighlights {
+    [_unitsButton setIsHighlighted:NO];
+    [_sectorsButton setIsHighlighted:NO];
+    [_actionsButton setIsHighlighted:NO];
+    [_benchmarksButton setIsHighlighted:NO];
+    [_objectivesButton setIsHighlighted:NO];
+    [_osrButton setIsHighlighted:NO];
+    [_notesButton setIsHighlighted:NO];
+}
+
+- (void) showUnits
+{
+    [self resetButtonHighlights];
+    [_unitsButton setIsHighlighted:YES];
+}
+
+- (void) showSectors
+{
+    [self resetButtonHighlights];
+    [_sectorsButton setIsHighlighted:YES];
+}
+
+- (void) showActions
+{
+    [self resetButtonHighlights];
+    [_actionsButton setIsHighlighted:YES];
+}
+
+- (void) showBenchmarks
+{
+    [self resetButtonHighlights];
+    [_benchmarksButton setIsHighlighted:YES];
+}
+
+- (void) showObjectives
+{
+    [self resetButtonHighlights];
+    [_objectivesButton setIsHighlighted:YES];
+}
+
+- (void) showOsr
+{
+    [self resetButtonHighlights];
+    [_osrButton setIsHighlighted:YES];
+}
+
+- (void) showNotes
+{
+    [self resetButtonHighlights];
+    [_notesButton setIsHighlighted:YES];
 }
 
 @end

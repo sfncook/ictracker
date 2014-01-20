@@ -10,8 +10,9 @@
 #import "ButtonView.h"
 #import "ButtonClickDelegate.h"
 #import "MenuSelectorDelegate.h"
+#import "ShowMenuDelegate.h"
 
-@interface MenuSelectorView : UIView<ButtonClickDelegate>
+@interface MenuSelectorView : UIView<ButtonClickDelegate, ShowMenuDelegate>
 
 @property (readonly, nonatomic) ButtonView* unitsButton;
 @property (readonly, nonatomic) ButtonView* sectorsButton;

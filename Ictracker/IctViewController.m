@@ -19,12 +19,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    NSLog(@"win Height: %f", [Utils windowHeight]);
-    
-    _menuContainerView = [[MenuContainerView alloc] initWithSectorMenuDelegate:self
-                                                          cityUnitMenuDelegate:self
-                                                            actionMenuDelegate:self];
-    [self.view addSubview:_menuContainerView];
     
 	_menuSelectorView = [[MenuSelectorView alloc] initWithFrame:
                          CGRectMake(0,
@@ -33,6 +27,12 @@
                                     [Utils windowWidth]-[Utils millimetersToPixels:5])
                                                        delegate:_menuContainerView];
     [self.view addSubview:self.menuSelectorView];
+    
+    _menuContainerView = [[MenuContainerView alloc] initWithSectorMenuDelegate:self
+                                                          cityUnitMenuDelegate:self
+                                                            actionMenuDelegate:self
+                                                              showMenuDelegate:_menuSelectorView];
+    [self.view addSubview:_menuContainerView];
     
     SectorTBarView* sect1a = [[SectorTBarView alloc]
                               initWithPosition:CGPointMake([Utils millimetersToPixels:71], [Utils millimetersToPixels:14])
