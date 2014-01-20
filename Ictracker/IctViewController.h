@@ -13,11 +13,13 @@
 #import "SectorMenuDelegate.h"
 #import "CityUnitMenuDelegate.h"
 #import "ActionMenuDelegate.h"
+#import "SectorTbarContainerView.h"
 
 @interface IctViewController : UIViewController<SectorTBarDelegate, SectorMenuDelegate, CityUnitMenuDelegate, ActionMenuDelegate>
 
 @property (readonly, nonatomic) MenuSelectorView* menuSelectorView;
 @property (readonly, nonatomic) MenuContainerView* menuContainerView;
 @property (readonly, nonatomic) NSArray* sectorTBars;
+@property (readonly, nonatomic) SectorTbarContainerView* sectorTbarContainerView;
 
 @end
