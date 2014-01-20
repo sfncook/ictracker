@@ -58,7 +58,9 @@
                                         [Utils millimetersToPixels:y])];
             y+=6.0;
             btn.hidden = YES;
+            [btn setNormalColor:[UIColor clearColor]];
         }
+        [[_actionButtons objectAtIndex:0] setHidden:NO];
         
         _parButtons = [NSArray arrayWithObjects:
                         [[ButtonView alloc] initWithName:@"P" delegate:self size:SMALL_CIRCLE],
@@ -92,7 +94,9 @@
                                          [Utils millimetersToPixels:y])];
             y+=6.5;
             btn.hidden = YES;
+            [btn setNormalColor:[UIColor clearColor]];
         }
+        [[_unitButtons objectAtIndex:0] setHidden:NO];
         _manyUnits = 0;
         
         _sectorTbarDelegate = sectorTbarDelegate_;
@@ -190,10 +194,14 @@
     if(_manyUnits<5) {
         ButtonView* unitBtn = [_unitButtons objectAtIndex:_manyUnits];
         ButtonView* parBtn = [_parButtons objectAtIndex:_manyUnits];
-        _manyUnits++;
         unitBtn.hidden = NO;
         parBtn.hidden = NO;
         [unitBtn setName:unitName];
+        [unitBtn setNormalColor:[UIColor colorWithRed:0.95 green:0.98 blue:1.0 alpha:1.0]];
+        if(_manyUnits<4) {
+            [[_unitButtons objectAtIndex:_manyUnits+1] setHidden:NO];
+        }
+        _manyUnits++;
     }
 }
 
@@ -201,9 +209,13 @@
 {
     if(_manyActions<4) {
         ButtonView* actionBtn = [_actionButtons objectAtIndex:_manyActions];
-        _manyActions++;
         actionBtn.hidden = NO;
         [actionBtn setName:actionName];
+        [actionBtn setNormalColor:[UIColor colorWithRed:0.95 green:0.98 blue:1.0 alpha:1.0]];
+        if(_manyActions<3) {
+            [[_actionButtons objectAtIndex:_manyActions+1] setHidden:NO];
+        }
+        _manyActions++;
     }
 }
 
