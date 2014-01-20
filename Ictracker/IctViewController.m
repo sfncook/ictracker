@@ -40,71 +40,16 @@
     _sectorTbarContainerView = [[SectorTbarContainerView alloc] initWithDelegate:self];
     [self.view addSubview:_sectorTbarContainerView];
     
-    SectorTBarView* sect1a = [[SectorTBarView alloc]
-                              initWithPosition:CGPointMake([Utils millimetersToPixels:71], [Utils millimetersToPixels:14])
-                               delegate:self];
-    [self.view addSubview:sect1a];
-    SectorTBarView* sect2a = [[SectorTBarView alloc]
-                              initWithPosition:CGPointMake([Utils millimetersToPixels:113], [Utils millimetersToPixels:14])
-                              delegate:self];
-    [self.view addSubview:sect2a];
-    SectorTBarView* sect3a = [[SectorTBarView alloc]
-                              initWithPosition:CGPointMake([Utils millimetersToPixels:155], [Utils millimetersToPixels:14])
-                              delegate:self];
-    [self.view addSubview:sect3a];
-    
-    SectorTBarView* sect1b = [[SectorTBarView alloc]
-                              initWithPosition:CGPointMake([Utils millimetersToPixels:71], [Utils millimetersToPixels:56])
-                              delegate:self];
-    [self.view addSubview:sect1b];
-    SectorTBarView* sect2b = [[SectorTBarView alloc]
-                              initWithPosition:CGPointMake([Utils millimetersToPixels:113], [Utils millimetersToPixels:56])
-                              delegate:self];
-    [self.view addSubview:sect2b];
-    SectorTBarView* sect3b = [[SectorTBarView alloc]
-                              initWithPosition:CGPointMake([Utils millimetersToPixels:155], [Utils millimetersToPixels:56])
-                              delegate:self];
-    [self.view addSubview:sect3b];
-    
-    SectorTBarView* sect1c = [[SectorTBarView alloc]
-                              initWithPosition:CGPointMake([Utils millimetersToPixels:71], [Utils millimetersToPixels:98])
-                              delegate:self];
-    [self.view addSubview:sect1c];
-    SectorTBarView* sect2c = [[SectorTBarView alloc]
-                              initWithPosition:CGPointMake([Utils millimetersToPixels:113], [Utils millimetersToPixels:98])
-                              delegate:self];
-    [self.view addSubview:sect2c];
-    SectorTBarView* sect3c = [[SectorTBarView alloc]
-                              initWithPosition:CGPointMake([Utils millimetersToPixels:155], [Utils millimetersToPixels:98])
-                              delegate:self];
-    [self.view addSubview:sect3c];
-
-    
-    //Default Sector select
-    [sect1a setIsSelected:YES];
-    [sect3a setIsRescue];
-    [sect3c setIsRehab];
-    
-    _sectorTBars = [NSArray arrayWithObjects:
-                   sect1a,
-                   sect1b,
-                   sect1c,
-                   sect2a,
-                   sect2b,
-                   sect2c,
-                   sect3a,
-                   sect3b,
-                   sect3c, nil];
 }
 
 //*** SectorTBarDelegate
 - (void) onSelected:(id)selected
 {
-    for(SectorTBarView* sector in _sectorTBars) {
-        if(sector!=selected) {
-            [sector setIsSelected:NO];
-        }
-    }
+//    for(SectorTBarView* sector in _sectorTBars) {
+//        if(sector!=selected) {
+//            [sector setIsSelected:NO];
+//        }
+//    }
 }
 - (void) onTitleClick:(id)selected
 {
@@ -126,33 +71,31 @@
 //*** SectorMEnuDelegate
 - (void) onClickSector:(NSString*)sectorTitle
 {
-//    NSLog(@"sectorTitle:%@", sectorTitle);
-    for(SectorTBarView* sector in _sectorTBars) {
-        if([sector isSelected]) {
-            [sector setTitle:sectorTitle];
-        }
-    }
+//    for(SectorTBarView* sector in _sectorTBars) {
+//        if([sector isSelected]) {
+//            [sector setTitle:sectorTitle];
+//        }
+//    }
 }
 
 //*** CityUnitMenuDelegate
 - (void) onSelectedUnit:(NSString*)unitName
 {
-//    NSLog(@"unit:%@", unitName);
-    for(SectorTBarView* sector in _sectorTBars) {
-        if([sector isSelected]) {
-            [sector addUnit:unitName];
-        }
-    }
+//    for(SectorTBarView* sector in _sectorTBars) {
+//        if([sector isSelected]) {
+//            [sector addUnit:unitName];
+//        }
+//    }
 }
 
 //*** ActionMenuDelegate
 - (void) onClickAction:(NSString*)actionTitle
 {
-    for(SectorTBarView* sector in _sectorTBars) {
-        if([sector isSelected]) {
-            [sector addAction:actionTitle];
-        }
-    }
+//    for(SectorTBarView* sector in _sectorTBars) {
+//        if([sector isSelected]) {
+//            [sector addAction:actionTitle];
+//        }
+//    }
 }
 
 - (void)didReceiveMemoryWarning

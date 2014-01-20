@@ -11,6 +11,8 @@
 
 @interface SectorTbarContainerView : UIView
 
+@property (readonly, nonatomic) NSArray* sectorTBars;
+
 - (id)initWithDelegate:(id<SectorTBarDelegate>)sectorTbarDelegate;
 
 @end

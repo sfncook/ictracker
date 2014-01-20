@@ -19,7 +19,6 @@
 
 @property (readonly, nonatomic) MenuSelectorView* menuSelectorView;
 @property (readonly, nonatomic) MenuContainerView* menuContainerView;
-@property (readonly, nonatomic) NSArray* sectorTBars;
 @property (readonly, nonatomic) SectorTbarContainerView* sectorTbarContainerView;
 
 @end
