@@ -10,6 +10,7 @@
 
 @interface TimerView : UIView
 
+@property (assign, atomic) BOOL isTimerRunning;
 @property (retain, atomic) NSDate* startTime;
 @property (retain, atomic) NSMutableString* curTime;
 @property (readonly, retain, nonatomic) NSTimer* timer;

@@ -22,6 +22,7 @@
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
         _curTime = [NSMutableString stringWithString:@"00:00:00"];
+        _isTimerRunning = YES;
         _timer = [NSTimer scheduledTimerWithTimeInterval:1.0
                                          target:self
                                        selector:@selector(updateTimer:)
@@ -53,31 +54,45 @@
 }
 
 - (void) updateTimer:(NSTimer *)timer {
-    NSDateFormatter *df=[[NSDateFormatter alloc] init];
-    [df setDateFormat:@"hh:mm:ss"];
-    NSDate* curDate = [NSDate date];
-    NSTimeInterval totalSeconds = [curDate timeIntervalSinceDate:_startTime];
-    totalSeconds = abs(totalSeconds);
-    
-    int totalMinutes = floor(totalSeconds/60.0);
-    int seconds = totalSeconds - (totalMinutes*60.0);
-    int hours = floor(totalMinutes/60.0);
-    int minutes = totalMinutes - (hours*60.0);
-    
-    NSString* hoursStr = @"";
-    NSString* minutesStr = @"";
-    NSString* secondsStr = @"";
-    if (hours<10) {
-        hoursStr = @"0";
+    if (_isTimerRunning) {
+        NSDateFormatter *df=[[NSDateFormatter alloc] init];
+        [df setDateFormat:@"hh:mm:ss"];
+        NSDate* curDate = [NSDate date];
+        NSTimeInterval totalSeconds = [curDate timeIntervalSinceDate:_startTime];
+        totalSeconds = abs(totalSeconds);
+        
+        int totalMinutes = floor(totalSeconds/60.0);
+        int seconds = totalSeconds - (totalMinutes*60.0);
+        int hours = floor(totalMinutes/60.0);
+        int minutes = totalMinutes - (hours*60.0);
+        
+        NSString* hoursStr = @"";
+        NSString* minutesStr = @"";
+        NSString* secondsStr = @"";
+        if (hours<10) {
+            hoursStr = @"0";
+        }
+        if (minutes<10) {
+            minutesStr = @"0";
+        }
+        if (seconds<10) {
+            secondsStr = @"0";
+        }
+        _curTime = [NSMutableString stringWithFormat:@"%@%d:%@%d:%@%d", hoursStr, hours, minutesStr, minutes, secondsStr, seconds];
+        [self setNeedsDisplay];
     }
-    if (minutes<10) {
-        minutesStr = @"0";
-    }
-    if (seconds<10) {
-        secondsStr = @"0";
-    }
-    _curTime = [NSMutableString stringWithFormat:@"%@%d:%@%d:%@%d", hoursStr, hours, minutesStr, minutes, secondsStr, seconds];
-    [self setNeedsDisplay];
 }
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    self.backgroundColor = [UIColor lightGrayColor];
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    self.backgroundColor = [UIColor whiteColor];
+    _isTimerRunning = !_isTimerRunning;
+}
+
 
 @end
