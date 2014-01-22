@@ -38,7 +38,7 @@
 }
 
 - (void) drawTime {
-    UIFont* font = [UIFont fontWithName:@"Georgia" size:40];
+    UIFont* font = [UIFont fontWithName:@"Arial" size:40];
     CGRect textRect = CGRectMake([Utils millimetersToPixels:-1], [Utils millimetersToPixels:1], self.frame.size.width, self.frame.size.height);
 
     /// Make a copy of the default paragraph style

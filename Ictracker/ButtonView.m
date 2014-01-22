@@ -38,7 +38,7 @@
 
 - (void) drawName {
     if(_size==BUTTON_LARGE) {
-        UIFont* font = [UIFont fontWithName:@"Georgia" size:18];
+        UIFont* font = [UIFont fontWithName:@"Arial" size:18];
         CGRect textRect = CGRectMake(0.0, 11.0, self.frame.size.width, self.frame.size.height);
         
         /// Make a copy of the default paragraph style
@@ -56,7 +56,7 @@
               _size==SMALL_SQUARE ||
               _size==SMALL_CIRCLE ||
               _size==BUTTON_UNIT) {
-        UIFont* font = [UIFont fontWithName:@"Georgia" size:14];
+        UIFont* font = [UIFont fontWithName:@"Arial" size:14];
         CGRect textRect = CGRectMake(0, 5.0, self.frame.size.width, self.frame.size.height);
         
         /// Make a copy of the default paragraph style
@@ -69,7 +69,7 @@
         
         [self.name drawInRect:textRect withAttributes:attributes];
     } else if(_size==CHECK_WIDE) {
-        UIFont* font = [UIFont fontWithName:@"Georgia" size:14];
+        UIFont* font = [UIFont fontWithName:@"Arial" size:14];
         CGRect textRect = CGRectMake(0, 9.0, self.frame.size.width, self.frame.size.height);
         
         /// Make a copy of the default paragraph style

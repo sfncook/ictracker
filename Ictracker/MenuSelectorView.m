@@ -28,13 +28,13 @@
                                             [Utils millimetersToPixels:0.5])];
         [self addSubview:_unitsButton];
         
-        _sectorsButton = [[ButtonView alloc] initWithName:@"Sectors" delegate:self size:BUTTON_LARGE];
+        _sectorsButton = [[ButtonView alloc] initWithName:@"Sctrs" delegate:self size:BUTTON_LARGE];
         [_sectorsButton setPosition:CGPointMake(
                                               [Utils millimetersToPixels:0.5]-1,
                                               _unitsButton.frame.origin.y + _unitsButton.frame.size.height + [Utils millimetersToPixels:1] - 1)];
         [self addSubview:_sectorsButton];
         
-        _actionsButton = [[ButtonView alloc] initWithName:@"Actions" delegate:self size:BUTTON_LARGE];
+        _actionsButton = [[ButtonView alloc] initWithName:@"Actns" delegate:self size:BUTTON_LARGE];
         [_actionsButton setPosition:CGPointMake(
                                                 [Utils millimetersToPixels:0.5]-1,
                                                 _sectorsButton.frame.origin.y + _sectorsButton.frame.size.height + [Utils millimetersToPixels:1])];
