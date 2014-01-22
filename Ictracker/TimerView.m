@@ -14,19 +14,20 @@
 - (id)init
 {
     CGRect frame = CGRectMake(
-                              [Utils millimetersToPixels:166],
+                              [Utils millimetersToPixels:157],
                               [Utils millimetersToPixels:3],
-                              [Utils millimetersToPixels:30],
+                              [Utils millimetersToPixels:40],
                               [Utils millimetersToPixels:10]);
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
-        _curTime = [NSMutableString stringWithString:@"XX:XX"];
+        _curTime = [NSMutableString stringWithString:@"00:00:00"];
         _timer = [NSTimer scheduledTimerWithTimeInterval:1.0
                                          target:self
                                        selector:@selector(updateTimer:)
                                        userInfo:nil
-                                        repeats:NO];
+                                        repeats:YES];
+        _startTime = [NSDate date];
     }
     return self;
 }
@@ -52,7 +53,31 @@
 }
 
 - (void) updateTimer:(NSTimer *)timer {
+    NSDateFormatter *df=[[NSDateFormatter alloc] init];
+    [df setDateFormat:@"hh:mm:ss"];
+    NSDate* curDate = [NSDate date];
+    NSTimeInterval totalSeconds = [curDate timeIntervalSinceDate:_startTime];
+    totalSeconds = abs(totalSeconds);
     
+    int totalMinutes = floor(totalSeconds/60.0);
+    int seconds = totalSeconds - (totalMinutes*60.0);
+    int hours = floor(totalMinutes/60.0);
+    int minutes = totalMinutes - (hours*60.0);
+    
+    NSString* hoursStr = @"";
+    NSString* minutesStr = @"";
+    NSString* secondsStr = @"";
+    if (hours<10) {
+        hoursStr = @"0";
+    }
+    if (minutes<10) {
+        minutesStr = @"0";
+    }
+    if (seconds<10) {
+        secondsStr = @"0";
+    }
+    _curTime = [NSMutableString stringWithFormat:@"%@%d:%@%d:%@%d", hoursStr, hours, minutesStr, minutes, secondsStr, seconds];
+    [self setNeedsDisplay];
 }
 
 @end
