@@ -362,6 +362,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = cook;
 				TargetAttributes = {
+					290785251883B032008B1B7D = {
+						DevelopmentTeam = 5HL9K394SH;
+					};
 					290785461883B032008B1B7D = {
 						TestTargetID = 290785251883B032008B1B7D;
 					};
@@ -563,11 +566,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Ictracker/Ictracker-Prefix.pch";
 				INFOPLIST_FILE = "Ictracker/Ictracker-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "B7AA4FC0-885C-4571-B57C-5CBC703168C8";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -577,11 +582,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Ictracker/Ictracker-Prefix.pch";
 				INFOPLIST_FILE = "Ictracker/Ictracker-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "68C7FE7D-E1A1-4447-A802-DF28D3732351";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
