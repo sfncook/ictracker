@@ -83,16 +83,16 @@
     }
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    self.backgroundColor = [UIColor lightGrayColor];
-}
-
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    self.backgroundColor = [UIColor whiteColor];
-    _isTimerRunning = !_isTimerRunning;
-}
+//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    self.backgroundColor = [UIColor lightGrayColor];
+//}
+//
+//- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    self.backgroundColor = [UIColor whiteColor];
+//    _isTimerRunning = !_isTimerRunning;
+//}
 
 
 @end
