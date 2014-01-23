@@ -12,9 +12,10 @@
 
 const Mode DEFAULT_MODE = MODE_OFFENSIVE;
 
-- (id)init {
-    self = [super initWithName:[ModeButton modeToString:DEFAULT_MODE] delegate:self size:BUTTON_WIDE];
+- (id)initWithDelegate:(id<ModeButtonDelegate>)delegate {
+    self = [super initWithName:[ModeButton modeToString:DEFAULT_MODE] delegate:self size:BUTTON_WIDE_LG];
     if (self) {
+        _delegate = delegate;
         _mode = MODE_OFFENSIVE;
     }
     return self;
@@ -37,7 +38,7 @@ const Mode DEFAULT_MODE = MODE_OFFENSIVE;
 }
 
 - (void) click:(id)selector {
-    
+    [_delegate clickModeButton:_mode];
 }
 
 @end

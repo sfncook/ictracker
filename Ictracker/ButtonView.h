@@ -14,6 +14,7 @@ typedef enum buttonsize {
     BUTTON_MEDIUM,
     BUTTON_SMALL,
     BUTTON_WIDE,
+    BUTTON_WIDE_LG,
     CHECK_WIDE,
     SMALL_SQUARE,
     SMALL_CIRCLE,

@@ -13,8 +13,10 @@
 #import "SectorTbarContainerView.h"
 #import "TimerView.h"
 #import "ModeButton.h"
+#import "ModeDialog.h"
+#import "ModeButtonDelegate.h"
 
-@interface IctViewController : UIViewController<SectorTBarDelegate>
+@interface IctViewController : UIViewController<SectorTBarDelegate, ModeButtonDelegate>
 
 @property (readonly, nonatomic) MenuSelectorView* menuSelectorView;
 @property (readonly, nonatomic) MenuContainerView* menuContainerView;
@@ -23,5 +25,6 @@
 @property (readonly, nonatomic) TimerView* timerView;
 
 @property (readonly, nonatomic) ModeButton* modeButton;
+@property (retain, atomic)  ModeDialog* modeDialog;
 
 @end

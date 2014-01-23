@@ -8,17 +8,14 @@
 
 #import "ButtonView.h"
 #import "ButtonClickDelegate.h"
-
-typedef enum modes {
-    MODE_OFFENSIVE,
-    MODE_DEFENSIVE,
-    MODE_MARGINAL} Mode;
+#import "ModeButtonDelegate.h"
 
 @interface ModeButton : ButtonView<ButtonClickDelegate>
 
+@property (readonly, nonatomic)     id<ModeButtonDelegate> delegate;
 @property (assign, atomic)  Mode mode;
 
-- (id)init;
+- (id)initWithDelegate:(id<ModeButtonDelegate>)delegate;
 + (NSString*) modeToString:(Mode)mode;
 
 @end

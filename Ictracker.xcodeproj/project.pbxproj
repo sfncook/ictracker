@@ -42,6 +42,7 @@
 		295183F21885006C0033B02F /* ChecklistView.m in Sources */ = {isa = PBXBuildFile; fileRef = 295183F11885006B0033B02F /* ChecklistView.m */; };
 		295183F918861C290033B02F /* SectorTBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 295183F818861C290033B02F /* SectorTBarView.m */; };
 		29ACE64F1890C8EF00575276 /* ModeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 29ACE64E1890C8EF00575276 /* ModeButton.m */; };
+		29ACE6521890D17A00575276 /* ModeDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 29ACE6511890D17A00575276 /* ModeDialog.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,9 @@
 		2954671B188CEA7300F4D12E /* ShowMenuDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowMenuDelegate.h; sourceTree = "<group>"; };
 		29ACE64D1890C8EF00575276 /* ModeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModeButton.h; sourceTree = "<group>"; };
 		29ACE64E1890C8EF00575276 /* ModeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModeButton.m; sourceTree = "<group>"; };
+		29ACE6501890D17A00575276 /* ModeDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModeDialog.h; sourceTree = "<group>"; };
+		29ACE6511890D17A00575276 /* ModeDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModeDialog.m; sourceTree = "<group>"; };
+		29ACE6531890DE5500575276 /* ModeButtonDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModeButtonDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +257,9 @@
 				290785691883B2EE008B1B7D /* ButtonClickDelegate.h */,
 				29ACE64D1890C8EF00575276 /* ModeButton.h */,
 				29ACE64E1890C8EF00575276 /* ModeButton.m */,
+				29ACE6501890D17A00575276 /* ModeDialog.h */,
+				29ACE6511890D17A00575276 /* ModeDialog.m */,
+				29ACE6531890DE5500575276 /* ModeButtonDelegate.h */,
 			);
 			name = "Button View Files";
 			sourceTree = "<group>";
@@ -427,6 +434,7 @@
 				295183E11884DBFA0033B02F /* OsrMenu.m in Sources */,
 				295183D41884D6230033B02F /* SectorMenu.m in Sources */,
 				295183E41884DC250033B02F /* NotesMenu.m in Sources */,
+				29ACE6521890D17A00575276 /* ModeDialog.m in Sources */,
 				290785791883C960008B1B7D /* AjUnitsView.m in Sources */,
 				294B21FC188DEC5F00E6B0F9 /* TimerView.m in Sources */,
 				295183E71884E2550033B02F /* GilbertUnitsView.m in Sources */,

@@ -26,7 +26,11 @@
         _borderColor = _defaultBorderColor;
         self.backgroundColor = _normalColor;
         self.layer.borderColor = [_borderColor CGColor];
-        self.layer.borderWidth = 1.5;
+        if(_size==BUTTON_WIDE_LG) {
+            self.layer.borderWidth = 2.0;
+        } else {
+            self.layer.borderWidth = 1.5;
+        }
     }
     return self;
 }
@@ -57,6 +61,19 @@
               _size==SMALL_CIRCLE ||
               _size==BUTTON_UNIT) {
         UIFont* font = [UIFont fontWithName:@"Arial" size:14];
+        CGRect textRect = CGRectMake(0, 5.0, self.frame.size.width, self.frame.size.height);
+        
+        /// Make a copy of the default paragraph style
+        NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+        paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
+        paragraphStyle.alignment = NSTextAlignmentCenter;
+        
+        NSDictionary *attributes = @{ NSFontAttributeName: font,
+                                      NSParagraphStyleAttributeName: paragraphStyle };
+        
+        [self.name drawInRect:textRect withAttributes:attributes];
+    } else if(_size==BUTTON_WIDE_LG) {
+        UIFont* font = [UIFont fontWithName:@"Arial" size:18];
         CGRect textRect = CGRectMake(0, 5.0, self.frame.size.width, self.frame.size.height);
         
         /// Make a copy of the default paragraph style
@@ -105,6 +122,8 @@
         self.frame = CGRectMake(x, y, [Utils millimetersToPixels:7], [Utils millimetersToPixels:5]);
     } else if(size==BUTTON_WIDE) {
         self.frame = CGRectMake(x, y, [Utils millimetersToPixels:27], [Utils millimetersToPixels:5]);
+    } else if(size==BUTTON_WIDE_LG) {
+        self.frame = CGRectMake(x, y, [Utils millimetersToPixels:29], [Utils millimetersToPixels:6]);
     } else if(size==CHECK_WIDE) {
         self.frame = CGRectMake(x, y, [Utils millimetersToPixels:55], [Utils millimetersToPixels:6]);
     } else if(size==SMALL_SQUARE) {

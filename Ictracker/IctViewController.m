@@ -31,22 +31,28 @@
     [_menuContainerView setMenuSelectorDelegate:_menuSelectorView];
     [_menuContainerView showUnits];//Must do this after setMenuSelectorDelegate: for proper functionality
     
-    _modeButton = [[ModeButton alloc] init];
-    [_modeButton setPosition:CGPointMake(
-                                        [Utils millimetersToPixels:120],
-                                        [Utils millimetersToPixels:6.5])];
-    
     _timerView = [[TimerView alloc] init];
+    
+    _modeButton = [[ModeButton alloc] initWithDelegate:self];
+    [_modeButton setPosition:CGPointMake(
+                                         [Utils millimetersToPixels:120],
+                                         [Utils millimetersToPixels:6.5])];
+    _modeDialog = [[ModeDialog alloc] initWithDelegate:self];
+    [_modeDialog setPosition:CGPointMake(
+                                         [Utils millimetersToPixels:119],
+                                         [Utils millimetersToPixels:6])];
+    _modeDialog.hidden = YES;
     
     [self.view addSubview:self.menuSelectorView];
     [self.view addSubview:_sectorTbarContainerView];
     [self.view addSubview:_menuContainerView];
-    [self.view addSubview:_modeButton];
     [self.view addSubview:_timerView];
+    [self.view addSubview:_modeDialog];
+    [self.view addSubview:_modeButton];
     
 }
 
-//*** SectorTBarDelegate
+//*** SectorTBarDelegate ***
 - (void) onSelected:(id)selected
 {
     //Do nothing
@@ -66,6 +72,16 @@
 - (void) onActionableUnitClick:(id)selected
 {
     [_menuContainerView showUnits];
+}
+
+
+//*** ModeButtonDelegate ***
+- (void) clickModeButton:(Mode)currentMode {
+    _modeDialog.hidden = !_modeDialog.hidden;
+    [_modeDialog setMode:currentMode];
+}
+- (void) selectNewMode:(Mode)newMode {
+    
 }
 
 
