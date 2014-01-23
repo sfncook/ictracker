@@ -15,6 +15,7 @@
 #import "ModeButton.h"
 #import "ModeDialog.h"
 #import "ModeButtonDelegate.h"
+#import "ModeDialogContainer.h"
 
 @interface IctViewController : UIViewController<SectorTBarDelegate, ModeButtonDelegate>
 
@@ -26,5 +27,6 @@
 
 @property (readonly, nonatomic) ModeButton* modeButton;
 @property (retain, atomic)  ModeDialog* modeDialog;
+@property (retain, atomic)  ModeDialogContainer* modeDialogContainer;
 
 @end

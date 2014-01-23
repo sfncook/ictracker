@@ -16,6 +16,7 @@ typedef enum modes {
 @protocol ModeButtonDelegate <NSObject>
 
 - (void) clickModeButton:(Mode)currentMode;
+- (void) cancelModeDialog;
 - (void) selectNewMode:(Mode)newMode;
 
 @end

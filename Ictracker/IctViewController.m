@@ -43,12 +43,16 @@
                                          [Utils millimetersToPixels:6])];
     _modeDialog.hidden = YES;
     
+    _modeDialogContainer = [[ModeDialogContainer alloc] init];
+    _modeDialogContainer.hidden = YES;
+    
     [self.view addSubview:self.menuSelectorView];
     [self.view addSubview:_sectorTbarContainerView];
     [self.view addSubview:_menuContainerView];
     [self.view addSubview:_timerView];
     [self.view addSubview:_modeDialog];
     [self.view addSubview:_modeButton];
+    [self.view addSubview:_modeDialogContainer];
     
 }
 
@@ -79,6 +83,9 @@
 - (void) clickModeButton:(Mode)currentMode {
     _modeDialog.hidden = !_modeDialog.hidden;
     [_modeDialog setMode:currentMode];
+}
+- (void) cancelModeDialog {
+    _modeDialog.hidden = YES;
 }
 - (void) selectNewMode:(Mode)newMode {
     

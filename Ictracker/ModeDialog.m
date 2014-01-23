@@ -38,6 +38,7 @@
                                                    _offensiveButton.frame.origin.y+_offensiveButton.frame.size.height+[Utils millimetersToPixels:1])];
         [_marginalButton setPosition:CGPointMake(_defensiveButton.frame.origin.x,
                                                  _defensiveButton.frame.origin.y+_defensiveButton.frame.size.height+[Utils millimetersToPixels:1])];
+        
     }
     return self;
 }
@@ -76,7 +77,6 @@
     } else if (selector==_defensiveButton) {
         
     } else {
-        
     }
 }
 

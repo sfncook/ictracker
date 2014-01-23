@@ -24,6 +24,12 @@
         _normalColor = _defaultNormalColor;
         _downColor = _defaultDownColor;
         _borderColor = _defaultBorderColor;
+        if(_size==BUTTON_BLANK_WINDOW) {
+            _normalColor = [UIColor clearColor];
+            _downColor = [UIColor clearColor];
+            _borderColor = [UIColor clearColor];
+        }
+        
         self.backgroundColor = _normalColor;
         self.layer.borderColor = [_borderColor CGColor];
         if(_size==BUTTON_WIDE_LG) {
@@ -105,6 +111,8 @@
         }
         [text appendString:_name];
         [text drawInRect:textRect withAttributes:attributes];
+    } else if(_size==BUTTON_BLANK_WINDOW) {
+        //BLANK
     }
 }
 
@@ -134,6 +142,10 @@
         self.layer.masksToBounds = YES;
     } else if(size==BUTTON_UNIT) {
         self.frame = CGRectMake(x, y, [Utils millimetersToPixels:9], [Utils millimetersToPixels:5]);
+    } else if(size==BUTTON_BLANK_WINDOW) {
+        self.frame = CGRectMake(x, y, [Utils windowHeight], [Utils windowWidth]);
+        self.layer.cornerRadius = [Utils millimetersToPixels:0.0];
+        self.layer.masksToBounds = YES;
     }
 }
 
