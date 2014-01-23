@@ -13,7 +13,6 @@
 #import "SectorTbarContainerView.h"
 #import "TimerView.h"
 #import "ModeButton.h"
-#import "ModeDialog.h"
 #import "ModeButtonDelegate.h"
 #import "ModeDialogContainer.h"
 
@@ -26,7 +25,6 @@
 @property (readonly, nonatomic) TimerView* timerView;
 
 @property (readonly, nonatomic) ModeButton* modeButton;
-@property (retain, atomic)  ModeDialog* modeDialog;
 @property (retain, atomic)  ModeDialogContainer* modeDialogContainer;
 
 @end

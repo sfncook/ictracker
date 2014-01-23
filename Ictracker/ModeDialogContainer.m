@@ -11,14 +11,22 @@
 
 @implementation ModeDialogContainer
 
-- (id)init
+- (id)initWithDelegate:(id<ModeButtonDelegate>)delegate
 {
     CGRect frame = CGRectMake(0, 0, [Utils windowWidth], [Utils windowHeight]);
     self = [super initWithFrame:frame];
     if (self) {
+        _delegate = delegate;
         _windowCancelButton = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_BLANK_WINDOW];
         [_windowCancelButton setPosition:CGPointMake(0.0,0.0)];
+        
+        _modeDialog = [[ModeDialog alloc] initWithDelegate:delegate];
+        [_modeDialog setPosition:CGPointMake(
+                                             [Utils millimetersToPixels:119],
+                                             [Utils millimetersToPixels:6])];
+        
         [self addSubview:_windowCancelButton];
+        [self addSubview:_modeDialog];
     }
     return self;
 }
@@ -26,6 +34,7 @@
 - (void) click:(id)selector {
     if (selector==_windowCancelButton){
         NSLog(@"window cancel button");
+        [_delegate cancelModeDialog];
     }
 }
 
