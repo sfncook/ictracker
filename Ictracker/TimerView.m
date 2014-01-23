@@ -14,13 +14,14 @@
 - (id)init
 {
     CGRect frame = CGRectMake(
-                              [Utils millimetersToPixels:157],
+                              [Utils millimetersToPixels:165],
                               [Utils millimetersToPixels:3],
-                              [Utils millimetersToPixels:40],
+                              [Utils millimetersToPixels:32],
                               [Utils millimetersToPixels:10]);
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
+        self.layer.borderWidth = 0.0;
         _curTime = [NSMutableString stringWithString:@"00:00:00"];
         _isTimerRunning = YES;
         _timer = [NSTimer scheduledTimerWithTimeInterval:1.0

@@ -12,6 +12,7 @@
 #import "SectorTBarDelegate.h"
 #import "SectorTbarContainerView.h"
 #import "TimerView.h"
+#import "ModeButton.h"
 
 @interface IctViewController : UIViewController<SectorTBarDelegate>
 
@@ -20,5 +21,7 @@
 @property (readonly, nonatomic) SectorTbarContainerView* sectorTbarContainerView;
 
 @property (readonly, nonatomic) TimerView* timerView;
+
+@property (readonly, nonatomic) ModeButton* modeButton;
 
 @end

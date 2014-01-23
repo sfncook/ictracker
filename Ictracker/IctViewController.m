@@ -31,11 +31,17 @@
     [_menuContainerView setMenuSelectorDelegate:_menuSelectorView];
     [_menuContainerView showUnits];//Must do this after setMenuSelectorDelegate: for proper functionality
     
+    _modeButton = [[ModeButton alloc] init];
+    [_modeButton setPosition:CGPointMake(
+                                        [Utils millimetersToPixels:120],
+                                        [Utils millimetersToPixels:6.5])];
+    
     _timerView = [[TimerView alloc] init];
     
     [self.view addSubview:self.menuSelectorView];
     [self.view addSubview:_sectorTbarContainerView];
     [self.view addSubview:_menuContainerView];
+    [self.view addSubview:_modeButton];
     [self.view addSubview:_timerView];
     
 }
