@@ -75,14 +75,14 @@
 
 //*** ModeButtonDelegate ***
 - (void) clickModeButton:(Mode)currentMode {
-    NSLog(@"click mode button");
     _modeDialogContainer.hidden = !_modeDialogContainer.hidden;
 }
 - (void) cancelModeDialog {
     _modeDialogContainer.hidden = YES;
 }
 - (void) selectNewMode:(Mode)newMode {
-    
+    _modeDialogContainer.hidden = YES;
+    [_modeButton setMode:newMode];
 }
 
 

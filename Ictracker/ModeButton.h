@@ -13,9 +13,10 @@
 @interface ModeButton : ButtonView<ButtonClickDelegate>
 
 @property (readonly, nonatomic)     id<ModeButtonDelegate> delegate;
-@property (assign, atomic)  Mode mode;
+@property (assign, atomic)  Mode myMode;
 
 - (id)initWithDelegate:(id<ModeButtonDelegate>)delegate;
 + (NSString*) modeToString:(Mode)mode;
+- (void) setMode:(Mode)mode;
 
 @end

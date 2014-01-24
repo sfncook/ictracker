@@ -26,19 +26,22 @@
         self.layer.masksToBounds = YES;
         
         _offensiveButton = [[ButtonView alloc] initWithName:[ModeButton modeToString:MODE_OFFENSIVE]  delegate:self size:BUTTON_WIDE];
-        _defensiveButton = [[ButtonView alloc] initWithName:[ModeButton modeToString:MODE_DEFENSIVE]  delegate:self size:BUTTON_WIDE];
         _marginalButton = [[ButtonView alloc] initWithName:[ModeButton modeToString:MODE_MARGINAL]  delegate:self size:BUTTON_WIDE];
+        _defensiveButton = [[ButtonView alloc] initWithName:[ModeButton modeToString:MODE_DEFENSIVE]  delegate:self size:BUTTON_WIDE];
         
         [self addSubview:_offensiveButton];
-        [self addSubview:_defensiveButton];
         [self addSubview:_marginalButton];
+        [self addSubview:_defensiveButton];
         
         [_offensiveButton setPosition:CGPointMake([Utils millimetersToPixels:2], [Utils millimetersToPixels:8.5])];
-        [_defensiveButton setPosition:CGPointMake(_offensiveButton.frame.origin.x,
-                                                   _offensiveButton.frame.origin.y+_offensiveButton.frame.size.height+[Utils millimetersToPixels:1])];
-        [_marginalButton setPosition:CGPointMake(_defensiveButton.frame.origin.x,
-                                                 _defensiveButton.frame.origin.y+_defensiveButton.frame.size.height+[Utils millimetersToPixels:1])];
+        [_marginalButton setPosition:CGPointMake(_offensiveButton.frame.origin.x,
+                                                 _offensiveButton.frame.origin.y+_offensiveButton.frame.size.height+[Utils millimetersToPixels:1])];
+        [_defensiveButton setPosition:CGPointMake(_marginalButton.frame.origin.x,
+                                                  _marginalButton.frame.origin.y+_marginalButton.frame.size.height+[Utils millimetersToPixels:1])];
         
+        [_offensiveButton setNormalColor:[UIColor colorWithRed:0.7 green:1.0 blue:0.7 alpha:1.0]];
+        [_marginalButton setNormalColor:[UIColor colorWithRed:1.0 green:0.9 blue:0.9 alpha:1.0]];
+        [_defensiveButton setNormalColor:[UIColor colorWithRed:1.0 green:0.6 blue:0.6 alpha:1.0]];
     }
     return self;
 }
@@ -73,10 +76,11 @@
 
 - (void) click:(id)selector {
     if (selector==_offensiveButton) {
-        
+        [_delegate selectNewMode:MODE_OFFENSIVE];
     } else if (selector==_defensiveButton) {
-        
+        [_delegate selectNewMode:MODE_DEFENSIVE];
     } else {
+        [_delegate selectNewMode:MODE_MARGINAL];
     }
 }
 

@@ -34,7 +34,6 @@
 
 - (void) click:(id)selector {
     if (selector==_windowCancelButton){
-        NSLog(@"window cancel button");
         [_delegate cancelModeDialog];
     }
 }
