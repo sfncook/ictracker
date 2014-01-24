@@ -13,9 +13,10 @@
 
 - (id)initWithDelegate:(id<ModeButtonDelegate>)delegate
 {
-    CGRect frame = CGRectMake(0, 0, [Utils windowWidth], [Utils windowHeight]);
+    CGRect frame = CGRectMake(0, 0, [Utils windowHeight], [Utils windowWidth]);
     self = [super initWithFrame:frame];
     if (self) {
+        self.backgroundColor = [UIColor clearColor];
         _delegate = delegate;
         _windowCancelButton = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_BLANK_WINDOW];
         [_windowCancelButton setPosition:CGPointMake(0.0,0.0)];
