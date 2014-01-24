@@ -44,6 +44,7 @@
 		29ACE64F1890C8EF00575276 /* ModeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 29ACE64E1890C8EF00575276 /* ModeButton.m */; };
 		29ACE6521890D17A00575276 /* ModeDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 29ACE6511890D17A00575276 /* ModeDialog.m */; };
 		29ACE6561890E7C400575276 /* ModeDialogContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 29ACE6551890E7C400575276 /* ModeDialogContainer.m */; };
+		29C5C4BF189232BD00DFE5CE /* SafetyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C5C4BE189232BD00DFE5CE /* SafetyButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +131,8 @@
 		29ACE6531890DE5500575276 /* ModeButtonDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModeButtonDelegate.h; sourceTree = "<group>"; };
 		29ACE6541890E7C400575276 /* ModeDialogContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModeDialogContainer.h; sourceTree = "<group>"; };
 		29ACE6551890E7C400575276 /* ModeDialogContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModeDialogContainer.m; sourceTree = "<group>"; };
+		29C5C4BD189232BD00DFE5CE /* SafetyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SafetyButton.h; sourceTree = "<group>"; };
+		29C5C4BE189232BD00DFE5CE /* SafetyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SafetyButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +268,8 @@
 				29ACE6531890DE5500575276 /* ModeButtonDelegate.h */,
 				29ACE6541890E7C400575276 /* ModeDialogContainer.h */,
 				29ACE6551890E7C400575276 /* ModeDialogContainer.m */,
+				29C5C4BD189232BD00DFE5CE /* SafetyButton.h */,
+				29C5C4BE189232BD00DFE5CE /* SafetyButton.m */,
 			);
 			name = "Button View Files";
 			sourceTree = "<group>";
@@ -438,6 +443,7 @@
 				290785401883B032008B1B7D /* IctViewController.m in Sources */,
 				295183E11884DBFA0033B02F /* OsrMenu.m in Sources */,
 				295183D41884D6230033B02F /* SectorMenu.m in Sources */,
+				29C5C4BF189232BD00DFE5CE /* SafetyButton.m in Sources */,
 				295183E41884DC250033B02F /* NotesMenu.m in Sources */,
 				29ACE6521890D17A00575276 /* ModeDialog.m in Sources */,
 				290785791883C960008B1B7D /* AjUnitsView.m in Sources */,
