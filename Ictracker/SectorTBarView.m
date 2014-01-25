@@ -193,6 +193,7 @@
 - (void) setTitle:(NSString*)title
 {
     [_titleButton setName:title];
+    
     Transaction* tx = [Transaction transactionWithType:TRANSTYPE_ADD_TITLE_TO_SECTOR date:[NSDate date] param:title, self, nil];
     [_transLogger addTransaction:tx];
 
@@ -208,9 +209,15 @@
 - (void) addUnit:(NSString*)unitName
 {
     if([_acctButton isHighlighted]) {
+        Transaction* tx = [Transaction transactionWithType:TRANSTYPE_ADD_UNIT_TO_ACCT date:[NSDate date] param:unitName, self, nil];
+        [_transLogger addTransaction:tx];
+        
         [_acctButton setIsHighlighted:NO];
         [_acctButton setName:unitName];
     } else if(_manyUnits<5) {
+        Transaction* tx = [Transaction transactionWithType:TRANSTYPE_ADD_UNIT_TO_SECTOR date:[NSDate date] param:unitName, self, nil];
+        [_transLogger addTransaction:tx];
+        
         ButtonView* unitBtn = [_unitButtons objectAtIndex:_manyUnits];
         ButtonView* parBtn = [_parButtons objectAtIndex:_manyUnits];
         unitBtn.hidden = NO;
@@ -227,6 +234,9 @@
 - (void) addAction:(NSString*)actionName
 {
     if(_manyActions<4) {
+        Transaction* tx = [Transaction transactionWithType:TRANSTYPE_ADD_ACTION_TO_SECTOR date:[NSDate date] param:actionName, self, nil];
+        [_transLogger addTransaction:tx];
+        
         ButtonView* actionBtn = [_actionButtons objectAtIndex:_manyActions];
         actionBtn.hidden = NO;
         [actionBtn setName:actionName];
@@ -245,6 +255,9 @@
 
 - (void) setIsRescue
 {
+    Transaction* tx = [Transaction transactionWithType:TRANSTYPE_SET_SECTOR_RESCUE date:[NSDate date] param:@"RESCUE", self, nil];
+    [_transLogger addTransaction:tx];
+    
     [self setTitle:@"RESCUE"];
     _isRescue = YES;
     _isRehab = NO;
@@ -254,6 +267,9 @@
 
 - (void) setIsRehab
 {
+    Transaction* tx = [Transaction transactionWithType:TRANSTYPE_SET_SECTOR_REHAB date:[NSDate date] param:@"REHAB", self, nil];
+    [_transLogger addTransaction:tx];
+    
     [self setTitle:@"REHAB"];
     _isRescue = NO;
     _isRehab = YES;

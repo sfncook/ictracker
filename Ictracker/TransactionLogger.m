@@ -32,8 +32,8 @@
     return self;
 }
 
-- (void) addTransaction:(Transaction*)transaction {
-    
+- (void) addTransaction:(Transaction*)tx {
+    [_transactions addObject:tx];
 }
 
 @end

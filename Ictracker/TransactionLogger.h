@@ -14,6 +14,6 @@
 @property (readonly, nonatomic, retain) NSMutableArray* transactions;
 
 + (TransactionLogger *)transLogger;
-- (void) addTransaction:(Transaction*)transaction;
+- (void) addTransaction:(Transaction*)tx;
 
 @end

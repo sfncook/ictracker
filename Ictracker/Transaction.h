@@ -9,7 +9,12 @@
 #import <Foundation/Foundation.h>
 
 typedef enum transType {
-    TRANSTYPE_ADD_TITLE_TO_SECTOR
+    TRANSTYPE_ADD_TITLE_TO_SECTOR,
+    TRANSTYPE_ADD_UNIT_TO_ACCT,
+    TRANSTYPE_ADD_UNIT_TO_SECTOR,
+    TRANSTYPE_ADD_ACTION_TO_SECTOR,
+    TRANSTYPE_SET_SECTOR_REHAB,
+    TRANSTYPE_SET_SECTOR_RESCUE
     } TransType;
 
 @interface Transaction : NSObject
