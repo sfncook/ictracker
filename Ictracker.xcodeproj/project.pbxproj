@@ -47,6 +47,8 @@
 		29C3B8A51893586700B81766 /* SafetyDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C3B8A41893586700B81766 /* SafetyDialog.m */; };
 		29C3B8AA1893589C00B81766 /* SafetyDialogContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C3B8A91893589C00B81766 /* SafetyDialogContainer.m */; };
 		29C5C4BF189232BD00DFE5CE /* SafetyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C5C4BE189232BD00DFE5CE /* SafetyButton.m */; };
+		29E42C3218942EA2002E8CC3 /* Transaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E42C3118942EA2002E8CC3 /* Transaction.m */; };
+		29E42C351894334B002E8CC3 /* TransactionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E42C341894334B002E8CC3 /* TransactionController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +142,10 @@
 		29C3B8AB189358C500B81766 /* SafetyButtonDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SafetyButtonDelegate.h; sourceTree = "<group>"; };
 		29C5C4BD189232BD00DFE5CE /* SafetyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SafetyButton.h; sourceTree = "<group>"; };
 		29C5C4BE189232BD00DFE5CE /* SafetyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SafetyButton.m; sourceTree = "<group>"; };
+		29E42C3018942EA2002E8CC3 /* Transaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transaction.h; sourceTree = "<group>"; };
+		29E42C3118942EA2002E8CC3 /* Transaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transaction.m; sourceTree = "<group>"; };
+		29E42C331894334B002E8CC3 /* TransactionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionController.h; sourceTree = "<group>"; };
+		29E42C341894334B002E8CC3 /* TransactionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +205,7 @@
 		2907852F1883B032008B1B7D /* Ictracker */ = {
 			isa = PBXGroup;
 			children = (
+				29E42C2F18942E6E002E8CC3 /* Transactions */,
 				295183F618861BE00033B02F /* Sector TBar Files */,
 				295183EF1885001B0033B02F /* Checklist Menu Views */,
 				295183EE1884F84D0033B02F /* Wide Items Menu Views */,
@@ -364,6 +371,17 @@
 			name = SafetyButton;
 			sourceTree = "<group>";
 		};
+		29E42C2F18942E6E002E8CC3 /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				29E42C3018942EA2002E8CC3 /* Transaction.h */,
+				29E42C3118942EA2002E8CC3 /* Transaction.m */,
+				29E42C331894334B002E8CC3 /* TransactionController.h */,
+				29E42C341894334B002E8CC3 /* TransactionController.m */,
+			);
+			name = Transactions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -483,6 +501,7 @@
 				290785731883C6FF008B1B7D /* MenuContainerView.m in Sources */,
 				290785361883B032008B1B7D /* main.m in Sources */,
 				290785611883B0A9008B1B7D /* MenuSelectorView.m in Sources */,
+				29E42C3218942EA2002E8CC3 /* Transaction.m in Sources */,
 				295183D81884DAD60033B02F /* ActionsMenu.m in Sources */,
 				295183DB1884DB5C0033B02F /* BenchmarksMenu.m in Sources */,
 				290785641883B12C008B1B7D /* Utils.m in Sources */,
@@ -490,6 +509,7 @@
 				295183ED1884F83B0033B02F /* WideItemsMenuView.m in Sources */,
 				290785681883B1CE008B1B7D /* ButtonView.m in Sources */,
 				290785701883C62B008B1B7D /* UnitMenu.m in Sources */,
+				29E42C351894334B002E8CC3 /* TransactionController.m in Sources */,
 				2907853A1883B032008B1B7D /* IctAppDelegate.m in Sources */,
 				29C3B8AA1893589C00B81766 /* SafetyDialogContainer.m in Sources */,
 				29ACE6561890E7C400575276 /* ModeDialogContainer.m in Sources */,
