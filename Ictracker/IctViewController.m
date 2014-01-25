@@ -92,6 +92,8 @@
 //*** ModeButtonDelegate ***
 - (void) clickModeButton:(Mode)currentMode {
     _modeDialogContainer.hidden = !_modeDialogContainer.hidden;
+    [self.view bringSubviewToFront:_modeDialogContainer];
+    [self.view bringSubviewToFront:_modeButton];
 }
 - (void) cancelModeDialog {
     _modeDialogContainer.hidden = YES;
@@ -105,6 +107,8 @@
 //*** SafetyButtonDelegate ***
 - (void) clickSafetyButton:(NSString*)currentSafety{
     _safetyDialogContainer.hidden = !_safetyDialogContainer.hidden;
+    [self.view bringSubviewToFront:_safetyDialogContainer];
+    [self.view bringSubviewToFront:_safetyButton];
 }
 - (void) cancelSafetyDialog{
     _safetyDialogContainer.hidden = YES;
