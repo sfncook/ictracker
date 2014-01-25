@@ -24,7 +24,7 @@
         _modeDialog = [[ModeDialog alloc] initWithDelegate:delegate];
         [_modeDialog setPosition:CGPointMake(
                                              [Utils millimetersToPixels:119],
-                                             [Utils millimetersToPixels:6])];
+                                             [Utils millimetersToPixels:5.5])];
         
         [self addSubview:_windowCancelButton];
         [self addSubview:_modeDialog];

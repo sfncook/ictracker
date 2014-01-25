@@ -15,16 +15,22 @@
 #import "ModeButton.h"
 #import "ModeButtonDelegate.h"
 #import "ModeDialogContainer.h"
+#import "SafetyButton.h"
+#import "SafetyButtonDelegate.h"
+#import "SafetyDialogContainer.h"
 
-@interface IctViewController : UIViewController<SectorTBarDelegate, ModeButtonDelegate>
+@interface IctViewController : UIViewController<SectorTBarDelegate, ModeButtonDelegate, SafetyButtonDelegate>
 
-@property (readonly, nonatomic) MenuSelectorView* menuSelectorView;
-@property (readonly, nonatomic) MenuContainerView* menuContainerView;
-@property (readonly, nonatomic) SectorTbarContainerView* sectorTbarContainerView;
+@property (readonly, retain, nonatomic) MenuSelectorView* menuSelectorView;
+@property (readonly, retain, nonatomic) MenuContainerView* menuContainerView;
+@property (readonly, retain, nonatomic) SectorTbarContainerView* sectorTbarContainerView;
 
-@property (readonly, nonatomic) TimerView* timerView;
+@property (readonly, retain, nonatomic) TimerView* timerView;
 
-@property (readonly, nonatomic) ModeButton* modeButton;
-@property (retain, atomic)  ModeDialogContainer* modeDialogContainer;
+@property (readonly, retain, nonatomic) ModeButton* modeButton;
+@property (readonly, retain, nonatomic)  ModeDialogContainer* modeDialogContainer;
+
+@property (readonly, retain, nonatomic) SafetyButton* safetyButton;
+@property (readonly, retain, nonatomic) SafetyDialogContainer* safetyDialogContainer;
 
 @end

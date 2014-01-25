@@ -36,10 +36,15 @@
     _modeButton = [[ModeButton alloc] initWithDelegate:self];
     [_modeButton setPosition:CGPointMake(
                                          [Utils millimetersToPixels:120],
-                                         [Utils millimetersToPixels:6.5])];
+                                         [Utils millimetersToPixels:6])];
     
     _modeDialogContainer = [[ModeDialogContainer alloc] initWithDelegate:self];
     _modeDialogContainer.hidden = YES;
+    
+    _safetyButton = [[SafetyButton alloc] initWithDelegate:self initialSafety:@"Jeff Cross"];
+    [_safetyButton setPosition:CGPointMake(
+                                         [Utils millimetersToPixels:75],
+                                         [Utils millimetersToPixels:6])];
     
     [self.view addSubview:self.menuSelectorView];
     [self.view addSubview:_sectorTbarContainerView];
@@ -47,6 +52,7 @@
     [self.view addSubview:_timerView];
     [self.view addSubview:_modeDialogContainer];
     [self.view addSubview:_modeButton];
+    [self.view addSubview:_safetyButton];
     
 }
 
@@ -83,6 +89,18 @@
 - (void) selectNewMode:(Mode)newMode {
     _modeDialogContainer.hidden = YES;
     [_modeButton setMode:newMode];
+}
+
+
+//*** SafetyButtonDelegate ***
+- (void) clickSafetyButton:(NSString*)currentSafety{
+    
+}
+- (void) cancelSafetyDialog{
+    
+}
+- (void) selectNewSafety:(NSString*)newSafety{
+    
 }
 
 
