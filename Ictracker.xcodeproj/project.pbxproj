@@ -48,8 +48,9 @@
 		29C3B8AA1893589C00B81766 /* SafetyDialogContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C3B8A91893589C00B81766 /* SafetyDialogContainer.m */; };
 		29C5C4BF189232BD00DFE5CE /* SafetyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C5C4BE189232BD00DFE5CE /* SafetyButton.m */; };
 		29E42C3218942EA2002E8CC3 /* Transaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E42C3118942EA2002E8CC3 /* Transaction.m */; };
-		29E42C351894334B002E8CC3 /* TransactionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E42C341894334B002E8CC3 /* TransactionController.m */; };
 		29E42C38189434EB002E8CC3 /* TransactionLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E42C37189434EB002E8CC3 /* TransactionLogger.m */; };
+		29E42C3B18946BB6002E8CC3 /* TransactionFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E42C3A18946BB6002E8CC3 /* TransactionFormatter.m */; };
+		29E42C3F18946CAF002E8CC3 /* ReportFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E42C3E18946CAF002E8CC3 /* ReportFormatter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,10 +146,12 @@
 		29C5C4BE189232BD00DFE5CE /* SafetyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SafetyButton.m; sourceTree = "<group>"; };
 		29E42C3018942EA2002E8CC3 /* Transaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transaction.h; sourceTree = "<group>"; };
 		29E42C3118942EA2002E8CC3 /* Transaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transaction.m; sourceTree = "<group>"; };
-		29E42C331894334B002E8CC3 /* TransactionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionController.h; sourceTree = "<group>"; };
-		29E42C341894334B002E8CC3 /* TransactionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionController.m; sourceTree = "<group>"; };
 		29E42C36189434EB002E8CC3 /* TransactionLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionLogger.h; sourceTree = "<group>"; };
 		29E42C37189434EB002E8CC3 /* TransactionLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionLogger.m; sourceTree = "<group>"; };
+		29E42C3918946BB6002E8CC3 /* TransactionFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionFormatter.h; sourceTree = "<group>"; };
+		29E42C3A18946BB6002E8CC3 /* TransactionFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionFormatter.m; sourceTree = "<group>"; };
+		29E42C3D18946CAF002E8CC3 /* ReportFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportFormatter.h; sourceTree = "<group>"; };
+		29E42C3E18946CAF002E8CC3 /* ReportFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportFormatter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +211,7 @@
 		2907852F1883B032008B1B7D /* Ictracker */ = {
 			isa = PBXGroup;
 			children = (
+				29E42C3C18946BE9002E8CC3 /* Report */,
 				29E42C2F18942E6E002E8CC3 /* Transactions */,
 				295183F618861BE00033B02F /* Sector TBar Files */,
 				295183EF1885001B0033B02F /* Checklist Menu Views */,
@@ -379,12 +383,21 @@
 			children = (
 				29E42C3018942EA2002E8CC3 /* Transaction.h */,
 				29E42C3118942EA2002E8CC3 /* Transaction.m */,
-				29E42C331894334B002E8CC3 /* TransactionController.h */,
-				29E42C341894334B002E8CC3 /* TransactionController.m */,
 				29E42C36189434EB002E8CC3 /* TransactionLogger.h */,
 				29E42C37189434EB002E8CC3 /* TransactionLogger.m */,
+				29E42C3918946BB6002E8CC3 /* TransactionFormatter.h */,
+				29E42C3A18946BB6002E8CC3 /* TransactionFormatter.m */,
 			);
 			name = Transactions;
+			sourceTree = "<group>";
+		};
+		29E42C3C18946BE9002E8CC3 /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				29E42C3D18946CAF002E8CC3 /* ReportFormatter.h */,
+				29E42C3E18946CAF002E8CC3 /* ReportFormatter.m */,
+			);
+			name = Report;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -494,11 +507,13 @@
 				290785401883B032008B1B7D /* IctViewController.m in Sources */,
 				295183E11884DBFA0033B02F /* OsrMenu.m in Sources */,
 				295183D41884D6230033B02F /* SectorMenu.m in Sources */,
+				29E42C3F18946CAF002E8CC3 /* ReportFormatter.m in Sources */,
 				29C5C4BF189232BD00DFE5CE /* SafetyButton.m in Sources */,
 				295183E41884DC250033B02F /* NotesMenu.m in Sources */,
 				29ACE6521890D17A00575276 /* ModeDialog.m in Sources */,
 				290785791883C960008B1B7D /* AjUnitsView.m in Sources */,
 				294B21FC188DEC5F00E6B0F9 /* TimerView.m in Sources */,
+				29E42C3B18946BB6002E8CC3 /* TransactionFormatter.m in Sources */,
 				295183E71884E2550033B02F /* GilbertUnitsView.m in Sources */,
 				295183F21885006C0033B02F /* ChecklistView.m in Sources */,
 				29C3B8A51893586700B81766 /* SafetyDialog.m in Sources */,
@@ -515,7 +530,6 @@
 				295183ED1884F83B0033B02F /* WideItemsMenuView.m in Sources */,
 				290785681883B1CE008B1B7D /* ButtonView.m in Sources */,
 				290785701883C62B008B1B7D /* UnitMenu.m in Sources */,
-				29E42C351894334B002E8CC3 /* TransactionController.m in Sources */,
 				2907853A1883B032008B1B7D /* IctAppDelegate.m in Sources */,
 				29C3B8AA1893589C00B81766 /* SafetyDialogContainer.m in Sources */,
 				29ACE6561890E7C400575276 /* ModeDialogContainer.m in Sources */,

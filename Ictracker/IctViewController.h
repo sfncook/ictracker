@@ -18,8 +18,11 @@
 #import "SafetyButton.h"
 #import "SafetyButtonDelegate.h"
 #import "SafetyDialogContainer.h"
+#import "ButtonView.h"
+#import "ReportFormatter.h"
+#import "ButtonClickDelegate.h"
 
-@interface IctViewController : UIViewController<SectorTBarDelegate, ModeButtonDelegate, SafetyButtonDelegate>
+@interface IctViewController : UIViewController<SectorTBarDelegate, ModeButtonDelegate, SafetyButtonDelegate, ButtonClickDelegate>
 
 @property (readonly, retain, nonatomic) MenuSelectorView* menuSelectorView;
 @property (readonly, retain, nonatomic) MenuContainerView* menuContainerView;
@@ -32,5 +35,8 @@
 
 @property (readonly, retain, nonatomic) SafetyButton* safetyButton;
 @property (readonly, retain, nonatomic) SafetyDialogContainer* safetyDialogContainer;
+
+@property (readonly, retain, nonatomic) ButtonView* exportButton;
+@property (readonly, retain, nonatomic) ReportFormatter* reportFormatter;
 
 @end

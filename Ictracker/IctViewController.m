@@ -63,10 +63,17 @@
                                        [Utils millimetersToPixels:5])];
     [safetyLabel setText:@"Safety:"];
     
+    _exportButton = [[ButtonView alloc] initWithName:@"Export PDF" delegate:self size:BUTTON_WIDE_LG];
+    [_exportButton setPosition:CGPointMake(
+                                           [Utils millimetersToPixels:15],
+                                           [Utils millimetersToPixels:5])];
+    _reportFormatter = [[ReportFormatter alloc]init];
+    
     [self.view addSubview:safetyLabel];
     [self.view addSubview:self.menuSelectorView];
     [self.view addSubview:_sectorTbarContainerView];
     [self.view addSubview:_menuContainerView];
+    [self.view addSubview:_exportButton];
     [self.view addSubview:_timerView];
     [self.view addSubview:_modeDialogContainer];
     [self.view addSubview:_modeButton];
@@ -127,6 +134,13 @@
     [_safetyButton setSafety:newSafety];
 }
 
+
+//*** ButtonClickDelegate ***
+- (void) click:(id)selector {
+    if (_exportButton==selector) {
+        [_reportFormatter generatePdfWithTxLogger:[TransactionLogger transLogger]];
+    }
+}
 
 - (void)didReceiveMemoryWarning
 {
