@@ -8,6 +8,7 @@
 
 #import "SectorTBarView.h"
 #import "Utils.h"
+#import "Transaction.h"
 
 @implementation SectorTBarView
 
@@ -17,6 +18,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
+        _transLogger = [TransactionLogger transLogger];
         
         _mayDayButton = [[ButtonView alloc] initWithName:@"M" delegate:self size:SMALL_SQUARE];
         [self addSubview:_mayDayButton];
@@ -191,6 +193,9 @@
 - (void) setTitle:(NSString*)title
 {
     [_titleButton setName:title];
+    Transaction* tx = [Transaction transactionWithType:TRANSTYPE_ADD_TITLE_TO_SECTOR date:[NSDate date] param:title, self, nil];
+    [_transLogger addTransaction:tx];
+
     if([title isEqualToString:@"REHAB"]) {
         [_titleButton setNormalColor:[UIColor blueColor]];
     } else if([title isEqualToString:@"RESCUE"]) {
