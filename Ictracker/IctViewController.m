@@ -36,7 +36,7 @@
     _modeButton = [[ModeButton alloc] initWithDelegate:self];
     [_modeButton setPosition:CGPointMake(
                                          [Utils millimetersToPixels:120],
-                                         [Utils millimetersToPixels:6])];
+                                         [Utils millimetersToPixels:5])];
     
     _modeDialogContainer = [[ModeDialogContainer alloc] initWithDelegate:self];
     _modeDialogContainer.hidden = YES;
@@ -44,7 +44,7 @@
     _safetyButton = [[SafetyButton alloc] initWithDelegate:self initialSafety:@"Jeff Cross"];
     [_safetyButton setPosition:CGPointMake(
                                          [Utils millimetersToPixels:75],
-                                         [Utils millimetersToPixels:6])];
+                                         [Utils millimetersToPixels:5])];
     
     NSArray* safetyNames = [NSArray arrayWithObjects:
                             @"Jeff Cross",
