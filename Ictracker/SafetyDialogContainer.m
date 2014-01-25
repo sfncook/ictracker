@@ -7,25 +7,35 @@
 //
 
 #import "SafetyDialogContainer.h"
+#import "Utils.h"
 
 @implementation SafetyDialogContainer
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithDelegate:(id<SafetyButtonDelegate>)delegate safetyNames:(NSArray*)safetyNames
 {
+    CGRect frame = CGRectMake(0, 0, [Utils windowHeight], [Utils windowWidth]);
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        self.backgroundColor = [UIColor clearColor];
+        _delegate = delegate;
+        _windowCancelButton = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_BLANK_WINDOW];
+        [_windowCancelButton setPosition:CGPointMake(0.0,0.0)];
+        
+        _safetyDialog = [[SafetyDialog alloc] initWithDelegate:delegate safetyNames:safetyNames];
+        [_safetyDialog setPosition:CGPointMake(
+                                             [Utils millimetersToPixels:74],
+                                             [Utils millimetersToPixels:5.5])];
+        
+        [self addSubview:_windowCancelButton];
+        [self addSubview:_safetyDialog];
     }
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
+- (void) click:(id)selector {
+    if (selector==_windowCancelButton){
+        [_delegate cancelSafetyDialog];
+    }
 }
-*/
 
 @end

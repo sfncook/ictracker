@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SafetyButtonDelegate.h"
+#import "ButtonClickDelegate.h"
 
-@interface SafetyDialog : UIView
+@interface SafetyDialog : UIView<ButtonClickDelegate>
 
+@property (readonly, retain, nonatomic) NSArray* safetyButtons;
+@property (readonly, retain, nonatomic) id<SafetyButtonDelegate> delegate;
+
+- (id)initWithDelegate:(id<SafetyButtonDelegate>)delegate safetyNames:(NSArray*)safetyNames;
+- (void) setPosition:(CGPoint)position;
+- (void) setHeight:(CGFloat)height;
+- (void) setSafety:(NSString*)safety;
 @end

@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ButtonClickDelegate.h"
+#import "ButtonView.h"
+#import "SafetyButtonDelegate.h"
+#import "SafetyDialog.h"
 
-@interface SafetyDialogContainer : UIView
+@interface SafetyDialogContainer : UIView<ButtonClickDelegate>
+
+@property (readonly, retain, nonatomic) ButtonView* windowCancelButton;
+@property (readonly, retain, nonatomic) id<SafetyButtonDelegate> delegate;
+@property (readonly, retain, nonatomic)  SafetyDialog* safetyDialog;
+
+- (id)initWithDelegate:(id<SafetyButtonDelegate>)delegate safetyNames:(NSArray*)safetyNames;
 
 @end

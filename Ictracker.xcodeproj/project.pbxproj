@@ -357,9 +357,9 @@
 				29C5C4BE189232BD00DFE5CE /* SafetyButton.m */,
 				29C3B8A31893586700B81766 /* SafetyDialog.h */,
 				29C3B8A41893586700B81766 /* SafetyDialog.m */,
+				29C3B8AB189358C500B81766 /* SafetyButtonDelegate.h */,
 				29C3B8A81893589C00B81766 /* SafetyDialogContainer.h */,
 				29C3B8A91893589C00B81766 /* SafetyDialogContainer.m */,
-				29C3B8AB189358C500B81766 /* SafetyButtonDelegate.h */,
 			);
 			name = SafetyButton;
 			sourceTree = "<group>";

@@ -46,12 +46,22 @@
                                          [Utils millimetersToPixels:75],
                                          [Utils millimetersToPixels:6])];
     
+    NSArray* safetyNames = [NSArray arrayWithObjects:
+                            @"Jeff Cross",
+                            @"Phil Collins",
+                            @"Peter Frampton",
+                            @"Hewey Lewis",
+                            nil];
+    _safetyDialogContainer = [[SafetyDialogContainer alloc] initWithDelegate:self safetyNames:safetyNames];
+    _safetyDialogContainer.hidden = YES;
+    
     [self.view addSubview:self.menuSelectorView];
     [self.view addSubview:_sectorTbarContainerView];
     [self.view addSubview:_menuContainerView];
     [self.view addSubview:_timerView];
     [self.view addSubview:_modeDialogContainer];
     [self.view addSubview:_modeButton];
+    [self.view addSubview:_safetyDialogContainer];
     [self.view addSubview:_safetyButton];
     
 }
@@ -94,13 +104,14 @@
 
 //*** SafetyButtonDelegate ***
 - (void) clickSafetyButton:(NSString*)currentSafety{
-    
+    _safetyDialogContainer.hidden = !_safetyDialogContainer.hidden;
 }
 - (void) cancelSafetyDialog{
-    
+    _safetyDialogContainer.hidden = YES;
 }
 - (void) selectNewSafety:(NSString*)newSafety{
-    
+    _safetyDialogContainer.hidden = YES;
+    [_safetyButton setSafety:newSafety];
 }
 
 
