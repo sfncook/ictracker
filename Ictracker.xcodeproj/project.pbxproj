@@ -49,6 +49,7 @@
 		29C5C4BF189232BD00DFE5CE /* SafetyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C5C4BE189232BD00DFE5CE /* SafetyButton.m */; };
 		29E42C3218942EA2002E8CC3 /* Transaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E42C3118942EA2002E8CC3 /* Transaction.m */; };
 		29E42C351894334B002E8CC3 /* TransactionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E42C341894334B002E8CC3 /* TransactionController.m */; };
+		29E42C38189434EB002E8CC3 /* TransactionLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E42C37189434EB002E8CC3 /* TransactionLogger.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +147,8 @@
 		29E42C3118942EA2002E8CC3 /* Transaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transaction.m; sourceTree = "<group>"; };
 		29E42C331894334B002E8CC3 /* TransactionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionController.h; sourceTree = "<group>"; };
 		29E42C341894334B002E8CC3 /* TransactionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionController.m; sourceTree = "<group>"; };
+		29E42C36189434EB002E8CC3 /* TransactionLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionLogger.h; sourceTree = "<group>"; };
+		29E42C37189434EB002E8CC3 /* TransactionLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionLogger.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -378,6 +381,8 @@
 				29E42C3118942EA2002E8CC3 /* Transaction.m */,
 				29E42C331894334B002E8CC3 /* TransactionController.h */,
 				29E42C341894334B002E8CC3 /* TransactionController.m */,
+				29E42C36189434EB002E8CC3 /* TransactionLogger.h */,
+				29E42C37189434EB002E8CC3 /* TransactionLogger.m */,
 			);
 			name = Transactions;
 			sourceTree = "<group>";
@@ -503,6 +508,7 @@
 				290785611883B0A9008B1B7D /* MenuSelectorView.m in Sources */,
 				29E42C3218942EA2002E8CC3 /* Transaction.m in Sources */,
 				295183D81884DAD60033B02F /* ActionsMenu.m in Sources */,
+				29E42C38189434EB002E8CC3 /* TransactionLogger.m in Sources */,
 				295183DB1884DB5C0033B02F /* BenchmarksMenu.m in Sources */,
 				290785641883B12C008B1B7D /* Utils.m in Sources */,
 				295183EA1884F23B0033B02F /* CityUnitsView.m in Sources */,
