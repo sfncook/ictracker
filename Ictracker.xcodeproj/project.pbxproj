@@ -44,6 +44,8 @@
 		29ACE64F1890C8EF00575276 /* ModeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 29ACE64E1890C8EF00575276 /* ModeButton.m */; };
 		29ACE6521890D17A00575276 /* ModeDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 29ACE6511890D17A00575276 /* ModeDialog.m */; };
 		29ACE6561890E7C400575276 /* ModeDialogContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 29ACE6551890E7C400575276 /* ModeDialogContainer.m */; };
+		29C3B8A51893586700B81766 /* SafetyDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C3B8A41893586700B81766 /* SafetyDialog.m */; };
+		29C3B8AA1893589C00B81766 /* SafetyDialogContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C3B8A91893589C00B81766 /* SafetyDialogContainer.m */; };
 		29C5C4BF189232BD00DFE5CE /* SafetyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C5C4BE189232BD00DFE5CE /* SafetyButton.m */; };
 /* End PBXBuildFile section */
 
@@ -131,6 +133,11 @@
 		29ACE6531890DE5500575276 /* ModeButtonDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModeButtonDelegate.h; sourceTree = "<group>"; };
 		29ACE6541890E7C400575276 /* ModeDialogContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModeDialogContainer.h; sourceTree = "<group>"; };
 		29ACE6551890E7C400575276 /* ModeDialogContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModeDialogContainer.m; sourceTree = "<group>"; };
+		29C3B8A31893586700B81766 /* SafetyDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SafetyDialog.h; sourceTree = "<group>"; };
+		29C3B8A41893586700B81766 /* SafetyDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SafetyDialog.m; sourceTree = "<group>"; };
+		29C3B8A81893589C00B81766 /* SafetyDialogContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SafetyDialogContainer.h; sourceTree = "<group>"; };
+		29C3B8A91893589C00B81766 /* SafetyDialogContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SafetyDialogContainer.m; sourceTree = "<group>"; };
+		29C3B8AB189358C500B81766 /* SafetyButtonDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SafetyButtonDelegate.h; sourceTree = "<group>"; };
 		29C5C4BD189232BD00DFE5CE /* SafetyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SafetyButton.h; sourceTree = "<group>"; };
 		29C5C4BE189232BD00DFE5CE /* SafetyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SafetyButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -258,18 +265,11 @@
 		290785651883B1B3008B1B7D /* Button View Files */ = {
 			isa = PBXGroup;
 			children = (
+				29C3B8A71893587F00B81766 /* SafetyButton */,
+				29C3B8A61893587300B81766 /* ModeButton */,
 				290785661883B1CE008B1B7D /* ButtonView.h */,
 				290785671883B1CE008B1B7D /* ButtonView.m */,
 				290785691883B2EE008B1B7D /* ButtonClickDelegate.h */,
-				29ACE64D1890C8EF00575276 /* ModeButton.h */,
-				29ACE64E1890C8EF00575276 /* ModeButton.m */,
-				29ACE6501890D17A00575276 /* ModeDialog.h */,
-				29ACE6511890D17A00575276 /* ModeDialog.m */,
-				29ACE6531890DE5500575276 /* ModeButtonDelegate.h */,
-				29ACE6541890E7C400575276 /* ModeDialogContainer.h */,
-				29ACE6551890E7C400575276 /* ModeDialogContainer.m */,
-				29C5C4BD189232BD00DFE5CE /* SafetyButton.h */,
-				29C5C4BE189232BD00DFE5CE /* SafetyButton.m */,
 			);
 			name = "Button View Files";
 			sourceTree = "<group>";
@@ -334,6 +334,34 @@
 				294B21F8188D994C00E6B0F9 /* SectorTbarContainerView.m */,
 			);
 			name = "Sector TBar Files";
+			sourceTree = "<group>";
+		};
+		29C3B8A61893587300B81766 /* ModeButton */ = {
+			isa = PBXGroup;
+			children = (
+				29ACE64D1890C8EF00575276 /* ModeButton.h */,
+				29ACE64E1890C8EF00575276 /* ModeButton.m */,
+				29ACE6501890D17A00575276 /* ModeDialog.h */,
+				29ACE6511890D17A00575276 /* ModeDialog.m */,
+				29ACE6531890DE5500575276 /* ModeButtonDelegate.h */,
+				29ACE6541890E7C400575276 /* ModeDialogContainer.h */,
+				29ACE6551890E7C400575276 /* ModeDialogContainer.m */,
+			);
+			name = ModeButton;
+			sourceTree = "<group>";
+		};
+		29C3B8A71893587F00B81766 /* SafetyButton */ = {
+			isa = PBXGroup;
+			children = (
+				29C5C4BD189232BD00DFE5CE /* SafetyButton.h */,
+				29C5C4BE189232BD00DFE5CE /* SafetyButton.m */,
+				29C3B8A31893586700B81766 /* SafetyDialog.h */,
+				29C3B8A41893586700B81766 /* SafetyDialog.m */,
+				29C3B8A81893589C00B81766 /* SafetyDialogContainer.h */,
+				29C3B8A91893589C00B81766 /* SafetyDialogContainer.m */,
+				29C3B8AB189358C500B81766 /* SafetyButtonDelegate.h */,
+			);
+			name = SafetyButton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -450,6 +478,7 @@
 				294B21FC188DEC5F00E6B0F9 /* TimerView.m in Sources */,
 				295183E71884E2550033B02F /* GilbertUnitsView.m in Sources */,
 				295183F21885006C0033B02F /* ChecklistView.m in Sources */,
+				29C3B8A51893586700B81766 /* SafetyDialog.m in Sources */,
 				294B21F9188D994C00E6B0F9 /* SectorTbarContainerView.m in Sources */,
 				290785731883C6FF008B1B7D /* MenuContainerView.m in Sources */,
 				290785361883B032008B1B7D /* main.m in Sources */,
@@ -462,6 +491,7 @@
 				290785681883B1CE008B1B7D /* ButtonView.m in Sources */,
 				290785701883C62B008B1B7D /* UnitMenu.m in Sources */,
 				2907853A1883B032008B1B7D /* IctAppDelegate.m in Sources */,
+				29C3B8AA1893589C00B81766 /* SafetyDialogContainer.m in Sources */,
 				29ACE6561890E7C400575276 /* ModeDialogContainer.m in Sources */,
 				290785761883C86B008B1B7D /* MesaUnitsView.m in Sources */,
 			);

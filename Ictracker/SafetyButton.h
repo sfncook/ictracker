@@ -9,10 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "ButtonView.h"
 #import "ButtonClickDelegate.h"
+#import "SafetyButtonDelegate.h"
 
 @interface SafetyButton : ButtonView<ButtonClickDelegate>
 
-@property (readonly, retain, nonatomic)  NSMutableArray* safetyButtons;
-@property (retain, nonatomic)  NSString* mySafety;
+@property (readonly, nonatomic) id<SafetyButtonDelegate> delegate;
+@property (retain, nonatomic)   NSString* mySafety;
+
+- (id)initWithDelegate:(id<SafetyButtonDelegate>)delegate initialSafety:(NSString*)initialSafety;
+- (void) setSafety:(NSString*)safety;
 
 @end

@@ -10,23 +10,23 @@
 
 @implementation SafetyButton
 
-- (id)init
+- (id)initWithDelegate:(id<SafetyButtonDelegate>)delegate initialSafety:(NSString*)initialSafety
 {
-    NSArray* safetyNames = [NSArray arrayWithObjects:
-                            @"Jeff Cross",
-                            @"Phil Collins",
-                            @"Peter Frampton",
-                            @"Hewey Lewis",
-                            nil];
-    
-    self = [super initWithName:@"(Select Safety)" delegate:self size:BUTTON_WIDE_LG];
+    self = [super initWithName:initialSafety delegate:self size:BUTTON_WIDE_LG];
     if (self) {
+        _delegate = delegate;
     }
     return self;
 }
 
-- (void) click:(id)selector {
+- (void) setSafety:(NSString *)safety {
+    _mySafety = safety;
+    [self setName:_mySafety];
+}
 
+
+- (void) click:(id)selector {
+    [_delegate clickSafetyButton:_mySafety];
 }
 
 @end
