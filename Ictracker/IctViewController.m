@@ -55,6 +55,15 @@
     _safetyDialogContainer = [[SafetyDialogContainer alloc] initWithDelegate:self safetyNames:safetyNames];
     _safetyDialogContainer.hidden = YES;
     
+    UILabel* safetyLabel = [[UILabel alloc] initWithFrame:
+                            CGRectMake(
+                                       [Utils millimetersToPixels:63.5],
+                                       [Utils millimetersToPixels:5.5],
+                                       [Utils millimetersToPixels:11],
+                                       [Utils millimetersToPixels:5])];
+    [safetyLabel setText:@"Safety:"];
+    
+    [self.view addSubview:safetyLabel];
     [self.view addSubview:self.menuSelectorView];
     [self.view addSubview:_sectorTbarContainerView];
     [self.view addSubview:_menuContainerView];
