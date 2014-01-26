@@ -7,6 +7,7 @@
 //
 
 #import "ReportFormatter.h"
+//#import "TransactionFormatter.h"
 
 @implementation ReportFormatter
 
@@ -20,6 +21,7 @@ float borderInset = 20;
 CGSize pageSize;
 
 CGRect addressRect;
+CGRect titleRect;
 CGRect incidentIdRect;
 CGRect incidentIdLabelRect;
 CGRect pageNumberRect;
@@ -41,8 +43,9 @@ CGRect pageLabelRect;
 - (void) generatePdfWithTxLogger:(TransactionLogger*)txLogger
                          address:(NSString*)address
                       incidentId:(NSString*)incidentId
+                           title:(NSString*)title
 {
-    
+//    TransactionFormatter* txFormatter = [[TransactionFormatter alloc] init];
     NSString *fileName = @"ICTracker_report.pdf";
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -60,11 +63,14 @@ CGRect pageLabelRect;
         // Draw a page number at the bottom of each page.
         currentPage++;
         
-        //HEADER
+        //HEADER - The order of these function calls matters
+        [self drawTitle:title];
         [self drawPageNumber:currentPage];
         [self drawIncidentId:incidentId];
         [self drawAddress:address];
         [self drawHeaderLine];
+        
+//        [txFormatter renderTransactionLog:txLogger];
         
         done = YES;
     }
@@ -74,6 +80,33 @@ CGRect pageLabelRect;
     UIGraphicsEndPDFContext();
     
 //    NSLog(pdfFileName);
+}
+
+- (void) drawTitle:(NSString*)title {
+    CGContextRef    currentContext = UIGraphicsGetCurrentContext();
+    CGContextSetRGBFillColor(currentContext, 0.0, 0.0, 0.0, 1.0);
+    
+    NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
+    paragraphStyle.alignment = NSTextAlignmentCenter;
+    
+    NSDictionary *attributes = @{ NSFontAttributeName: bigBoldFont,
+                                  NSParagraphStyleAttributeName: paragraphStyle };
+    
+    CGSize maxSize = CGSizeMake(pageSize.width-2*borderInset, pageSize.height-2*borderInset);
+    
+    CGRect textSize = [title boundingRectWithSize:maxSize
+                                            options:NSStringDrawingUsesLineFragmentOrigin
+                                         attributes:attributes
+                                            context:nil];
+    
+    titleRect = CGRectMake(
+                             borderInset,
+                             borderInset,
+                             pageSize.width-2*borderInset,
+                             textSize.size.height);
+    
+    [title drawInRect:titleRect withAttributes:attributes];
 }
 
 - (void) drawPageNumber:(int)currentPage {
@@ -98,7 +131,7 @@ CGRect pageLabelRect;
         
         pageNumberRect = CGRectMake(
                                   pageSize.width-borderInset-textSize.size.width,
-                                  borderInset,
+                                  titleRect.origin.y+titleRect.size.height+10,
                                   textSize.size.width,
                                   textSize.size.height);
         
@@ -126,7 +159,7 @@ CGRect pageLabelRect;
         
         pageLabelRect = CGRectMake(
                                  pageNumberRect.origin.x-textSize.size.width-5,
-                                 borderInset,
+                                 titleRect.origin.y+titleRect.size.height+10,
                                  textSize.size.width,
                                  textSize.size.height);
         
@@ -154,7 +187,7 @@ CGRect pageLabelRect;
 
     addressRect = CGRectMake(
                           borderInset,
-                          borderInset,
+                          titleRect.origin.y+titleRect.size.height+10,
                           textSize.size.width,
                           textSize.size.height);
 
@@ -182,7 +215,7 @@ CGRect pageLabelRect;
         
         incidentIdRect = CGRectMake(
                                     pageLabelRect.origin.x - textSize.size.width - 40,
-                                    borderInset,
+                                    titleRect.origin.y+titleRect.size.height+10,
                                     textSize.size.width,
                                     textSize.size.height);
         
@@ -210,7 +243,7 @@ CGRect pageLabelRect;
         
         incidentIdLabelRect = CGRectMake(
                                    incidentIdRect.origin.x-textSize.size.width-5,
-                                   borderInset,
+                                   titleRect.origin.y+titleRect.size.height+10,
                                    textSize.size.width,
                                    textSize.size.height);
         

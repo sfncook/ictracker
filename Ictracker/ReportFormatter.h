@@ -13,6 +13,7 @@
 
 - (void) generatePdfWithTxLogger:(TransactionLogger*)txLogger
                          address:(NSString*)address
-                      incidentId:(NSString*)incidentId;
+                      incidentId:(NSString*)incidentId
+                           title:(NSString*)title;
 
 @end
