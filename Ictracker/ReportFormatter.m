@@ -11,7 +11,11 @@
 @implementation ReportFormatter
 
 UIFont *bigFont;
+UIFont *bigBoldFont;
 UIFont *smallFont;
+UIFont *smallBoldFont;
+float bigFontHeight = 18;
+float smallFontHeight = 13;
 float borderInset = 20;
 float marginInset = 20;
 CGSize pageSize;
@@ -24,8 +28,10 @@ CGRect titleRect;
 {
     self = [super init];
     if (self) {
-        bigFont = [UIFont fontWithName:@"Helvetica-Bold" size:14.0];
-        smallFont = [UIFont fontWithName:@"Helvetica-Bold" size:10.0];
+        bigFont = [UIFont fontWithName:@"Helvetica" size:14.0];
+        bigBoldFont = [UIFont fontWithName:@"Helvetica-Bold" size:14.0];
+        smallFont = [UIFont fontWithName:@"Helvetica" size:10.0];
+        smallBoldFont = [UIFont fontWithName:@"Helvetica-Bold" size:10.0];
         pageSize = CGSizeMake(612, 792);
     }
     return self;
@@ -34,7 +40,6 @@ CGRect titleRect;
 - (void) generatePdfWithTxLogger:(TransactionLogger*)txLogger
                          address:(NSString*)address
                       incidentId:(NSString*)incidentId
-                     reportTitle:(NSString*)reportTitle
 {
     
     NSString *fileName = @"ICTracker_report.pdf";
@@ -53,30 +58,12 @@ CGRect titleRect;
         
         // Draw a page number at the bottom of each page.
         currentPage++;
-        [self drawPageNumber:currentPage];
         
-        //This order is import:
-        [self drawTitle:reportTitle];
+        //HEADER
+        [self drawPageNumber:currentPage];
         [self drawAddress:address];
         [self drawIncidentId:incidentId];
         
-        
-//        [self drawHeader];
-//
-//        //Draw a border for each page.
-//        [self drawBorder];
-//        
-//        //Draw text fo our header.
-//        [self drawHeader];
-//        
-//        //Draw a line below the header.
-//        [self drawLine];
-//        
-//        //Draw some text for the page.
-//        [self drawText];
-//        
-//        //Draw an image
-//        [self drawImage];
         done = YES;
     }
     while (!done);
@@ -87,123 +74,72 @@ CGRect titleRect;
 //    NSLog(pdfFileName);
 }
 
-- (void) drawPageNumber:(int)currentPage {
+- (void) drawText:(NSString*)textToDraw renderingRect:(CGRect)renderingRect font:(UIFont*)font {
     CGContextRef    currentContext = UIGraphicsGetCurrentContext();
     CGContextSetRGBFillColor(currentContext, 0.0, 0.0, 0.0, 1.0);
     
     NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
     paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
-    paragraphStyle.alignment = NSTextAlignmentCenter;
+    paragraphStyle.alignment = NSTextAlignmentLeft;
     
-    NSDictionary *attributes = @{ NSFontAttributeName: bigFont,
+    NSDictionary *attributes = @{ NSFontAttributeName: font,
                                   NSParagraphStyleAttributeName: paragraphStyle };
     
-    CGSize maxSize = CGSizeMake(pageSize.width - 2*borderInset-2*marginInset, pageSize.height - 2*borderInset - 2*marginInset);
-    
-    NSString *textToDraw = [NSString stringWithFormat:@"Page:%d", currentPage];
-    
-    CGRect textSize = [textToDraw boundingRectWithSize:maxSize
-                       options:NSStringDrawingUsesLineFragmentOrigin
-                    attributes:attributes
-                       context:nil];
-    
-    CGRect renderingRect = CGRectMake(
-                                      pageSize.width-borderInset-textSize.size.width,
-                                      borderInset,
-                                      textSize.size.width,
-                                      textSize.size.height);
-    
-    NSLog(@"page number:%f, %f", pageSize.width-borderInset-textSize.size.width, borderInset);
-    
     [textToDraw drawInRect:renderingRect withAttributes:attributes];
+
+}
+
+- (void) drawPageNumber:(int)currentPage {
+    CGRect renderingRect = CGRectMake(535, 20, 45, bigFontHeight);
+    [self drawText:@"Page:" renderingRect:renderingRect font:bigBoldFont];
+    
+    NSString *textToDraw = [NSString stringWithFormat:@"%d", currentPage];
+    renderingRect = CGRectMake(575, 20, 25, bigFontHeight);
+    [self drawText:textToDraw renderingRect:renderingRect font:bigFont];
 }
 
 - (void) drawAddress:(NSString*)address {
-    CGContextRef    currentContext = UIGraphicsGetCurrentContext();
-    CGContextSetRGBFillColor(currentContext, 0.0, 0.0, 0.0, 1.0);
-    
-    NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-    paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
-    paragraphStyle.alignment = NSTextAlignmentCenter;
-    
-    NSDictionary *attributes = @{ NSFontAttributeName: smallFont,
-                                  NSParagraphStyleAttributeName: paragraphStyle };
-    
-    CGSize maxSize = CGSizeMake((pageSize.width - 2*borderInset-2*marginInset)/2, pageSize.height - 2*borderInset - 2*marginInset);
-    
-    CGRect textSize = [address boundingRectWithSize:maxSize
-                                               options:NSStringDrawingUsesLineFragmentOrigin
-                                            attributes:attributes
-                                               context:nil];
-    
-    addressRect = CGRectMake(
-                                      borderInset,
-                                      borderInset,
-                                      textSize.size.width,
-                                      textSize.size.height);
-    
-    NSLog(@"address:%f, %f", borderInset, borderInset);
-    
-    [address drawInRect:addressRect withAttributes:attributes];
+    CGRect renderingRect = CGRectMake(20, 20, 360, bigFontHeight);
+    [self drawText:address renderingRect:renderingRect font:bigFont];
 }
 
 - (void) drawIncidentId:(NSString*)incidentId {
-    CGContextRef    currentContext = UIGraphicsGetCurrentContext();
-    CGContextSetRGBFillColor(currentContext, 0.0, 0.0, 0.0, 1.0);
+    CGRect renderingRect = CGRectMake(380, 20, 80, bigFontHeight);
+    [self drawText:@"Incident ID:" renderingRect:renderingRect font:bigBoldFont];
     
-    NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-    paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
-    paragraphStyle.alignment = NSTextAlignmentCenter;
-    
-    NSDictionary *attributes = @{ NSFontAttributeName: smallFont,
-                                  NSParagraphStyleAttributeName: paragraphStyle };
-    
-    CGSize maxSize = CGSizeMake((pageSize.width - 2*borderInset-2*marginInset)/2, pageSize.height - 2*borderInset - 2*marginInset);
-    
-    NSString* textToRender = [NSString stringWithFormat:@"Incident ID:%@", incidentId];
-    
-    CGRect textSize = [textToRender boundingRectWithSize:maxSize
-                                            options:NSStringDrawingUsesLineFragmentOrigin
-                                         attributes:attributes
-                                            context:nil];
-    
-    incidentIdRect = CGRectMake(
-                             borderInset,
-                             addressRect.origin.y+addressRect.size.height,
-                             textSize.size.width,
-                             textSize.size.height);
-    
-    [textToRender drawInRect:incidentIdRect withAttributes:attributes];
-}
-
-- (void) drawTitle:(NSString*)title {
-    CGContextRef    currentContext = UIGraphicsGetCurrentContext();
-    CGContextSetRGBFillColor(currentContext, 0.0, 0.0, 0.0, 1.0);
-    
-    NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-    paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
-    paragraphStyle.alignment = NSTextAlignmentCenter;
-    
-    NSDictionary *attributes = @{ NSFontAttributeName: smallFont,
-                                  NSParagraphStyleAttributeName: paragraphStyle };
-    
-    CGSize maxSize = CGSizeMake((pageSize.width - 2*borderInset-2*marginInset)/2, pageSize.height - 2*borderInset - 2*marginInset);
-    
-    CGRect textSize = [title boundingRectWithSize:maxSize
-                                            options:NSStringDrawingUsesLineFragmentOrigin
-                                         attributes:attributes
-                                            context:nil];
-    
-    addressRect = CGRectMake(
-                             borderInset,
-                             borderInset,
-                             textSize.size.width,
-                             textSize.size.height);
-    
-    [title drawInRect:addressRect withAttributes:attributes];
+    renderingRect = CGRectMake(460, 20, 200, bigFontHeight);
+    [self drawText:incidentId renderingRect:renderingRect font:bigFont];
 }
 
 @end
 
 
+
+
+//    CGContextRef    currentContext = UIGraphicsGetCurrentContext();
+//    CGContextSetRGBFillColor(currentContext, 0.0, 0.0, 0.0, 1.0);
+//
+//    NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+//    paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
+//    paragraphStyle.alignment = NSTextAlignmentCenter;
+//
+//    NSDictionary *attributes = @{ NSFontAttributeName: smallFont,
+//                                  NSParagraphStyleAttributeName: paragraphStyle };
+//
+//    CGSize maxSize = CGSizeMake((pageSize.width - 2*borderInset-2*marginInset)/2, pageSize.height - 2*borderInset - 2*marginInset);
+//
+//    CGRect textSize = [address boundingRectWithSize:maxSize
+//                                               options:NSStringDrawingUsesLineFragmentOrigin
+//                                            attributes:attributes
+//                                               context:nil];
+//
+//    addressRect = CGRectMake(
+//                                      borderInset,
+//                                      borderInset,
+//                                      textSize.size.width,
+//                                      textSize.size.height);
+//
+//    NSLog(@"address:%f,%f w:%f h:%f", borderInset, borderInset, textSize.size.width, textSize.size.height);
+//
+//    [address drawInRect:addressRect withAttributes:attributes];
 
