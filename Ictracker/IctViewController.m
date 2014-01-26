@@ -69,6 +69,14 @@
                                            [Utils millimetersToPixels:5])];
     _reportFormatter = [[ReportFormatter alloc]init];
     
+    UIImageView* logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ictlogo"]];
+    [logo setFrame:CGRectMake(
+                              [Utils millimetersToPixels:1],
+                              [Utils millimetersToPixels:3.5],
+                              [Utils millimetersToPixels:9],
+                              [Utils millimetersToPixels:9])];
+    
+    
     [self.view addSubview:safetyLabel];
     [self.view addSubview:self.menuSelectorView];
     [self.view addSubview:_sectorTbarContainerView];
@@ -79,6 +87,7 @@
     [self.view addSubview:_modeButton];
     [self.view addSubview:_safetyDialogContainer];
     [self.view addSubview:_safetyButton];
+    [self.view addSubview:logo];
     
 }
 

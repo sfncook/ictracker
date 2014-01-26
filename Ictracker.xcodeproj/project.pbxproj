@@ -219,8 +219,6 @@
 				290785651883B1B3008B1B7D /* Button View Files */,
 				2907855E1883B078008B1B7D /* Menu Views */,
 				2907856A1883C59B008B1B7D /* Unit Menu View Files */,
-				290785381883B032008B1B7D /* IctAppDelegate.h */,
-				290785391883B032008B1B7D /* IctAppDelegate.m */,
 				2907853B1883B032008B1B7D /* Main.storyboard */,
 				2907853E1883B032008B1B7D /* IctViewController.h */,
 				2907853F1883B032008B1B7D /* IctViewController.m */,
@@ -237,6 +235,8 @@
 		290785301883B032008B1B7D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				290785381883B032008B1B7D /* IctAppDelegate.h */,
+				290785391883B032008B1B7D /* IctAppDelegate.m */,
 				290785311883B032008B1B7D /* Ictracker-Info.plist */,
 				290785321883B032008B1B7D /* InfoPlist.strings */,
 				290785351883B032008B1B7D /* main.m */,

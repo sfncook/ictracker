@@ -7,8 +7,9 @@
       "scale" : "1x"
     },
     {
-      "idiom" : "ipad",
       "size" : "29x29",
+      "idiom" : "ipad",
+      "filename" : "ict_logo_58x58.png",
       "scale" : "2x"
     },
     {
@@ -18,8 +19,9 @@
       "scale" : "1x"
     },
     {
-      "idiom" : "ipad",
       "size" : "40x40",
+      "idiom" : "ipad",
+      "filename" : "ict_logo_80x80.png",
       "scale" : "2x"
     },
     {
@@ -29,8 +31,9 @@
       "scale" : "1x"
     },
     {
-      "idiom" : "ipad",
       "size" : "50x50",
+      "idiom" : "ipad",
+      "filename" : "ict_logo_100x100.png",
       "scale" : "2x"
     },
     {
@@ -40,8 +43,9 @@
       "scale" : "1x"
     },
     {
-      "idiom" : "ipad",
       "size" : "72x72",
+      "idiom" : "ipad",
+      "filename" : "ict_logo_144x144.png",
       "scale" : "2x"
     },
     {
