@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "ict_logo_100x100.png"
+      "filename" : "ict_logo_600x600.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "ict_logo_152x152.png"
+      "filename" : "ict_logo_600x600-1.png"
     }
   ],
   "info" : {
