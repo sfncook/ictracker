@@ -29,7 +29,7 @@ UIFont *font;
 }
 
 // returns: YES if tx remain to be rendered.  NO if all tx's were logged.
-- (BOOL) renderNextPage:(CGFloat)start_y pageHeight:(CGFloat)pageHeight
+- (BOOL) renderNextPage:(CGFloat)start_y pageHeight:(CGFloat)pageHeight pageWidth:(CGFloat)pageWidth
 {
     double y=start_y;
     CGRect dateRect;
@@ -82,8 +82,8 @@ UIFont *font;
                 NSDictionary *attributes = @{ NSFontAttributeName: font,
                                               NSParagraphStyleAttributeName: paragraphStyle };
                 
-                float x = dateRect.origin.x+dateRect.size.width+20;
-                CGSize maxSize = CGSizeMake(360, 100);
+                float x = dateRect.origin.x+dateRect.size.width+30;
+                CGSize maxSize = CGSizeMake(pageWidth-x-borderInset2, 100);
                 
                 CGRect textSize = [eventText boundingRectWithSize:maxSize
                                                           options:NSStringDrawingUsesLineFragmentOrigin
@@ -91,10 +91,10 @@ UIFont *font;
                                                           context:nil];
                 
                 eventRect = CGRectMake(
-                                           x,
-                                           y,
-                                           textSize.size.width,
-                                           textSize.size.height);
+                                       x,
+                                       y,
+                                       textSize.size.width,
+                                       textSize.size.height);
                 
                 [eventText drawInRect:eventRect withAttributes:attributes];
             }

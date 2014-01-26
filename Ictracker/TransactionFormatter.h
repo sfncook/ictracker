@@ -15,6 +15,6 @@
 @property (readonly, nonatomic, retain) NSDateFormatter *formatter;
 
 - (id)initWithTransactionLogger:(TransactionLogger*)txLogger;
-- (BOOL) renderNextPage:(CGFloat)start_y pageHeight:(CGFloat)pageHeight;
+- (BOOL) renderNextPage:(CGFloat)start_y pageHeight:(CGFloat)pageHeight pageWidth:(CGFloat)pageWidth;
 
 @end
