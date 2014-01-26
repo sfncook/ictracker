@@ -13,7 +13,7 @@
 @implementation TransactionFormatter
 
 float borderInset2 = 20;
-int colWidths[5];
+int colWidths[4];
 float row_height = 20;
 UIFont *font;
 
@@ -25,11 +25,10 @@ UIFont *font;
         [_formatter setDateFormat:@"hh:mm:ss a"];
         font = [UIFont fontWithName:@"Helvetica" size:14.0];
         _txIndex = 0;
-        colWidths[0] = 150;
+        colWidths[0] = 120;
         colWidths[1] = 120;
-        colWidths[2] = 120;
-        colWidths[3] = 120;
-        colWidths[4] = 120;
+        colWidths[2] = 160;
+        colWidths[3] = 200;
     }
     return self;
 }
@@ -81,12 +80,12 @@ UIFont *font;
             CGRect renderRect = CGRectMake(
                                   x,
                                   y,
-                                  textSize.size.width,
+                                  colWidths[col],
                                   textSize.size.height);
             
             [eventStr drawInRect:renderRect withAttributes:attributes];
+            x+=colWidths[col];
             col++;
-            x+=colWidths[col];//TODO
         }//for eventStr
         _txIndex++;
         y = y+row_height+10;
@@ -106,12 +105,7 @@ UIFont *font;
     switch (tx.transType) {
         case TRANSTYPE_ADD_TITLE_TO_SECTOR:
         {
-            NSString* sectorTitle = [tx.params objectAtIndex:0];
-            eventStrs = [NSArray arrayWithObjects:
-                         dateString,
-                         @"Add sector title:",
-                         sectorTitle,
-                         nil];
+            eventStrs = [NSArray arrayWithObjects: nil];
             break;
         }
         case TRANSTYPE_ADD_UNIT_TO_ACCT:
@@ -121,9 +115,9 @@ UIFont *font;
             NSString* sectorTitle = sector.titleButton.name;
             eventStrs = [NSArray arrayWithObjects:
                          dateString,
+                         sectorTitle,
                          @"Set accountability unit:",
                          unit,
-                         sectorTitle,
                          nil];
             break;
         }
@@ -134,9 +128,9 @@ UIFont *font;
             NSString* sectorTitle = sector.titleButton.name;
             eventStrs = [NSArray arrayWithObjects:
                          dateString,
+                         sectorTitle,
                          @"Add unit:",
                          unit,
-                         sectorTitle,
                          nil];
             break;
         }
@@ -147,9 +141,9 @@ UIFont *font;
             NSString* sectorTitle = sector.titleButton.name;
             eventStrs = [NSArray arrayWithObjects:
                          dateString,
+                         sectorTitle,
                          @"Add action:",
                          action,
-                         sectorTitle,
                          nil];
             break;
         }

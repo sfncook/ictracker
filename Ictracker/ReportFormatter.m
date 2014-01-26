@@ -72,9 +72,9 @@ CGRect pageLabelRect;
         [self drawHeaderLine];
         
         float y = addressRect.origin.y+addressRect.size.height+20;
-        [txFormatter renderNextPage:y pageHeight:pageSize.height pageWidth:pageSize.width transactions:txLogger.transactions];
+        BOOL morePages = [txFormatter renderNextPage:y pageHeight:pageSize.height pageWidth:pageSize.width transactions:txLogger.transactions];
         
-        done = YES;
+        if (!morePages) done = YES;
     }
     while (!done);
     
