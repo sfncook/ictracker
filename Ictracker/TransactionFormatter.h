@@ -11,10 +11,13 @@
 
 @interface TransactionFormatter : NSObject
 
-@property (readonly, nonatomic, retain) NSMutableArray* transactions;
 @property (readonly, nonatomic, retain) NSDateFormatter *formatter;
+@property (readonly, nonatomic, assign) int txIndex;
 
-- (id)initWithTransactionLogger:(TransactionLogger*)txLogger;
-- (BOOL) renderNextPage:(CGFloat)start_y pageHeight:(CGFloat)pageHeight pageWidth:(CGFloat)pageWidth;
+- (void) reset;
+- (BOOL) renderNextPage:(CGFloat)start_y
+             pageHeight:(CGFloat)pageHeight
+              pageWidth:(CGFloat)pageWidth
+           transactions:(NSArray*)transactions;
 
 @end

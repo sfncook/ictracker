@@ -45,7 +45,7 @@ CGRect pageLabelRect;
                       incidentId:(NSString*)incidentId
                            title:(NSString*)title
 {
-    TransactionFormatter* txFormatter = [[TransactionFormatter alloc] initWithTransactionLogger:txLogger];
+    TransactionFormatter* txFormatter = [[TransactionFormatter alloc] init];
     
     NSString *fileName = @"ICTracker_report.pdf";
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -72,7 +72,7 @@ CGRect pageLabelRect;
         [self drawHeaderLine];
         
         float y = addressRect.origin.y+addressRect.size.height+20;
-        [txFormatter renderNextPage:y pageHeight:pageSize.height pageWidth:pageSize.width];
+        [txFormatter renderNextPage:y pageHeight:pageSize.height pageWidth:pageSize.width transactions:txLogger.transactions];
         
         done = YES;
     }
