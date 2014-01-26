@@ -22,7 +22,7 @@ UIFont *font;
     if (self) {
         _transactions = [[NSMutableArray alloc] initWithArray:txLogger.transactions];
         _formatter = [[NSDateFormatter alloc] init];
-        [_formatter setDateFormat:@"HH:mm:ss"];
+        [_formatter setDateFormat:@"hh:mm:ss a"];
         font = [UIFont fontWithName:@"Helvetica" size:14.0];
     }
     return self;
