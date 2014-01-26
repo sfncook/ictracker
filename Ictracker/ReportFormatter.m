@@ -7,7 +7,7 @@
 //
 
 #import "ReportFormatter.h"
-//#import "TransactionFormatter.h"
+#import "TransactionFormatter.h"
 
 @implementation ReportFormatter
 
@@ -45,7 +45,8 @@ CGRect pageLabelRect;
                       incidentId:(NSString*)incidentId
                            title:(NSString*)title
 {
-//    TransactionFormatter* txFormatter = [[TransactionFormatter alloc] init];
+    TransactionFormatter* txFormatter = [[TransactionFormatter alloc] init];
+    
     NSString *fileName = @"ICTracker_report.pdf";
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -70,7 +71,8 @@ CGRect pageLabelRect;
         [self drawAddress:address];
         [self drawHeaderLine];
         
-//        [txFormatter renderTransactionLog:txLogger];
+        float y = addressRect.origin.y+addressRect.size.height+10;
+        [txFormatter renderNextPage:y pageHeight:pageSize.height];
         
         done = YES;
     }

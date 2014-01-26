@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TransactionLogger.h"
 
 @interface TransactionFormatter : NSObject
+
+@property (readonly, nonatomic, retain) NSMutableArray* transactions;
+@property (readonly, nonatomic, retain) NSDateFormatter *formatter;
+
+- (id)initWithTransactionLogger:(TransactionLogger*)txLogger;
+- (BOOL) renderNextPage:(CGFloat)start_y pageHeight:(CGFloat)pageHeight;
 
 @end
