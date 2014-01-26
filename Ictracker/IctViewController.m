@@ -138,7 +138,10 @@
 //*** ButtonClickDelegate ***
 - (void) click:(id)selector {
     if (_exportButton==selector) {
-        [_reportFormatter generatePdfWithTxLogger:[TransactionLogger transLogger]];
+        [_reportFormatter generatePdfWithTxLogger:[TransactionLogger transLogger]
+                                          address:@"3026 Market St San Francisco, CA 94114"
+                                       incidentId:@"431567"
+                                      reportTitle:@"Incident Tracker"];
     }
 }
 

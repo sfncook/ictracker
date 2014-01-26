@@ -11,6 +11,9 @@
 
 @interface ReportFormatter : NSObject
 
-- (void) generatePdfWithTxLogger:(TransactionLogger*)txLogger;
+- (void) generatePdfWithTxLogger:(TransactionLogger*)txLogger
+                         address:(NSString*)address
+                      incidentId:(NSString*)incidentId
+                     reportTitle:(NSString*)reportTitle;
 
 @end
