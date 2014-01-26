@@ -8,6 +8,7 @@
 
 #import "TransactionFormatter.h"
 #import "Transaction.h"
+#import "SectorTBarView.h"
 
 @implementation TransactionFormatter
 
@@ -35,69 +36,71 @@ UIFont *font;
     CGRect eventRect;
     
     while (_transactions.count>0) {
-        Transaction* tx = [_transactions lastObject];
-        [_transactions removeLastObject];
-        {//*** date ***
-            NSString* dateString;
-            dateString = [_formatter stringFromDate:tx.date];
+        Transaction* tx = [_transactions objectAtIndex:0];
+        [_transactions removeObjectAtIndex:0];
+        NSString* eventText = [self getEventStringWithTransaction:tx];
+        if ([eventText length]>0) {
+            {//*** date ***
+                NSString* dateString;
+                dateString = [_formatter stringFromDate:tx.date];
+                
+                CGContextRef    currentContext = UIGraphicsGetCurrentContext();
+                CGContextSetRGBFillColor(currentContext, 0.0, 0.0, 0.0, 1.0);
+                
+                NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+                paragraphStyle.lineBreakMode = NSLineBreakByClipping;
+                paragraphStyle.alignment = NSTextAlignmentLeft;
+                
+                NSDictionary *attributes = @{ NSFontAttributeName: font,
+                                              NSParagraphStyleAttributeName: paragraphStyle };
+                
+                CGSize maxSize = CGSizeMake(col1_x, 100);
+                
+                CGRect textSize = [dateString boundingRectWithSize:maxSize
+                                                           options:NSStringDrawingUsesLineFragmentOrigin
+                                                        attributes:attributes
+                                                           context:nil];
+                
+                dateRect = CGRectMake(
+                                            borderInset2,
+                                            y,
+                                            textSize.size.width,
+                                            textSize.size.height);
+                
+                [dateString drawInRect:dateRect withAttributes:attributes];
+                
+            }
             
-            CGContextRef    currentContext = UIGraphicsGetCurrentContext();
-            CGContextSetRGBFillColor(currentContext, 0.0, 0.0, 0.0, 1.0);
+            {//*** event ***
+                CGContextRef    currentContext = UIGraphicsGetCurrentContext();
+                CGContextSetRGBFillColor(currentContext, 0.0, 0.0, 0.0, 1.0);
+                
+                NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+                paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
+                paragraphStyle.alignment = NSTextAlignmentLeft;
+                
+                NSDictionary *attributes = @{ NSFontAttributeName: font,
+                                              NSParagraphStyleAttributeName: paragraphStyle };
+                
+                float x = dateRect.origin.x+dateRect.size.width+20;
+                CGSize maxSize = CGSizeMake(360, 100);
+                
+                CGRect textSize = [eventText boundingRectWithSize:maxSize
+                                                          options:NSStringDrawingUsesLineFragmentOrigin
+                                                       attributes:attributes
+                                                          context:nil];
+                
+                eventRect = CGRectMake(
+                                           x,
+                                           y,
+                                           textSize.size.width,
+                                           textSize.size.height);
+                
+                [eventText drawInRect:eventRect withAttributes:attributes];
+            }
             
-            NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-            paragraphStyle.lineBreakMode = NSLineBreakByClipping;
-            paragraphStyle.alignment = NSTextAlignmentLeft;
-            
-            NSDictionary *attributes = @{ NSFontAttributeName: font,
-                                          NSParagraphStyleAttributeName: paragraphStyle };
-            
-            CGSize maxSize = CGSizeMake(col1_x, 100);
-            
-            CGRect textSize = [dateString boundingRectWithSize:maxSize
-                                                       options:NSStringDrawingUsesLineFragmentOrigin
-                                                    attributes:attributes
-                                                       context:nil];
-            
-            dateRect = CGRectMake(
-                                        borderInset2,
-                                        y,
-                                        textSize.size.width,
-                                        textSize.size.height);
-            
-            [dateString drawInRect:dateRect withAttributes:attributes];
-            
-        }
-        
-        {//*** event ***
-            NSString* eventText = [self getEventStringWithTransaction:tx];
-            CGContextRef    currentContext = UIGraphicsGetCurrentContext();
-            CGContextSetRGBFillColor(currentContext, 0.0, 0.0, 0.0, 1.0);
-            
-            NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-            paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
-            paragraphStyle.alignment = NSTextAlignmentLeft;
-            
-            NSDictionary *attributes = @{ NSFontAttributeName: font,
-                                          NSParagraphStyleAttributeName: paragraphStyle };
-            
-            float x = dateRect.origin.x+dateRect.size.width+20;
-            CGSize maxSize = CGSizeMake(360, 100);
-            
-            CGRect textSize = [eventText boundingRectWithSize:maxSize
-                                                      options:NSStringDrawingUsesLineFragmentOrigin
-                                                   attributes:attributes
-                                                      context:nil];
-            
-            eventRect = CGRectMake(
-                                       x,
-                                       y,
-                                       textSize.size.width,
-                                       textSize.size.height);
-            
-            [eventText drawInRect:eventRect withAttributes:attributes];
-        }
-        
-        y = y+eventRect.size.height+10;
+            y = y+eventRect.size.height+10;
+        }//if event!=empty
         
     }
     
@@ -114,28 +117,31 @@ UIFont *font;
         case TRANSTYPE_ADD_UNIT_TO_ACCT:
         {
             NSString* unit = [tx.params objectAtIndex:0];
-            NSString* sector = [tx.params objectAtIndex:1];
-            return [NSString stringWithFormat:@"Set accountability unit:%@ to sector:%@", unit, sector];
+            SectorTBarView* sector = [tx.params objectAtIndex:1];
+            NSString* sectorTitle = sector.titleButton.name;
+            return [NSString stringWithFormat:@"Set accountability unit:%@ to sector:%@", unit, sectorTitle];
         }
         case TRANSTYPE_ADD_UNIT_TO_SECTOR:
         {
             NSString* unit = [tx.params objectAtIndex:0];
-            NSString* sector = [tx.params objectAtIndex:1];
-            return [NSString stringWithFormat:@"Add unit:%@ to sector:%@", unit, sector];
+            SectorTBarView* sector = [tx.params objectAtIndex:1];
+            NSString* sectorTitle = sector.titleButton.name;
+            return [NSString stringWithFormat:@"Add unit:%@ to sector:%@", unit, sectorTitle];
         }
         case TRANSTYPE_ADD_ACTION_TO_SECTOR:
         {
             NSString* action = [tx.params objectAtIndex:0];
-            NSString* sector = [tx.params objectAtIndex:1];
-            return [NSString stringWithFormat:@"Add action:%@ to sector:%@", action, sector];
+            SectorTBarView* sector = [tx.params objectAtIndex:1];
+            NSString* sectorTitle = sector.titleButton.name;
+            return [NSString stringWithFormat:@"Add action:%@ to sector:%@", action, sectorTitle];
         }
         case TRANSTYPE_SET_SECTOR_REHAB:
         {
-            return [NSString stringWithFormat:@"Set sector REHAB"];
+            return @"";
         }
         case TRANSTYPE_SET_SECTOR_RESCUE:
         {
-            return [NSString stringWithFormat:@"Set sector RESCUE"];
+            return @"";
         }
             
         default:
