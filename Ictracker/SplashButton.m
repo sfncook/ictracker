@@ -19,6 +19,8 @@
         _imgView.layer.borderColor = [UIColor blackColor].CGColor;
         _imgView.layer.borderWidth = 3.0;
         _imgView.layer.cornerRadius = 15.0;
+        [_imgView setFrame:frame];
+        [self addSubview:_imgView];
         _delegate = delegate;
     }
     return self;
@@ -43,4 +45,12 @@
     [_delegate click:self];
 }
 
+- (void) setPosition:(CGPoint)position
+{
+    self.frame = CGRectMake(position.x, position.y, self.frame.size.width, self.frame.size.height);
+}
+
 @end
+
+
+

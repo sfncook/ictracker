@@ -14,4 +14,7 @@
 @property (readonly, nonatomic, assign) id<ButtonClickDelegate> delegate;
 @property (readonly, nonatomic, retain) UIImageView* imgView;
 
+- (id)initWithImage:(NSString*)imageName delegate:(id<ButtonClickDelegate>)delegate;
+- (void) setPosition:(CGPoint)position;
+
 @end

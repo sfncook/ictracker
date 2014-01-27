@@ -43,36 +43,29 @@
         [license setFont:[UIFont fontWithName:@"Arial" size:18]];
         [license setFrame:CGRectMake(40, [Utils windowWidth]-100, 1000, 100)];
         
-        UIImageView* fireImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"fire"]];
-        [fireImg setFrame:CGRectMake(
-                                  175,
-                                  375,
-                                  250,
-                                  250)];
-        fireImg.layer.borderColor = [UIColor blackColor].CGColor;
-        fireImg.layer.borderWidth = 3.0;
-        fireImg.layer.cornerRadius = 15.0;
+        _fireBtn = [[SplashButton alloc] initWithImage:@"fire" delegate:self];
+        [_fireBtn setPosition:CGPointMake(175, 375)];
         
-        UIImageView* emsImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ems"]];
-        [emsImg setFrame:CGRectMake(
-                                     575,
-                                     375,
-                                     250,
-                                     250)];
-        emsImg.layer.borderColor = [UIColor blackColor].CGColor;
-        emsImg.layer.borderWidth = 3.0;
-        emsImg.layer.cornerRadius = 15.0;
+        _emsBtn = [[SplashButton alloc] initWithImage:@"ems" delegate:self];
+        [_emsBtn setPosition:CGPointMake(575, 375)];
         
         [self addSubview:logo];
         [self addSubview:title];
         [self addSubview:copyright];
         [self addSubview:license];
-        [self addSubview:fireImg];
-        [self addSubview:emsImg];
+        [self addSubview:_fireBtn];
+        [self addSubview:_emsBtn];
     }
     return self;
 }
 
+- (void) click:(id)selector {
+    if(_fireBtn==selector) {
+        
+    } else if(_emsBtn==selector) {
+        
+    }
+}
 
 @end
 
