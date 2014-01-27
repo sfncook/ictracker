@@ -9,10 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "SplashButton.h"
 #import "ButtonClickDelegate.h"
+#import "SplashDelegate.h"
 
 @interface SplashView : UIView<ButtonClickDelegate>
 
 @property (readonly, nonatomic, retain) SplashButton* fireBtn;
 @property (readonly, nonatomic, retain) SplashButton* emsBtn;
+@property (readonly, nonatomic, retain) id<SplashDelegate> delegate;
+
+- (id)initWithDelegate:(id<SplashDelegate>)delegate;
 
 @end

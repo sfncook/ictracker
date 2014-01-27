@@ -11,11 +11,12 @@
 
 @implementation SplashView
 
-- (id)init
+- (id)initWithDelegate:(id<SplashDelegate>)delegate
 {
     CGRect frame = CGRectMake(0, 0, [Utils windowHeight], [Utils windowWidth]);
     self = [super initWithFrame:frame];
     if (self) {
+        _delegate = delegate;
         self.backgroundColor = [UIColor whiteColor];
         self.layer.cornerRadius = 5.0;
         self.layer.masksToBounds = YES;
@@ -61,7 +62,7 @@
 
 - (void) click:(id)selector {
     if(_fireBtn==selector) {
-        
+        [_delegate clickFire];
     } else if(_emsBtn==selector) {
         
     }

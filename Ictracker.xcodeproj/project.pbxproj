@@ -107,6 +107,7 @@
 		290D0AE118960BBA0061C7D0 /* SplashButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashButton.m; sourceTree = "<group>"; };
 		290D0AE31896110C0061C7D0 /* FireView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FireView.h; sourceTree = "<group>"; };
 		290D0AE41896110C0061C7D0 /* FireView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FireView.m; sourceTree = "<group>"; };
+		290D0AE7189614F70061C7D0 /* SplashDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SplashDelegate.h; sourceTree = "<group>"; };
 		294B21F7188D994C00E6B0F9 /* SectorTbarContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectorTbarContainerView.h; sourceTree = "<group>"; };
 		294B21F8188D994C00E6B0F9 /* SectorTbarContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectorTbarContainerView.m; sourceTree = "<group>"; };
 		294B21FA188DEC5F00E6B0F9 /* TimerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerView.h; sourceTree = "<group>"; };
@@ -220,7 +221,7 @@
 		2907852F1883B032008B1B7D /* Ictracker */ = {
 			isa = PBXGroup;
 			children = (
-				290D0ADF1895D0270061C7D0 /* Splash Views */,
+				290D0AE6189612320061C7D0 /* Main Views */,
 				29E42C3C18946BE9002E8CC3 /* Report */,
 				29E42C2F18942E6E002E8CC3 /* Transactions */,
 				295183F618861BE00033B02F /* Sector TBar Files */,
@@ -229,17 +230,11 @@
 				290785651883B1B3008B1B7D /* Button View Files */,
 				2907855E1883B078008B1B7D /* Menu Views */,
 				2907856A1883C59B008B1B7D /* Unit Menu View Files */,
-				2907853B1883B032008B1B7D /* Main.storyboard */,
-				2907853E1883B032008B1B7D /* IctViewController.h */,
-				2907853F1883B032008B1B7D /* IctViewController.m */,
-				290785411883B032008B1B7D /* Images.xcassets */,
 				290785301883B032008B1B7D /* Supporting Files */,
 				290785621883B12C008B1B7D /* Utils.h */,
 				290785631883B12C008B1B7D /* Utils.m */,
 				294B21FA188DEC5F00E6B0F9 /* TimerView.h */,
 				294B21FB188DEC5F00E6B0F9 /* TimerView.m */,
-				290D0AE31896110C0061C7D0 /* FireView.h */,
-				290D0AE41896110C0061C7D0 /* FireView.m */,
 			);
 			path = Ictracker;
 			sourceTree = "<group>";
@@ -247,6 +242,8 @@
 		290785301883B032008B1B7D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				290785411883B032008B1B7D /* Images.xcassets */,
+				2907853B1883B032008B1B7D /* Main.storyboard */,
 				290785381883B032008B1B7D /* IctAppDelegate.h */,
 				290785391883B032008B1B7D /* IctAppDelegate.m */,
 				290785311883B032008B1B7D /* Ictracker-Info.plist */,
@@ -320,15 +317,20 @@
 			name = "Unit Menu View Files";
 			sourceTree = "<group>";
 		};
-		290D0ADF1895D0270061C7D0 /* Splash Views */ = {
+		290D0AE6189612320061C7D0 /* Main Views */ = {
 			isa = PBXGroup;
 			children = (
 				290D0ADC1895D0230061C7D0 /* SplashView.h */,
 				290D0ADD1895D0230061C7D0 /* SplashView.m */,
 				290D0AE018960BBA0061C7D0 /* SplashButton.h */,
 				290D0AE118960BBA0061C7D0 /* SplashButton.m */,
+				2907853E1883B032008B1B7D /* IctViewController.h */,
+				2907853F1883B032008B1B7D /* IctViewController.m */,
+				290D0AE31896110C0061C7D0 /* FireView.h */,
+				290D0AE41896110C0061C7D0 /* FireView.m */,
+				290D0AE7189614F70061C7D0 /* SplashDelegate.h */,
 			);
-			name = "Splash Views";
+			name = "Main Views";
 			sourceTree = "<group>";
 		};
 		295183EE1884F84D0033B02F /* Wide Items Menu Views */ = {
