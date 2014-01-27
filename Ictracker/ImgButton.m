@@ -6,15 +6,23 @@
 //  Copyright (c) 2014 cook. All rights reserved.
 //
 
-#import "SplashButton.h"
+#import "ImgButton.h"
 
-@implementation SplashButton
+@implementation ImgButton
 
-- (id)initWithImage:(NSString*)imageName delegate:(id<ButtonClickDelegate>)delegate
+- (id)initWithImage:(NSString*)imageName delegate:(id<ButtonClickDelegate>)delegate size:(ImgButtonSize)size
 {
-    CGRect frame = CGRectMake(0, 0, 250, 250);
+    CGRect frame;
+    if (size==IMG_BUTTON_LARGE) {
+        frame = CGRectMake(0, 0, 250, 250);
+    }
+    if (size==IMG_BUTTON_MEDIUM) {
+        frame = CGRectMake(0, 0, 10, 10);
+    }
+    
     self = [super initWithFrame:frame];
     if (self) {
+        _size = size;
         _imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
         _imgView.layer.borderColor = [UIColor blackColor].CGColor;
         _imgView.layer.borderWidth = 3.0;

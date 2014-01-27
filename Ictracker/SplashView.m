@@ -44,10 +44,10 @@
         [license setFont:[UIFont fontWithName:@"Arial" size:18]];
         [license setFrame:CGRectMake(40, [Utils windowWidth]-100, 1000, 100)];
         
-        _fireBtn = [[SplashButton alloc] initWithImage:@"fire" delegate:self];
+        _fireBtn = [[ImgButton alloc] initWithImage:@"fire" delegate:self size:IMG_BUTTON_LARGE];
         [_fireBtn setPosition:CGPointMake(175, 375)];
         
-        _emsBtn = [[SplashButton alloc] initWithImage:@"ems" delegate:self];
+        _emsBtn = [[ImgButton alloc] initWithImage:@"ems" delegate:self size:IMG_BUTTON_LARGE];
         [_emsBtn setPosition:CGPointMake(575, 375)];
         
         [self addSubview:logo];
