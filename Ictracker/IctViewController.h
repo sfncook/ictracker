@@ -21,6 +21,7 @@
 #import "ButtonView.h"
 #import "ReportFormatter.h"
 #import "ButtonClickDelegate.h"
+#import "SplashView.h"
 
 @interface IctViewController : UIViewController<SectorTBarDelegate, ModeButtonDelegate, SafetyButtonDelegate, ButtonClickDelegate>
 
@@ -38,5 +39,7 @@
 
 @property (readonly, retain, nonatomic) ButtonView* exportButton;
 @property (readonly, retain, nonatomic) ReportFormatter* reportFormatter;
+
+@property (readonly, retain, nonatomic) SplashView* splashView;
 
 @end

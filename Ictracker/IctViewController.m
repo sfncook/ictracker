@@ -76,6 +76,8 @@
                               [Utils millimetersToPixels:9],
                               [Utils millimetersToPixels:9])];
     
+    _splashView = [[SplashView alloc] init];
+    
     
     [self.view addSubview:safetyLabel];
     [self.view addSubview:self.menuSelectorView];
@@ -88,6 +90,7 @@
     [self.view addSubview:_safetyDialogContainer];
     [self.view addSubview:_safetyButton];
     [self.view addSubview:logo];
+    [self.view addSubview:_splashView];
     
 }
 
