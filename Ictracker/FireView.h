@@ -18,9 +18,9 @@
 #import "SafetyButton.h"
 #import "SafetyButtonDelegate.h"
 #import "SafetyDialogContainer.h"
-#import "ButtonView.h"
 #import "ReportFormatter.h"
 #import "ButtonClickDelegate.h"
+#import "ImgButton.h"
 
 @interface FireView : UIView<SectorTBarDelegate, ModeButtonDelegate, SafetyButtonDelegate, ButtonClickDelegate>
 
@@ -36,7 +36,8 @@
 @property (readonly, retain, nonatomic) SafetyButton* safetyButton;
 @property (readonly, retain, nonatomic) SafetyDialogContainer* safetyDialogContainer;
 
-@property (readonly, retain, nonatomic) ButtonView* exportButton;
+//@property (readonly, retain, nonatomic) ButtonView* exportButton;
+@property (readonly, retain, nonatomic) ImgButton* pdfButton;
 @property (readonly, retain, nonatomic) ReportFormatter* reportFormatter;
 
 @end

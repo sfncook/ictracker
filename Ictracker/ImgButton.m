@@ -7,6 +7,7 @@
 //
 
 #import "ImgButton.h"
+#import "Utils.h"
 
 @implementation ImgButton
 
@@ -17,18 +18,20 @@
         frame = CGRectMake(0, 0, 250, 250);
     }
     if (size==IMG_BUTTON_MEDIUM) {
-        frame = CGRectMake(0, 0, 10, 10);
+        frame = CGRectMake(0, 0, 45, 45);
     }
     
     self = [super initWithFrame:frame];
     if (self) {
         _size = size;
         _imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
-        _imgView.layer.borderColor = [UIColor blackColor].CGColor;
-        _imgView.layer.borderWidth = 3.0;
-        _imgView.layer.cornerRadius = 15.0;
         [_imgView setFrame:frame];
         [self addSubview:_imgView];
+        if (size==IMG_BUTTON_LARGE) {
+            _imgView.layer.borderColor = [UIColor blackColor].CGColor;
+            _imgView.layer.borderWidth = 3.0;
+            _imgView.layer.cornerRadius = 15.0;
+        }
         _delegate = delegate;
     }
     return self;
@@ -36,20 +39,33 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    _imgView.layer.borderColor = [UIColor blueColor].CGColor;
-    _imgView.layer.borderWidth = 6.0;
+    if (_size==IMG_BUTTON_LARGE) {
+        _imgView.layer.borderColor = [UIColor blueColor].CGColor;
+        _imgView.layer.borderWidth = 6.0;
+    } else if (_size==IMG_BUTTON_MEDIUM) {
+        _imgView.layer.borderColor = [UIColor blueColor].CGColor;
+        _imgView.layer.borderWidth = 2.0;
+    }
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    _imgView.layer.borderWidth = 3.0;
-    _imgView.layer.cornerRadius = 15.0;
+    if (_size==IMG_BUTTON_LARGE) {
+        _imgView.layer.borderWidth = 3.0;
+        _imgView.layer.cornerRadius = 15.0;
+    } else if (_size==IMG_BUTTON_MEDIUM) {
+        _imgView.layer.borderWidth = 0.0;
+    }
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    _imgView.layer.borderWidth = 3.0;
-    _imgView.layer.cornerRadius = 15.0;
+    if (_size==IMG_BUTTON_LARGE) {
+        _imgView.layer.borderWidth = 3.0;
+        _imgView.layer.cornerRadius = 15.0;
+    } else if (_size==IMG_BUTTON_MEDIUM) {
+        _imgView.layer.borderWidth = 0.0;
+    }
     [_delegate click:self];
 }
 

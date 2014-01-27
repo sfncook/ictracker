@@ -59,10 +59,11 @@
                                            [Utils millimetersToPixels:5])];
         [safetyLabel setText:@"Safety:"];
         
-        _exportButton = [[ButtonView alloc] initWithName:@"Export PDF" delegate:self size:BUTTON_WIDE_LG];
-        [_exportButton setPosition:CGPointMake(
-                                               [Utils millimetersToPixels:15],
-                                               [Utils millimetersToPixels:5])];
+        _pdfButton = [[ImgButton alloc] initWithImage:@"pdf" delegate:self size:IMG_BUTTON_MEDIUM];
+        [_pdfButton setPosition:CGPointMake(
+                                           [Utils millimetersToPixels:15],
+                                           [Utils millimetersToPixels:3.5])];
+        
         _reportFormatter = [[ReportFormatter alloc]init];
         
         UIImageView* logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ictlogo"]];
@@ -77,7 +78,7 @@
         [self addSubview:self.menuSelectorView];
         [self addSubview:_sectorTbarContainerView];
         [self addSubview:_menuContainerView];
-        [self addSubview:_exportButton];
+        [self addSubview:_pdfButton];
         [self addSubview:_timerView];
         [self addSubview:_modeDialogContainer];
         [self addSubview:_modeButton];
@@ -143,7 +144,7 @@
 
 //*** ButtonClickDelegate ***
 - (void) click:(id)selector {
-    if (_exportButton==selector) {
+    if (_pdfButton==selector) {
         [_reportFormatter generatePdfWithTxLogger:[TransactionLogger transLogger]
                                           address:@"3026 Market St San Francisco, CA 94114"
                                        incidentId:@"431567"
