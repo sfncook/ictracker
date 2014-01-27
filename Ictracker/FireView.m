@@ -9,6 +9,7 @@
 #import "Utils.h"
 #import "SectorTBarView.h"
 #import "FireView.h"
+#import "PdfView.h"
 
 @implementation FireView
 
@@ -145,10 +146,13 @@
 //*** ButtonClickDelegate ***
 - (void) click:(id)selector {
     if (_pdfButton==selector) {
-        [_reportFormatter generatePdfWithTxLogger:[TransactionLogger transLogger]
+        NSString* pdfFile = [_reportFormatter generatePdfWithTxLogger:[TransactionLogger transLogger]
                                           address:@"3026 Market St San Francisco, CA 94114"
                                        incidentId:@"431567"
                                             title:@"City of Mesa Fire Department\nFire Incident Command Tracker - Report Log"];
+        
+        PdfView* pdfView = [[PdfView alloc] initWithPdfFile:pdfFile];
+        [self addSubview:pdfView];
     }
 }
 

@@ -40,7 +40,7 @@ CGRect pageLabelRect;
     return self;
 }
 
-- (void) generatePdfWithTxLogger:(TransactionLogger*)txLogger
+- (NSString*) generatePdfWithTxLogger:(TransactionLogger*)txLogger
                          address:(NSString*)address
                       incidentId:(NSString*)incidentId
                            title:(NSString*)title
@@ -81,7 +81,7 @@ CGRect pageLabelRect;
     // Close the PDF context and write the contents out.
     UIGraphicsEndPDFContext();
     
-//    NSLog(pdfFileName);
+    return pdfFileName;
 }
 
 - (void) drawTitle:(NSString*)title {
