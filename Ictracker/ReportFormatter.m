@@ -54,7 +54,7 @@ CGRect pageLabelRect;
     
     UIGraphicsBeginPDFContextToFile(pdfFileName, CGRectZero, nil);
     
-    NSInteger currentPage = 0;
+    int currentPage = 0;
     BOOL done = NO;
     do
     {
