@@ -12,7 +12,7 @@
 
 @implementation FireView
 
-- (id)init
+- (id)initWithMailDelegate:(id<ShowMailDialogDelegate>) delegate
 {
     self = [super initWithFrame:CGRectMake(0, 0, [Utils windowHeight], [Utils windowWidth])];
     if (self) {
@@ -73,7 +73,7 @@
                                   [Utils millimetersToPixels:9],
                                   [Utils millimetersToPixels:9])];
         
-        _pdfView = [[PdfView alloc] init];
+        _pdfView = [[PdfView alloc] initWithDelegate:delegate];
         _pdfView.hidden = YES;
         
         

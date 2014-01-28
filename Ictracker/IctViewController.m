@@ -19,7 +19,7 @@
     [super viewDidLoad];
     
     _splashView = [[SplashView alloc] initWithDelegate:self];
-    _fireView = [[FireView alloc] init];
+    _fireView = [[FireView alloc] initWithMailDelegate:self];
     _fireView.hidden = YES;
     
     [self.view addSubview:_splashView];
@@ -34,6 +34,35 @@
 
 -(void) clickEms {
     
+}
+
+- (void) showmailDialog:(MFMailComposeViewController*)mailCtl {
+    mailCtl.mailComposeDelegate = self;
+    [self presentViewController:mailCtl animated:YES completion:nil];
+}
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
+    // Notifies users about errors associated with the interface
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Result: canceled");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Result: saved");
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"Result: sent");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Result: failed");
+            break;
+        default:
+            NSLog(@"Result: not sent");
+            break;
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning

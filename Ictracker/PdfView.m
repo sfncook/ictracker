@@ -8,13 +8,15 @@
 
 #import "PdfView.h"
 #import "Utils.h"
+#import <MessageUI/MFMailComposeViewController.h>
 
 @implementation PdfView
 
-- (id)init
+- (id)initWithDelegate:(id<ShowMailDialogDelegate>)delegate
 {
     self = [super initWithFrame:CGRectMake(0, 0, [Utils windowHeight], [Utils windowWidth])];
     if (self) {
+        _delegate = delegate;
         _webView=[[UIWebView alloc] initWithFrame:self.frame];
         _webView.scalesPageToFit = YES;
         
@@ -41,5 +43,20 @@
         self.hidden = YES;
     }
 }
+
+-(void)displayComposerSheetWithPdfFile:(NSString*)pdfFile address:(NSString*)address incidentId:(NSString*)incidentId
+{
+    NSString* subj = [NSString stringWithFormat:@"IC Tracker Report - #%@", incidentId];
+    NSString* msg = [NSString stringWithFormat:@"Incident Command Tracker - Report<br>Incident ID:%@<br>Address:%@<br>", incidentId, address];
+    MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
+    [picker setSubject:subj];
+    NSData* myData = [NSData dataWithContentsOfFile:pdfFile];
+    [picker addAttachmentData:myData mimeType:@"application/pdf" fileName:pdfFile];
+    [picker setMessageBody:msg isHTML:YES];
+    
+    picker.modalPresentationStyle = UIModalPresentationFullScreen;
+    picker.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+}
+
 
 @end

@@ -22,6 +22,7 @@
 #import "ButtonClickDelegate.h"
 #import "ImgButton.h"
 #import "PdfView.h"
+#import "ShowMailDialogDelegate.h"
 
 @interface FireView : UIView<SectorTBarDelegate, ModeButtonDelegate, SafetyButtonDelegate, ButtonClickDelegate>
 
@@ -42,5 +43,7 @@
 @property (readonly, retain, nonatomic) ReportFormatter* reportFormatter;
 
 @property (readonly, retain, nonatomic) PdfView* pdfView;
+
+- (id)initWithMailDelegate:(id<ShowMailDialogDelegate>) delegate;
 
 @end
