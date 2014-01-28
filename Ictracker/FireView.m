@@ -9,7 +9,6 @@
 #import "Utils.h"
 #import "SectorTBarView.h"
 #import "FireView.h"
-#import "PdfView.h"
 
 @implementation FireView
 
@@ -74,6 +73,10 @@
                                   [Utils millimetersToPixels:9],
                                   [Utils millimetersToPixels:9])];
         
+        _pdfView = [[PdfView alloc] init];
+        _pdfView.hidden = YES;
+        
+        
         
         [self addSubview:safetyLabel];
         [self addSubview:self.menuSelectorView];
@@ -86,6 +89,7 @@
         [self addSubview:_safetyDialogContainer];
         [self addSubview:_safetyButton];
         [self addSubview:logo];
+        [self addSubview:_pdfView];
     }
     return self;
 }
@@ -151,8 +155,7 @@
                                        incidentId:@"431567"
                                             title:@"City of Mesa Fire Department\nFire Incident Command Tracker - Report Log"];
         
-        PdfView* pdfView = [[PdfView alloc] initWithPdfFile:pdfFile];
-        [self addSubview:pdfView];
+        [_pdfView openWithPdfFile:pdfFile];
     }
 }
 

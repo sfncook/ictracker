@@ -11,7 +11,8 @@
 
 typedef enum imgbuttonsize {
     IMG_BUTTON_LARGE,
-    IMG_BUTTON_MEDIUM
+    IMG_BUTTON_MEDIUM,
+    IMG_BUTTON_SMALL
 } ImgButtonSize;
 
 @interface ImgButton : UIView

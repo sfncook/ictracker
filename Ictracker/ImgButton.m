@@ -20,6 +20,9 @@
     if (size==IMG_BUTTON_MEDIUM) {
         frame = CGRectMake(0, 0, 45, 45);
     }
+    if (size==IMG_BUTTON_SMALL) {
+        frame = CGRectMake(0, 0, [Utils millimetersToPixels:4], [Utils millimetersToPixels:4]);
+    }
     
     self = [super initWithFrame:frame];
     if (self) {
@@ -42,7 +45,7 @@
     if (_size==IMG_BUTTON_LARGE) {
         _imgView.layer.borderColor = [UIColor blueColor].CGColor;
         _imgView.layer.borderWidth = 6.0;
-    } else if (_size==IMG_BUTTON_MEDIUM) {
+    } else if (_size==IMG_BUTTON_MEDIUM || _size==IMG_BUTTON_SMALL) {
         _imgView.layer.borderColor = [UIColor blueColor].CGColor;
         _imgView.layer.borderWidth = 2.0;
     }
@@ -53,7 +56,7 @@
     if (_size==IMG_BUTTON_LARGE) {
         _imgView.layer.borderWidth = 3.0;
         _imgView.layer.cornerRadius = 15.0;
-    } else if (_size==IMG_BUTTON_MEDIUM) {
+    } else if (_size==IMG_BUTTON_MEDIUM || _size==IMG_BUTTON_SMALL) {
         _imgView.layer.borderWidth = 0.0;
     }
 }
@@ -63,7 +66,7 @@
     if (_size==IMG_BUTTON_LARGE) {
         _imgView.layer.borderWidth = 3.0;
         _imgView.layer.cornerRadius = 15.0;
-    } else if (_size==IMG_BUTTON_MEDIUM) {
+    } else if (_size==IMG_BUTTON_MEDIUM || _size==IMG_BUTTON_SMALL) {
         _imgView.layer.borderWidth = 0.0;
     }
     [_delegate click:self];

@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ImgButton.h"
+#import "ButtonClickDelegate.h"
 
-@interface PdfView : UIView
+@interface PdfView : UIView<ButtonClickDelegate>
 
 @property (readonly, retain, nonatomic) UIWebView* webView;
+@property (readonly, retain, nonatomic) ImgButton* closeButton;
 
-- (id)initWithPdfFile:(NSString*)path;
+- (void) openWithPdfFile:(NSString*)path;
 
 @end

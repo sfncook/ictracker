@@ -21,6 +21,7 @@
 #import "ReportFormatter.h"
 #import "ButtonClickDelegate.h"
 #import "ImgButton.h"
+#import "PdfView.h"
 
 @interface FireView : UIView<SectorTBarDelegate, ModeButtonDelegate, SafetyButtonDelegate, ButtonClickDelegate>
 
@@ -39,5 +40,7 @@
 //@property (readonly, retain, nonatomic) ButtonView* exportButton;
 @property (readonly, retain, nonatomic) ImgButton* pdfButton;
 @property (readonly, retain, nonatomic) ReportFormatter* reportFormatter;
+
+@property (readonly, retain, nonatomic) PdfView* pdfView;
 
 @end
