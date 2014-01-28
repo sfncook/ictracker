@@ -15,9 +15,14 @@
 
 @property (readonly, retain, nonatomic) UIWebView* webView;
 @property (readonly, retain, nonatomic) ImgButton* closeButton;
+@property (readonly, retain, nonatomic) ImgButton* exportButton;
 @property (readonly, retain, nonatomic) id<ShowMailDialogDelegate> delegate;
 
+@property (readonly, retain, nonatomic) NSString* path;
+@property (readonly, retain, nonatomic) NSString* address;
+@property (readonly, retain, nonatomic) NSString* incidentId;
+
 - (id)initWithDelegate:(id<ShowMailDialogDelegate>)delegate;
-- (void) openWithPdfFile:(NSString*)path;
+- (void) openWithPdfFile:(NSString*)path address:(NSString*)address incidentId:(NSString*)incidentId;
 
 @end

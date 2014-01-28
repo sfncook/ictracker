@@ -150,12 +150,15 @@
 //*** ButtonClickDelegate ***
 - (void) click:(id)selector {
     if (_pdfButton==selector) {
+        NSString* address = @"3026 Market St San Francisco, CA 94114";
+        NSString* incidentId = @"431567";
+        NSString* title = @"City of Mesa Fire Department\nFire Incident Command Tracker - Report Log";
         NSString* pdfFile = [_reportFormatter generatePdfWithTxLogger:[TransactionLogger transLogger]
-                                          address:@"3026 Market St San Francisco, CA 94114"
-                                       incidentId:@"431567"
-                                            title:@"City of Mesa Fire Department\nFire Incident Command Tracker - Report Log"];
+                                          address:address
+                                       incidentId:incidentId
+                                            title:title];
         
-        [_pdfView openWithPdfFile:pdfFile];
+        [_pdfView openWithPdfFile:pdfFile address:address incidentId:incidentId];
     }
 }
 
