@@ -70,7 +70,13 @@
 }
 
 - (void) click:(id)selector {
-    
+    if(_goButton==selector) {
+        [_delegate setAddress:_addressField.text];
+        [_delegate setIncidentId:_incidentIdField.text];
+        [_addressField resignFirstResponder];
+        [_incidentIdField resignFirstResponder];
+        self.hidden = YES;
+    }
 }
 
 @end
