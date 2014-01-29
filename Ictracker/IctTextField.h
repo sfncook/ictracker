@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum textFieldSize {
+    TEXT_FIELD_LARGE,
+    TEXT_FIELD_MEDIUM,} TextFieldSize;
+
 @interface IctTextField : UITextField
 
-- (id)initWithPlaceholder:(NSString*)placeholder;
+@property (readonly, assign)    TextFieldSize size;
+
+- (id)initWithPlaceholder:(NSString*)placeholder size:(TextFieldSize)size;
 - (void) setPosition:(CGPoint)position;
 
 @end

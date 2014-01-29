@@ -7,22 +7,32 @@
 //
 
 #import "IctTextField.h"
+#import "Utils.h"
 
 @implementation IctTextField
 
-- (id)initWithPlaceholder:(NSString*)placeholder
+- (id)initWithPlaceholder:(NSString*)placeholder size:(TextFieldSize)size
 {
-    CGRect frame = CGRectMake(0, 0, 500, 60);
+    float width;
+    float height = [Utils millimetersToPixels:10];
+    if(size==TEXT_FIELD_LARGE) {
+        width = [Utils millimetersToPixels:175];
+    }
+    if (size==TEXT_FIELD_MEDIUM) {
+        width = [Utils millimetersToPixels:100];
+    }
+    CGRect frame = CGRectMake(0, 0, width, height);
     self = [super initWithFrame:frame];
     if (self) {
+        _size = size;
         self.borderStyle = UITextBorderStyleRoundedRect;
-       self.font = [UIFont systemFontOfSize:30];
-       self.placeholder = placeholder;
-       self.autocorrectionType = UITextAutocorrectionTypeNo;
-       self.keyboardType = UIKeyboardTypeDefault;
-       self.returnKeyType = UIReturnKeyDone;
-       self.clearButtonMode = UITextFieldViewModeWhileEditing;
-       self.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+        self.font = [UIFont systemFontOfSize:30];
+        self.placeholder = placeholder;
+        self.autocorrectionType = UITextAutocorrectionTypeNo;
+        self.keyboardType = UIKeyboardTypeDefault;
+        self.returnKeyType = UIReturnKeyDone;
+        self.clearButtonMode = UITextFieldViewModeWhileEditing;
+self.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     }
     return self;
 }

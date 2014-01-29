@@ -19,13 +19,13 @@
         self.backgroundColor = [UIColor colorWithRed:0.05 green:0.05 blue:0.05 alpha:0.8];
         
         
-        _addressField = [[IctTextField alloc] initWithPlaceholder:@"[enter address here]"];
+        _addressField = [[IctTextField alloc] initWithPlaceholder:@"[enter address here]" size:TEXT_FIELD_MEDIUM];
         [_addressField setPosition:CGPointMake(
                                                [Utils windowHeight]/2-_addressField.frame.size.width/2,
                                                [Utils millimetersToPixels:25])];
         _addressField.delegate = self;
         
-        _incidentIdField = [[IctTextField alloc] initWithPlaceholder:@"[enter incident ID here]"];
+        _incidentIdField = [[IctTextField alloc] initWithPlaceholder:@"[enter incident ID here]" size:TEXT_FIELD_MEDIUM];
         [_incidentIdField setPosition:CGPointMake(
                                                   [Utils windowHeight]/2-_incidentIdField.frame.size.width/2,
                                                   [Utils millimetersToPixels:50])];
