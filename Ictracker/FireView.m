@@ -77,6 +77,10 @@
         _pdfView = [[PdfView alloc] initWithDelegate:delegate];
         _pdfView.hidden = YES;
         
+        _address = @"";
+        _incidentId = @"";
+        
+        _incidentEntryView = [[IncidentEntryView alloc] initWithDelegate:self];
         
         
         [self addSubview:safetyLabel];
@@ -91,6 +95,7 @@
         [self addSubview:_safetyButton];
         [self addSubview:_logoButton];
         [self addSubview:_pdfView];
+        [self addSubview:_incidentEntryView];
     }
     return self;
 }
@@ -164,6 +169,15 @@
     if (_logoButton==selector) {
         [_splashDelegate showSplash];
     }
+}
+
+
+//*** IncidentEntryDelegate ***
+-(void) setAddress:(NSString*)address {
+    _address = address;
+}
+-(void) setIncidentId:(NSString*)incidentId {
+    _incidentId = incidentId;
 }
 
 @end

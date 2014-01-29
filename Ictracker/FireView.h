@@ -24,8 +24,10 @@
 #import "PdfView.h"
 #import "ShowMailDialogDelegate.h"
 #import "SplashDelegate.h"
+#import "IncidentEntryDelegate.h"
+#import "IncidentEntryView.h"
 
-@interface FireView : UIView<SectorTBarDelegate, ModeButtonDelegate, SafetyButtonDelegate, ButtonClickDelegate>
+@interface FireView : UIView<SectorTBarDelegate, ModeButtonDelegate, SafetyButtonDelegate, ButtonClickDelegate, IncidentEntryDelegate>
 
 @property (readonly, retain, nonatomic) MenuSelectorView* menuSelectorView;
 @property (readonly, retain, nonatomic) MenuContainerView* menuContainerView;
@@ -47,8 +49,9 @@
 
 @property (readonly, retain, nonatomic) id<SplashDelegate> splashDelegate;
 
-@property (readonly, retain, nonatomic) NSString* address;
-@property (readonly, retain, nonatomic) NSString* incidentId;
+@property (readonly, copy, nonatomic) NSString* address;
+@property (readonly, copy, nonatomic) NSString* incidentId;
+@property (readonly, retain, nonatomic) IncidentEntryView* incidentEntryView;
 
 - (id)initWithMailDelegate:(id<ShowMailDialogDelegate>) delegate splashDelegate:(id<SplashDelegate>)splashDelegate;
 
