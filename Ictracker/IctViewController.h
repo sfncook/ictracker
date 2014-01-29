@@ -11,8 +11,9 @@
 #import "FireView.h"
 #import "SplashDelegate.h"
 #import "ShowMailDialogDelegate.h"
+#import "SplashDelegate.h"
 
-@interface IctViewController : UIViewController<SplashDelegate, ShowMailDialogDelegate, MFMailComposeViewControllerDelegate>
+@interface IctViewController : UIViewController<SplashDelegate, ShowMailDialogDelegate, MFMailComposeViewControllerDelegate, SplashDelegate>
 
 @property (readonly, retain, nonatomic) SplashView* splashView;
 @property (readonly, retain, nonatomic) FireView* fireView;

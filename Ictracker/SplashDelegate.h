@@ -10,6 +10,8 @@
 
 @protocol SplashDelegate <NSObject>
 
--(void) clickFire;
--(void) clickEms;
+-(void) showSplash;
+-(void) showFire;
+-(void) showEms;
+
 @end

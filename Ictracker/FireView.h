@@ -23,6 +23,7 @@
 #import "ImgButton.h"
 #import "PdfView.h"
 #import "ShowMailDialogDelegate.h"
+#import "SplashDelegate.h"
 
 @interface FireView : UIView<SectorTBarDelegate, ModeButtonDelegate, SafetyButtonDelegate, ButtonClickDelegate>
 
@@ -38,12 +39,17 @@
 @property (readonly, retain, nonatomic) SafetyButton* safetyButton;
 @property (readonly, retain, nonatomic) SafetyDialogContainer* safetyDialogContainer;
 
-//@property (readonly, retain, nonatomic) ButtonView* exportButton;
+@property (readonly, retain, nonatomic) ImgButton* logoButton;
 @property (readonly, retain, nonatomic) ImgButton* pdfButton;
 @property (readonly, retain, nonatomic) ReportFormatter* reportFormatter;
 
 @property (readonly, retain, nonatomic) PdfView* pdfView;
 
-- (id)initWithMailDelegate:(id<ShowMailDialogDelegate>) delegate;
+@property (readonly, retain, nonatomic) id<SplashDelegate> splashDelegate;
+
+@property (readonly, retain, nonatomic) NSString* address;
+@property (readonly, retain, nonatomic) NSString* incidentId;
+
+- (id)initWithMailDelegate:(id<ShowMailDialogDelegate>) delegate splashDelegate:(id<SplashDelegate>)splashDelegate;
 
 @end

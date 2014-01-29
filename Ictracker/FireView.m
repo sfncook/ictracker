@@ -12,10 +12,11 @@
 
 @implementation FireView
 
-- (id)initWithMailDelegate:(id<ShowMailDialogDelegate>) delegate
+- (id)initWithMailDelegate:(id<ShowMailDialogDelegate>) delegate splashDelegate:(id<SplashDelegate>)splashDelegate
 {
     self = [super initWithFrame:CGRectMake(0, 0, [Utils windowHeight], [Utils windowWidth])];
     if (self) {
+        _splashDelegate = splashDelegate;
         _sectorTbarContainerView = [[SectorTbarContainerView alloc] initWithDelegate:self];
         
         _menuContainerView = [[MenuContainerView alloc] initWithSectorMenuDelegate:_sectorTbarContainerView
@@ -66,8 +67,8 @@
         
         _reportFormatter = [[ReportFormatter alloc]init];
         
-        UIImageView* logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ictlogo"]];
-        [logo setFrame:CGRectMake(
+        _logoButton = [[ImgButton alloc] initWithImage:@"ictlogo" delegate:self size:IMG_BUTTON_MEDIUM];
+        [_logoButton setFrame:CGRectMake(
                                   [Utils millimetersToPixels:1],
                                   [Utils millimetersToPixels:3.5],
                                   [Utils millimetersToPixels:9],
@@ -88,7 +89,7 @@
         [self addSubview:_modeButton];
         [self addSubview:_safetyDialogContainer];
         [self addSubview:_safetyButton];
-        [self addSubview:logo];
+        [self addSubview:_logoButton];
         [self addSubview:_pdfView];
     }
     return self;
@@ -159,6 +160,9 @@
                                             title:title];
         
         [_pdfView openWithPdfFile:pdfFile address:address incidentId:incidentId];
+    }
+    if (_logoButton==selector) {
+        [_splashDelegate showSplash];
     }
 }
 

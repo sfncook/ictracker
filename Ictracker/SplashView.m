@@ -62,7 +62,7 @@
 
 - (void) click:(id)selector {
     if(_fireBtn==selector) {
-        [_delegate clickFire];
+        [_delegate showFire];
     } else if(_emsBtn==selector) {
         
     }

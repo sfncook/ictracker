@@ -330,13 +330,13 @@
 		290D0AE6189612320061C7D0 /* Main Views */ = {
 			isa = PBXGroup;
 			children = (
+				290D0AE7189614F70061C7D0 /* SplashDelegate.h */,
 				290D0ADC1895D0230061C7D0 /* SplashView.h */,
 				290D0ADD1895D0230061C7D0 /* SplashView.m */,
 				2907853E1883B032008B1B7D /* IctViewController.h */,
 				2907853F1883B032008B1B7D /* IctViewController.m */,
 				290D0AE31896110C0061C7D0 /* FireView.h */,
 				290D0AE41896110C0061C7D0 /* FireView.m */,
-				290D0AE7189614F70061C7D0 /* SplashDelegate.h */,
 				290D0AE8189724B90061C7D0 /* PdfView.h */,
 				290D0AE9189724B90061C7D0 /* PdfView.m */,
 				290D0AED18974AE00061C7D0 /* ShowMailDialogDelegate.h */,

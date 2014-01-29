@@ -19,20 +19,11 @@
     [super viewDidLoad];
     
     _splashView = [[SplashView alloc] initWithDelegate:self];
-    _fireView = [[FireView alloc] initWithMailDelegate:self];
+    _fireView = [[FireView alloc] initWithMailDelegate:self splashDelegate:self];
     _fireView.hidden = YES;
     
     [self.view addSubview:_splashView];
     [self.view addSubview:_fireView];
-    
-}
-
--(void) clickFire {
-    _splashView.hidden = YES;
-    _fireView.hidden = NO;
-}
-
--(void) clickEms {
     
 }
 
@@ -63,6 +54,20 @@
             break;
     }
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)showSplash {
+    _splashView.hidden = NO;
+    _fireView.hidden = YES;
+}
+
+-(void) showFire {
+    _splashView.hidden = YES;
+    _fireView.hidden = NO;
+}
+
+-(void) showEms {
+    
 }
 
 - (void)didReceiveMemoryWarning
