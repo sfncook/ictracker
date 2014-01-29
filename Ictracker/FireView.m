@@ -82,6 +82,16 @@
         
         _incidentEntryView = [[IncidentEntryView alloc] initWithDelegate:self];
         
+        _incidentInfoLabel = [[UILabel alloc] init];
+        _incidentInfoLabel.frame = CGRectMake(
+                                         [Utils millimetersToPixels:13]+1,
+                                         [Utils windowWidth]-[Utils millimetersToPixels:5],
+                                         [Utils windowHeight]-[Utils millimetersToPixels:13]-1,
+                                         [Utils millimetersToPixels:5]);
+        _incidentInfoLabel.backgroundColor = [UIColor whiteColor];
+//        _incidentInfoLabel.layer.borderColor = [UIColor darkGrayColor].CGColor;
+//        _incidentInfoLabel.layer.borderWidth = 2.0;
+        
         
         [self addSubview:safetyLabel];
         [self addSubview:self.menuSelectorView];
@@ -94,6 +104,7 @@
         [self addSubview:_safetyDialogContainer];
         [self addSubview:_safetyButton];
         [self addSubview:_logoButton];
+        [self addSubview:_incidentInfoLabel];
         [self addSubview:_pdfView];
         [self addSubview:_incidentEntryView];
     }
@@ -156,8 +167,8 @@
 //*** ButtonClickDelegate ***
 - (void) click:(id)selector {
     if (_pdfButton==selector) {
-        NSString* address = @"3026 Market St San Francisco, CA 94114";
-        NSString* incidentId = @"431567";
+        NSString* address = _address;
+        NSString* incidentId = _incidentId;
         NSString* title = @"City of Mesa Fire Department\nFire Incident Command Tracker - Report Log";
         NSString* pdfFile = [_reportFormatter generatePdfWithTxLogger:[TransactionLogger transLogger]
                                           address:address
@@ -171,13 +182,18 @@
     }
 }
 
+-(void) updateIncidentInfoLabel {
+    [_incidentInfoLabel setText:[NSString stringWithFormat:@"  Incident#:%@    Address:%@", _incidentId, _address]];
+}
 
 //*** IncidentEntryDelegate ***
 -(void) setAddress:(NSString*)address {
     _address = address;
+    [self updateIncidentInfoLabel];
 }
 -(void) setIncidentId:(NSString*)incidentId {
     _incidentId = incidentId;
+    [self updateIncidentInfoLabel];
 }
 
 @end

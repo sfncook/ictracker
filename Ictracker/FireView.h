@@ -53,6 +53,8 @@
 @property (readonly, copy, nonatomic) NSString* incidentId;
 @property (readonly, retain, nonatomic) IncidentEntryView* incidentEntryView;
 
+@property (readonly, copy, nonatomic) UILabel* incidentInfoLabel;
+
 - (id)initWithMailDelegate:(id<ShowMailDialogDelegate>) delegate splashDelegate:(id<SplashDelegate>)splashDelegate;
 
 @end
