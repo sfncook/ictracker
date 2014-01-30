@@ -15,7 +15,7 @@
     NSArray *engNames = @[@"E411",
                           @"E412"];
     
-    NSArray *ladNames = @[@"L411"];
+    NSArray *ladNames = @[];
     
     NSArray *bcNames = @[@"B411"];
     

@@ -22,17 +22,23 @@
     self = [super initWithFrame:frame];
     if (self) {
         
+        _allCitiesButton = [[ButtonView alloc] initWithName:@"ALL" delegate:self size:BUTTON_SMALL];
+        [self addSubview:_allCitiesButton];
+        [_allCitiesButton setPosition:CGPointMake(
+                                                 [Utils millimetersToPixels:1],
+                                                 [Utils millimetersToPixels:1])];
+        
         _mesaCityButton = [[ButtonView alloc] initWithName:@"Mesa" delegate:self size:BUTTON_SMALL];
         [self addSubview:_mesaCityButton];
         [_mesaCityButton setPosition:CGPointMake(
-            [Utils millimetersToPixels:1],
-            [Utils millimetersToPixels:1])];
+                                                _allCitiesButton.frame.origin.x + _allCitiesButton.frame.size.width + [Utils millimetersToPixels:2],
+                                                [Utils millimetersToPixels:1])];
         
         _ajCityButton = [[ButtonView alloc] initWithName:@"AJ" delegate:self size:BUTTON_SMALL];
         [self addSubview:_ajCityButton];
         [_ajCityButton setPosition:CGPointMake(
-             _mesaCityButton.frame.origin.x + _mesaCityButton.frame.size.width + [Utils millimetersToPixels:2],
-             [Utils millimetersToPixels:1])];
+                                                 _mesaCityButton.frame.origin.x + _mesaCityButton.frame.size.width + [Utils millimetersToPixels:2],
+                                                 [Utils millimetersToPixels:1])];
         
         _gilbertCityButton = [[ButtonView alloc] initWithName:@"Glbt" delegate:self size:BUTTON_SMALL];
         [self addSubview:_gilbertCityButton];
@@ -47,11 +53,13 @@
                                                     [Utils millimetersToPixels:1])];
         
         
+        _allCitiesUnitsView = [[AllCitiesUnitsView alloc] initWithDelegate:cityUnitMenuDelegate];
         _mesaUnitsView = [[MesaUnitsView alloc] initWithDelegate:cityUnitMenuDelegate];
         _ajUnitsView = [[AjUnitsView alloc] initWithDelegate:cityUnitMenuDelegate];
         _gilbertUnitsView = [[GilbertUnitsView alloc] initWithDelegate:cityUnitMenuDelegate];
         _queenCreekUnitsView = [[QueenCreekUnitsView alloc] initWithDelegate:cityUnitMenuDelegate];
         
+        [self addSubview:_allCitiesUnitsView];
         [self addSubview:_mesaUnitsView];
         [self addSubview:_ajUnitsView];
         [self addSubview:_gilbertUnitsView];
@@ -60,6 +68,14 @@
         [self showMesa];
     }
     return self;
+}
+
+- (void) showAll
+{
+    [self resetCityButtons];
+    [_allCitiesButton setIsHighlighted:YES];
+    [self hideAllCityViews];
+    _allCitiesUnitsView.hidden = NO;
 }
 
 - (void) showMesa
@@ -95,6 +111,7 @@
 }
 
 - (void) resetCityButtons {
+    [_allCitiesButton setIsHighlighted:NO];
     [_mesaCityButton setIsHighlighted:NO];
     [_ajCityButton setIsHighlighted:NO];
     [_gilbertCityButton setIsHighlighted:NO];
@@ -102,6 +119,7 @@
 }
 
 - (void) hideAllCityViews {
+    _allCitiesUnitsView.hidden = YES;
     _mesaUnitsView.hidden = YES;
     _ajUnitsView.hidden = YES;
     _gilbertUnitsView.hidden = YES;
@@ -110,7 +128,9 @@
 
 - (void) click:(id)selector
 {
-    if(selector==_mesaCityButton) {
+    if(selector==_allCitiesButton) {
+        [self showAll];
+    } else if(selector==_mesaCityButton) {
         [self showMesa];
     } else if(selector==_ajCityButton) {
         [self showAj];

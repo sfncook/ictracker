@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ButtonView.h"
+#import "AllCitiesUnitsView.h"
 #import "MesaUnitsView.h"
 #import "AjUnitsView.h"
 #import "GilbertUnitsView.h"
@@ -16,11 +17,13 @@
 
 @interface UnitMenu : UIView<ButtonClickDelegate>
 
+@property (readonly, nonatomic) ButtonView* allCitiesButton;
 @property (readonly, nonatomic) ButtonView* mesaCityButton;
 @property (readonly, nonatomic) ButtonView* ajCityButton;
 @property (readonly, nonatomic) ButtonView* gilbertCityButton;
 @property (readonly, nonatomic) ButtonView* queenCreekButton;
 
+@property (readonly, nonatomic) AllCitiesUnitsView* allCitiesUnitsView;
 @property (readonly, nonatomic) MesaUnitsView* mesaUnitsView;
 @property (readonly, nonatomic) AjUnitsView* ajUnitsView;
 @property (readonly, nonatomic) GilbertUnitsView* gilbertUnitsView;
