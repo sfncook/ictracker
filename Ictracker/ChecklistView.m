@@ -9,6 +9,7 @@
 #import "ChecklistView.h"
 #import "Utils.h"
 #import "ButtonView.h"
+#import "Transaction.h"
 
 @implementation ChecklistView
 
@@ -21,7 +22,7 @@
                               [Utils windowWidth]-[Utils millimetersToPixels:5]);
     self = [super initWithFrame:frame];
     if (self) {
-        
+        _transLogger = [TransactionLogger transLogger];
         double orig_x = 1.0;//mm
         double orig_y = 1.0;//mm
         double x = orig_x;
@@ -50,7 +51,13 @@
 
 - (void) click:(id)selector
 {
-//    NSLog(@"click unit button");
+    ButtonView* btn = selector;
+    TransType transType = TRANSTYPE_CHECK;
+    if(!btn.isChecked) {
+        transType = TRANSTYPE_UNCHECK;
+    }
+    Transaction* tx = [Transaction transactionWithType:transType date:[NSDate date] param:btn.name, nil];
+    [_transLogger addTransaction:tx];
 }
 
 @end

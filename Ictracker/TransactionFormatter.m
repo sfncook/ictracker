@@ -157,6 +157,16 @@ UIFont *font;
             eventStrs = [NSArray arrayWithObjects: nil];
             break;
         }
+//        case TRANSTYPE_CHECK:
+//        {
+//            NSString* checkBtn = [tx.params objectAtIndex:0];
+//            eventStrs = [NSArray arrayWithObjects:
+//                         dateString,
+//                         checkBtn,
+//                         @"SET:",
+//                         nil];
+//            break;
+//        }
             
         default:
         {
