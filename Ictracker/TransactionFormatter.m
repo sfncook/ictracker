@@ -157,16 +157,26 @@ UIFont *font;
             eventStrs = [NSArray arrayWithObjects: nil];
             break;
         }
-//        case TRANSTYPE_CHECK:
-//        {
-//            NSString* checkBtn = [tx.params objectAtIndex:0];
-//            eventStrs = [NSArray arrayWithObjects:
-//                         dateString,
-//                         checkBtn,
-//                         @"SET:",
-//                         nil];
-//            break;
-//        }
+        case TRANSTYPE_CHECK:
+        {
+            NSString* checkBtn = [tx.params objectAtIndex:0];
+            eventStrs = [NSArray arrayWithObjects:
+                         dateString,
+                         checkBtn,
+                         @"DONE",
+                         nil];
+            break;
+        }
+        case TRANSTYPE_UNCHECK:
+        {
+            NSString* checkBtn = [tx.params objectAtIndex:0];
+            eventStrs = [NSArray arrayWithObjects:
+                         dateString,
+                         checkBtn,
+                         @"UNDONE",
+                         nil];
+            break;
+        }
             
         default:
         {
