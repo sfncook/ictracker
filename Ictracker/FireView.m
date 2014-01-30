@@ -89,8 +89,6 @@
                                          [Utils windowHeight]-[Utils millimetersToPixels:13]-1,
                                          [Utils millimetersToPixels:5]);
         _incidentInfoLabel.backgroundColor = [UIColor whiteColor];
-//        _incidentInfoLabel.layer.borderColor = [UIColor darkGrayColor].CGColor;
-//        _incidentInfoLabel.layer.borderWidth = 2.0;
         
         
         [self addSubview:safetyLabel];

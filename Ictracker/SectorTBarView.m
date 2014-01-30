@@ -51,6 +51,7 @@
                           [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_MEDIUM],
                           [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_MEDIUM],
                           [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_MEDIUM],
+                          [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_MEDIUM],
                           nil];
         double y = 16;
         for (ButtonView* btn in _actionButtons) {
@@ -190,22 +191,6 @@
     }
 }
 
-- (void) setTitle:(NSString*)title
-{
-    [_titleButton setName:title];
-    
-    Transaction* tx = [Transaction transactionWithType:TRANSTYPE_ADD_TITLE_TO_SECTOR date:[NSDate date] param:title, self, nil];
-    [_transLogger addTransaction:tx];
-
-    if([title isEqualToString:@"REHAB"]) {
-        [_titleButton setNormalColor:[UIColor blueColor]];
-    } else if([title isEqualToString:@"RESCUE"]) {
-        [_titleButton setNormalColor:[UIColor orangeColor]];
-    } else {
-        [_titleButton setNormalColor:[UIColor colorWithRed:0.95 green:0.98 blue:1.0 alpha:1.0]];
-    }
-}
-
 - (void) addUnit:(NSString*)unitName
 {
     if([_acctButton isHighlighted]) {
@@ -233,7 +218,11 @@
 
 - (void) addAction:(NSString*)actionName
 {
-    if(_manyActions<4) {
+    int MAX_ACTIONS = 4;
+    if (_isRehab || _isRescue) {
+        MAX_ACTIONS = 5;
+    }
+    if(_manyActions<MAX_ACTIONS) {
         Transaction* tx = [Transaction transactionWithType:TRANSTYPE_ADD_ACTION_TO_SECTOR date:[NSDate date] param:actionName, self, nil];
         [_transLogger addTransaction:tx];
         
@@ -241,7 +230,7 @@
         actionBtn.hidden = NO;
         [actionBtn setName:actionName];
         [actionBtn setNormalColor:[UIColor colorWithRed:0.95 green:0.98 blue:1.0 alpha:1.0]];
-        if(_manyActions<3) {
+        if(_manyActions<MAX_ACTIONS-1) {
             [[_actionButtons objectAtIndex:_manyActions+1] setHidden:NO];
         }
         _manyActions++;
@@ -253,29 +242,73 @@
     _curActionItemIndex = curActionItemIndex;
 }
 
+- (void) moveActionButtonsUp {
+    double y = 8;
+    for (ButtonView* btn in _actionButtons) {
+        [btn setPosition:CGPointMake(
+                                     [Utils millimetersToPixels:21],
+                                     [Utils millimetersToPixels:y])];
+        y+=6.5;
+    }
+}
+
+- (void) moveActionButtonsDown {
+    double y = 16;
+    for (ButtonView* btn in _actionButtons) {
+        [btn setPosition:CGPointMake(
+                                     [Utils millimetersToPixels:21],
+                                     [Utils millimetersToPixels:y])];
+        y+=6.0;
+    }
+}
+
+- (void) setTitle:(NSString*)title
+{
+    Transaction* tx = [Transaction transactionWithType:TRANSTYPE_SET_SECTOR_REHAB date:[NSDate date] param:title, self, nil];
+    [_transLogger addTransaction:tx];
+    [_titleButton setName:title];
+    if ([title isEqualToString:@"REHAB"] || [title isEqualToString:@"RESCUE"]) {
+        if ([title isEqualToString:@"REHAB"]) {
+            _isRescue = NO;
+            _isRehab = YES;
+            [_titleButton setNormalColor:[UIColor colorWithRed:0.5 green:0.85 blue:1.0 alpha:1.0]];
+        }
+        if ([title isEqualToString:@"RESCUE"]) {
+            _isRescue = YES;
+            _isRehab = NO;
+            [_titleButton setNormalColor:[UIColor orangeColor]];
+        }
+        _acctButton.hidden = YES;
+        [self moveActionButtonsUp];
+        //Check if we need to show the bottom action button
+        ButtonView* secondToLastBtn = [_actionButtons objectAtIndex:3];
+        if (!secondToLastBtn.hidden) {
+            ButtonView* bottomBtn = [_actionButtons lastObject];
+            bottomBtn.hidden = NO;
+        }
+    } else {
+        _isRescue = NO;
+        _isRehab = NO;
+        [_titleButton setNormalColor:[UIColor colorWithRed:0.95 green:0.98 blue:1.0 alpha:1.0]];
+        _acctButton.hidden = NO;
+        [self moveActionButtonsDown];
+        //Always hide the bottom action button
+        ButtonView* bottomBtn = [_actionButtons lastObject];
+        bottomBtn.hidden = YES;
+    }
+    [self setNeedsDisplay];
+}
+
 - (void) setIsRescue
 {
-    Transaction* tx = [Transaction transactionWithType:TRANSTYPE_SET_SECTOR_RESCUE date:[NSDate date] param:@"RESCUE", self, nil];
-    [_transLogger addTransaction:tx];
-    
     [self setTitle:@"RESCUE"];
-    _isRescue = YES;
-    _isRehab = NO;
-    [_titleButton setNormalColor:[UIColor orangeColor]];
-    _acctButton.hidden = YES;
 }
 
 - (void) setIsRehab
 {
-    Transaction* tx = [Transaction transactionWithType:TRANSTYPE_SET_SECTOR_REHAB date:[NSDate date] param:@"REHAB", self, nil];
-    [_transLogger addTransaction:tx];
-    
     [self setTitle:@"REHAB"];
-    _isRescue = NO;
-    _isRehab = YES;
-    [_titleButton setNormalColor:[UIColor colorWithRed:0.5 green:0.85 blue:1.0 alpha:1.0]];
-    _acctButton.hidden = YES;
 }
+
 
 //Button delegate response
 - (void) click:(id)selector
