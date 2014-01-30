@@ -28,6 +28,7 @@
 		290785731883C6FF008B1B7D /* MenuContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 290785721883C6FE008B1B7D /* MenuContainerView.m */; };
 		290785761883C86B008B1B7D /* MesaUnitsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 290785751883C86B008B1B7D /* MesaUnitsView.m */; };
 		290785791883C960008B1B7D /* AjUnitsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 290785781883C960008B1B7D /* AjUnitsView.m */; };
+		290AE71B189A0AE5003832FF /* QueenCreekUnitsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 290AE71A189A0AE5003832FF /* QueenCreekUnitsView.m */; };
 		290D0ADE1895D0230061C7D0 /* SplashView.m in Sources */ = {isa = PBXBuildFile; fileRef = 290D0ADD1895D0230061C7D0 /* SplashView.m */; };
 		290D0AE218960BBA0061C7D0 /* ImgButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 290D0AE118960BBA0061C7D0 /* ImgButton.m */; };
 		290D0AE51896110C0061C7D0 /* FireView.m in Sources */ = {isa = PBXBuildFile; fileRef = 290D0AE41896110C0061C7D0 /* FireView.m */; };
@@ -105,6 +106,8 @@
 		290785751883C86B008B1B7D /* MesaUnitsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MesaUnitsView.m; sourceTree = "<group>"; };
 		290785771883C960008B1B7D /* AjUnitsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AjUnitsView.h; sourceTree = "<group>"; };
 		290785781883C960008B1B7D /* AjUnitsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AjUnitsView.m; sourceTree = "<group>"; };
+		290AE719189A0AE5003832FF /* QueenCreekUnitsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueenCreekUnitsView.h; sourceTree = "<group>"; };
+		290AE71A189A0AE5003832FF /* QueenCreekUnitsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueenCreekUnitsView.m; sourceTree = "<group>"; };
 		290D0ADC1895D0230061C7D0 /* SplashView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashView.h; sourceTree = "<group>"; };
 		290D0ADD1895D0230061C7D0 /* SplashView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashView.m; sourceTree = "<group>"; };
 		290D0AE018960BBA0061C7D0 /* ImgButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImgButton.h; sourceTree = "<group>"; };
@@ -331,6 +334,8 @@
 				295183E61884E2550033B02F /* GilbertUnitsView.m */,
 				295183E21884DC250033B02F /* NotesMenu.h */,
 				295183E31884DC250033B02F /* NotesMenu.m */,
+				290AE719189A0AE5003832FF /* QueenCreekUnitsView.h */,
+				290AE71A189A0AE5003832FF /* QueenCreekUnitsView.m */,
 			);
 			name = "Unit Menu View Files";
 			sourceTree = "<group>";
@@ -587,6 +592,7 @@
 				290785641883B12C008B1B7D /* Utils.m in Sources */,
 				295183EA1884F23B0033B02F /* CityUnitsView.m in Sources */,
 				290D0AE218960BBA0061C7D0 /* ImgButton.m in Sources */,
+				290AE71B189A0AE5003832FF /* QueenCreekUnitsView.m in Sources */,
 				295183ED1884F83B0033B02F /* WideItemsMenuView.m in Sources */,
 				290785681883B1CE008B1B7D /* ButtonView.m in Sources */,
 				290785701883C62B008B1B7D /* UnitMenu.m in Sources */,

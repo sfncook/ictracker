@@ -40,14 +40,22 @@
                                                    _ajCityButton.frame.origin.x + _ajCityButton.frame.size.width + [Utils millimetersToPixels:2],
                                                    [Utils millimetersToPixels:1])];
         
+        _queenCreekButton = [[ButtonView alloc] initWithName:@"QC" delegate:self size:BUTTON_SMALL];
+        [self addSubview:_queenCreekButton];
+        [_queenCreekButton setPosition:CGPointMake(
+                                                    _gilbertCityButton.frame.origin.x + _gilbertCityButton.frame.size.width + [Utils millimetersToPixels:2],
+                                                    [Utils millimetersToPixels:1])];
+        
         
         _mesaUnitsView = [[MesaUnitsView alloc] initWithDelegate:cityUnitMenuDelegate];
         _ajUnitsView = [[AjUnitsView alloc] initWithDelegate:cityUnitMenuDelegate];
         _gilbertUnitsView = [[GilbertUnitsView alloc] initWithDelegate:cityUnitMenuDelegate];
+        _queenCreekUnitsView = [[QueenCreekUnitsView alloc] initWithDelegate:cityUnitMenuDelegate];
         
         [self addSubview:_mesaUnitsView];
         [self addSubview:_ajUnitsView];
         [self addSubview:_gilbertUnitsView];
+        [self addSubview:_queenCreekUnitsView];
         
         [self showMesa];
     }
@@ -58,33 +66,46 @@
 {
     [self resetCityButtons];
     [_mesaCityButton setIsHighlighted:YES];
+    [self hideAllCityViews];
     _mesaUnitsView.hidden = NO;
-    _ajUnitsView.hidden = YES;
-    _gilbertUnitsView.hidden = YES;
 }
 
 - (void) showAj
 {
     [self resetCityButtons];
     [_ajCityButton setIsHighlighted:YES];
-    _mesaUnitsView.hidden = YES;
+    [self hideAllCityViews];
     _ajUnitsView.hidden = NO;
-    _gilbertUnitsView.hidden = YES;
 }
 
 - (void) showGilbert
 {
     [self resetCityButtons];
     [_gilbertCityButton setIsHighlighted:YES];
-    _mesaUnitsView.hidden = YES;
-    _ajUnitsView.hidden = YES;
+    [self hideAllCityViews];
     _gilbertUnitsView.hidden = NO;
+}
+
+- (void) showQueenCreek
+{
+    [self resetCityButtons];
+    [_queenCreekButton setIsHighlighted:YES];
+    [self hideAllCityViews];
+    _queenCreekUnitsView.hidden = NO;
 }
 
 - (void) resetCityButtons {
     [_mesaCityButton setIsHighlighted:NO];
     [_ajCityButton setIsHighlighted:NO];
     [_gilbertCityButton setIsHighlighted:NO];
+    [_queenCreekButton setIsHighlighted:NO];
+}
+
+- (void) hideAllCityViews {
+    _mesaUnitsView.hidden = YES;
+    _ajUnitsView.hidden = YES;
+    _gilbertUnitsView.hidden = YES;
+    _queenCreekUnitsView.hidden = YES;
 }
 
 - (void) click:(id)selector
@@ -95,6 +116,8 @@
         [self showAj];
     } else if(selector==_gilbertCityButton) {
         [self showGilbert];
+    } else if(selector==_queenCreekButton) {
+        [self showQueenCreek];
     }
 }
 
