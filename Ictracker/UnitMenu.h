@@ -13,6 +13,7 @@
 #import "AjUnitsView.h"
 #import "GilbertUnitsView.h"
 #import "QueenCreekUnitsView.h"
+#import "TempeUnitsView.h"
 #import "ButtonClickDelegate.h"
 
 @interface UnitMenu : UIView<ButtonClickDelegate>
@@ -22,12 +23,14 @@
 @property (readonly, nonatomic) ButtonView* ajCityButton;
 @property (readonly, nonatomic) ButtonView* gilbertCityButton;
 @property (readonly, nonatomic) ButtonView* queenCreekButton;
+@property (readonly, nonatomic) ButtonView* tempeButton;
 
 @property (readonly, nonatomic) AllCitiesUnitsView* allCitiesUnitsView;
 @property (readonly, nonatomic) MesaUnitsView* mesaUnitsView;
 @property (readonly, nonatomic) AjUnitsView* ajUnitsView;
 @property (readonly, nonatomic) GilbertUnitsView* gilbertUnitsView;
 @property (readonly, nonatomic) QueenCreekUnitsView* queenCreekUnitsView;
+@property (readonly, nonatomic) TempeUnitsView* tempeUnitsView;
 
 - (id)initWithCityUnitMenuDelegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate;
 
