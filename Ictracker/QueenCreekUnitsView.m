@@ -12,14 +12,15 @@
 
 - (id)initWithDelegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate
 {
-    NSArray *engNames = @[@"E411",
-                          @"E412"];
+    NSDictionary *units = [[NSDictionary alloc] initWithObjectsAndKeys:
+                           [NSNumber numberWithInt:UNITTYPE_ENGINE],
+                           @[@"E411",
+                             @"E412"],
+                           [NSNumber numberWithInt:UNITTYPE_BC],
+                           @[@"BC411"],
+                           nil];
     
-    NSArray *ladNames = @[];
-    
-    NSArray *bcNames = @[@"BC411"];
-    
-    self = [super initWithEngNames:engNames ladNames:ladNames bcNames:bcNames delegate:cityUnitMenuDelegate];
+    self = [super initWithUnits:units delegate:cityUnitMenuDelegate];
     if (self) {
     }
     return self;

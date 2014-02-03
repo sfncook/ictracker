@@ -13,19 +13,20 @@
 
 - (id)initWithDelegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate
 {
-    NSArray *engNames = @[@"E251",
-                          @"E252",
-                          @"E253"];
     
-    NSArray *ladNames = @[@"L251",
-                          @"L252"];
+    NSDictionary *units = [[NSDictionary alloc] initWithObjectsAndKeys:
+                           [NSNumber numberWithInt:UNITTYPE_ENGINE],
+                           @[@"E251",
+                             @"E252",
+                             @"E253"],
+                           [NSNumber numberWithInt:UNITTYPE_LADDER],
+                           @[@"L251",
+                             @"L252"],
+                           [NSNumber numberWithInt:UNITTYPE_BC],
+                           @[@"BC291"],
+                           nil];
     
-    NSArray *bcNames = @[@"BC291"];
-    
-    self = [super initWithEngNames:engNames
-                          ladNames:ladNames
-                           bcNames:bcNames
-                          delegate:cityUnitMenuDelegate];
+    self = [super initWithUnits:units delegate:cityUnitMenuDelegate];
     if (self) {
 //        self.backgroundColor = [UIColor yellowColor];
     }

@@ -12,23 +12,26 @@
 
 - (id)initWithDelegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate
 {
-    NSArray *engNames = @[@"E282",
-                          @"E283",
-                          @"E284",
-                          @"E285",
-                          @"E286",
-                          @"E287",
-                          @"E288",
-                          @"E289",];
     
-    NSArray *ladNames = @[@"L281",
-                          @"L283"
-                          ];
+    NSDictionary *units = [[NSDictionary alloc] initWithObjectsAndKeys:
+                           [NSNumber numberWithInt:UNITTYPE_ENGINE],
+                           @[@"E282",
+                             @"E283",
+                             @"E284",
+                             @"E285",
+                             @"E286",
+                             @"E287",
+                             @"E288",
+                             @"E289",],
+                           [NSNumber numberWithInt:UNITTYPE_LADDER],
+                           @[@"L281",
+                             @"L283"],
+                           [NSNumber numberWithInt:UNITTYPE_BC],
+                           @[@"BC281",
+                             @"BC282"],
+                           nil];
     
-    NSArray *bcNames = @[@"BC281",
-                         @"BC282"];
-    
-    self = [super initWithEngNames:engNames ladNames:ladNames bcNames:bcNames delegate:cityUnitMenuDelegate];
+    self = [super initWithUnits:units delegate:cityUnitMenuDelegate];
     if (self) {
     }
     return self;

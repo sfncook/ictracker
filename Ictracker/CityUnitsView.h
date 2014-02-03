@@ -10,6 +10,16 @@
 #import "ButtonClickDelegate.h"
 #import "CityUnitMenuDelegate.h"
 
+typedef enum unittype {
+    UNITTYPE_ENGINE,
+    UNITTYPE_LADDER,
+    UNITTYPE_BC,
+    UNITTYPE_SQUAD,
+    UNITTYPE_HAZMAT,
+    UNITTYPE_BRUSH,
+    UNITTYPE_UTILITY,
+} UnitType;
+
 @interface CityUnitsView : UIView<ButtonClickDelegate>
 
 @property (readonly, nonatomic) id<CityUnitMenuDelegate> cityUnitMenuDelegate;
@@ -18,5 +28,7 @@
               ladNames:(NSArray*)ladNames
                bcNames:(NSArray*)bcNames
               delegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate;
+
+- (id)initWithUnits:(NSDictionary*)units delegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate;
 
 @end

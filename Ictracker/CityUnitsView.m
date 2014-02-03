@@ -12,6 +12,22 @@
 
 @implementation CityUnitsView
 
+- (id)initWithUnits:(NSDictionary*)units delegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate
+{
+    CGRect frame = CGRectMake(
+                              [Utils millimetersToPixels:3.0],
+                              [Utils millimetersToPixels:13],
+                              [Utils millimetersToPixels:57],
+                              [Utils windowWidth]-[Utils millimetersToPixels:10]);
+    self = [super initWithFrame:frame];
+    if (self) {
+        
+        _cityUnitMenuDelegate = cityUnitMenuDelegate;
+        
+    }
+    return self;
+}
+
 - (id)initWithEngNames:(NSArray*)engNames
               ladNames:(NSArray*)ladNames
                bcNames:(NSArray*)bcNames
