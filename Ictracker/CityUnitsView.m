@@ -23,6 +23,7 @@
     if (self) {
         
         _cityUnitMenuDelegate = cityUnitMenuDelegate;
+        [CityUnitsView appendUnits:units];
         
         //Layout units
         double orig_x = [Utils millimetersToPixels:1.0];
@@ -33,7 +34,6 @@
         int row = 0;
         int col = 1;
         for ( int unitType=UNITTYPE_ENGINE ; unitType<UNITTYPE_MANY; unitType++){
-            
             NSArray* unitsForType = [units objectForKey:[NSNumber numberWithInt:unitType]];
             if(unitsForType!=nil) {
                 if (row==0) {
@@ -67,89 +67,32 @@
     return self;
 }
 
-- (id)initWithEngNames:(NSArray*)engNames
-              ladNames:(NSArray*)ladNames
-               bcNames:(NSArray*)bcNames
-              delegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate
++ (NSMutableDictionary *)allUnits
 {
-    CGRect frame = CGRectMake(
-                              [Utils millimetersToPixels:3.0],
-                              [Utils millimetersToPixels:13],
-                              [Utils millimetersToPixels:57],
-                              [Utils windowWidth]-[Utils millimetersToPixels:10]);
-    self = [super initWithFrame:frame];
-    if (self) {
+    static NSMutableDictionary* allUnits;
+    
+    @synchronized(self)
+    {
+        if (!allUnits)
+            allUnits = [[NSMutableDictionary alloc] init];
         
-        _cityUnitMenuDelegate = cityUnitMenuDelegate;
-        
-        double orig_x = 1.0;//mm
-        double orig_y = 1.5;//mm
-        double x = orig_x;
-        double y = orig_y;
-        int many_cols = 5;
-        int col = 1;
-        for (NSString *unitName in engNames) {
-            ButtonView* btn = [[ButtonView alloc] initWithName:unitName delegate:self size:BUTTON_UNIT];
-            [self addSubview:btn];
-            [btn setPosition:CGPointMake(
-                                         [Utils millimetersToPixels:x],
-                                         [Utils millimetersToPixels:y])];
-            if(col%many_cols==0) {
-                col=1;
-                x = orig_x;
-                y += 7;
-            } else {
-                col++;
-                x += 10.5;
-            }
-        }
-        
-        
-        if(col==1)
-            y+=7;
-        else
-            y+=14;
-        col = 1;
-        x = orig_x;
-        for (NSString *unitName in ladNames) {
-            ButtonView* btn = [[ButtonView alloc] initWithName:unitName delegate:self size:BUTTON_UNIT];
-            [self addSubview:btn];
-            [btn setPosition:CGPointMake(
-                                         [Utils millimetersToPixels:x],
-                                         [Utils millimetersToPixels:y])];
-            if(col%many_cols==0) {
-                col=1;
-                x = orig_x;
-                y += 7;
-            } else {
-                col++;
-                x += 10.5;
-            }
-        }
-        
-        if(col==1)
-            y+=7;
-        else
-            y+=14;
-        col = 1;
-        x = orig_x;
-        for (NSString *unitName in bcNames) {
-            ButtonView* btn = [[ButtonView alloc] initWithName:unitName delegate:self size:BUTTON_UNIT];
-            [self addSubview:btn];
-            [btn setPosition:CGPointMake(
-                                         [Utils millimetersToPixels:x],
-                                         [Utils millimetersToPixels:y])];
-            if(col%many_cols==0) {
-                col=1;
-                x = orig_x;
-                y += 7;
-            } else {
-                col++;
-                x += 10.5;
-            }
+        return allUnits;
+    }
+}
+
++ (void)appendUnits:(NSDictionary*)newUnitsD
+{
+    @synchronized(self) {
+        NSMutableDictionary* oldUnitsD = [CityUnitsView allUnits];
+        for ( int unitType=UNITTYPE_ENGINE ; unitType<UNITTYPE_MANY; unitType++){
+            NSArray* oldUnits = [oldUnitsD objectForKey:[NSNumber numberWithInt:unitType]];
+            NSArray* newUnits = [newUnitsD objectForKey:[NSNumber numberWithInt:unitType]];
+            NSMutableSet* unionUnits = [[NSMutableSet alloc] initWithArray:oldUnits];
+            [unionUnits addObjectsFromArray:newUnits];
+            NSArray* sortedArray = [[unionUnits allObjects] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+            [oldUnitsD setObject:sortedArray forKey:[NSNumber numberWithInt:unitType]];
         }
     }
-    return self;
 }
 
 - (void) click:(id)selector

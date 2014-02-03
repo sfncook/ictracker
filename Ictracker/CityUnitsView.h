@@ -24,12 +24,9 @@ typedef enum unittype {
 
 @interface CityUnitsView : UIView<ButtonClickDelegate>
 
-@property (readonly, nonatomic) id<CityUnitMenuDelegate> cityUnitMenuDelegate;
+@property (readonly, nonatomic)         id<CityUnitMenuDelegate> cityUnitMenuDelegate;
 
-- (id)initWithEngNames:(NSArray*)engNames
-              ladNames:(NSArray*)ladNames
-               bcNames:(NSArray*)bcNames
-              delegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate;
++ (NSMutableDictionary *)allUnits;
 
 - (id)initWithUnits:(NSDictionary*)units delegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate;
 

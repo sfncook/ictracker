@@ -30,7 +30,6 @@
 		290785761883C86B008B1B7D /* MesaUnitsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 290785751883C86B008B1B7D /* MesaUnitsView.m */; };
 		290785791883C960008B1B7D /* AjUnitsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 290785781883C960008B1B7D /* AjUnitsView.m */; };
 		290AE71B189A0AE5003832FF /* QueenCreekUnitsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 290AE71A189A0AE5003832FF /* QueenCreekUnitsView.m */; };
-		290AE71E189A0CB4003832FF /* AllCitiesUnitsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 290AE71D189A0CB4003832FF /* AllCitiesUnitsView.m */; };
 		290AE721189A0E67003832FF /* TempeUnitsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 290AE720189A0E67003832FF /* TempeUnitsView.m */; };
 		290D0ADE1895D0230061C7D0 /* SplashView.m in Sources */ = {isa = PBXBuildFile; fileRef = 290D0ADD1895D0230061C7D0 /* SplashView.m */; };
 		290D0AE218960BBA0061C7D0 /* ImgButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 290D0AE118960BBA0061C7D0 /* ImgButton.m */; };
@@ -113,8 +112,6 @@
 		290785781883C960008B1B7D /* AjUnitsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AjUnitsView.m; sourceTree = "<group>"; };
 		290AE719189A0AE5003832FF /* QueenCreekUnitsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueenCreekUnitsView.h; sourceTree = "<group>"; };
 		290AE71A189A0AE5003832FF /* QueenCreekUnitsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueenCreekUnitsView.m; sourceTree = "<group>"; };
-		290AE71C189A0CB4003832FF /* AllCitiesUnitsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllCitiesUnitsView.h; sourceTree = "<group>"; };
-		290AE71D189A0CB4003832FF /* AllCitiesUnitsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllCitiesUnitsView.m; sourceTree = "<group>"; };
 		290AE71F189A0E67003832FF /* TempeUnitsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempeUnitsView.h; sourceTree = "<group>"; };
 		290AE720189A0E67003832FF /* TempeUnitsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempeUnitsView.m; sourceTree = "<group>"; };
 		290D0ADC1895D0230061C7D0 /* SplashView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashView.h; sourceTree = "<group>"; };
@@ -345,8 +342,6 @@
 				295183E61884E2550033B02F /* GilbertUnitsView.m */,
 				290AE719189A0AE5003832FF /* QueenCreekUnitsView.h */,
 				290AE71A189A0AE5003832FF /* QueenCreekUnitsView.m */,
-				290AE71C189A0CB4003832FF /* AllCitiesUnitsView.h */,
-				290AE71D189A0CB4003832FF /* AllCitiesUnitsView.m */,
 				290AE71F189A0E67003832FF /* TempeUnitsView.h */,
 				290AE720189A0E67003832FF /* TempeUnitsView.m */,
 				2901EDF8189F123700957900 /* ChandlerUnitsView.h */,
@@ -588,7 +583,6 @@
 				29E42C3F18946CAF002E8CC3 /* ReportFormatter.m in Sources */,
 				29C5C4BF189232BD00DFE5CE /* SafetyButton.m in Sources */,
 				295183E41884DC250033B02F /* NotesMenu.m in Sources */,
-				290AE71E189A0CB4003832FF /* AllCitiesUnitsView.m in Sources */,
 				29ACE6521890D17A00575276 /* ModeDialog.m in Sources */,
 				290785791883C960008B1B7D /* AjUnitsView.m in Sources */,
 				294B21FC188DEC5F00E6B0F9 /* TimerView.m in Sources */,

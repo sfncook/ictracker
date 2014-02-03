@@ -65,13 +65,22 @@
                                               _allCitiesButton.frame.origin.y + _allCitiesButton.frame.size.height + [Utils millimetersToPixels:1])];
         
         
-        _allCitiesUnitsView = [[AllCitiesUnitsView alloc] initWithDelegate:cityUnitMenuDelegate];
+//        _allCitiesUnitsView = [[AllCitiesUnitsView alloc] initWithDelegate:cityUnitMenuDelegate];
         _mesaUnitsView = [[MesaUnitsView alloc] initWithDelegate:cityUnitMenuDelegate];
         _ajUnitsView = [[AjUnitsView alloc] initWithDelegate:cityUnitMenuDelegate];
         _gilbertUnitsView = [[GilbertUnitsView alloc] initWithDelegate:cityUnitMenuDelegate];
         _queenCreekUnitsView = [[QueenCreekUnitsView alloc] initWithDelegate:cityUnitMenuDelegate];
         _tempeUnitsView = [[TempeUnitsView alloc] initWithDelegate:cityUnitMenuDelegate];
         _chandlerUnitsView = [[ChandlerUnitsView alloc] initWithDelegate:cityUnitMenuDelegate];
+        
+//        NSMutableDictionary* allUnits = [[NSMutableDictionary alloc] init];
+//        [allUnits addEntriesFromDictionary:_mesaUnitsView.units];
+//        [allUnits addEntriesFromDictionary:_ajUnitsView.units];
+//        [allUnits addEntriesFromDictionary:_gilbertUnitsView.units];
+//        [allUnits addEntriesFromDictionary:_queenCreekUnitsView.units];
+//        [allUnits addEntriesFromDictionary:_tempeUnitsView.units];
+//        [allUnits addEntriesFromDictionary:_chandlerUnitsView.units];
+        _allCitiesUnitsView = [[CityUnitsView alloc] initWithUnits:[CityUnitsView allUnits] delegate:cityUnitMenuDelegate];
         
         [self addSubview:_allCitiesUnitsView];
         [self addSubview:_mesaUnitsView];

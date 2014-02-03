@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ButtonView.h"
-#import "AllCitiesUnitsView.h"
+#import "CityUnitsView.h"
 #import "MesaUnitsView.h"
 #import "AjUnitsView.h"
 #import "GilbertUnitsView.h"
@@ -27,7 +27,7 @@
 @property (readonly, nonatomic) ButtonView* tempeButton;
 @property (readonly, nonatomic) ButtonView* chandlerButton;
 
-@property (readonly, nonatomic) AllCitiesUnitsView* allCitiesUnitsView;
+@property (readonly, nonatomic) CityUnitsView* allCitiesUnitsView;
 @property (readonly, nonatomic) MesaUnitsView* mesaUnitsView;
 @property (readonly, nonatomic) AjUnitsView* ajUnitsView;
 @property (readonly, nonatomic) GilbertUnitsView* gilbertUnitsView;
