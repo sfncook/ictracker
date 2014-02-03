@@ -272,6 +272,7 @@
         _isRehab = YES;
         [_titleButton setNormalColor:[UIColor colorWithRed:0.5 green:0.85 blue:1.0 alpha:1.0]];
         _acctButton.hidden = YES;
+        _psiButton.hidden = YES;
         [self moveActionButtonsUp];
         //Check if we need to show the bottom action button
         ButtonView* secondToLastBtn = [_actionButtons objectAtIndex:3];
@@ -284,6 +285,7 @@
         _isRehab = NO;
         [_titleButton setNormalColor:[UIColor orangeColor]];
         _acctButton.hidden = NO;
+        _psiButton.hidden = NO;
         [self moveActionButtonsDown];
         //Always hide the bottom action button
         ButtonView* bottomBtn = [_actionButtons lastObject];
@@ -293,6 +295,7 @@
         _isRehab = NO;
         [_titleButton setNormalColor:[UIColor colorWithRed:0.95 green:0.98 blue:1.0 alpha:1.0]];
         _acctButton.hidden = NO;
+        _psiButton.hidden = NO;
         [self moveActionButtonsDown];
         //Always hide the bottom action button
         ButtonView* bottomBtn = [_actionButtons lastObject];
