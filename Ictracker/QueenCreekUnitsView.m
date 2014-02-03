@@ -13,11 +13,11 @@
 - (id)initWithDelegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate
 {
     NSDictionary *units = [[NSDictionary alloc] initWithObjectsAndKeys:
-                           [NSNumber numberWithInt:UNITTYPE_ENGINE],
                            @[@"E411",
                              @"E412"],
-                           [NSNumber numberWithInt:UNITTYPE_BC],
+                           [NSNumber numberWithInt:UNITTYPE_ENGINE],
                            @[@"BC411"],
+                           [NSNumber numberWithInt:UNITTYPE_BC],
                            nil];
     
     self = [super initWithUnits:units delegate:cityUnitMenuDelegate];

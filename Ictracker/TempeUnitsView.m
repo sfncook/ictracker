@@ -14,14 +14,14 @@
 {
     
     NSDictionary *units = [[NSDictionary alloc] initWithObjectsAndKeys:
-                           [NSNumber numberWithInt:UNITTYPE_ENGINE],
                            @[@"E271",
                              @"E272",
                              @"E273"],
-                           [NSNumber numberWithInt:UNITTYPE_LADDER],
+                           [NSNumber numberWithInt:UNITTYPE_ENGINE],
                            @[@"L271"],
-                           [NSNumber numberWithInt:UNITTYPE_BC],
+                           [NSNumber numberWithInt:UNITTYPE_LADDER],
                            @[@"BC271"],
+                           [NSNumber numberWithInt:UNITTYPE_BC],
                            nil];
     
     self = [super initWithUnits:units delegate:cityUnitMenuDelegate];

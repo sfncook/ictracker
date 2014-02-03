@@ -14,7 +14,6 @@
 {
     
     NSDictionary *units = [[NSDictionary alloc] initWithObjectsAndKeys:
-                           [NSNumber numberWithInt:UNITTYPE_ENGINE],
                            @[@"E282",
                              @"E283",
                              @"E284",
@@ -23,12 +22,13 @@
                              @"E287",
                              @"E288",
                              @"E289",],
-                           [NSNumber numberWithInt:UNITTYPE_LADDER],
+                           [NSNumber numberWithInt:UNITTYPE_ENGINE],
                            @[@"L281",
                              @"L283"],
-                           [NSNumber numberWithInt:UNITTYPE_BC],
+                           [NSNumber numberWithInt:UNITTYPE_LADDER],
                            @[@"BC281",
                              @"BC282"],
+                           [NSNumber numberWithInt:UNITTYPE_BC],
                            nil];
     
     self = [super initWithUnits:units delegate:cityUnitMenuDelegate];

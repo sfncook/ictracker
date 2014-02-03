@@ -15,15 +15,15 @@
 {
     
     NSDictionary *units = [[NSDictionary alloc] initWithObjectsAndKeys:
-                           [NSNumber numberWithInt:UNITTYPE_ENGINE],
                            @[@"E251",
                              @"E252",
                              @"E253"],
-                           [NSNumber numberWithInt:UNITTYPE_LADDER],
+                           [NSNumber numberWithInt:UNITTYPE_ENGINE],
                            @[@"L251",
                              @"L252"],
-                           [NSNumber numberWithInt:UNITTYPE_BC],
+                           [NSNumber numberWithInt:UNITTYPE_LADDER],
                            @[@"BC291"],
+                           [NSNumber numberWithInt:UNITTYPE_BC],
                            nil];
     
     self = [super initWithUnits:units delegate:cityUnitMenuDelegate];

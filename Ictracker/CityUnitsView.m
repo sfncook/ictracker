@@ -24,7 +24,46 @@
         
         _cityUnitMenuDelegate = cityUnitMenuDelegate;
         
-    }
+        //Layout units
+        double orig_x = [Utils millimetersToPixels:1.0];
+        double orig_y = [Utils millimetersToPixels:1.5];
+        int many_cols = 5;
+        double x = orig_x;
+        double y = orig_y;
+        int row = 0;
+        int col = 1;
+        for ( int unitType=UNITTYPE_ENGINE ; unitType<UNITTYPE_MANY; unitType++){
+            
+            NSArray* unitsForType = [units objectForKey:[NSNumber numberWithInt:unitType]];
+            if(unitsForType!=nil) {
+                if (row==0) {
+                    row=1;
+                } else {
+                    //Seperate unit types by extra space
+                    if(col==1)
+                        y+=[Utils millimetersToPixels:7];
+                    else
+                        y+=[Utils millimetersToPixels:14];
+                }
+                x = orig_x;
+                col=1;
+                for (NSString *unitName in unitsForType) {
+                    ButtonView* btn = [[ButtonView alloc] initWithName:unitName delegate:self size:BUTTON_UNIT];
+                    [self addSubview:btn];
+                    [btn setPosition:CGPointMake(x,y)];
+                    if(col%many_cols==0) {
+                        row++;
+                        col=1;
+                        x = orig_x;
+                        y += [Utils millimetersToPixels:7];
+                    } else {
+                        col++;
+                        x += [Utils millimetersToPixels:10.5];
+                    }
+                }//for
+            }//if
+        }//for unitType
+    }//if self
     return self;
 }
 

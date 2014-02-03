@@ -11,6 +11,7 @@
 #import "CityUnitMenuDelegate.h"
 
 typedef enum unittype {
+    UNITTYPE_ZERO,//THIS MUST BE FIRST IN THIS LIST
     UNITTYPE_ENGINE,
     UNITTYPE_LADDER,
     UNITTYPE_BC,
@@ -18,6 +19,7 @@ typedef enum unittype {
     UNITTYPE_HAZMAT,
     UNITTYPE_BRUSH,
     UNITTYPE_UTILITY,
+    UNITTYPE_MANY//THIS MUST BE LAST IN THIS LIST
 } UnitType;
 
 @interface CityUnitsView : UIView<ButtonClickDelegate>
