@@ -43,6 +43,17 @@
                           @"E261",
                           @"E262",
                           @"E265",
+                          @"E271",
+                          @"E272",
+                          @"E273",
+                          @"E282",
+                          @"E283",
+                          @"E284",
+                          @"E285",
+                          @"E286",
+                          @"E287",
+                          @"E288",
+                          @"E289",
                           @"E411",
                           @"E412"];
     
@@ -55,15 +66,21 @@
                           @"L251",
                           @"L252",
                           @"L263",
-                          @"L264"
+                          @"L264",
+                          @"L271",
+                          @"L281",
+                          @"L283",
                           ];
     
-    NSArray *bcNames = @[@"B201",
-                         @"B202",
-                         @"B203",
-                         @"B261",
-                         @"B291",
-                         @"B411"];
+    NSArray *bcNames = @[@"BC201",
+                         @"BC202",
+                         @"BC203",
+                         @"BC261",
+                         @"BC291",
+                         @"BC271",
+                         @"BC281",
+                         @"BC282",
+                         @"BC411"];
     
     self = [super initWithEngNames:engNames ladNames:ladNames bcNames:bcNames delegate:cityUnitMenuDelegate];
     if (self) {
