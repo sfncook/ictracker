@@ -29,6 +29,14 @@
                            @[@"BC281",
                              @"BC282"],
                            [NSNumber numberWithInt:UNITTYPE_BC],
+                           @[@"SQ283",],
+                           [NSNumber numberWithInt:UNITTYPE_SQUAD],
+                           @[@"HZ283",],
+                           [NSNumber numberWithInt:UNITTYPE_HAZMAT],
+                           @[@"BT284",],
+                           [NSNumber numberWithInt:UNITTYPE_BRUSHTRUCK],
+                           @[@"UT288",],
+                           [NSNumber numberWithInt:UNITTYPE_UTILITY],
                            nil];
     
     self = [super initWithUnits:units delegate:cityUnitMenuDelegate];

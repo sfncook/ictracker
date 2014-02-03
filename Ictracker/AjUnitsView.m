@@ -24,6 +24,12 @@
                            [NSNumber numberWithInt:UNITTYPE_LADDER],
                            @[@"BC261"],
                            [NSNumber numberWithInt:UNITTYPE_BC],
+                           @[@"WT261"],
+                           [NSNumber numberWithInt:UNITTYPE_WATERTENDER],
+                           @[@"BT261"],
+                           [NSNumber numberWithInt:UNITTYPE_BRUSHTRUCK],
+                           @[@"RH261"],
+                           [NSNumber numberWithInt:UNITTYPE_REHAB],
                            nil];
     
     self = [super initWithUnits:units delegate:cityUnitMenuDelegate];

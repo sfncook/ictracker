@@ -54,6 +54,19 @@
                              @"BC202",
                              @"BC203"],
                            [NSNumber numberWithInt:UNITTYPE_BC],
+                           @[@"SQ204",
+                             @"SQ206",],
+                           [NSNumber numberWithInt:UNITTYPE_SQUAD],
+                           @[@"WT213",],
+                           [NSNumber numberWithInt:UNITTYPE_WATERTENDER],
+                           @[@"U202",@"U204"],
+                           [NSNumber numberWithInt:UNITTYPE_UTILITY],
+                           @[@"CV201",],
+                           [NSNumber numberWithInt:UNITTYPE_CMDRVAN],
+                           @[@"BT201",],
+                           [NSNumber numberWithInt:UNITTYPE_BRUSHTRUCK],
+                           @[@"AL201",],
+                           [NSNumber numberWithInt:UNITTYPE_AIRLIGHTUNIT],
                            nil];
     
     self = [super initWithUnits:units delegate:cityUnitMenuDelegate];
