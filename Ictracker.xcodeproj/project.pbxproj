@@ -303,6 +303,8 @@
 		2907855E1883B078008B1B7D /* Menu Views */ = {
 			isa = PBXGroup;
 			children = (
+				295183E21884DC250033B02F /* NotesMenu.h */,
+				295183E31884DC250033B02F /* NotesMenu.m */,
 				290785711883C6FE008B1B7D /* MenuContainerView.h */,
 				290785721883C6FE008B1B7D /* MenuContainerView.m */,
 				2907855F1883B0A9008B1B7D /* MenuSelectorView.h */,
@@ -341,8 +343,6 @@
 				290785781883C960008B1B7D /* AjUnitsView.m */,
 				295183E51884E2550033B02F /* GilbertUnitsView.h */,
 				295183E61884E2550033B02F /* GilbertUnitsView.m */,
-				295183E21884DC250033B02F /* NotesMenu.h */,
-				295183E31884DC250033B02F /* NotesMenu.m */,
 				290AE719189A0AE5003832FF /* QueenCreekUnitsView.h */,
 				290AE71A189A0AE5003832FF /* QueenCreekUnitsView.m */,
 				290AE71C189A0CB4003832FF /* AllCitiesUnitsView.h */,

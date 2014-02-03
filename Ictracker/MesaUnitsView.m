@@ -49,9 +49,9 @@
                           @"L214",
                           @"L220"];
     
-    NSArray *bcNames = @[@"B201",
-                          @"B202",
-                          @"B203"];
+    NSArray *bcNames = @[@"BC201",
+                          @"BC202",
+                          @"BC203"];
     
     self = [super initWithEngNames:engNames ladNames:ladNames bcNames:bcNames delegate:cityUnitMenuDelegate];
     if (self) {

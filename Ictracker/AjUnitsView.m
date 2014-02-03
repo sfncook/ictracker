@@ -20,7 +20,7 @@
     NSArray *ladNames = @[@"L263",
                           @"L264"];
     
-    NSArray *bcNames = @[@"B261"];
+    NSArray *bcNames = @[@"BC261"];
     
     self = [super initWithEngNames:engNames
                           ladNames:ladNames

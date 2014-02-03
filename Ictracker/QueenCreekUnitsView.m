@@ -17,7 +17,7 @@
     
     NSArray *ladNames = @[];
     
-    NSArray *bcNames = @[@"B411"];
+    NSArray *bcNames = @[@"BC411"];
     
     self = [super initWithEngNames:engNames ladNames:ladNames bcNames:bcNames delegate:cityUnitMenuDelegate];
     if (self) {
