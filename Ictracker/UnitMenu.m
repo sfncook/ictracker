@@ -58,6 +58,12 @@
                                                    _queenCreekButton.frame.origin.x + _queenCreekButton.frame.size.width + [Utils millimetersToPixels:2],
                                                    [Utils millimetersToPixels:1])];
         
+        _chandlerButton = [[ButtonView alloc] initWithName:@"Chdlr" delegate:self size:BUTTON_SMALL];
+        [self addSubview:_chandlerButton];
+        [_chandlerButton setPosition:CGPointMake(
+                                              _allCitiesButton.frame.origin.x,
+                                              _allCitiesButton.frame.origin.y + _allCitiesButton.frame.size.height + [Utils millimetersToPixels:1])];
+        
         
         _allCitiesUnitsView = [[AllCitiesUnitsView alloc] initWithDelegate:cityUnitMenuDelegate];
         _mesaUnitsView = [[MesaUnitsView alloc] initWithDelegate:cityUnitMenuDelegate];
@@ -65,6 +71,7 @@
         _gilbertUnitsView = [[GilbertUnitsView alloc] initWithDelegate:cityUnitMenuDelegate];
         _queenCreekUnitsView = [[QueenCreekUnitsView alloc] initWithDelegate:cityUnitMenuDelegate];
         _tempeUnitsView = [[TempeUnitsView alloc] initWithDelegate:cityUnitMenuDelegate];
+        _chandlerUnitsView = [[ChandlerUnitsView alloc] initWithDelegate:cityUnitMenuDelegate];
         
         [self addSubview:_allCitiesUnitsView];
         [self addSubview:_mesaUnitsView];
@@ -72,6 +79,7 @@
         [self addSubview:_gilbertUnitsView];
         [self addSubview:_queenCreekUnitsView];
         [self addSubview:_tempeUnitsView];
+        [self addSubview:_chandlerUnitsView];
         
         [self showMesa];
     }
@@ -126,6 +134,14 @@
     _tempeUnitsView.hidden = NO;
 }
 
+- (void) showChandler
+{
+    [self resetCityButtons];
+    [_chandlerButton setIsHighlighted:YES];
+    [self hideAllCityViews];
+    _chandlerUnitsView.hidden = NO;
+}
+
 - (void) resetCityButtons {
     [_allCitiesButton setIsHighlighted:NO];
     [_mesaCityButton setIsHighlighted:NO];
@@ -133,6 +149,7 @@
     [_gilbertCityButton setIsHighlighted:NO];
     [_queenCreekButton setIsHighlighted:NO];
     [_tempeButton setIsHighlighted:NO];
+    [_chandlerButton setIsHighlighted:NO];
 }
 
 - (void) hideAllCityViews {
@@ -142,6 +159,7 @@
     _gilbertUnitsView.hidden = YES;
     _queenCreekUnitsView.hidden = YES;
     _tempeUnitsView.hidden = YES;
+    _chandlerUnitsView.hidden = YES;
 }
 
 - (void) click:(id)selector
@@ -158,6 +176,8 @@
         [self showQueenCreek];
     } else if(selector==_tempeButton) {
         [self showTempe];
+    } else if(selector==_chandlerButton) {
+        [self showChandler];
     }
 }
 

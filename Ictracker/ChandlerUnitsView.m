@@ -10,22 +10,28 @@
 
 @implementation ChandlerUnitsView
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithDelegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate
 {
-    self = [super initWithFrame:frame];
+    NSArray *engNames = @[@"E282",
+                          @"E283",
+                          @"E284",
+                          @"E285",
+                          @"E286",
+                          @"E287",
+                          @"E288",
+                          @"E289",];
+    
+    NSArray *ladNames = @[@"L281",
+                          @"L283"
+                          ];
+    
+    NSArray *bcNames = @[@"BC281",
+                         @"BC282"];
+    
+    self = [super initWithEngNames:engNames ladNames:ladNames bcNames:bcNames delegate:cityUnitMenuDelegate];
     if (self) {
-        // Initialization code
     }
     return self;
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

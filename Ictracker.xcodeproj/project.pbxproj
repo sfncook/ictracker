@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2901EDFA189F123700957900 /* ChandlerUnitsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2901EDF9189F123700957900 /* ChandlerUnitsView.m */; };
 		2907852A1883B032008B1B7D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 290785291883B032008B1B7D /* Foundation.framework */; };
 		2907852C1883B032008B1B7D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2907852B1883B032008B1B7D /* CoreGraphics.framework */; };
 		2907852E1883B032008B1B7D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2907852D1883B032008B1B7D /* UIKit.framework */; };
@@ -74,6 +75,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2901EDF8189F123700957900 /* ChandlerUnitsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChandlerUnitsView.h; sourceTree = "<group>"; };
+		2901EDF9189F123700957900 /* ChandlerUnitsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChandlerUnitsView.m; sourceTree = "<group>"; };
 		290785261883B032008B1B7D /* Ictracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ictracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		290785291883B032008B1B7D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2907852B1883B032008B1B7D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -346,6 +349,8 @@
 				290AE71D189A0CB4003832FF /* AllCitiesUnitsView.m */,
 				290AE71F189A0E67003832FF /* TempeUnitsView.h */,
 				290AE720189A0E67003832FF /* TempeUnitsView.m */,
+				2901EDF8189F123700957900 /* ChandlerUnitsView.h */,
+				2901EDF9189F123700957900 /* ChandlerUnitsView.m */,
 			);
 			name = "Unit Menu View Files";
 			sourceTree = "<group>";
@@ -574,6 +579,7 @@
 			files = (
 				29ACE64F1890C8EF00575276 /* ModeButton.m in Sources */,
 				295183DE1884DBA60033B02F /* ObjectivesMenu.m in Sources */,
+				2901EDFA189F123700957900 /* ChandlerUnitsView.m in Sources */,
 				295183F918861C290033B02F /* SectorTBarView.m in Sources */,
 				290785401883B032008B1B7D /* IctViewController.m in Sources */,
 				295183E11884DBFA0033B02F /* OsrMenu.m in Sources */,

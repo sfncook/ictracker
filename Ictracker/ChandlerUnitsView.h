@@ -10,4 +10,6 @@
 
 @interface ChandlerUnitsView : CityUnitsView
 
+- (id)initWithDelegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate;
+
 @end
