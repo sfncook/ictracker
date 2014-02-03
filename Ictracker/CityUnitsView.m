@@ -63,6 +63,7 @@
                 }//for
             }//if
         }//for unitType
+        self.contentSize = CGSizeMake(frame.size.width, y+[Utils millimetersToPixels:28]);
     }//if self
     return self;
 }

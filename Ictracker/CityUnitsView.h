@@ -26,7 +26,7 @@ typedef enum unittype {
     UNITTYPE_MANY//THIS MUST BE LAST IN THIS LIST
 } UnitType;
 
-@interface CityUnitsView : UIView<ButtonClickDelegate>
+@interface CityUnitsView : UIScrollView<ButtonClickDelegate>
 
 @property (readonly, nonatomic)         id<CityUnitMenuDelegate> cityUnitMenuDelegate;
 
