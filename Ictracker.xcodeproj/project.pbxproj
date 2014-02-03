@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2901EDFA189F123700957900 /* ChandlerUnitsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2901EDF9189F123700957900 /* ChandlerUnitsView.m */; };
+		2901EDFD189F445800957900 /* VerifyDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2901EDFC189F445800957900 /* VerifyDialog.m */; };
 		2907852A1883B032008B1B7D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 290785291883B032008B1B7D /* Foundation.framework */; };
 		2907852C1883B032008B1B7D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2907852B1883B032008B1B7D /* CoreGraphics.framework */; };
 		2907852E1883B032008B1B7D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2907852D1883B032008B1B7D /* UIKit.framework */; };
@@ -76,6 +77,9 @@
 /* Begin PBXFileReference section */
 		2901EDF8189F123700957900 /* ChandlerUnitsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChandlerUnitsView.h; sourceTree = "<group>"; };
 		2901EDF9189F123700957900 /* ChandlerUnitsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChandlerUnitsView.m; sourceTree = "<group>"; };
+		2901EDFB189F445800957900 /* VerifyDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerifyDialog.h; sourceTree = "<group>"; };
+		2901EDFC189F445800957900 /* VerifyDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyDialog.m; sourceTree = "<group>"; };
+		2901EDFF189F44B100957900 /* VerifyDialogDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VerifyDialogDelegate.h; sourceTree = "<group>"; };
 		290785261883B032008B1B7D /* Ictracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ictracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		290785291883B032008B1B7D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2907852B1883B032008B1B7D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -211,6 +215,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2901EDFE189F447400957900 /* VerifyDialog */ = {
+			isa = PBXGroup;
+			children = (
+				2901EDFB189F445800957900 /* VerifyDialog.h */,
+				2901EDFC189F445800957900 /* VerifyDialog.m */,
+				2901EDFF189F44B100957900 /* VerifyDialogDelegate.h */,
+			);
+			name = VerifyDialog;
+			sourceTree = "<group>";
+		};
 		2907851D1883B032008B1B7D = {
 			isa = PBXGroup;
 			children = (
@@ -353,6 +367,7 @@
 		290D0AE6189612320061C7D0 /* Main Views */ = {
 			isa = PBXGroup;
 			children = (
+				2901EDFE189F447400957900 /* VerifyDialog */,
 				290D0AE7189614F70061C7D0 /* SplashDelegate.h */,
 				290D0ADC1895D0230061C7D0 /* SplashView.h */,
 				290D0ADD1895D0230061C7D0 /* SplashView.m */,
@@ -613,6 +628,7 @@
 				29ACE6561890E7C400575276 /* ModeDialogContainer.m in Sources */,
 				290AE721189A0E67003832FF /* TempeUnitsView.m in Sources */,
 				290785761883C86B008B1B7D /* MesaUnitsView.m in Sources */,
+				2901EDFD189F445800957900 /* VerifyDialog.m in Sources */,
 				290D0ADE1895D0230061C7D0 /* SplashView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

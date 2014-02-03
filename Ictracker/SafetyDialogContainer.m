@@ -23,7 +23,7 @@
         
         _safetyDialog = [[SafetyDialog alloc] initWithDelegate:delegate safetyNames:safetyNames];
         [_safetyDialog setPosition:CGPointMake(
-                                             [Utils millimetersToPixels:74],
+                                             [Utils millimetersToPixels:99],
                                              [Utils millimetersToPixels:4])];
         
         [self addSubview:_windowCancelButton];

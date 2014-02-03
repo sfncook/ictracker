@@ -10,6 +10,7 @@
 #import "ButtonClickDelegate.h"
 
 typedef enum buttonsize {
+    BUTTON_HEADER,
     BUTTON_LARGE,
     BUTTON_MEDIUM,
     BUTTON_SMALL,

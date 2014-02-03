@@ -47,7 +47,20 @@
 }
 
 - (void) drawName {
-    if(_size==BUTTON_LARGE) {
+    if(_size==BUTTON_HEADER) {
+        UIFont* font = [UIFont fontWithName:@"Arial" size:18];
+        CGRect textRect = CGRectMake(0.0, 9.0, self.frame.size.width, self.frame.size.height);
+        
+        /// Make a copy of the default paragraph style
+        NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+        paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
+        paragraphStyle.alignment = NSTextAlignmentCenter;
+        
+        NSDictionary *attributes = @{ NSFontAttributeName: font,
+                                      NSParagraphStyleAttributeName: paragraphStyle };
+        
+        [self.name drawInRect:textRect withAttributes:attributes];
+    } else if(_size==BUTTON_LARGE) {
         UIFont* font = [UIFont fontWithName:@"Arial" size:18];
         CGRect textRect = CGRectMake(0.0, 11.0, self.frame.size.width, self.frame.size.height);
         
@@ -122,7 +135,9 @@
     float y = self.frame.origin.y;
     self.layer.cornerRadius = 5.0;
     self.layer.masksToBounds = YES;
-    if(size==BUTTON_LARGE) {
+    if(size==BUTTON_HEADER) {
+        self.frame = CGRectMake(x, y, [Utils millimetersToPixels:18], [Utils millimetersToPixels:7]);
+    } else if(size==BUTTON_LARGE) {
         self.frame = CGRectMake(x, y, [Utils millimetersToPixels:12], [Utils millimetersToPixels:9]);
     } else if(size==BUTTON_MEDIUM) {
         self.frame = CGRectMake(x, y, [Utils millimetersToPixels:18], [Utils millimetersToPixels:5]);

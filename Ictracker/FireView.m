@@ -32,7 +32,7 @@
         
         _modeButton = [[ModeButton alloc] initWithDelegate:self];
         [_modeButton setPosition:CGPointMake(
-                                             [Utils millimetersToPixels:120],
+                                             [Utils millimetersToPixels:135],
                                              [Utils millimetersToPixels:5])];
         
         _modeDialogContainer = [[ModeDialogContainer alloc] initWithDelegate:self];
@@ -40,7 +40,7 @@
         
         _safetyButton = [[SafetyButton alloc] initWithDelegate:self initialSafety:@"Jeff Cross"];
         [_safetyButton setPosition:CGPointMake(
-                                               [Utils millimetersToPixels:75],
+                                               [Utils millimetersToPixels:100],
                                                [Utils millimetersToPixels:5])];
         
         NSArray* safetyNames = [NSArray arrayWithObjects:
@@ -54,7 +54,7 @@
         
         UILabel* safetyLabel = [[UILabel alloc] initWithFrame:
                                 CGRectMake(
-                                           [Utils millimetersToPixels:63.5],
+                                           [Utils millimetersToPixels:88.5],
                                            [Utils millimetersToPixels:5.5],
                                            [Utils millimetersToPixels:11],
                                            [Utils millimetersToPixels:5])];
@@ -90,8 +90,17 @@
                                          [Utils millimetersToPixels:5]);
         _incidentInfoLabel.backgroundColor = [UIColor whiteColor];
         
+        _completeButton = [[ButtonView alloc] initWithName:@"Complete" delegate:self size:BUTTON_HEADER];
+        [_completeButton setPosition:CGPointMake(
+                                            [Utils millimetersToPixels:30],
+                                            [Utils millimetersToPixels:4.5])];
         
+        _verifyDialog = [[VerifyDialog alloc] initWithDelegate:self msg:@"Are you certain you want to complete this incident?"];
+        _verifyDialog.hidden = YES;
+        
+        [self addSubview:_verifyDialog];
         [self addSubview:safetyLabel];
+        [self addSubview:_completeButton];
         [self addSubview:self.menuSelectorView];
         [self addSubview:_sectorTbarContainerView];
         [self addSubview:_menuContainerView];
@@ -161,23 +170,30 @@
     [_safetyButton setSafety:newSafety];
 }
 
+- (void) openReport {
+    NSString* address = _address;
+    NSString* incidentId = _incidentId;
+    NSString* title = @"City of Mesa Fire Department\nFire Incident Command Tracker - Report Log";
+    NSString* pdfFile = [_reportFormatter generatePdfWithTxLogger:[TransactionLogger transLogger]
+                                                          address:address
+                                                       incidentId:incidentId
+                                                            title:title];
+    
+    [_pdfView openWithPdfFile:pdfFile address:address incidentId:incidentId];
+    [self bringSubviewToFront:_pdfView];
+}
 
 //*** ButtonClickDelegate ***
 - (void) click:(id)selector {
     if (_pdfButton==selector) {
-        NSString* address = _address;
-        NSString* incidentId = _incidentId;
-        NSString* title = @"City of Mesa Fire Department\nFire Incident Command Tracker - Report Log";
-        NSString* pdfFile = [_reportFormatter generatePdfWithTxLogger:[TransactionLogger transLogger]
-                                          address:address
-                                       incidentId:incidentId
-                                            title:title];
-        
-        [_pdfView openWithPdfFile:pdfFile address:address incidentId:incidentId];
-        [self bringSubviewToFront:_pdfView];
+        [self openReport];
     }
     if (_logoButton==selector) {
         [_splashDelegate showSplash];
+    }
+    if (_completeButton==selector) {
+        _verifyDialog.hidden=NO;
+        [self bringSubviewToFront:_verifyDialog];
     }
 }
 
@@ -193,6 +209,18 @@
 -(void) setIncidentId:(NSString*)incidentId {
     _incidentId = incidentId;
     [self updateIncidentInfoLabel];
+}
+
+
+//*** VerifyDialogDelegate ***
+- (void) pickAffirmative {
+    
+}
+- (void) pickNegative {
+    
+}
+- (void) pickCancel {
+    
 }
 
 @end

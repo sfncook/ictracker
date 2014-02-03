@@ -26,8 +26,11 @@
 #import "SplashDelegate.h"
 #import "IncidentEntryDelegate.h"
 #import "IncidentEntryView.h"
+#import "ButtonView.h"
+#import "VerifyDialog.h"
+#import "VerifyDialogDelegate.h"
 
-@interface FireView : UIView<SectorTBarDelegate, ModeButtonDelegate, SafetyButtonDelegate, ButtonClickDelegate, IncidentEntryDelegate>
+@interface FireView : UIView<SectorTBarDelegate, ModeButtonDelegate, SafetyButtonDelegate, ButtonClickDelegate, IncidentEntryDelegate, VerifyDialogDelegate>
 
 @property (readonly, retain, nonatomic) MenuSelectorView* menuSelectorView;
 @property (readonly, retain, nonatomic) MenuContainerView* menuContainerView;
@@ -54,6 +57,9 @@
 @property (readonly, retain, nonatomic) IncidentEntryView* incidentEntryView;
 
 @property (readonly, copy, nonatomic) UILabel* incidentInfoLabel;
+
+@property (readonly, retain, nonatomic) ButtonView* completeButton;
+@property (readonly, retain, nonatomic) VerifyDialog* verifyDialog;
 
 - (id)initWithMailDelegate:(id<ShowMailDialogDelegate>) delegate splashDelegate:(id<SplashDelegate>)splashDelegate;
 
