@@ -122,7 +122,7 @@
     CGContextAddLineToPoint(context, [Utils millimetersToPixels:20], self.frame.size.height); //draw to this point
     CGContextStrokePath(context);
     
-    if(!_isRehab && !_isRescue){//Accountability box
+    if(!_isRehab){//Accountability box
         CGContextSetLineWidth(context, 1.0);
         CGContextSetFillColorWithColor(context, [UIColor yellowColor].CGColor);
         CGContextFillRect(context, CGRectMake(
@@ -219,7 +219,7 @@
 - (void) addAction:(NSString*)actionName
 {
     int MAX_ACTIONS = 4;
-    if (_isRehab || _isRescue) {
+    if (_isRehab) {
         MAX_ACTIONS = 5;
     }
     if(_manyActions<MAX_ACTIONS) {
@@ -267,17 +267,10 @@
     Transaction* tx = [Transaction transactionWithType:TRANSTYPE_SET_SECTOR_REHAB date:[NSDate date] param:title, self, nil];
     [_transLogger addTransaction:tx];
     [_titleButton setName:title];
-    if ([title isEqualToString:@"REHAB"] || [title isEqualToString:@"RESCUE"]) {
-        if ([title isEqualToString:@"REHAB"]) {
-            _isRescue = NO;
-            _isRehab = YES;
-            [_titleButton setNormalColor:[UIColor colorWithRed:0.5 green:0.85 blue:1.0 alpha:1.0]];
-        }
-        if ([title isEqualToString:@"RESCUE"]) {
-            _isRescue = YES;
-            _isRehab = NO;
-            [_titleButton setNormalColor:[UIColor orangeColor]];
-        }
+    if ([title isEqualToString:@"REHAB"]) {
+        _isRescue = NO;
+        _isRehab = YES;
+        [_titleButton setNormalColor:[UIColor colorWithRed:0.5 green:0.85 blue:1.0 alpha:1.0]];
         _acctButton.hidden = YES;
         [self moveActionButtonsUp];
         //Check if we need to show the bottom action button
@@ -286,6 +279,15 @@
             ButtonView* bottomBtn = [_actionButtons lastObject];
             bottomBtn.hidden = NO;
         }
+    } else if ([title isEqualToString:@"RESCUE"]) {
+        _isRescue = YES;
+        _isRehab = NO;
+        [_titleButton setNormalColor:[UIColor orangeColor]];
+        _acctButton.hidden = NO;
+        [self moveActionButtonsDown];
+        //Always hide the bottom action button
+        ButtonView* bottomBtn = [_actionButtons lastObject];
+        bottomBtn.hidden = YES;
     } else {
         _isRescue = NO;
         _isRehab = NO;
