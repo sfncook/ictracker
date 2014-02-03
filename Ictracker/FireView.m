@@ -174,6 +174,7 @@
                                             title:title];
         
         [_pdfView openWithPdfFile:pdfFile address:address incidentId:incidentId];
+        [self bringSubviewToFront:_pdfView];
     }
     if (_logoButton==selector) {
         [_splashDelegate showSplash];
