@@ -14,8 +14,8 @@
 - (id)init
 {
     NSArray *benchmarkNames = @[
-                             @"Primary Search",
-                             @"Secondary Search",
+                             @"Primary All Clear",
+                             @"Secondary All Clear",
                              @"Fire Control",
                              @"Loss Stop"];
     
