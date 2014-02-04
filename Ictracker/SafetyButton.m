@@ -14,6 +14,7 @@
 {
     self = [super initWithName:initialSafety delegate:self size:BUTTON_WIDE_LG];
     if (self) {
+        _mySafety = initialSafety;
         _delegate = delegate;
     }
     return self;

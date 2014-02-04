@@ -12,6 +12,7 @@
 
 @interface SafetyDialog : UIView<ButtonClickDelegate>
 
+@property (retain, atomic)              NSString* curSafety;
 @property (readonly, retain, nonatomic) NSArray* safetyButtons;
 @property (readonly, retain, nonatomic) id<SafetyButtonDelegate> delegate;
 

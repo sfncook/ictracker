@@ -32,6 +32,10 @@
     return self;
 }
 
+- (void) setSafety:(NSString *)safety {
+    [_safetyDialog setSafety:safety];
+}
+
 - (void) click:(id)selector {
     if (selector==_windowCancelButton){
         [_delegate cancelSafetyDialog];

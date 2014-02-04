@@ -19,5 +19,6 @@
 @property (readonly, retain, nonatomic)  SafetyDialog* safetyDialog;
 
 - (id)initWithDelegate:(id<SafetyButtonDelegate>)delegate safetyNames:(NSArray*)safetyNames;
+- (void) setSafety:(NSString*)safety;
 
 @end

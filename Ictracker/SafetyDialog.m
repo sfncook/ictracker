@@ -56,13 +56,29 @@
 }
 
 - (void) setSafety:(NSString *)safety {
+    _curSafety = [NSString stringWithString:safety];
     
+    for (ButtonView* safetyButton in _safetyButtons) {
+        [safetyButton setIsHighlighted:NO];
+    }
+    
+    for (ButtonView* safetyButton in _safetyButtons) {
+        if([safetyButton.name isEqualToString:_curSafety]) {
+            [safetyButton setIsHighlighted:YES];
+            break;
+        }
+    }
 }
 
 - (void) click:(id)selector {
     ButtonView* btn = selector;
     NSString* newSafety = [btn name];
-    [_delegate selectNewSafety:newSafety];
+    
+    if (![_curSafety isEqualToString:newSafety]) {
+        [_delegate selectNewSafety:newSafety];
+    } else {
+        [_delegate cancelSafetyDialog];
+    }
 }
 
 @end

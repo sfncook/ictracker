@@ -159,6 +159,7 @@
 //*** SafetyButtonDelegate ***
 - (void) clickSafetyButton:(NSString*)currentSafety{
     _safetyDialogContainer.hidden = !_safetyDialogContainer.hidden;
+    [_safetyDialogContainer setSafety:currentSafety];
     [self bringSubviewToFront:_safetyDialogContainer];
     [self bringSubviewToFront:_safetyButton];
 }
