@@ -9,6 +9,7 @@
 #import "IctViewController.h"
 #import "Incident.h"
 #import "ReportFormatter.h"
+#import "TransactionLogger.h"
 
 @interface IctViewController ()
 
@@ -76,16 +77,27 @@
     
 }
 
--(void) openReportWithIncident:(Incident*)incident {
+-(void) showPdfReport {
     ReportFormatter* reportFmtr = [[ReportFormatter alloc]init];
     NSString* title = @"City of Mesa Fire Department\nFire Incident Command Tracker - Report Log";
     NSString* pdfFile = [reportFmtr generatePdfWithTxLogger:[TransactionLogger transLogger]
-                                                          address:incident.address
-                                                       incidentId:incident.incidentId
-                                                            title:title];
+                                                    address:_fireView.address
+                                                 incidentId:_fireView.incidentId
+                                                      title:title];
     
-    [_pdfView openWithPdfFile:pdfFile address:incident.address incidentId:incident.incidentId];
+    [_pdfView openWithPdfFile:pdfFile address:_fireView.address incidentId:_fireView.incidentId];
     [self.view bringSubviewToFront:_pdfView];
+}
+
+-(void) completeIncident {
+    [self showPdfReport];
+    [TransactionLogger createNewTransLogger];
+    
+    //Make a few _fireView
+    [_fireView removeFromSuperview];
+    _fireView = [[FireView alloc] initWithSplashDelegate:self];
+    _fireView.hidden = YES;
+    [self.view addSubview:_fireView];
 }
 
 - (void)didReceiveMemoryWarning

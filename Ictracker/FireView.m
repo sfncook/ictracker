@@ -170,8 +170,7 @@
 //*** ButtonClickDelegate ***
 - (void) click:(id)selector {
     if (_pdfButton==selector) {
-        Incident* incident = [[Incident alloc] initWithAddress:_address incidentId:_incidentId];
-        [_splashDelegate openReportWithIncident:incident];
+        [_splashDelegate showPdfReport];
     }
     if (_logoButton==selector) {
         [_splashDelegate showSplash];
@@ -203,7 +202,7 @@
     Transaction* tx = [Transaction transactionWithType:TRANSTYPE_COMPLETE date:[NSDate date] param:nil];
     [[TransactionLogger transLogger] addTransaction:tx];
     [_splashDelegate showSplash];
-    [_splashDelegate openReportWithIncident:[[Incident alloc] initWithAddress:_address incidentId:_incidentId]];
+    [_splashDelegate completeIncident];
 }
 - (void) pickNegative {
     //do nothing

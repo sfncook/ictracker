@@ -14,6 +14,7 @@
 -(void) showSplash;
 -(void) showFire;
 -(void) showEms;
--(void) openReportWithIncident:(Incident*)incident;
+-(void) showPdfReport;
+-(void) completeIncident;
 
 @end

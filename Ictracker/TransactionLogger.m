@@ -9,16 +9,24 @@
 #import "TransactionLogger.h"
 
 @implementation TransactionLogger
+static TransactionLogger *transLogger;
 
 + (TransactionLogger *)transLogger
 {
-    static TransactionLogger *transLogger;
-    
     @synchronized(self)
     {
         if (!transLogger)
             transLogger = [[TransactionLogger alloc] init];
         
+        return transLogger;
+    }
+}
+
++ (TransactionLogger *)createNewTransLogger
+{
+    @synchronized(self)
+    {
+        transLogger = [[TransactionLogger alloc] init];
         return transLogger;
     }
 }
