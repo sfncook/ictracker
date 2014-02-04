@@ -16,6 +16,7 @@
 {
     self = [super initWithFrame:CGRectMake(0, 0, [Utils windowHeight], [Utils windowWidth])];
     if (self) {
+        _isComplete = NO;
         _splashDelegate = splashDelegate;
         _sectorTbarContainerView = [[SectorTbarContainerView alloc] initWithDelegate:self];
         
@@ -214,13 +215,16 @@
 
 //*** VerifyDialogDelegate ***
 - (void) pickAffirmative {
-    
+    _isComplete = YES;
+    Transaction* tx = [Transaction transactionWithType:TRANSTYPE_COMPLETE date:[NSDate date] param:nil];
+    [[TransactionLogger transLogger] addTransaction:tx];
+    [self openReport];
 }
 - (void) pickNegative {
-    
+    //do nothing
 }
 - (void) pickCancel {
-    
+    //do nothing
 }
 
 @end

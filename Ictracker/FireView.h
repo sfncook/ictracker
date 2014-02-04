@@ -60,6 +60,7 @@
 
 @property (readonly, retain, nonatomic) ButtonView* completeButton;
 @property (readonly, retain, nonatomic) VerifyDialog* verifyDialog;
+@property (assign, nonatomic)           BOOL isComplete;
 
 - (id)initWithMailDelegate:(id<ShowMailDialogDelegate>) delegate splashDelegate:(id<SplashDelegate>)splashDelegate;
 

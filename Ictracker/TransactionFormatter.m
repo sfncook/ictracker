@@ -177,6 +177,14 @@ UIFont *font;
                          nil];
             break;
         }
+        case TRANSTYPE_COMPLETE:
+        {
+            eventStrs = [NSArray arrayWithObjects:
+                         dateString,
+                         @"INCIDENT COMPLETED",
+                         nil];
+            break;
+        }
             
         default:
         {
