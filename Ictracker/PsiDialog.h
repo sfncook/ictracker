@@ -16,6 +16,7 @@
 @property (readonly, retain, nonatomic) ButtonView* windowCancelButton;
 @property (readonly, retain, nonatomic) id<PsiDialogDelegate> delegate;
 
+- (id)initWithDelegate:(id<PsiDialogDelegate>)delegate;
 - (void) setSelectedPsi:(NSString*)psi;
 
 @end

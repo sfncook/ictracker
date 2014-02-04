@@ -28,6 +28,7 @@
 #import "VerifyDialogDelegate.h"
 #import "PsiDialog.h"
 #import "PsiDialogDelegate.h"
+#import "SectorTBarView.h"
 
 @interface FireView : UIView<SectorTBarDelegate, ModeButtonDelegate, SafetyButtonDelegate, ButtonClickDelegate, IncidentEntryDelegate, VerifyDialogDelegate, PsiDialogDelegate>
 
@@ -59,6 +60,7 @@
 @property (assign, nonatomic)           BOOL isComplete;
 
 @property (readonly, retain, nonatomic) PsiDialog* psiDialog;
+@property (retain, atomic)              SectorTBarView* psiCallBackTBar;
 
 - (id)initWithSplashDelegate:(id<SplashDelegate>)splashDelegate;
 

@@ -314,6 +314,20 @@
     [self setTitle:@"REHAB"];
 }
 
+- (void) setPsi:(NSString*)psi {
+    NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+    [f setNumberStyle:NSNumberFormatterNoStyle];
+    NSNumber * psiNum = [f numberFromString:psi];
+    psiNum = [NSNumber numberWithInt:psiNum.intValue/100];
+    if (psiNum.intValue<15) {
+        [_psiButton setNormalColor:[UIColor redColor]];
+    } else if (psiNum.intValue<30) {
+        [_psiButton setNormalColor:[UIColor yellowColor]];
+    } else {
+        [_psiButton setNormalColor:[UIColor greenColor]];
+    }
+    [_psiButton setName:psiNum.stringValue];
+}
 
 //Button delegate response
 - (void) click:(id)selector
@@ -335,7 +349,7 @@
         [_sectorTbarDelegate onUnitClick:self];
     }
     if(_psiButton==selector) {
-        [_sectorTbarDelegate onPsiClick:self];
+        [_sectorTbarDelegate onPsiClickWithSectorTBar:self];
     }
 }
 

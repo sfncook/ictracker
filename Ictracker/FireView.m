@@ -95,8 +95,9 @@
         _verifyDialog = [[VerifyDialog alloc] initWithDelegate:self msg:@"Are you certain you want to complete this incident?"];
         _verifyDialog.hidden = YES;
         
-        _psiDialog = [[PsiDialog alloc] init];
+        _psiDialog = [[PsiDialog alloc] initWithDelegate:self];
         _psiDialog.hidden=YES;
+        _psiCallBackTBar = nil;
         
         [self addSubview:_psiDialog];
         [self addSubview:_verifyDialog];
@@ -139,8 +140,9 @@
 {
     [_menuContainerView showUnits];
 }
-- (void) onPsiClick:(id)selected
+- (void) onPsiClickWithSectorTBar:(id)sectorTBarView
 {
+    _psiCallBackTBar = sectorTBarView;
     [self bringSubviewToFront:_psiDialog];
     _psiDialog.hidden=NO;
 }
@@ -235,6 +237,10 @@
 }
 -(void) selectPsi:(NSString*)psi {
     _psiDialog.hidden = YES;
+    if (_psiCallBackTBar!=nil) {
+        [_psiCallBackTBar setPsi:psi];
+    }
+    _psiCallBackTBar = nil;
 }
 
 @end

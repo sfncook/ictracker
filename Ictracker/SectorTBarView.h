@@ -39,5 +39,6 @@
 - (void) addAction:(NSString*)acctUnitName;
 - (void) setIsRescue;
 - (void) setIsRehab;
+- (void) setPsi:(NSString*)psi;
 
 @end

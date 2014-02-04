@@ -11,11 +11,12 @@
 
 @implementation PsiDialog
 
-- (id)init
+- (id)initWithDelegate:(id<PsiDialogDelegate>)delegate
 {
     CGRect frame = CGRectMake(0, 0, [Utils windowHeight], [Utils windowWidth]);
     self = [super initWithFrame:frame];
     if (self) {
+        _delegate = delegate;
         self.backgroundColor = [UIColor clearColor];
         
         _windowCancelButton = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_BLANK_WINDOW];
@@ -74,6 +75,10 @@
     self.hidden = YES;
     if (_windowCancelButton==selector){
         [_delegate cancel];
+    } else {
+        ButtonView* btn = selector;
+        NSString* psi = btn.name;
+        [_delegate selectPsi:psi];
     }
 }
 

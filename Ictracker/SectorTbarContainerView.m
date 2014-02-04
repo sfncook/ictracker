@@ -84,9 +84,10 @@
 {
     [_sectorTbarDelegate onActionableUnitClick:selected];
 }
-- (void) onPsiClick:(id)selected
+- (void) onPsiClickWithSectorTBar:(id)sectorTBarView
 {
-    [_sectorTbarDelegate onPsiClick:selected];
+    //pass the buck
+    [_sectorTbarDelegate onPsiClickWithSectorTBar:sectorTBarView];
 }
 
 

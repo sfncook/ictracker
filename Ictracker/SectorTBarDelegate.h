@@ -15,6 +15,6 @@
 - (void) onActionClick:(id)selected;
 - (void) onUnitClick:(id)selected;
 - (void) onActionableUnitClick:(id)selected;
-- (void) onPsiClick:(id)selected;
+- (void) onPsiClickWithSectorTBar:(id)sectorTBarView;
 
 @end
