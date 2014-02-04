@@ -95,6 +95,10 @@
         _verifyDialog = [[VerifyDialog alloc] initWithDelegate:self msg:@"Are you certain you want to complete this incident?"];
         _verifyDialog.hidden = YES;
         
+        _psiDialog = [[PsiDialog alloc] init];
+        _psiDialog.hidden=YES;
+        
+        [self addSubview:_psiDialog];
         [self addSubview:_verifyDialog];
         [self addSubview:safetyLabel];
         [self addSubview:_completeButton];
@@ -134,6 +138,11 @@
 - (void) onActionableUnitClick:(id)selected
 {
     [_menuContainerView showUnits];
+}
+- (void) onPsiClick:(id)selected
+{
+    [self bringSubviewToFront:_psiDialog];
+    _psiDialog.hidden=NO;
 }
 
 
@@ -217,6 +226,15 @@
 }
 - (void) pickCancel {
     //do nothing
+}
+
+
+//*** PsiDialogDelegate ***
+-(void) cancel {
+    _psiDialog.hidden = YES;
+}
+-(void) selectPsi:(NSString*)psi {
+    _psiDialog.hidden = YES;
 }
 
 @end

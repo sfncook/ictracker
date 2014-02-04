@@ -53,6 +53,7 @@
 		295183F21885006C0033B02F /* ChecklistView.m in Sources */ = {isa = PBXBuildFile; fileRef = 295183F11885006B0033B02F /* ChecklistView.m */; };
 		295183F918861C290033B02F /* SectorTBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 295183F818861C290033B02F /* SectorTBarView.m */; };
 		295D45C318A0701E003AF1BF /* Incident.m in Sources */ = {isa = PBXBuildFile; fileRef = 295D45C218A0701E003AF1BF /* Incident.m */; };
+		295D45C918A09E08003AF1BF /* PsiDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 295D45C818A09E08003AF1BF /* PsiDialog.m */; };
 		29ACE64F1890C8EF00575276 /* ModeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 29ACE64E1890C8EF00575276 /* ModeButton.m */; };
 		29ACE6521890D17A00575276 /* ModeDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 29ACE6511890D17A00575276 /* ModeDialog.m */; };
 		29ACE6561890E7C400575276 /* ModeDialogContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 29ACE6551890E7C400575276 /* ModeDialogContainer.m */; };
@@ -169,6 +170,9 @@
 		2954671B188CEA7300F4D12E /* ShowMenuDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowMenuDelegate.h; sourceTree = "<group>"; };
 		295D45C118A0701E003AF1BF /* Incident.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Incident.h; sourceTree = "<group>"; };
 		295D45C218A0701E003AF1BF /* Incident.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Incident.m; sourceTree = "<group>"; };
+		295D45C718A09E08003AF1BF /* PsiDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PsiDialog.h; sourceTree = "<group>"; };
+		295D45C818A09E08003AF1BF /* PsiDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PsiDialog.m; sourceTree = "<group>"; };
+		295D45CA18A09E18003AF1BF /* PsiDialogDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PsiDialogDelegate.h; sourceTree = "<group>"; };
 		29ACE64D1890C8EF00575276 /* ModeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModeButton.h; sourceTree = "<group>"; };
 		29ACE64E1890C8EF00575276 /* ModeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModeButton.m; sourceTree = "<group>"; };
 		29ACE6501890D17A00575276 /* ModeDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModeDialog.h; sourceTree = "<group>"; };
@@ -262,6 +266,7 @@
 		2907852F1883B032008B1B7D /* Ictracker */ = {
 			isa = PBXGroup;
 			children = (
+				295D45C518A09DA1003AF1BF /* Dialogs */,
 				295D45C418A0702A003AF1BF /* Models */,
 				293B1B821898A16100FCFBD7 /* Text Fields */,
 				290D0AE6189612320061C7D0 /* Main Views */,
@@ -333,8 +338,6 @@
 		290785651883B1B3008B1B7D /* Button View Files */ = {
 			isa = PBXGroup;
 			children = (
-				29C3B8A71893587F00B81766 /* SafetyButton */,
-				29C3B8A61893587300B81766 /* ModeButton */,
 				290785661883B1CE008B1B7D /* ButtonView.h */,
 				290785671883B1CE008B1B7D /* ButtonView.m */,
 				290D0AE018960BBA0061C7D0 /* ImgButton.h */,
@@ -371,7 +374,6 @@
 		290D0AE6189612320061C7D0 /* Main Views */ = {
 			isa = PBXGroup;
 			children = (
-				2901EDFE189F447400957900 /* VerifyDialog */,
 				290D0AE7189614F70061C7D0 /* SplashDelegate.h */,
 				290D0ADC1895D0230061C7D0 /* SplashView.h */,
 				290D0ADD1895D0230061C7D0 /* SplashView.m */,
@@ -447,6 +449,27 @@
 				295D45C218A0701E003AF1BF /* Incident.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		295D45C518A09DA1003AF1BF /* Dialogs */ = {
+			isa = PBXGroup;
+			children = (
+				295D45C618A09DC0003AF1BF /* PsiDialog */,
+				2901EDFE189F447400957900 /* VerifyDialog */,
+				29C3B8A71893587F00B81766 /* SafetyButton */,
+				29C3B8A61893587300B81766 /* ModeButton */,
+			);
+			name = Dialogs;
+			sourceTree = "<group>";
+		};
+		295D45C618A09DC0003AF1BF /* PsiDialog */ = {
+			isa = PBXGroup;
+			children = (
+				295D45C718A09E08003AF1BF /* PsiDialog.h */,
+				295D45C818A09E08003AF1BF /* PsiDialog.m */,
+				295D45CA18A09E18003AF1BF /* PsiDialogDelegate.h */,
+			);
+			name = PsiDialog;
 			sourceTree = "<group>";
 		};
 		29C3B8A61893587300B81766 /* ModeButton */ = {
@@ -621,6 +644,7 @@
 				29C3B8A51893586700B81766 /* SafetyDialog.m in Sources */,
 				295D45C318A0701E003AF1BF /* Incident.m in Sources */,
 				294B21F9188D994C00E6B0F9 /* SectorTbarContainerView.m in Sources */,
+				295D45C918A09E08003AF1BF /* PsiDialog.m in Sources */,
 				290785731883C6FF008B1B7D /* MenuContainerView.m in Sources */,
 				290785361883B032008B1B7D /* main.m in Sources */,
 				290785611883B0A9008B1B7D /* MenuSelectorView.m in Sources */,

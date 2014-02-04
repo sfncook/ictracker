@@ -334,6 +334,9 @@
     if([_unitButtons containsObject:selector]) {
         [_sectorTbarDelegate onUnitClick:self];
     }
+    if(_psiButton==selector) {
+        [_sectorTbarDelegate onPsiClick:self];
+    }
 }
 
 @end

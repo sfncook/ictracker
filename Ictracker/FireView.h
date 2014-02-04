@@ -26,8 +26,10 @@
 #import "ButtonView.h"
 #import "VerifyDialog.h"
 #import "VerifyDialogDelegate.h"
+#import "PsiDialog.h"
+#import "PsiDialogDelegate.h"
 
-@interface FireView : UIView<SectorTBarDelegate, ModeButtonDelegate, SafetyButtonDelegate, ButtonClickDelegate, IncidentEntryDelegate, VerifyDialogDelegate>
+@interface FireView : UIView<SectorTBarDelegate, ModeButtonDelegate, SafetyButtonDelegate, ButtonClickDelegate, IncidentEntryDelegate, VerifyDialogDelegate, PsiDialogDelegate>
 
 @property (readonly, retain, nonatomic) MenuSelectorView* menuSelectorView;
 @property (readonly, retain, nonatomic) MenuContainerView* menuContainerView;
@@ -55,6 +57,8 @@
 @property (readonly, retain, nonatomic) ButtonView* completeButton;
 @property (readonly, retain, nonatomic) VerifyDialog* verifyDialog;
 @property (assign, nonatomic)           BOOL isComplete;
+
+@property (readonly, retain, nonatomic) PsiDialog* psiDialog;
 
 - (id)initWithSplashDelegate:(id<SplashDelegate>)splashDelegate;
 

@@ -56,6 +56,7 @@
         
         SectorTBarView* rehabTBar = [self getTbarAtCol:2 row:2];
         [rehabTBar setIsRehab];
+
     }
     return self;
 }
@@ -82,6 +83,10 @@
 - (void) onActionableUnitClick:(id)selected
 {
     [_sectorTbarDelegate onActionableUnitClick:selected];
+}
+- (void) onPsiClick:(id)selected
+{
+    [_sectorTbarDelegate onPsiClick:selected];
 }
 
 
