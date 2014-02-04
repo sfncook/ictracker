@@ -7,6 +7,8 @@
 //
 
 #import "IctViewController.h"
+#import "Incident.h"
+#import "ReportFormatter.h"
 
 @interface IctViewController ()
 
@@ -19,11 +21,15 @@
     [super viewDidLoad];
     
     _splashView = [[SplashView alloc] initWithDelegate:self];
-    _fireView = [[FireView alloc] initWithMailDelegate:self splashDelegate:self];
+    _fireView = [[FireView alloc] initWithSplashDelegate:self];
     _fireView.hidden = YES;
+    
+    _pdfView = [[PdfView alloc] initWithDelegate:self];
+    _pdfView.hidden = YES;
     
     [self.view addSubview:_splashView];
     [self.view addSubview:_fireView];
+    [self.view addSubview:_pdfView];
     
 }
 
@@ -68,6 +74,18 @@
 
 -(void) showEms {
     
+}
+
+-(void) openReportWithIncident:(Incident*)incident {
+    ReportFormatter* reportFmtr = [[ReportFormatter alloc]init];
+    NSString* title = @"City of Mesa Fire Department\nFire Incident Command Tracker - Report Log";
+    NSString* pdfFile = [reportFmtr generatePdfWithTxLogger:[TransactionLogger transLogger]
+                                                          address:incident.address
+                                                       incidentId:incident.incidentId
+                                                            title:title];
+    
+    [_pdfView openWithPdfFile:pdfFile address:incident.address incidentId:incident.incidentId];
+    [self.view bringSubviewToFront:_pdfView];
 }
 
 - (void)didReceiveMemoryWarning

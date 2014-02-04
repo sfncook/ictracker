@@ -9,10 +9,11 @@
 #import "Utils.h"
 #import "SectorTBarView.h"
 #import "FireView.h"
+#import "Incident.h"
 
 @implementation FireView
 
-- (id)initWithMailDelegate:(id<ShowMailDialogDelegate>) delegate splashDelegate:(id<SplashDelegate>)splashDelegate
+- (id)initWithSplashDelegate:(id<SplashDelegate>)splashDelegate
 {
     self = [super initWithFrame:CGRectMake(0, 0, [Utils windowHeight], [Utils windowWidth])];
     if (self) {
@@ -66,17 +67,12 @@
                                            [Utils millimetersToPixels:15],
                                            [Utils millimetersToPixels:3.5])];
         
-        _reportFormatter = [[ReportFormatter alloc]init];
-        
         _logoButton = [[ImgButton alloc] initWithImage:@"ictlogo" delegate:self size:IMG_BUTTON_MEDIUM];
         [_logoButton setFrame:CGRectMake(
                                   [Utils millimetersToPixels:1],
                                   [Utils millimetersToPixels:3.5],
                                   [Utils millimetersToPixels:9],
                                   [Utils millimetersToPixels:9])];
-        
-        _pdfView = [[PdfView alloc] initWithDelegate:delegate];
-        _pdfView.hidden = YES;
         
         _address = @"";
         _incidentId = @"";
@@ -113,7 +109,6 @@
         [self addSubview:_safetyButton];
         [self addSubview:_logoButton];
         [self addSubview:_incidentInfoLabel];
-        [self addSubview:_pdfView];
         [self addSubview:_incidentEntryView];
     }
     return self;
@@ -171,23 +166,12 @@
     [_safetyButton setSafety:newSafety];
 }
 
-- (void) openReport {
-    NSString* address = _address;
-    NSString* incidentId = _incidentId;
-    NSString* title = @"City of Mesa Fire Department\nFire Incident Command Tracker - Report Log";
-    NSString* pdfFile = [_reportFormatter generatePdfWithTxLogger:[TransactionLogger transLogger]
-                                                          address:address
-                                                       incidentId:incidentId
-                                                            title:title];
-    
-    [_pdfView openWithPdfFile:pdfFile address:address incidentId:incidentId];
-    [self bringSubviewToFront:_pdfView];
-}
 
 //*** ButtonClickDelegate ***
 - (void) click:(id)selector {
     if (_pdfButton==selector) {
-        [self openReport];
+        Incident* incident = [[Incident alloc] initWithAddress:_address incidentId:_incidentId];
+        [_splashDelegate openReportWithIncident:incident];
     }
     if (_logoButton==selector) {
         [_splashDelegate showSplash];
@@ -218,7 +202,8 @@
     _isComplete = YES;
     Transaction* tx = [Transaction transactionWithType:TRANSTYPE_COMPLETE date:[NSDate date] param:nil];
     [[TransactionLogger transLogger] addTransaction:tx];
-    [self openReport];
+    [_splashDelegate showSplash];
+    [_splashDelegate openReportWithIncident:[[Incident alloc] initWithAddress:_address incidentId:_incidentId]];
 }
 - (void) pickNegative {
     //do nothing

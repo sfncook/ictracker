@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Incident.h"
 
 @protocol SplashDelegate <NSObject>
 
 -(void) showSplash;
 -(void) showFire;
 -(void) showEms;
+-(void) openReportWithIncident:(Incident*)incident;
 
 @end

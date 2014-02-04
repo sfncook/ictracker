@@ -18,11 +18,8 @@
 #import "SafetyButton.h"
 #import "SafetyButtonDelegate.h"
 #import "SafetyDialogContainer.h"
-#import "ReportFormatter.h"
 #import "ButtonClickDelegate.h"
 #import "ImgButton.h"
-#import "PdfView.h"
-#import "ShowMailDialogDelegate.h"
 #import "SplashDelegate.h"
 #import "IncidentEntryDelegate.h"
 #import "IncidentEntryView.h"
@@ -46,9 +43,6 @@
 
 @property (readonly, retain, nonatomic) ImgButton* logoButton;
 @property (readonly, retain, nonatomic) ImgButton* pdfButton;
-@property (readonly, retain, nonatomic) ReportFormatter* reportFormatter;
-
-@property (readonly, retain, nonatomic) PdfView* pdfView;
 
 @property (readonly, retain, nonatomic) id<SplashDelegate> splashDelegate;
 
@@ -62,6 +56,6 @@
 @property (readonly, retain, nonatomic) VerifyDialog* verifyDialog;
 @property (assign, nonatomic)           BOOL isComplete;
 
-- (id)initWithMailDelegate:(id<ShowMailDialogDelegate>) delegate splashDelegate:(id<SplashDelegate>)splashDelegate;
+- (id)initWithSplashDelegate:(id<SplashDelegate>)splashDelegate;
 
 @end
