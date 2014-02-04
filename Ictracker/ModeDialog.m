@@ -52,6 +52,7 @@
 }
 
 - (void) setMode:(Mode)mode {
+    _curMode = mode;
     switch (mode) {
         case MODE_OFFENSIVE:
             [_offensiveButton setIsHighlighted:YES];
@@ -75,12 +76,19 @@
 }
 
 - (void) click:(id)selector {
+    Mode selectedMode;
     if (selector==_offensiveButton) {
-        [_delegate selectNewMode:MODE_OFFENSIVE];
+        selectedMode = MODE_OFFENSIVE;
     } else if (selector==_defensiveButton) {
-        [_delegate selectNewMode:MODE_DEFENSIVE];
+        selectedMode = MODE_DEFENSIVE;
     } else {
-        [_delegate selectNewMode:MODE_MARGINAL];
+        selectedMode = MODE_MARGINAL;
+    }
+    
+    if (selectedMode!=_curMode) {
+        [_delegate selectNewMode:selectedMode];
+    } else {
+        [_delegate cancelModeDialog];
     }
 }
 

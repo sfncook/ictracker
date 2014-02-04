@@ -9,6 +9,7 @@
 #import "TransactionFormatter.h"
 #import "Transaction.h"
 #import "SectorTBarView.h"
+#import "ModeButtonDelegate.h"
 
 @implementation TransactionFormatter
 
@@ -182,6 +183,41 @@ UIFont *font;
             eventStrs = [NSArray arrayWithObjects:
                          dateString,
                          @"INCIDENT COMPLETED",
+                         nil];
+            break;
+        }
+        case TRANSTYPE_SET_MODE:
+        {
+            NSNumber* modeNum = [tx.params objectAtIndex:0];
+            NSString* modeStr = @"";
+            switch ([modeNum intValue]) {
+                case MODE_DEFENSIVE:
+                    modeStr = @"Defensive";
+                    break;
+                case MODE_OFFENSIVE:
+                    modeStr = @"Offensive";
+                    break;
+                case MODE_MARGINAL:
+                    modeStr = @"Marginal";
+                    break;
+                    
+                default:
+                    break;
+            }
+            eventStrs = [NSArray arrayWithObjects:
+                         dateString,
+                         @"SET Mode:",
+                         modeStr,
+                         nil];
+            break;
+        }
+        case TRANSTYPE_SET_SAFETY:
+        {
+            NSString* safetyName = [tx.params objectAtIndex:0];
+            eventStrs = [NSArray arrayWithObjects:
+                         dateString,
+                         @"SET Safety:",
+                         safetyName,
                          nil];
             break;
         }

@@ -12,6 +12,7 @@
 #import "ModeButtonDelegate.h"
 
 @interface ModeDialog : UIView<ButtonClickDelegate>
+@property (assign, atomic)              Mode curMode;
 @property (readonly, retain, nonatomic) ButtonView* offensiveButton;
 @property (readonly, retain, nonatomic) ButtonView* defensiveButton;
 @property (readonly, retain, nonatomic) ButtonView* marginalButton;

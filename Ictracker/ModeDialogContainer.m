@@ -32,6 +32,10 @@
     return self;
 }
 
+- (void) setMode:(Mode)mode {
+    [_modeDialog setMode:mode];
+}
+
 - (void) click:(id)selector {
     if (selector==_windowCancelButton){
         [_delegate cancelModeDialog];

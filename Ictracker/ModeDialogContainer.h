@@ -19,5 +19,6 @@
 @property (retain, atomic)  ModeDialog* modeDialog;
 
 - (id)initWithDelegate:(id<ModeButtonDelegate>)delegate;
+- (void) setMode:(Mode)mode;
 
 @end

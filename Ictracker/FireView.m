@@ -140,6 +140,7 @@
 //*** ModeButtonDelegate ***
 - (void) clickModeButton:(Mode)currentMode {
     _modeDialogContainer.hidden = !_modeDialogContainer.hidden;
+    [_modeDialogContainer setMode:currentMode];
     [self bringSubviewToFront:_modeDialogContainer];
     [self bringSubviewToFront:_modeButton];
 }
@@ -149,6 +150,9 @@
 - (void) selectNewMode:(Mode)newMode {
     _modeDialogContainer.hidden = YES;
     [_modeButton setMode:newMode];
+    
+    Transaction* tx = [Transaction transactionWithType:TRANSTYPE_SET_MODE date:[NSDate date] param:[NSNumber numberWithInt:newMode], nil];
+    [[TransactionLogger transLogger] addTransaction:tx];
 }
 
 
@@ -164,6 +168,9 @@
 - (void) selectNewSafety:(NSString*)newSafety{
     _safetyDialogContainer.hidden = YES;
     [_safetyButton setSafety:newSafety];
+    
+    Transaction* tx = [Transaction transactionWithType:TRANSTYPE_SET_SAFETY date:[NSDate date] param:newSafety, nil];
+    [[TransactionLogger transLogger] addTransaction:tx];
 }
 
 

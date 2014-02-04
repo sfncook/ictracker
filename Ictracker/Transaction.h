@@ -17,7 +17,9 @@ typedef enum transType {
     TRANSTYPE_SET_SECTOR_RESCUE,
     TRANSTYPE_CHECK,
     TRANSTYPE_UNCHECK,
-    TRANSTYPE_COMPLETE
+    TRANSTYPE_COMPLETE,
+    TRANSTYPE_SET_SAFETY,
+    TRANSTYPE_SET_MODE,
     } TransType;
 
 @interface Transaction : NSObject
