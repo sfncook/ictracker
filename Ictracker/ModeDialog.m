@@ -7,8 +7,6 @@
 //
 
 #import "ModeDialog.h"
-#import "ButtonView.h"
-#import "ModeButton.h"
 #import "Utils.h"
 
 @implementation ModeDialog
@@ -25,9 +23,9 @@
         self.layer.cornerRadius = 5.0;
         self.layer.masksToBounds = YES;
         
-        _offensiveButton = [[ButtonView alloc] initWithName:[ModeButton modeToString:MODE_OFFENSIVE]  delegate:self size:BUTTON_WIDE];
-        _marginalButton = [[ButtonView alloc] initWithName:[ModeButton modeToString:MODE_MARGINAL]  delegate:self size:BUTTON_WIDE];
-        _defensiveButton = [[ButtonView alloc] initWithName:[ModeButton modeToString:MODE_DEFENSIVE]  delegate:self size:BUTTON_WIDE];
+        _offensiveButton = [[ModeButton alloc] initWithDelegate:self size:BUTTON_WIDE];
+        _marginalButton = [[ModeButton alloc] initWithDelegate:self size:BUTTON_WIDE];
+        _defensiveButton = [[ModeButton alloc] initWithDelegate:self size:BUTTON_WIDE];
         
         [self addSubview:_offensiveButton];
         [self addSubview:_marginalButton];
@@ -39,9 +37,9 @@
         [_defensiveButton setPosition:CGPointMake(_marginalButton.frame.origin.x,
                                                   _marginalButton.frame.origin.y+_marginalButton.frame.size.height+[Utils millimetersToPixels:1])];
         
-        [_offensiveButton setNormalColor:[UIColor colorWithRed:0.7 green:1.0 blue:0.7 alpha:1.0]];
-        [_marginalButton setNormalColor:[UIColor colorWithRed:1.0 green:0.9 blue:0.9 alpha:1.0]];
-        [_defensiveButton setNormalColor:[UIColor colorWithRed:1.0 green:0.6 blue:0.6 alpha:1.0]];
+        [_offensiveButton setMode:MODE_OFFENSIVE];
+        [_defensiveButton setMode:MODE_DEFENSIVE];
+        [_marginalButton setMode:MODE_MARGINAL];
     }
     return self;
 }
@@ -75,21 +73,22 @@
     }
 }
 
-- (void) click:(id)selector {
-    Mode selectedMode;
-    if (selector==_offensiveButton) {
-        selectedMode = MODE_OFFENSIVE;
-    } else if (selector==_defensiveButton) {
-        selectedMode = MODE_DEFENSIVE;
-    } else {
-        selectedMode = MODE_MARGINAL;
-    }
-    
-    if (selectedMode!=_curMode) {
-        [_delegate selectNewMode:selectedMode];
+//*** ModeButtonDialog ***
+- (void) clickModeButton:(Mode)currentMode {
+    if (currentMode!=_curMode) {
+        [_delegate selectNewMode:currentMode];
     } else {
         [_delegate cancelModeDialog];
     }
 }
+
+- (void) cancelModeDialog {
+    //do nothing
+}
+
+- (void) selectNewMode:(Mode)newMode {
+    //do nothing
+}
+
 
 @end

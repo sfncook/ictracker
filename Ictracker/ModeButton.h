@@ -16,7 +16,9 @@
 @property (assign, atomic)  Mode myMode;
 
 - (id)initWithDelegate:(id<ModeButtonDelegate>)delegate;
+- (id)initWithDelegate:(id<ModeButtonDelegate>)delegate size:(ButtonSize)size;
 + (NSString*) modeToString:(Mode)mode;
 - (void) setMode:(Mode)mode;
+- (void) setIsHighlighted:(BOOL)isHighlighted;
 
 @end

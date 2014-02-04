@@ -7,15 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ButtonView.h"
-#import "ButtonClickDelegate.h"
+#import "ModeButton.h"
 #import "ModeButtonDelegate.h"
 
-@interface ModeDialog : UIView<ButtonClickDelegate>
+@interface ModeDialog : UIView<ModeButtonDelegate>
 @property (assign, atomic)              Mode curMode;
-@property (readonly, retain, nonatomic) ButtonView* offensiveButton;
-@property (readonly, retain, nonatomic) ButtonView* defensiveButton;
-@property (readonly, retain, nonatomic) ButtonView* marginalButton;
+@property (readonly, retain, nonatomic) ModeButton* offensiveButton;
+@property (readonly, retain, nonatomic) ModeButton* defensiveButton;
+@property (readonly, retain, nonatomic) ModeButton* marginalButton;
 @property (readonly, retain, nonatomic) id<ModeButtonDelegate> delegate;
 
 - (id)initWithDelegate:(id<ModeButtonDelegate>)delegate;

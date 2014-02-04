@@ -13,7 +13,11 @@
 const Mode DEFAULT_MODE = MODE_OFFENSIVE;
 
 - (id)initWithDelegate:(id<ModeButtonDelegate>)delegate {
-    self = [super initWithName:[ModeButton modeToString:DEFAULT_MODE] delegate:self size:BUTTON_WIDE_LG];
+    return [self initWithDelegate:delegate size:BUTTON_WIDE_LG];
+}
+
+- (id)initWithDelegate:(id<ModeButtonDelegate>)delegate size:(ButtonSize)size {
+    self = [super initWithName:[ModeButton modeToString:DEFAULT_MODE] delegate:self size:size];
     if (self) {
         _delegate = delegate;
         [self setMode:DEFAULT_MODE];
@@ -57,6 +61,16 @@ const Mode DEFAULT_MODE = MODE_OFFENSIVE;
 
 - (void) click:(id)selector {
     [_delegate clickModeButton:_myMode];
+}
+
+- (void) setIsHighlighted:(BOOL)isHighlighted {
+    if(isHighlighted) {
+        [self setBorderColor:[UIColor colorWithRed:0.35 green:0.5 blue:1.0 alpha:1.0]];
+        self.layer.borderWidth = 2.5;
+    } else {
+        [self setBorderColor:self.defaultBorderColor];
+        self.layer.borderWidth = 1.5;
+    }
 }
 
 @end
