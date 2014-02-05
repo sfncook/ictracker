@@ -29,8 +29,10 @@
 #import "PsiDialog.h"
 #import "PsiDialogDelegate.h"
 #import "SectorTBarView.h"
+#import "ParDialog.h"
+#import "ParDialogDelegate.h"
 
-@interface FireView : UIView<SectorTBarDelegate, ModeButtonDelegate, SafetyButtonDelegate, ButtonClickDelegate, IncidentEntryDelegate, VerifyDialogDelegate, PsiDialogDelegate>
+@interface FireView : UIView<SectorTBarDelegate, ModeButtonDelegate, SafetyButtonDelegate, ButtonClickDelegate, IncidentEntryDelegate, VerifyDialogDelegate, PsiDialogDelegate, ParDialogDelegate>
 
 @property (readonly, retain, nonatomic) MenuSelectorView* menuSelectorView;
 @property (readonly, retain, nonatomic) MenuContainerView* menuContainerView;
@@ -60,7 +62,8 @@
 @property (assign, nonatomic)           BOOL isComplete;
 
 @property (readonly, retain, nonatomic) PsiDialog* psiDialog;
-@property (retain, atomic)              SectorTBarView* psiCallBackTBar;
+@property (readonly, retain, nonatomic) ParDialog* parDialog;
+@property (retain, atomic)              SectorTBarView* callBackTBar;
 
 - (id)initWithSplashDelegate:(id<SplashDelegate>)splashDelegate;
 

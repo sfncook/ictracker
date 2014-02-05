@@ -89,6 +89,11 @@
     //pass the buck
     [_sectorTbarDelegate onPsiClickWithSectorTBar:sectorTBarView];
 }
+- (void) onParClickWithSectorTBar:(id)sectorTBarView
+{
+    //pass the buck
+    [_sectorTbarDelegate onParClickWithSectorTBar:sectorTBarView];
+}
 
 
 //*** SectorMenuDelegate

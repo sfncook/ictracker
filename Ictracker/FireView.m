@@ -97,7 +97,7 @@
         
         _psiDialog = [[PsiDialog alloc] initWithDelegate:self];
         _psiDialog.hidden=YES;
-        _psiCallBackTBar = nil;
+        _callBackTBar = nil;
         
         [self addSubview:_psiDialog];
         [self addSubview:_verifyDialog];
@@ -142,7 +142,13 @@
 }
 - (void) onPsiClickWithSectorTBar:(id)sectorTBarView
 {
-    _psiCallBackTBar = sectorTBarView;
+    _callBackTBar = sectorTBarView;
+    [self bringSubviewToFront:_psiDialog];
+    _psiDialog.hidden=NO;
+}
+- (void) onParClickWithSectorTBar:(id)sectorTBarView
+{
+    _callBackTBar = sectorTBarView;
     [self bringSubviewToFront:_psiDialog];
     _psiDialog.hidden=NO;
 }
@@ -237,10 +243,18 @@
 }
 -(void) selectPsi:(NSString*)psi {
     _psiDialog.hidden = YES;
-    if (_psiCallBackTBar!=nil) {
-        [_psiCallBackTBar setPsi:psi];
-    }
-    _psiCallBackTBar = nil;
+    [_callBackTBar setPsi:psi];
+    _callBackTBar = nil;
+}
+
+//*** PsiDialogDelegate ***
+-(void) cancelPar {
+    _parDialog.hidden = YES;
+}
+-(void) selectPar:(NSString *)par {
+    _parDialog.hidden = YES;
+    [_callBackTBar setPsi:psi];
+    _callBackTBar = nil;
 }
 
 @end
