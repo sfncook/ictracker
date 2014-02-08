@@ -144,7 +144,7 @@
     } else if(size==BUTTON_SMALL) {
         self.frame = CGRectMake(x, y, [Utils millimetersToPixels:7], [Utils millimetersToPixels:5]);
     } else if(size==BUTTON_WIDE) {
-        self.frame = CGRectMake(x, y, [Utils millimetersToPixels:27], [Utils millimetersToPixels:5]);
+        self.frame = CGRectMake(x, y, [Utils millimetersToPixels:25], [Utils millimetersToPixels:5]);
     } else if(size==BUTTON_WIDE_LG) {
         self.frame = CGRectMake(x, y, [Utils millimetersToPixels:29], [Utils millimetersToPixels:6]);
     } else if(size==CHECK_WIDE) {

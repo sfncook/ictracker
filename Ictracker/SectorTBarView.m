@@ -34,10 +34,10 @@
                                                [Utils millimetersToPixels:1])];
         [_titleButton setNormalColor:[UIColor whiteColor]];
         
-        _psiButton = [[ButtonView alloc] initWithName:@"PSI" delegate:self size:SMALL_SQUARE];
+        _psiButton = [[ButtonView alloc] initWithName:@"PSI" delegate:self size:BUTTON_SMALL];
         [self addSubview:_psiButton];
         [_psiButton setPosition:CGPointMake(
-                                              [Utils millimetersToPixels:34],
+                                              [Utils millimetersToPixels:32],
                                               [Utils millimetersToPixels:1])];
         
         _acctButton = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_UNIT];
@@ -318,10 +318,10 @@
     NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
     [f setNumberStyle:NSNumberFormatterNoStyle];
     NSNumber * psiNum = [f numberFromString:psi];
-    psiNum = [NSNumber numberWithInt:psiNum.intValue/100];
-    if (psiNum.intValue<15) {
+//    psiNum = [NSNumber numberWithInt:psiNum.intValue/100];
+    if (psiNum.intValue<1500) {
         [_psiButton setNormalColor:[UIColor redColor]];
-    } else if (psiNum.intValue<30) {
+    } else if (psiNum.intValue<3000) {
         [_psiButton setNormalColor:[UIColor yellowColor]];
     } else {
         [_psiButton setNormalColor:[UIColor greenColor]];
