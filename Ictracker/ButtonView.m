@@ -25,8 +25,8 @@
         _downColor = _defaultDownColor;
         _borderColor = _defaultBorderColor;
         if(_size==BUTTON_BLANK_WINDOW) {
-            _normalColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:0.5];
-            _downColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:0.5];
+            _normalColor = [UIColor clearColor];
+            _downColor = [UIColor clearColor];
             _borderColor = [UIColor clearColor];
         }
         
