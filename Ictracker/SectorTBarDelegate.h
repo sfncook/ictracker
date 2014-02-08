@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ButtonView.h"
 
 @protocol SectorTBarDelegate <NSObject>
 
@@ -16,6 +17,6 @@
 - (void) onUnitClick:(id)selected;
 - (void) onActionableUnitClick:(id)selected;
 - (void) onPsiClickWithSectorTBar:(id)sectorTBarView;
-- (void) onParClickWithSectorTBar:(id)sectorTBarView;
+- (void) onParClickWithSectorTBar:(ButtonView*)parButtn;
 
 @end

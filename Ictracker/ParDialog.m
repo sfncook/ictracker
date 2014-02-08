@@ -22,7 +22,7 @@
         _windowCancelButton = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_BLANK_WINDOW];
         [_windowCancelButton setPosition:CGPointMake(0.0,0.0)];
         
-        CGSize size = CGSizeMake([Utils millimetersToPixels:61.5], [Utils millimetersToPixels:9]);
+        CGSize size = CGSizeMake([Utils millimetersToPixels:45], [Utils millimetersToPixels:15]);
         UIView* dialogBg = [[UIView alloc] initWithFrame:CGRectMake(
                                                                     [Utils windowHeight]/2-size.width/2,
                                                                     [Utils windowWidth]/2-size.height/2,
@@ -65,7 +65,7 @@
 - (void) click:(id)selector {
     self.hidden = YES;
     if (_windowCancelButton==selector){
-        [_delegate cancel];
+        [_delegate cancelPar];
     } else {
         ButtonView* btn = selector;
         NSString* par = btn.name;

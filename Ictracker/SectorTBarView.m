@@ -351,6 +351,10 @@
     if(_psiButton==selector) {
         [_sectorTbarDelegate onPsiClickWithSectorTBar:self];
     }
+    if ([_parButtons containsObject:selector]) {
+        [_sectorTbarDelegate onParClickWithSectorTBar:selector];
+    }
+    
 }
 
 @end

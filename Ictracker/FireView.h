@@ -62,8 +62,9 @@
 @property (assign, nonatomic)           BOOL isComplete;
 
 @property (readonly, retain, nonatomic) PsiDialog* psiDialog;
-@property (readonly, retain, nonatomic) ParDialog* parDialog;
 @property (retain, atomic)              SectorTBarView* callBackTBar;
+@property (readonly, retain, nonatomic) ParDialog* parDialog;
+@property (retain, atomic)              ButtonView* callBackParBtn;
 
 - (id)initWithSplashDelegate:(id<SplashDelegate>)splashDelegate;
 

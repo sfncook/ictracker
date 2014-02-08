@@ -99,6 +99,11 @@
         _psiDialog.hidden=YES;
         _callBackTBar = nil;
         
+        _parDialog = [[ParDialog alloc] initWithDelegate:self];
+        _parDialog.hidden=YES;
+        _callBackParBtn = nil;
+        
+        [self addSubview:_parDialog];
         [self addSubview:_psiDialog];
         [self addSubview:_verifyDialog];
         [self addSubview:safetyLabel];
@@ -146,11 +151,11 @@
     [self bringSubviewToFront:_psiDialog];
     _psiDialog.hidden=NO;
 }
-- (void) onParClickWithSectorTBar:(id)sectorTBarView
+- (void) onParClickWithSectorTBar:(ButtonView*)parButtn
 {
-    _callBackTBar = sectorTBarView;
-    [self bringSubviewToFront:_psiDialog];
-    _psiDialog.hidden=NO;
+    _callBackParBtn = parButtn;
+    [self bringSubviewToFront:_parDialog];
+    _parDialog.hidden=NO;
 }
 
 
@@ -247,14 +252,14 @@
     _callBackTBar = nil;
 }
 
-//*** PsiDialogDelegate ***
+//*** ParDialogDelegate ***
 -(void) cancelPar {
     _parDialog.hidden = YES;
 }
 -(void) selectPar:(NSString *)par {
     _parDialog.hidden = YES;
-    [_callBackTBar setPsi:psi];
-    _callBackTBar = nil;
+    [_callBackParBtn setName:par];
+    _callBackParBtn = nil;
 }
 
 @end
