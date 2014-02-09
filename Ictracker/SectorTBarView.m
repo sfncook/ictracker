@@ -34,12 +34,6 @@
                                                [Utils millimetersToPixels:1])];
         [_titleButton setNormalColor:[UIColor whiteColor]];
         
-        _psiButton = [[ButtonView alloc] initWithName:@"PSI" delegate:self size:BUTTON_SMALL];
-        [self addSubview:_psiButton];
-        [_psiButton setPosition:CGPointMake(
-                                              [Utils millimetersToPixels:32],
-                                              [Utils millimetersToPixels:1])];
-        
         _acctButton = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_UNIT];
         [self addSubview:_acctButton];
         [_acctButton setPosition:CGPointMake(
@@ -103,6 +97,15 @@
         _manyUnits = 0;
         
         _sectorTbarDelegate = sectorTbarDelegate_;
+        
+        NSArray* psiValues = [NSArray arrayWithObjects:@"4500", @"4400", @"4300", @"4200", nil];
+        _psiPicker = [[Picker alloc] initWithItems:psiValues buttonSize:BUTTON_SMALL initText:@"PSI" delegate:self];
+        [self addSubview:_psiPicker];
+        [_psiPicker setPosition:CGPointMake(
+                                            [Utils millimetersToPixels:32],
+                                            [Utils millimetersToPixels:1])];
+
+        [self bringSubviewToFront:_psiPicker];
     }
     return self;
 }
@@ -272,7 +275,7 @@
         _isRehab = YES;
         [_titleButton setNormalColor:[UIColor colorWithRed:0.5 green:0.85 blue:1.0 alpha:1.0]];
         _acctButton.hidden = YES;
-        _psiButton.hidden = YES;
+        _psiPicker.hidden = YES;
         [self moveActionButtonsUp];
         //Check if we need to show the bottom action button
         ButtonView* secondToLastBtn = [_actionButtons objectAtIndex:3];
@@ -285,7 +288,7 @@
         _isRehab = NO;
         [_titleButton setNormalColor:[UIColor orangeColor]];
         _acctButton.hidden = NO;
-        _psiButton.hidden = NO;
+        _psiPicker.hidden = NO;
         [self moveActionButtonsDown];
         //Always hide the bottom action button
         ButtonView* bottomBtn = [_actionButtons lastObject];
@@ -295,7 +298,7 @@
         _isRehab = NO;
         [_titleButton setNormalColor:[UIColor colorWithRed:0.95 green:0.98 blue:1.0 alpha:1.0]];
         _acctButton.hidden = NO;
-        _psiButton.hidden = NO;
+        _psiPicker.hidden = NO;
         [self moveActionButtonsDown];
         //Always hide the bottom action button
         ButtonView* bottomBtn = [_actionButtons lastObject];
@@ -315,21 +318,22 @@
 }
 
 - (void) setPsi:(NSString*)psi {
-    NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
-    [f setNumberStyle:NSNumberFormatterNoStyle];
-    NSNumber * psiNum = [f numberFromString:psi];
-//    psiNum = [NSNumber numberWithInt:psiNum.intValue/100];
-    if (psiNum.intValue<1500) {
-        [_psiButton setNormalColor:[UIColor redColor]];
-    } else if (psiNum.intValue<3000) {
-        [_psiButton setNormalColor:[UIColor yellowColor]];
-    } else {
-        [_psiButton setNormalColor:[UIColor greenColor]];
-    }
-    [_psiButton setName:psiNum.stringValue];
+//    NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+//    [f setNumberStyle:NSNumberFormatterNoStyle];
+//    NSNumber * psiNum = [f numberFromString:psi];
+////    psiNum = [NSNumber numberWithInt:psiNum.intValue/100];
+//    if (psiNum.intValue<1500) {
+//        [_psiButton setNormalColor:[UIColor redColor]];
+//    } else if (psiNum.intValue<3000) {
+//        [_psiButton setNormalColor:[UIColor yellowColor]];
+//    } else {
+//        [_psiButton setNormalColor:[UIColor greenColor]];
+//    }
+//    [_psiButton setName:psiNum.stringValue];
 }
 
-//Button delegate response
+
+//*** ButtonClickDelegate ***
 - (void) click:(id)selector
 {
     [_acctButton setIsHighlighted:NO];
@@ -348,12 +352,18 @@
     if([_unitButtons containsObject:selector]) {
         [_sectorTbarDelegate onUnitClick:self];
     }
-    if(_psiButton==selector) {
-        [_sectorTbarDelegate onPsiClickWithSectorTBar:self];
-    }
     if ([_parButtons containsObject:selector]) {
         [_sectorTbarDelegate onParClickWithSectorTBar:selector];
     }
+}
+
+
+//*** PickerDelegate ***
+-(void) cancelPicker {
+    
+}
+
+-(void) selectItem:(NSString*)itemStr picker:(id)picker {
     
 }
 

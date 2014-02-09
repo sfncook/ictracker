@@ -13,5 +13,10 @@
 + (double) millimetersToPixels:(double)mm;
 + (double) windowWidth;
 + (double) windowHeight;
++ (void) setMainView:(UIView*)view;
++ (void) addSubViewToMainView:(UIView*)view;
++ (UIView*) mainView;
++ (void) sendSubviewToBack:(UIView*)view;
++ (void) bringSubviewToFront:(UIView*)view;
 
 @end

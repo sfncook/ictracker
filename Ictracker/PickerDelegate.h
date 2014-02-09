@@ -11,6 +11,6 @@
 @protocol PickerDelegate <NSObject>
 
 -(void) cancelPicker;
--(void) selectItem:(NSString*)itemStr;
+-(void) selectItem:(NSString*)itemStr picker:(id)picker;
 
 @end

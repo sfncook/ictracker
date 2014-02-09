@@ -17,6 +17,7 @@
 {
     self = [super initWithFrame:CGRectMake(0, 0, [Utils windowHeight], [Utils windowWidth])];
     if (self) {
+        [Utils setMainView:self];
         _isComplete = NO;
         _splashDelegate = splashDelegate;
         _sectorTbarContainerView = [[SectorTbarContainerView alloc] initWithDelegate:self];

@@ -17,6 +17,7 @@
 @property (readonly, retain, nonatomic)     UIPickerView* picker;
 @property (readonly, retain, nonatomic)     NSArray* itemStrings;
 @property (readonly, retain, nonatomic)     id<PickerDelegate> delegate;
+@property (readonly, retain, nonatomic)     ButtonView* windowCancelButton;
 
 - (id)initWithItems:(NSArray*)itemNames
          buttonSize:(ButtonSize)size
@@ -24,5 +25,6 @@
            delegate:(id<PickerDelegate>)delegate;
 
 -(void) setItemColors:(NSArray*)itemColors_;
+- (void) setPosition:(CGPoint)position;
 
 @end

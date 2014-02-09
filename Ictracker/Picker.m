@@ -21,19 +21,26 @@ NSArray* itemColors = nil;
     CGRect frame = CGRectMake(0, 0, [Utils windowHeight], [Utils windowWidth]);
     self = [super initWithFrame:frame];
     if (self) {
+        _windowCancelButton = [[ButtonView alloc] initWithName:@"" delegate:self size:BUTTON_BLANK_WINDOW];
+        [_windowCancelButton setPosition:CGPointMake(0.0,0.0)];
+        _windowCancelButton.hidden = YES;
+        _windowCancelButton.backgroundColor = [UIColor blueColor];
+
         _myButton = [[ButtonView alloc] initWithName:text delegate:self size:size];
         _itemStrings = [[NSArray alloc] initWithArray:itemNames];
         _delegate = delegate;
         
         _picker = [[UIPickerView alloc] initWithFrame:CGRectMake(
-                                                                 _myButton.frame.origin.x,
-                                                                 _myButton.frame.origin.y,
+                                                                 0,
+                                                                 0,
                                                                  [Utils millimetersToPixels:7],
-                                                                 100)];
+                                                                 [Utils millimetersToPixels:5])];
         _picker.delegate = self;
         _picker.showsSelectionIndicator = NO;
         _picker.hidden = YES;
+        _picker.backgroundColor=[UIColor blueColor];
 
+        [Utils addSubViewToMainView:_windowCancelButton];
         [self addSubview:_picker];
         [self addSubview:_myButton];
     }
@@ -44,11 +51,29 @@ NSArray* itemColors = nil;
     itemColors = [[NSArray alloc] initWithArray:itemColors_];
 }
 
+- (void) setPosition:(CGPoint)position {
+    [_myButton setPosition:position];
+    _picker.frame = CGRectMake(position.x,
+                               (position.y-_picker.frame.size.height/2)+10,
+                               _picker.frame.size.width, _picker.frame.size.height);
+    [[Utils mainView] bringSubviewToFront:self];
+}
+
 //*** ButtonClickDelegate ***
 - (void) click:(id)selector {
     if (_myButton==selector) {
+        //Hide button and show picker
         _myButton.hidden = YES;
+        _windowCancelButton.hidden = NO;
         _picker.hidden = NO;
+        [Utils bringSubviewToFront:_windowCancelButton];
+        [Utils bringSubviewToFront:_picker];
+    }
+    if (_windowCancelButton==selector) {
+        _myButton.hidden = NO;
+        _windowCancelButton.hidden = YES;
+        _picker.hidden = YES;
+        [_delegate cancelPicker];
     }
 }
 
@@ -56,7 +81,11 @@ NSArray* itemColors = nil;
 //*** UIPickerViewDelegate ***
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent:(NSInteger)component {
     NSString* itemStr = [_itemStrings objectAtIndex:row];
-    [_delegate selectItem:itemStr];
+    [_myButton setName:itemStr];
+    [_delegate selectItem:itemStr picker:self];
+    _myButton.hidden = NO;
+    _windowCancelButton.hidden = YES;
+    _picker.hidden = YES;
 }
 
 // tell the picker how many rows are available for a given component

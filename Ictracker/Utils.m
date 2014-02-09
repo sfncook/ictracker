@@ -39,4 +39,25 @@ double PIX_PER_INCH_IPADMINI        = 163.0;
     return screenHeight;
 }
 
+static UIView* mainView = nil;
++ (void) setMainView:(UIView*)view {
+    mainView = view;
+}
+
++ (void) addSubViewToMainView:(UIView*)view {
+    [mainView addSubview:view];
+}
+
++ (UIView*) mainView {
+    return mainView;
+}
+
++ (void) sendSubviewToBack:(UIView*)view {
+    [mainView sendSubviewToBack:view];
+}
+
++ (void) bringSubviewToFront:(UIView*)view {
+    [mainView bringSubviewToFront:view];
+}
+
 @end
