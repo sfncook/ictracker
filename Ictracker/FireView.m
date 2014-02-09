@@ -95,7 +95,7 @@
         _verifyDialog = [[VerifyDialog alloc] initWithDelegate:self msg:@"Are you certain you want to complete this incident?"];
         _verifyDialog.hidden = YES;
         
-        _psiDialog = [[PsiDialog alloc] initWithDelegate:self];
+        _psiDialog = [[PsiDialog alloc] initWithDelegate:self position:CGPointMake(539, 9)];
         _psiDialog.hidden=YES;
         _callBackTBar = nil;
         

@@ -11,7 +11,7 @@
 
 @implementation PsiDialog
 
-- (id)initWithDelegate:(id<PsiDialogDelegate>)delegate
+- (id)initWithDelegate:(id<PsiDialogDelegate>)delegate position:(CGPoint)position
 {
     CGRect frame = CGRectMake(0, 0, [Utils windowHeight], [Utils windowWidth]);
     self = [super initWithFrame:frame];
@@ -29,7 +29,7 @@
         }//for
         _psiValues = [[NSArray alloc] initWithArray:psiValuesTmp];
         
-        _picker = [[UIPickerView alloc] initWithFrame:CGRectMake(540, 10, [Utils millimetersToPixels:7], 100)];
+        _picker = [[UIPickerView alloc] initWithFrame:CGRectMake(position.x, position.y, [Utils millimetersToPixels:7], 100)];
         _picker.delegate = self;
         _picker.showsSelectionIndicator = NO;
 //        _picker.backgroundColor = [UIColor blueColor];

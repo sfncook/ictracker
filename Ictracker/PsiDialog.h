@@ -18,7 +18,7 @@
 @property (readonly, retain, nonatomic) NSArray* psiValues;
 @property (readonly, retain, nonatomic) UIPickerView* picker;
 
-- (id)initWithDelegate:(id<PsiDialogDelegate>)delegate;
+- (id)initWithDelegate:(id<PsiDialogDelegate>)delegate position:(CGPoint)position;
 - (void) setSelectedPsi:(NSString*)psi;
 - (void) setPosition:(CGPoint)position;
 
