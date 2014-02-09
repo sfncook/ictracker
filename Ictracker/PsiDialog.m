@@ -61,7 +61,6 @@
 
 
 //*** UIPickerViewDelegate ***
-
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent:(NSInteger)component {
     NSNumber* psiNum = [_psiValues objectAtIndex:row];
     [_delegate selectPsi:psiNum.stringValue];

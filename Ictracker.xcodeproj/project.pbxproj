@@ -65,6 +65,7 @@
 		29E42C38189434EB002E8CC3 /* TransactionLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E42C37189434EB002E8CC3 /* TransactionLogger.m */; };
 		29E42C3B18946BB6002E8CC3 /* TransactionFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E42C3A18946BB6002E8CC3 /* TransactionFormatter.m */; };
 		29E42C3F18946CAF002E8CC3 /* ReportFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E42C3E18946CAF002E8CC3 /* ReportFormatter.m */; };
+		29F8D83318A7133500AAFDBF /* Picker.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F8D83218A7133500AAFDBF /* Picker.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -199,6 +200,9 @@
 		29E42C3A18946BB6002E8CC3 /* TransactionFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionFormatter.m; sourceTree = "<group>"; };
 		29E42C3D18946CAF002E8CC3 /* ReportFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportFormatter.h; sourceTree = "<group>"; };
 		29E42C3E18946CAF002E8CC3 /* ReportFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportFormatter.m; sourceTree = "<group>"; };
+		29F8D83118A7133500AAFDBF /* Picker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Picker.h; sourceTree = "<group>"; };
+		29F8D83218A7133500AAFDBF /* Picker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Picker.m; sourceTree = "<group>"; };
+		29F8D83418A71AC400AAFDBF /* PickerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PickerDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -347,6 +351,9 @@
 				290D0AE018960BBA0061C7D0 /* ImgButton.h */,
 				290D0AE118960BBA0061C7D0 /* ImgButton.m */,
 				290785691883B2EE008B1B7D /* ButtonClickDelegate.h */,
+				29F8D83118A7133500AAFDBF /* Picker.h */,
+				29F8D83218A7133500AAFDBF /* Picker.m */,
+				29F8D83418A71AC400AAFDBF /* PickerDelegate.h */,
 			);
 			name = "Button View Files";
 			sourceTree = "<group>";
@@ -680,6 +687,7 @@
 				2907853A1883B032008B1B7D /* IctAppDelegate.m in Sources */,
 				29C3B8AA1893589C00B81766 /* SafetyDialogContainer.m in Sources */,
 				29ACE6561890E7C400575276 /* ModeDialogContainer.m in Sources */,
+				29F8D83318A7133500AAFDBF /* Picker.m in Sources */,
 				290AE721189A0E67003832FF /* TempeUnitsView.m in Sources */,
 				290785761883C86B008B1B7D /* MesaUnitsView.m in Sources */,
 				2901EDFD189F445800957900 /* VerifyDialog.m in Sources */,
