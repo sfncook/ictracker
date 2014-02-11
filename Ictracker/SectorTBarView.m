@@ -327,6 +327,23 @@
         [_psiButton setNormalColor:[UIColor greenColor]];
     }
     [_psiButton setName:psiNum.stringValue];
+    Transaction* tx = [Transaction transactionWithType:TRANSTYPE_SET_PSI date:[NSDate date] param:psi, self, nil];
+    [_transLogger addTransaction:tx];
+}
+
+- (void) setPar:(NSString*)par parButton:(ButtonView*)parButton {
+    [parButton setName:par];
+    
+    //Find unit number for tx
+    int index = [_parButtons indexOfObject:parButton];
+    if (index!=NSNotFound) {
+        ButtonView* unitBtn = [_unitButtons objectAtIndex:index];
+        NSString* unitName = unitBtn.name;
+        Transaction* tx = [Transaction transactionWithType:TRANSTYPE_SET_PAR date:[NSDate date] param:par, unitName, self, nil];
+        [_transLogger addTransaction:tx];
+    } else {
+        NSLog(@"ERROR: Par button not found in _parButtons.");
+    }
 }
 
 //Button delegate response
@@ -352,7 +369,7 @@
         [_sectorTbarDelegate onPsiClickWithSectorTBar:self];
     }
     if ([_parButtons containsObject:selector]) {
-        [_sectorTbarDelegate onParClickWithSectorTBar:selector];
+        [_sectorTbarDelegate onParClickWithSectorTBar:self partButton:selector];
     }
     
 }

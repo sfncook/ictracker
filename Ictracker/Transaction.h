@@ -20,6 +20,8 @@ typedef enum transType {
     TRANSTYPE_COMPLETE,
     TRANSTYPE_SET_SAFETY,
     TRANSTYPE_SET_MODE,
+    TRANSTYPE_SET_PSI,
+    TRANSTYPE_SET_PAR,
     } TransType;
 
 @interface Transaction : NSObject

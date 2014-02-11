@@ -40,5 +40,6 @@
 - (void) setIsRescue;
 - (void) setIsRehab;
 - (void) setPsi:(NSString*)psi;
+- (void) setPar:(NSString*)par parButton:(ButtonView*)parButton;
 
 @end

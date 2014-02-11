@@ -221,6 +221,34 @@ UIFont *font;
                          nil];
             break;
         }
+        case TRANSTYPE_SET_PAR:
+        {
+            NSString* par           = [tx.params objectAtIndex:0];
+            NSString* unitName      = [tx.params objectAtIndex:1];
+            SectorTBarView* sector  = [tx.params objectAtIndex:2];
+            NSString* sectorTitle = sector.titleButton.name;
+            eventStrs = [NSArray arrayWithObjects:
+                         dateString,
+                         sectorTitle,
+                         unitName,
+                         @"Set PAR:",
+                         par,
+                         nil];
+            break;
+        }
+        case TRANSTYPE_SET_PSI:
+        {
+            NSString* psi           = [tx.params objectAtIndex:0];
+            SectorTBarView* sector  = [tx.params objectAtIndex:1];
+            NSString* sectorTitle = sector.titleButton.name;
+            eventStrs = [NSArray arrayWithObjects:
+                         dateString,
+                         sectorTitle,
+                         @"Set PSI:",
+                         psi,
+                         nil];
+            break;
+        }
             
         default:
         {

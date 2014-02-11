@@ -89,10 +89,10 @@
     //pass the buck
     [_sectorTbarDelegate onPsiClickWithSectorTBar:sectorTBarView];
 }
-- (void) onParClickWithSectorTBar:(id)sectorTBarView
+- (void) onParClickWithSectorTBar:(id)sectorTBarView partButton:(ButtonView*)parButton
 {
     //pass the buck
-    [_sectorTbarDelegate onParClickWithSectorTBar:sectorTBarView];
+    [_sectorTbarDelegate onParClickWithSectorTBar:sectorTBarView partButton:parButton];
 }
 
 
