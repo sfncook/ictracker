@@ -166,8 +166,8 @@
 {
     _isSelected = isSelected;
     if(_isSelected) {
-        self.layer.borderColor =  [UIColor colorWithRed:0.35 green:0.5 blue:1.0 alpha:1.0].CGColor;
-        self.layer.borderWidth = 1.0;
+        self.layer.borderColor =  [UIColor colorWithRed:0.55 green:0.5 blue:1.0 alpha:1.0].CGColor;
+        self.layer.borderWidth = 2.0;
     } else {
         self.layer.borderWidth = 0.0;
         [_acctButton setIsHighlighted:NO];
