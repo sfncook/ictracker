@@ -65,6 +65,7 @@
 		29E42C38189434EB002E8CC3 /* TransactionLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E42C37189434EB002E8CC3 /* TransactionLogger.m */; };
 		29E42C3B18946BB6002E8CC3 /* TransactionFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E42C3A18946BB6002E8CC3 /* TransactionFormatter.m */; };
 		29E42C3F18946CAF002E8CC3 /* ReportFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E42C3E18946CAF002E8CC3 /* ReportFormatter.m */; };
+		29F79D0D18ABD82000436D66 /* SectorDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F79D0C18ABD82000436D66 /* SectorDialog.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -199,6 +200,9 @@
 		29E42C3A18946BB6002E8CC3 /* TransactionFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionFormatter.m; sourceTree = "<group>"; };
 		29E42C3D18946CAF002E8CC3 /* ReportFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportFormatter.h; sourceTree = "<group>"; };
 		29E42C3E18946CAF002E8CC3 /* ReportFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportFormatter.m; sourceTree = "<group>"; };
+		29F79D0A18ABD81000436D66 /* SectorDialogDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SectorDialogDelegate.h; sourceTree = "<group>"; };
+		29F79D0B18ABD82000436D66 /* SectorDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectorDialog.h; sourceTree = "<group>"; };
+		29F79D0C18ABD82000436D66 /* SectorDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectorDialog.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -458,6 +462,7 @@
 		295D45C518A09DA1003AF1BF /* Dialogs */ = {
 			isa = PBXGroup;
 			children = (
+				29F79D0918ABD7EA00436D66 /* SectorDialog */,
 				297D3E8018A1280100B53F7C /* ParDialog */,
 				295D45C618A09DC0003AF1BF /* PsiDialog */,
 				2901EDFE189F447400957900 /* VerifyDialog */,
@@ -535,6 +540,16 @@
 				29E42C3E18946CAF002E8CC3 /* ReportFormatter.m */,
 			);
 			name = Report;
+			sourceTree = "<group>";
+		};
+		29F79D0918ABD7EA00436D66 /* SectorDialog */ = {
+			isa = PBXGroup;
+			children = (
+				29F79D0B18ABD82000436D66 /* SectorDialog.h */,
+				29F79D0C18ABD82000436D66 /* SectorDialog.m */,
+				29F79D0A18ABD81000436D66 /* SectorDialogDelegate.h */,
+			);
+			name = SectorDialog;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -649,6 +664,7 @@
 				29E42C3F18946CAF002E8CC3 /* ReportFormatter.m in Sources */,
 				297D3E8418A1283500B53F7C /* ParDialog.m in Sources */,
 				29C5C4BF189232BD00DFE5CE /* SafetyButton.m in Sources */,
+				29F79D0D18ABD82000436D66 /* SectorDialog.m in Sources */,
 				295183E41884DC250033B02F /* NotesMenu.m in Sources */,
 				29ACE6521890D17A00575276 /* ModeDialog.m in Sources */,
 				290785791883C960008B1B7D /* AjUnitsView.m in Sources */,

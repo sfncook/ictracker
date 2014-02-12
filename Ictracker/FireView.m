@@ -97,12 +97,17 @@
         
         _psiDialog = [[PsiDialog alloc] initWithDelegate:self];
         _psiDialog.hidden=YES;
-        _callBackTBar = nil;
         
         _parDialog = [[ParDialog alloc] initWithDelegate:self];
         _parDialog.hidden=YES;
+        
+        _sectorDialog = [[SectorDialog alloc] initWithDelegate:self];
+        _sectorDialog.hidden=YES;
+        
+        _callBackTBar = nil;
         _callBackParBtn = nil;
         
+        [self addSubview:_sectorDialog];
         [self addSubview:_parDialog];
         [self addSubview:_psiDialog];
         [self addSubview:_verifyDialog];
@@ -131,7 +136,9 @@
 }
 - (void) onTitleClick:(id)selected
 {
-    [_menuContainerView showSectors];
+    _callBackTBar=selected;
+    [self bringSubviewToFront:_sectorDialog];
+    _sectorDialog.hidden=NO;
 }
 - (void) onActionClick:(id)selected
 {
@@ -263,6 +270,22 @@
 -(void) selectPar:(NSString *)par {
     _parDialog.hidden = YES;
     [_callBackTBar setPar:par parButton:_callBackParBtn];
+    _callBackTBar = nil;
+    _callBackParBtn = nil;
+}
+
+
+//*** SectorDialogDelegate ***
+-(void) cancelSectorDialog {
+    
+    _sectorDialog.hidden = YES;
+    _callBackTBar = nil;
+    _callBackParBtn = nil;
+}
+-(void) selectSector:(NSString*)sector {
+    
+    _sectorDialog.hidden = YES;
+    [_callBackTBar setTitle:sector];
     _callBackTBar = nil;
     _callBackParBtn = nil;
 }
