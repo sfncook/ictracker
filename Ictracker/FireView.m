@@ -87,10 +87,10 @@
                                          [Utils millimetersToPixels:5]);
         _incidentInfoLabel.backgroundColor = [UIColor whiteColor];
         
-        _completeButton = [[ButtonView alloc] initWithName:@"Complete" delegate:self size:BUTTON_HEADER];
+        _completeButton = [[ButtonView alloc] initWithName:@"Command Terminated" delegate:self size:BUTTON_HEADER];
         [_completeButton setPosition:CGPointMake(
                                             [Utils millimetersToPixels:30],
-                                            [Utils millimetersToPixels:4.5])];
+                                            [Utils millimetersToPixels:3.0])];
         
         _verifyDialog = [[VerifyDialog alloc] initWithDelegate:self msg:@"Are you certain you want to complete this incident?"];
         _verifyDialog.hidden = YES;
