@@ -197,9 +197,6 @@ UIFont *font;
                 case MODE_OFFENSIVE:
                     modeStr = @"Offensive";
                     break;
-                case MODE_MARGINAL:
-                    modeStr = @"Marginal";
-                    break;
                     
                 default:
                     break;

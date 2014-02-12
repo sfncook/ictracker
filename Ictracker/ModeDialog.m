@@ -13,7 +13,7 @@
 
 - (id)initWithDelegate:(id<ModeButtonDelegate>)delegate
 {
-    CGRect frame = CGRectMake(0.0, 0.0, [Utils millimetersToPixels:31.0], [Utils millimetersToPixels:27.0]);
+    CGRect frame = CGRectMake(0.0, 0.0, [Utils millimetersToPixels:31.0], [Utils millimetersToPixels:20.0]);
     self = [super initWithFrame:frame];
     if (self) {
         _delegate = delegate;
@@ -24,22 +24,24 @@
         self.layer.masksToBounds = YES;
         
         _offensiveButton = [[ModeButton alloc] initWithDelegate:self size:BUTTON_WIDE];
-        _marginalButton = [[ModeButton alloc] initWithDelegate:self size:BUTTON_WIDE];
         _defensiveButton = [[ModeButton alloc] initWithDelegate:self size:BUTTON_WIDE];
         
         [self addSubview:_offensiveButton];
-        [self addSubview:_marginalButton];
         [self addSubview:_defensiveButton];
         
-        [_offensiveButton setPosition:CGPointMake([Utils millimetersToPixels:2], [Utils millimetersToPixels:8.5])];
-        [_marginalButton setPosition:CGPointMake(_offensiveButton.frame.origin.x,
-                                                 _offensiveButton.frame.origin.y+_offensiveButton.frame.size.height+[Utils millimetersToPixels:1])];
-        [_defensiveButton setPosition:CGPointMake(_marginalButton.frame.origin.x,
-                                                  _marginalButton.frame.origin.y+_marginalButton.frame.size.height+[Utils millimetersToPixels:1])];
+        float btn_x = self.frame.origin.x+(self.frame.size.width/2)-(_offensiveButton.frame.size.width/2);
+        [_offensiveButton setPosition:CGPointMake(btn_x, [Utils millimetersToPixels:8.5])];
+        [_defensiveButton setPosition:CGPointMake(_offensiveButton.frame.origin.x,
+                                                  _offensiveButton.frame.origin.y+_offensiveButton.frame.size.height+[Utils millimetersToPixels:1])];
+        
+        frame = CGRectMake(0.0,
+                           0.0,
+                           [Utils millimetersToPixels:31.0],
+                           _defensiveButton.frame.origin.y+_defensiveButton.frame.size.height+[Utils millimetersToPixels:2.0]);
+        self.frame = frame;
         
         [_offensiveButton setMode:MODE_OFFENSIVE];
         [_defensiveButton setMode:MODE_DEFENSIVE];
-        [_marginalButton setMode:MODE_MARGINAL];
     }
     return self;
 }
@@ -55,17 +57,10 @@
         case MODE_OFFENSIVE:
             [_offensiveButton setIsHighlighted:YES];
             [_defensiveButton setIsHighlighted:NO];
-            [_marginalButton setIsHighlighted:NO];
             break;
         case MODE_DEFENSIVE:
             [_offensiveButton setIsHighlighted:NO];
             [_defensiveButton setIsHighlighted:YES];
-            [_marginalButton setIsHighlighted:NO];
-            break;
-        case MODE_MARGINAL:
-            [_offensiveButton setIsHighlighted:NO];
-            [_defensiveButton setIsHighlighted:NO];
-            [_marginalButton setIsHighlighted:YES];
             break;
             
         default:

@@ -14,7 +14,6 @@
 @property (assign, atomic)              Mode curMode;
 @property (readonly, retain, nonatomic) ModeButton* offensiveButton;
 @property (readonly, retain, nonatomic) ModeButton* defensiveButton;
-@property (readonly, retain, nonatomic) ModeButton* marginalButton;
 @property (readonly, retain, nonatomic) id<ModeButtonDelegate> delegate;
 
 - (id)initWithDelegate:(id<ModeButtonDelegate>)delegate;

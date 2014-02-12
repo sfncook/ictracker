@@ -11,7 +11,7 @@
 typedef enum modes {
     MODE_OFFENSIVE,
     MODE_DEFENSIVE,
-    MODE_MARGINAL} Mode;
+} Mode;
 
 @protocol ModeButtonDelegate <NSObject>
 
