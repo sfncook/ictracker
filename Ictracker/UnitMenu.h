@@ -35,6 +35,6 @@
 @property (readonly, nonatomic) TempeUnitsView* tempeUnitsView;
 @property (readonly, nonatomic) ChandlerUnitsView* chandlerUnitsView;
 
-- (id)initWithCityUnitMenuDelegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate;
-
+- (id)initWithFrame:(CGRect)frame cityUnitMenuDelegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate;
+- (void) setMyFrame:(CGRect)frame;
 @end

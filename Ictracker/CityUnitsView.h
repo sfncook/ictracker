@@ -16,6 +16,6 @@
 
 + (NSMutableDictionary *)allUnits;
 
-- (id)initWithUnits:(NSDictionary*)units delegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate;
+- (id)initWithFrame:(CGRect)frame units:(NSDictionary*)units delegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate;
 
 @end

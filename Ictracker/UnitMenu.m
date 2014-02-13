@@ -12,13 +12,8 @@
 
 @implementation UnitMenu
 
-- (id)initWithCityUnitMenuDelegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate
+- (id)initWithFrame:(CGRect)frame cityUnitMenuDelegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate
 {
-    CGRect frame = CGRectMake(
-                              0.0,
-                              0.0,
-                              [Utils millimetersToPixels:57],
-                              [Utils windowWidth]-[Utils millimetersToPixels:5]);
     self = [super initWithFrame:frame];
     if (self) {
         
@@ -65,22 +60,13 @@
                                               _allCitiesButton.frame.origin.y + _allCitiesButton.frame.size.height + [Utils millimetersToPixels:1])];
         
         
-//        _allCitiesUnitsView = [[AllCitiesUnitsView alloc] initWithDelegate:cityUnitMenuDelegate];
-        _mesaUnitsView = [[MesaUnitsView alloc] initWithDelegate:cityUnitMenuDelegate];
-        _ajUnitsView = [[AjUnitsView alloc] initWithDelegate:cityUnitMenuDelegate];
-        _gilbertUnitsView = [[GilbertUnitsView alloc] initWithDelegate:cityUnitMenuDelegate];
-        _queenCreekUnitsView = [[QueenCreekUnitsView alloc] initWithDelegate:cityUnitMenuDelegate];
-        _tempeUnitsView = [[TempeUnitsView alloc] initWithDelegate:cityUnitMenuDelegate];
-        _chandlerUnitsView = [[ChandlerUnitsView alloc] initWithDelegate:cityUnitMenuDelegate];
-        
-//        NSMutableDictionary* allUnits = [[NSMutableDictionary alloc] init];
-//        [allUnits addEntriesFromDictionary:_mesaUnitsView.units];
-//        [allUnits addEntriesFromDictionary:_ajUnitsView.units];
-//        [allUnits addEntriesFromDictionary:_gilbertUnitsView.units];
-//        [allUnits addEntriesFromDictionary:_queenCreekUnitsView.units];
-//        [allUnits addEntriesFromDictionary:_tempeUnitsView.units];
-//        [allUnits addEntriesFromDictionary:_chandlerUnitsView.units];
-        _allCitiesUnitsView = [[CityUnitsView alloc] initWithUnits:[CityUnitsView allUnits] delegate:cityUnitMenuDelegate];
+        _mesaUnitsView = [[MesaUnitsView alloc] initWithFrame:frame delegate:cityUnitMenuDelegate];
+        _ajUnitsView = [[AjUnitsView alloc] initWithFrame:frame delegate:cityUnitMenuDelegate];
+        _gilbertUnitsView = [[GilbertUnitsView alloc] initWithFrame:frame delegate:cityUnitMenuDelegate];
+        _queenCreekUnitsView = [[QueenCreekUnitsView alloc] initWithFrame:frame delegate:cityUnitMenuDelegate];
+        _tempeUnitsView = [[TempeUnitsView alloc] initWithFrame:frame delegate:cityUnitMenuDelegate];
+        _chandlerUnitsView = [[ChandlerUnitsView alloc] initWithFrame:frame delegate:cityUnitMenuDelegate];
+        _allCitiesUnitsView = [[CityUnitsView alloc] initWithFrame:frame units:[CityUnitsView allUnits] delegate:cityUnitMenuDelegate];
         
         [self addSubview:_allCitiesUnitsView];
         [self addSubview:_mesaUnitsView];
@@ -188,6 +174,18 @@
     } else if(selector==_chandlerButton) {
         [self showChandler];
     }
+}
+
+- (void) setMyFrame:(CGRect)frame {
+    self.frame = frame;
+    
+    _allCitiesUnitsView.contentSize = frame.size;
+    _mesaUnitsView.contentSize = frame.size;
+    _ajUnitsView.contentSize = frame.size;
+    _gilbertUnitsView.contentSize = frame.size;
+    _queenCreekUnitsView.contentSize = frame.size;
+    _tempeUnitsView.contentSize = frame.size;
+    _chandlerUnitsView.contentSize = frame.size;
 }
 
 @end

@@ -10,12 +10,12 @@
 #import "ButtonView.h"
 #import "ButtonClickDelegate.h"
 #import "UnitDialogDelegate.h"
+#import "CityUnitMenuDelegate.h"
 
-@interface UnitDialog : UIView<ButtonClickDelegate>
+@interface UnitDialog : UIView<ButtonClickDelegate, CityUnitMenuDelegate>
 
 @property (readonly, retain, nonatomic) ButtonView* windowCancelButton;
 @property (readonly, retain, nonatomic) id<UnitDialogDelegate> delegate;
-@property (readonly, retain, nonatomic) NSDictionary* cityViewsByCityBtns;
 
 - (id)initWithDelegate:(id<UnitDialogDelegate>)delegate;
 - (void) setSelectedUnit:(NSString*)unit;

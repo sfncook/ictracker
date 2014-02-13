@@ -25,7 +25,7 @@
         self.layer.borderWidth = 1.0;
         self.layer.borderColor = [UIColor colorWithRed:0.4 green:0.8 blue:0.8 alpha:1.0].CGColor;
         
-        _unitMenu = [[UnitMenu alloc] initWithCityUnitMenuDelegate:cityUnitMenuDelegate];
+        _unitMenu = [[UnitMenu alloc] initWithFrame:frame cityUnitMenuDelegate:cityUnitMenuDelegate];
         [self addSubview:_unitMenu];
         
         _sectorMenu = [[SectorMenu alloc] initWithDelegate:sectorMenuDelegate];

@@ -12,13 +12,8 @@
 
 @implementation CityUnitsView
 
-- (id)initWithUnits:(NSDictionary*)units delegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate
+- (id)initWithFrame:(CGRect)frame units:(NSDictionary*)units delegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate
 {
-    CGRect frame = CGRectMake(
-                              [Utils millimetersToPixels:3.0],
-                              [Utils millimetersToPixels:13],
-                              [Utils millimetersToPixels:57],
-                              [Utils windowWidth]-[Utils millimetersToPixels:10]);
     self = [super initWithFrame:frame];
     if (self) {
         
@@ -28,7 +23,7 @@
         //Layout units
         double orig_x = [Utils millimetersToPixels:1.0];
         double orig_y = [Utils millimetersToPixels:1.5];
-        int many_cols = 5;
+        int many_cols = 10;
         double x = orig_x;
         double y = orig_y;
         int row = 0;

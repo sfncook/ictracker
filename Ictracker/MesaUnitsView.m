@@ -11,7 +11,7 @@
 
 @implementation MesaUnitsView
 
-- (id)initWithDelegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate
+- (id)initWithFrame:(CGRect)frame delegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate
 {
     NSDictionary *units = [[NSDictionary alloc] initWithObjectsAndKeys:
                            @[@"E201",
@@ -69,7 +69,7 @@
                            [NSNumber numberWithInt:UNITTYPE_AIRLIGHTUNIT],
                            nil];
     
-    self = [super initWithUnits:units delegate:cityUnitMenuDelegate];
+    self = [super initWithFrame:frame units:units delegate:cityUnitMenuDelegate];
     if (self) {
 //        self.backgroundColor = [UIColor purpleColor];
     }

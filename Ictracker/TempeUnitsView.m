@@ -11,7 +11,7 @@
 
 @implementation TempeUnitsView
 
-- (id)initWithDelegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate
+- (id)initWithFrame:(CGRect)frame delegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate
 {
     
     NSDictionary *units = [[NSDictionary alloc] initWithObjectsAndKeys:
@@ -25,7 +25,7 @@
                            [NSNumber numberWithInt:UNITTYPE_BC],
                            nil];
     
-    self = [super initWithUnits:units delegate:cityUnitMenuDelegate];
+    self = [super initWithFrame:frame units:units delegate:cityUnitMenuDelegate];
     if (self) {
     }
     return self;

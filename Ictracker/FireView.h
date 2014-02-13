@@ -33,12 +33,13 @@
 #import "ParDialogDelegate.h"
 #import "SectorDialog.h"
 #import "SectorDialogDelegate.h"
-#import "UnitMenu.h"
+#import "UnitDialog.h"
+#import "UnitDialogDelegate.h"
 
-@interface FireView : UIView<SectorTBarDelegate, ModeButtonDelegate, SafetyButtonDelegate, ButtonClickDelegate, IncidentEntryDelegate, VerifyDialogDelegate, PsiDialogDelegate, ParDialogDelegate, SectorDialogDelegate, CityUnitMenuDelegate>
+@interface FireView : UIView<SectorTBarDelegate, ModeButtonDelegate, SafetyButtonDelegate, ButtonClickDelegate, IncidentEntryDelegate, VerifyDialogDelegate, PsiDialogDelegate, ParDialogDelegate, SectorDialogDelegate, UnitDialogDelegate>
 
-@property (readonly, retain, nonatomic) MenuSelectorView* menuSelectorView;
-@property (readonly, retain, nonatomic) MenuContainerView* menuContainerView;
+//@property (readonly, retain, nonatomic) MenuSelectorView* menuSelectorView;
+//@property (readonly, retain, nonatomic) MenuContainerView* menuContainerView;
 @property (readonly, retain, nonatomic) SectorTbarContainerView* sectorTbarContainerView;
 
 @property (readonly, retain, nonatomic) TimerView* timerView;
@@ -67,7 +68,7 @@
 @property (readonly, retain, nonatomic) PsiDialog* psiDialog;
 @property (readonly, retain, nonatomic) ParDialog* parDialog;
 @property (readonly, retain, nonatomic) SectorDialog* sectorDialog;
-@property (readonly, retain, nonatomic) UnitMenu* unitMenu;
+@property (readonly, retain, nonatomic) UnitDialog* unitDialog;
 @property (retain, atomic)              SectorTBarView* callBackTBar;
 @property (retain, atomic)              ButtonView* callBackParBtn;
 

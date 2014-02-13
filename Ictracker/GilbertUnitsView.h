@@ -11,6 +11,6 @@
 
 @interface GilbertUnitsView : CityUnitsView
 
-- (id)initWithDelegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate;
+- (id)initWithFrame:(CGRect)frame delegate:(id<CityUnitMenuDelegate>)cityUnitMenuDelegate;
 
 @end

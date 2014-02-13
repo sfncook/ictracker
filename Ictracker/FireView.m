@@ -21,14 +21,14 @@
         _splashDelegate = splashDelegate;
         _sectorTbarContainerView = [[SectorTbarContainerView alloc] initWithDelegate:self];
         
-        _menuContainerView = [[MenuContainerView alloc] initWithSectorMenuDelegate:_sectorTbarContainerView
-                                                              cityUnitMenuDelegate:_sectorTbarContainerView
-                                                                actionMenuDelegate:_sectorTbarContainerView];
-        
-        _menuSelectorView = [[MenuSelectorView alloc] initWithDelegate:_menuContainerView];
-        
-        [_menuContainerView setMenuSelectorDelegate:_menuSelectorView];
-        [_menuContainerView showUnits];//Must do this after setMenuSelectorDelegate: for proper functionality
+//        _menuContainerView = [[MenuContainerView alloc] initWithSectorMenuDelegate:_sectorTbarContainerView
+//                                                              cityUnitMenuDelegate:_sectorTbarContainerView
+//                                                                actionMenuDelegate:_sectorTbarContainerView];
+//        
+//        _menuSelectorView = [[MenuSelectorView alloc] initWithDelegate:_menuContainerView];
+//        
+//        [_menuContainerView setMenuSelectorDelegate:_menuSelectorView];
+//        [_menuContainerView showUnits];//Must do this after setMenuSelectorDelegate: for proper functionality
         
         _timerView = [[TimerView alloc] init];
         
@@ -104,22 +104,22 @@
         _sectorDialog = [[SectorDialog alloc] initWithDelegate:self];
         _sectorDialog.hidden=YES;
         
-        _unitMenu = [[UnitMenu alloc] initWithCityUnitMenuDelegate:self];
-        _unitMenu.hidden = YES;
+        _unitDialog = [[UnitDialog alloc] initWithDelegate:self];
+        _unitDialog.hidden=YES;
         
         _callBackTBar = nil;
         _callBackParBtn = nil;
         
-        [self addSubview:_unitMenu];
+        [self addSubview:_unitDialog];
         [self addSubview:_sectorDialog];
         [self addSubview:_parDialog];
         [self addSubview:_psiDialog];
         [self addSubview:_verifyDialog];
         [self addSubview:safetyLabel];
         [self addSubview:_completeButton];
-        [self addSubview:self.menuSelectorView];
+//        [self addSubview:self.menuSelectorView];
         [self addSubview:_sectorTbarContainerView];
-        [self addSubview:_menuContainerView];
+//        [self addSubview:_menuContainerView];
         [self addSubview:_pdfButton];
         [self addSubview:_timerView];
         [self addSubview:_modeDialogContainer];
@@ -146,17 +146,19 @@
 }
 - (void) onActionClick:(id)selected
 {
-    [_menuContainerView showActions];
+//    [_menuContainerView showActions];
 }
 - (void) onUnitClick:(id)selected
 {
     _callBackTBar=selected;
-    [self bringSubviewToFront:_unitMenu];
-    _unitMenu.hidden=NO;
+    [self bringSubviewToFront:_unitDialog];
+    _unitDialog.hidden=NO;
 }
 - (void) onActionableUnitClick:(id)selected
 {
-    [_menuContainerView showUnits];
+    _callBackTBar=selected;
+    [self bringSubviewToFront:_unitDialog];
+    _unitDialog.hidden=NO;
 }
 - (void) onPsiClickWithSectorTBar:(id)sectorTBarView
 {
@@ -293,10 +295,14 @@
 }
 
 
-//*** CityUnitMenuDelegate ***
-- (void) onSelectedUnit:(NSString*)unitName {
-    _unitMenu.hidden = YES;
-    [_callBackTBar addUnit:unitName];
+//*** UnitDialgoDelegate ***
+-(void) cancelUnitDialog {
+    _unitDialog.hidden = YES;
+    _callBackTBar = nil;
+}
+-(void) selectUnit:(NSString *)unit {
+    _unitDialog.hidden = YES;
+    [_callBackTBar addUnit:unit];
     _callBackTBar = nil;
 }
 
