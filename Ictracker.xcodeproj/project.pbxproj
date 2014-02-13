@@ -66,6 +66,7 @@
 		29E42C3B18946BB6002E8CC3 /* TransactionFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E42C3A18946BB6002E8CC3 /* TransactionFormatter.m */; };
 		29E42C3F18946CAF002E8CC3 /* ReportFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E42C3E18946CAF002E8CC3 /* ReportFormatter.m */; };
 		29F79D0D18ABD82000436D66 /* SectorDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F79D0C18ABD82000436D66 /* SectorDialog.m */; };
+		29F79D1118ABDDCA00436D66 /* UnitDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F79D1018ABDDCA00436D66 /* UnitDialog.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -203,6 +204,9 @@
 		29F79D0A18ABD81000436D66 /* SectorDialogDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SectorDialogDelegate.h; sourceTree = "<group>"; };
 		29F79D0B18ABD82000436D66 /* SectorDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectorDialog.h; sourceTree = "<group>"; };
 		29F79D0C18ABD82000436D66 /* SectorDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectorDialog.m; sourceTree = "<group>"; };
+		29F79D0F18ABDDCA00436D66 /* UnitDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitDialog.h; sourceTree = "<group>"; };
+		29F79D1018ABDDCA00436D66 /* UnitDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitDialog.m; sourceTree = "<group>"; };
+		29F79D1218ABDDD500436D66 /* UnitDialogDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnitDialogDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -462,6 +466,7 @@
 		295D45C518A09DA1003AF1BF /* Dialogs */ = {
 			isa = PBXGroup;
 			children = (
+				29F79D0E18ABDDBD00436D66 /* UnitDialog */,
 				29F79D0918ABD7EA00436D66 /* SectorDialog */,
 				297D3E8018A1280100B53F7C /* ParDialog */,
 				295D45C618A09DC0003AF1BF /* PsiDialog */,
@@ -550,6 +555,16 @@
 				29F79D0A18ABD81000436D66 /* SectorDialogDelegate.h */,
 			);
 			name = SectorDialog;
+			sourceTree = "<group>";
+		};
+		29F79D0E18ABDDBD00436D66 /* UnitDialog */ = {
+			isa = PBXGroup;
+			children = (
+				29F79D0F18ABDDCA00436D66 /* UnitDialog.h */,
+				29F79D1018ABDDCA00436D66 /* UnitDialog.m */,
+				29F79D1218ABDDD500436D66 /* UnitDialogDelegate.h */,
+			);
+			name = UnitDialog;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -692,6 +707,7 @@
 				295183ED1884F83B0033B02F /* WideItemsMenuView.m in Sources */,
 				290785681883B1CE008B1B7D /* ButtonView.m in Sources */,
 				290785701883C62B008B1B7D /* UnitMenu.m in Sources */,
+				29F79D1118ABDDCA00436D66 /* UnitDialog.m in Sources */,
 				290D0AE51896110C0061C7D0 /* FireView.m in Sources */,
 				2907853A1883B032008B1B7D /* IctAppDelegate.m in Sources */,
 				29C3B8AA1893589C00B81766 /* SafetyDialogContainer.m in Sources */,

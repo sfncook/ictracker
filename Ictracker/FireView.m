@@ -104,9 +104,13 @@
         _sectorDialog = [[SectorDialog alloc] initWithDelegate:self];
         _sectorDialog.hidden=YES;
         
+        _unitMenu = [[UnitMenu alloc] initWithCityUnitMenuDelegate:self];
+        _unitMenu.hidden = YES;
+        
         _callBackTBar = nil;
         _callBackParBtn = nil;
         
+        [self addSubview:_unitMenu];
         [self addSubview:_sectorDialog];
         [self addSubview:_parDialog];
         [self addSubview:_psiDialog];
@@ -146,7 +150,9 @@
 }
 - (void) onUnitClick:(id)selected
 {
-    [_menuContainerView showUnits];
+    _callBackTBar=selected;
+    [self bringSubviewToFront:_unitMenu];
+    _unitMenu.hidden=NO;
 }
 - (void) onActionableUnitClick:(id)selected
 {
@@ -277,17 +283,21 @@
 
 //*** SectorDialogDelegate ***
 -(void) cancelSectorDialog {
-    
     _sectorDialog.hidden = YES;
     _callBackTBar = nil;
-    _callBackParBtn = nil;
 }
 -(void) selectSector:(NSString*)sector {
-    
     _sectorDialog.hidden = YES;
     [_callBackTBar setTitle:sector];
     _callBackTBar = nil;
-    _callBackParBtn = nil;
+}
+
+
+//*** CityUnitMenuDelegate ***
+- (void) onSelectedUnit:(NSString*)unitName {
+    _unitMenu.hidden = YES;
+    [_callBackTBar addUnit:unitName];
+    _callBackTBar = nil;
 }
 
 @end

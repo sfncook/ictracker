@@ -33,8 +33,9 @@
 #import "ParDialogDelegate.h"
 #import "SectorDialog.h"
 #import "SectorDialogDelegate.h"
+#import "UnitMenu.h"
 
-@interface FireView : UIView<SectorTBarDelegate, ModeButtonDelegate, SafetyButtonDelegate, ButtonClickDelegate, IncidentEntryDelegate, VerifyDialogDelegate, PsiDialogDelegate, ParDialogDelegate, SectorDialogDelegate>
+@interface FireView : UIView<SectorTBarDelegate, ModeButtonDelegate, SafetyButtonDelegate, ButtonClickDelegate, IncidentEntryDelegate, VerifyDialogDelegate, PsiDialogDelegate, ParDialogDelegate, SectorDialogDelegate, CityUnitMenuDelegate>
 
 @property (readonly, retain, nonatomic) MenuSelectorView* menuSelectorView;
 @property (readonly, retain, nonatomic) MenuContainerView* menuContainerView;
@@ -53,11 +54,11 @@
 
 @property (readonly, retain, nonatomic) id<SplashDelegate> splashDelegate;
 
-@property (readonly, copy, nonatomic) NSString* address;
-@property (readonly, copy, nonatomic) NSString* incidentId;
+@property (readonly, copy, nonatomic)   NSString* address;
+@property (readonly, copy, nonatomic)   NSString* incidentId;
 @property (readonly, retain, nonatomic) IncidentEntryView* incidentEntryView;
 
-@property (readonly, copy, nonatomic) UILabel* incidentInfoLabel;
+@property (readonly, copy, nonatomic)   UILabel* incidentInfoLabel;
 
 @property (readonly, retain, nonatomic) ButtonView* completeButton;
 @property (readonly, retain, nonatomic) VerifyDialog* verifyDialog;
@@ -66,6 +67,7 @@
 @property (readonly, retain, nonatomic) PsiDialog* psiDialog;
 @property (readonly, retain, nonatomic) ParDialog* parDialog;
 @property (readonly, retain, nonatomic) SectorDialog* sectorDialog;
+@property (readonly, retain, nonatomic) UnitMenu* unitMenu;
 @property (retain, atomic)              SectorTBarView* callBackTBar;
 @property (retain, atomic)              ButtonView* callBackParBtn;
 
